@@ -1,0 +1,17 @@
+propertyeditor (2.1.3) unstable; urgency=low
+
+  * On linux serch plugins in LIB_INSTALL_DIR.
+
+ -- BogDan Vatra <bogdan@licentia.eu>  Wed, 06 May 2009 10:35:02 +0300
+
+propertyeditor (2.1.2) unstable; urgency=low
+
+  * Fix a typo
+
+ -- BogDan Vatra <bogdan@licentia.eu>  Sat, 18 Apr 2009 19:01:26 +0300
+
+propertyeditor (2.1.1) unstable; urgency=low
+
+  * Initial release
+
+ -- BogDan Vatra <bogdan@licentia.eu>  Sun, 12 Apr 2009 00:23:35 +0300

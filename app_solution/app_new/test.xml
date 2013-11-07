@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session>
+    <title>Session File</title>
+    <description>This is a session file, which stores the point of the application where the user was.
+ Please do *NOT* edit it, unless you know what you are doing!</description>
+    <indexes>
+        <isLogbook>false</isLogbook>
+        <frameId>17</frameId>
+        <frameTimeId>4</frameTimeId>
+        <minorStrataId>3</minorStrataId>
+        <cellId>2</cellId>
+        <vesselTypeId>2</vesselTypeId>
+        <sampVesselId>6</sampVesselId>
+        <tripId>47</tripId>
+        <operationId>100</operationId>
+        <catchId>-1</catchId>
+    </indexes>
+</session>

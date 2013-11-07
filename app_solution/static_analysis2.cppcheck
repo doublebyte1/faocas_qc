@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="1">
+    <includedir>
+        <dir name="conf_app/"/>
+    </includedir>
+    <paths>
+        <dir name="C:/projects/VS/app_solution/conf_app"/>
+    </paths>
+</project>

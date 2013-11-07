@@ -1,0 +1,22 @@
+# (c) 2008 by BogDan Vatra < bogdan@licentia.eu >
+
+add_subdirectory(bool)
+add_subdirectory(color)
+add_subdirectory(enums)
+add_subdirectory(metricfont)
+#comment the above line and uncomment the below one if you want to use fonts in point system.
+#add_subdirectory(font)
+add_subdirectory(pixmap)
+add_subdirectory(rectf)
+add_subdirectory(brush)
+add_subdirectory(date)
+add_subdirectory(flags)
+add_subdirectory(numbers)
+add_subdirectory(size)
+add_subdirectory(strings)
+add_subdirectory(dateTime)
+add_subdirectory(pen)
+add_subdirectory(rect)
+add_subdirectory(sizef)
+add_subdirectory(time)
+add_subdirectory(stringlist)

@@ -1,0 +1,90 @@
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3753599395/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3753599395.dir/build.make CMakeFiles/cmTryCompileExec3753599395.dir/build
+make[1]: Entering directory `/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3753599395.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -Wall -fexceptions -fnon-call-exceptions   -I/usr/local/Trolltech/Qt-4.8.6/include    -o CMakeFiles/cmTryCompileExec3753599395.dir/CheckSymbolExists.cxx.o -c /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_WIN’ was not declared in this scope
+make[1]: Leaving directory `/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp'
+make[1]: *** [CMakeFiles/cmTryCompileExec3753599395.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTryCompileExec3753599395/fast] Error 2
+
+File /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3662852392/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3662852392.dir/build.make CMakeFiles/cmTryCompileExec3662852392.dir/build
+make[1]: Entering directory `/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3662852392.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -Wall -fexceptions -fnon-call-exceptions   -I/usr/local/Trolltech/Qt-4.8.6/include    -o CMakeFiles/cmTryCompileExec3662852392.dir/CheckSymbolExists.cxx.o -c /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_QWS’ was not declared in this scope
+make[1]: *** [CMakeFiles/cmTryCompileExec3662852392.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory `/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3662852392/fast] Error 2
+
+File /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3476819421/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3476819421.dir/build.make CMakeFiles/cmTryCompileExec3476819421.dir/build
+make[1]: Entering directory `/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3476819421.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -Wall -fexceptions -fnon-call-exceptions   -I/usr/local/Trolltech/Qt-4.8.6/include    -o CMakeFiles/cmTryCompileExec3476819421.dir/CheckSymbolExists.cxx.o -c /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_MAC’ was not declared in this scope
+make[1]: Leaving directory `/home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp'
+make[1]: *** [CMakeFiles/cmTryCompileExec3476819421.dir/CheckSymbolExists.cxx.o] Error 1
+make: *** [cmTryCompileExec3476819421/fast] Error 2
+
+File /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

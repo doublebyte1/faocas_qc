@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CatchInputCtrl</class>
+ <widget class="QWidget" name="CatchInputCtrl">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>283</width>
+    <height>157</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>270</width>
+    <height>157</height>
+   </size>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::TabFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QToolBox" name="toolBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>250</width>
+       <height>139</height>
+      </size>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::TabFocus</enum>
+     </property>
+     <property name="toolTip">
+      <string>This widget allows us to introduce the catch, 
+ using several methods that match each other.</string>
+     </property>
+     <property name="statusTip">
+      <string>This widget allows us to introduce the catch, \n using several methods that match each other.</string>
+     </property>
+     <property name="whatsThis">
+      <string>This widget allows us to introduce the catch, 
+ using several methods that match each other.</string>
+     </property>
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <widget class="QWidget" name="pageWeight">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>265</width>
+        <height>58</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>by Weight</string>
+      </attribute>
+      <attribute name="toolTip">
+       <string>Insert aggregated weight (total weight)</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Estimated</string>
+         </property>
+         <property name="buddy">
+          <cstring>doubleSpinTotalE</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Calculated</string>
+         </property>
+         <property name="buddy">
+          <cstring>doubleSpinTotalC</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Units</string>
+         </property>
+         <property name="buddy">
+          <cstring>cmbWeightUnits</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QDoubleSpinBox" name="doubleSpinTotalE">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>94</horstretch>
+           <verstretch>20</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Estimated total catch weight</string>
+         </property>
+         <property name="statusTip">
+          <string>Estimated total catch weight</string>
+         </property>
+         <property name="whatsThis">
+          <string>Estimated total catch weight</string>
+         </property>
+         <property name="maximum">
+          <double>50000.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QDoubleSpinBox" name="doubleSpinTotalC">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>93</horstretch>
+           <verstretch>20</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Calculated total catch weight 
+ (comes from the aggregation of totals introduced in next forms)</string>
+         </property>
+         <property name="statusTip">
+          <string>Calculated total catch weight \n (comes from the aggregation of totals introduced in next forms)</string>
+         </property>
+         <property name="whatsThis">
+          <string>Calculated total catch weight 
+ (comes from the aggregation of totals introduced in next forms)</string>
+         </property>
+         <property name="maximum">
+          <double>50000.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QComboBox" name="cmbWeightUnits">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>94</horstretch>
+           <verstretch>20</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Weight units</string>
+         </property>
+         <property name="statusTip">
+          <string>Weight units</string>
+         </property>
+         <property name="whatsThis">
+          <string>Weight units</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageBoxes">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>265</width>
+        <height>58</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>by Boxes</string>
+      </attribute>
+      <attribute name="toolTip">
+       <string>Insert weight by boxes (number of boxes x box weight)</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Estimated</string>
+         </property>
+         <property name="buddy">
+          <cstring>doubleSpinNoBoxesE</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Calculated</string>
+         </property>
+         <property name="buddy">
+          <cstring>doubleSpinNoBoxesC</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Weight/box</string>
+         </property>
+         <property name="buddy">
+          <cstring>doubleSpinWeightBox</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLabel" name="label_7">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Units</string>
+         </property>
+         <property name="buddy">
+          <cstring>cmbBoxUnits</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QDoubleSpinBox" name="doubleSpinNoBoxesE">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>67</horstretch>
+           <verstretch>20</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Estimated number of boxes</string>
+         </property>
+         <property name="statusTip">
+          <string>Estimated number of boxes</string>
+         </property>
+         <property name="whatsThis">
+          <string>Estimated number of boxes</string>
+         </property>
+         <property name="maximum">
+          <double>50000.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QDoubleSpinBox" name="doubleSpinNoBoxesC">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>53</horstretch>
+           <verstretch>20</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Calculated number of boxes 
+ (comes from the aggregation of totals introduced in next forms)</string>
+         </property>
+         <property name="statusTip">
+          <string>Calculated number of boxes \n (comes from the aggregation of totals introduced in next forms)</string>
+         </property>
+         <property name="whatsThis">
+          <string>Calculated number of boxes 
+ (comes from the aggregation of totals introduced in next forms)</string>
+         </property>
+         <property name="maximum">
+          <double>50000.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QDoubleSpinBox" name="doubleSpinWeightBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>65</horstretch>
+           <verstretch>20</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Box weight</string>
+         </property>
+         <property name="statusTip">
+          <string>Box weight</string>
+         </property>
+         <property name="whatsThis">
+          <string>Box weight</string>
+         </property>
+         <property name="maximum">
+          <double>50000.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QComboBox" name="cmbBoxUnits">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>74</horstretch>
+           <verstretch>20</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Box weight units</string>
+         </property>
+         <property name="statusTip">
+          <string>Box weight units</string>
+         </property>
+         <property name="whatsThis">
+          <string>Box weight units</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageUnits">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>265</width>
+        <height>58</height>
+       </rect>
+      </property>
+      <attribute name="label">
+       <string>by Units</string>
+      </attribute>
+      <attribute name="toolTip">
+       <string>Insert weight by units (number of units x unit weight)</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Estimated</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinUnitsE</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_9">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Calculated</string>
+         </property>
+         <property name="buddy">
+          <cstring>spinUnitsC</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_10">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Weight/unit</string>
+         </property>
+         <property name="buddy">
+          <cstring>doubleSpinWeightUnit</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLabel" name="label_11">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Units</string>
+         </property>
+         <property name="buddy">
+          <cstring>cmbUnitUnits</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QSpinBox" name="spinUnitsE">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>67</horstretch>
+           <verstretch>20</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Estimated units</string>
+         </property>
+         <property name="statusTip">
+          <string>Estimated units</string>
+         </property>
+         <property name="whatsThis">
+          <string>Estimated units</string>
+         </property>
+         <property name="maximum">
+          <number>1000</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="spinUnitsC">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>50</horstretch>
+           <verstretch>20</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Calculated units 
+ (comes from the aggregation of totals introduced in next forms)</string>
+         </property>
+         <property name="statusTip">
+          <string>Calculated units \n (comes from the aggregation of totals introduced in next forms)</string>
+         </property>
+         <property name="whatsThis">
+          <string>Calculated units 
+ (comes from the aggregation of totals introduced in next forms)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QDoubleSpinBox" name="doubleSpinWeightUnit">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>65</horstretch>
+           <verstretch>20</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Unit weight</string>
+         </property>
+         <property name="statusTip">
+          <string>Unit weight</string>
+         </property>
+         <property name="whatsThis">
+          <string>Unit weight</string>
+         </property>
+         <property name="maximum">
+          <double>50000.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QComboBox" name="cmbUnitUnits">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>74</horstretch>
+           <verstretch>20</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Unit weight units</string>
+         </property>
+         <property name="statusTip">
+          <string>Unit weight units</string>
+         </property>
+         <property name="whatsThis">
+          <string>Unit weight units</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>spinUnitsE</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>CatchInputCtrl</receiver>
+   <slot>adjustTotalWeightFromUnits(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>51</x>
+     <y>134</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>doubleSpinWeightUnit</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>CatchInputCtrl</receiver>
+   <slot>adjustTotalWeightFromUnits(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>197</x>
+     <y>134</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>doubleSpinNoBoxesE</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>CatchInputCtrl</receiver>
+   <slot>adjustTotalWeightFromNoBoxes(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>51</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>doubleSpinWeightBox</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>CatchInputCtrl</receiver>
+   <slot>adjustTotalWeightFromBoxWeight(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>197</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cmbWeightUnits</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>CatchInputCtrl</receiver>
+   <slot>onWeightUnitChange(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>263</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cmbBoxUnits</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>CatchInputCtrl</receiver>
+   <slot>onBoxUnitChange(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>273</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cmbUnitUnits</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>CatchInputCtrl</receiver>
+   <slot>onUnitsUnitChange(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>273</x>
+     <y>134</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>doubleSpinTotalE</sender>
+   <signal>valueChanged(QString)</signal>
+   <receiver>CatchInputCtrl</receiver>
+   <slot>updateWeightLabel(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>doubleSpinTotalC</sender>
+   <signal>valueChanged(QString)</signal>
+   <receiver>CatchInputCtrl</receiver>
+   <slot>updateWeightLabel(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>164</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>adjustTotalWeightFromUnits(int)</slot>
+  <slot>adjustTotalWeightFromUnits(double)</slot>
+  <slot>adjustTotalWeightFromBoxWeight(double)</slot>
+  <slot>adjustTotalWeightFromNoBoxes(double)</slot>
+  <slot>onWeightUnitChange(QString)</slot>
+  <slot>onUnitsUnitChange(QString)</slot>
+  <slot>onBoxUnitChange(QString)</slot>
+  <slot>updateWeightLabel(QString)</slot>
+ </slots>
+</ui>

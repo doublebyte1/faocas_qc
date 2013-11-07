@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="app_new.qrc">
+    <normaloff>:/app_new/medfisis.ico</normaloff>:/app_new/medfisis.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSampling_Operation">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionLoad"/>
+    <addaction name="actionClose"/>
+    <addaction name="actionSave"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout_this_project"/>
+    <addaction name="actionMedfisis_Help"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionReports"/>
+    <addaction name="actionRegions"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <widget class="QMenu" name="menuMaintenance_Tasks">
+     <property name="title">
+      <string>Maintenance Tasks</string>
+     </property>
+     <addaction name="actionImport"/>
+     <addaction name="actionExport"/>
+     <addaction name="actionRebuild_Indexes"/>
+    </widget>
+    <widget class="QMenu" name="menuTransform_Data">
+     <property name="title">
+      <string>Transform Data</string>
+     </property>
+     <addaction name="actionGeneralize_Regions"/>
+    </widget>
+    <addaction name="menuMaintenance_Tasks"/>
+    <addaction name="menuTransform_Data"/>
+   </widget>
+   <addaction name="menuSampling_Operation"/>
+   <addaction name="menuView"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/empty.png</normaloff>:/app_new/empty.png</iconset>
+   </property>
+   <property name="text">
+    <string>New</string>
+   </property>
+   <property name="statusTip">
+    <string>New sampling operation</string>
+   </property>
+   <property name="whatsThis">
+    <string>Starts a new sampling operation</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/folder.png</normaloff>:/app_new/folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="statusTip">
+    <string>Open a file</string>
+   </property>
+   <property name="whatsThis">
+    <string>Opens an existent file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/exit.png</normaloff>:/app_new/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="statusTip">
+    <string>Exit app</string>
+   </property>
+   <property name="whatsThis">
+    <string>Exits application</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About this application</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/3floppy_unmount.png</normaloff>:/app_new/3floppy_unmount.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="statusTip">
+    <string>Save sampling operation</string>
+   </property>
+   <property name="whatsThis">
+    <string>Saves this sampling operation</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/qt-logo.gif</normaloff>:/app_new/qt-logo.gif</iconset>
+   </property>
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionAbout_this_project">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/kontact.png</normaloff>:/app_new/kontact.png</iconset>
+   </property>
+   <property name="text">
+    <string>About this project</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/fileclose.png</normaloff>:/app_new/fileclose.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="statusTip">
+    <string>Close file</string>
+   </property>
+   <property name="whatsThis">
+    <string>Close current file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionReports">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/kpresenter.png</normaloff>:/app_new/kpresenter.png</iconset>
+   </property>
+   <property name="text">
+    <string>Reports</string>
+   </property>
+   <property name="statusTip">
+    <string>View reports</string>
+   </property>
+   <property name="whatsThis">
+    <string>Shows the reports</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionImport">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/folder_inbox.png</normaloff>:/app_new/folder_inbox.png</iconset>
+   </property>
+   <property name="text">
+    <string>Import</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/folder_outbox.png</normaloff>:/app_new/folder_outbox.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionRegions">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/tree.png</normaloff>:/app_new/tree.png</iconset>
+   </property>
+   <property name="text">
+    <string>Regions</string>
+   </property>
+   <property name="iconText">
+    <string>View tree-model of regions</string>
+   </property>
+   <property name="toolTip">
+    <string>View tree-model of regions</string>
+   </property>
+   <property name="statusTip">
+    <string>View tree-model of regions</string>
+   </property>
+   <property name="whatsThis">
+    <string>View tree-model of regions</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionRebuild_Indexes">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/configure_toolbars.png</normaloff>:/app_new/configure_toolbars.png</iconset>
+   </property>
+   <property name="text">
+    <string>Rebuild Indexes</string>
+   </property>
+   <property name="iconText">
+    <string>Compact the Database, by rebuilding the indexes</string>
+   </property>
+   <property name="toolTip">
+    <string>Compact the Database, by rebuilding the indexes</string>
+   </property>
+   <property name="statusTip">
+    <string>Compact the Database, by rebuilding the indexes</string>
+   </property>
+   <property name="whatsThis">
+    <string>Compacts the Database, by rebuilding the indexes</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionGeneralize_Regions">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/launch.png</normaloff>:/app_new/launch.png</iconset>
+   </property>
+   <property name="text">
+    <string>Generalize Regions</string>
+   </property>
+   <property name="iconText">
+    <string>Convert regions on an adjacency list, to a nested set representation</string>
+   </property>
+   <property name="toolTip">
+    <string>Convert regions on an adjacency list, to a nested set representation</string>
+   </property>
+   <property name="statusTip">
+    <string>Convert regions on an adjacency list, to a nested set representation</string>
+   </property>
+   <property name="whatsThis">
+    <string>Converts regions on an adjacency list, to a nested set representation</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionMedfisis_Help">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/ktip.png</normaloff>:/app_new/ktip.png</iconset>
+   </property>
+   <property name="text">
+    <string>Medfisis Help</string>
+   </property>
+   <property name="statusTip">
+    <string>Help Browser</string>
+   </property>
+   <property name="whatsThis">
+    <string>Calls Help Browser</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="app_new.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNew</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>newTabs()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>showFrameDetails()</slot>
+  <slot>newTabs()</slot>
+ </slots>
+</ui>

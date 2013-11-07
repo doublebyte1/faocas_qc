@@ -1,0 +1,2 @@
+/usr/bin/ar cr libChartInterface.a  CMakeFiles/ChartInterface.dir/chartdatacollector.cpp.o CMakeFiles/ChartInterface.dir/chartinterface.cpp.o CMakeFiles/ChartInterface.dir/moc_chartdatacollector.cxx.o CMakeFiles/ChartInterface.dir/moc_chartinterface.cxx.o
+/usr/bin/ranlib libChartInterface.a

@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_catch_input_ctrl.html#ac1ff61d816c6f708c176977c6b3b1e7b" title="Adjust total weight from box weight." alt="" coords="233,5,543,35"/>
+<area shape="rect" id="node5" href="$class_catch_input_ctrl.html#ad524224bfc56dadce27bf72defa7ef32" title="Adjust total weight from number of boxes." alt="" coords="239,59,537,88"/>
+<area shape="rect" id="node7" href="$class_catch_input_ctrl.html#af01aa84307b7bada61058771cfbac1a7" title="Adjust total weight from Unit Weight." alt="" coords="251,112,525,141"/>
+<area shape="rect" id="node9" href="$class_catch_input_ctrl.html#ad8cf089d6a877ba0471fdaf9bcaaea03" title="CatchInputCtrl::onBoxUnitChange" alt="" coords="280,165,496,195"/>
+<area shape="rect" id="node11" href="$class_catch_input_ctrl.html#a39da14ffeffa2571fc437079debfae2f" title="CatchInputCtrl::onUnitsUnitChange" alt="" coords="277,219,499,248"/>
+</map>

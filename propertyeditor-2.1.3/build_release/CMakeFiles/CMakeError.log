@@ -1,0 +1,90 @@
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1194301000/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1194301000.dir/build.make CMakeFiles/cmTryCompileExec1194301000.dir/build
+make[1]: Entering directory `/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1194301000.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/local/Trolltech/Qt-4.8.6/include    -o CMakeFiles/cmTryCompileExec1194301000.dir/CheckSymbolExists.cxx.o -c /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_WIN’ was not declared in this scope
+make[1]: *** [CMakeFiles/cmTryCompileExec1194301000.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory `/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec1194301000/fast] Error 2
+
+File /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3893879734/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3893879734.dir/build.make CMakeFiles/cmTryCompileExec3893879734.dir/build
+make[1]: Entering directory `/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3893879734.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/local/Trolltech/Qt-4.8.6/include    -o CMakeFiles/cmTryCompileExec3893879734.dir/CheckSymbolExists.cxx.o -c /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_QWS’ was not declared in this scope
+make[1]: *** [CMakeFiles/cmTryCompileExec3893879734.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory `/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3893879734/fast] Error 2
+
+File /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec147435459/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec147435459.dir/build.make CMakeFiles/cmTryCompileExec147435459.dir/build
+make[1]: Entering directory `/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec147435459.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/local/Trolltech/Qt-4.8.6/include    -o CMakeFiles/cmTryCompileExec147435459.dir/CheckSymbolExists.cxx.o -c /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_MAC’ was not declared in this scope
+make[1]: *** [CMakeFiles/cmTryCompileExec147435459.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory `/home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec147435459/fast] Error 2
+
+File /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_release/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

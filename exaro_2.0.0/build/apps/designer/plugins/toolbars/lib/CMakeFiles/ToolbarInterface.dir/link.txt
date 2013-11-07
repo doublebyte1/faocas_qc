@@ -1,0 +1,2 @@
+/usr/bin/ar cr libToolbarInterface.a  CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o
+/usr/bin/ranlib libToolbarInterface.a

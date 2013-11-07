@@ -32,7 +32,7 @@ LIBS += -L"$(QTDIR)/plugins/designer" \
     -L"$(EXARO_LIBRARIES_D)" \
     -lcustomtimectrld \
     -lCatchInputCtrld \
-    -lReportd
+    -lReport
 MOC_DIR += ./GeneratedFiles/debug
 OBJECTS_DIR += debug
 target.path = ../debug

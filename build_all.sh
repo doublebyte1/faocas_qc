@@ -13,19 +13,19 @@ cd $PROJDIR/exaro_2.0.0/build_release/
 make && make install
 
 echo "Building CatchInputCtrl"
-cd $PROJDIR/CatchInputCtrl/CatchInputCtrl 
+cd $PROJDIR/CatchInputCtrl/shadow_build
 colormake debug && colormake release
 
 echo "Building CustomTimeCtrl"
-cd $PROJDIR/CustomTimeCtrl/CustomTimeCtrl
+cd $PROJDIR/CustomTimeCtrl/shadow_build
 colormake debug && colormake release
 
 echo "Building confapp"
-cd $PROJDIR/app_solution/conf_app
+cd $PROJDIR/app_solution/shadow_build_confapp
 colormake debug && colormake release
 
 echo "Building faocas"
-cd $PROJDIR/app_solution/app_new
+cd $PROJDIR/app_solution/shadow_build_faocas
 colormake debug && colormake release
 
 echo "Ok! ;-)"

@@ -13,19 +13,19 @@ cd $PROJDIR/exaro_2.0.0/build_release/
 make clean
 
 echo "Cleaning CatchInputCtrl"
-cd $PROJDIR/CatchInputCtrl/CatchInputCtrl 
+cd $PROJDIR/CatchInputCtrl/shadow_build
 colormake clean
 
 echo "Cleaning CustomTimeCtrl"
-cd $PROJDIR/CustomTimeCtrl/CustomTimeCtrl
+cd $PROJDIR/CustomTimeCtrl/shadow_build
 colormake clean
 
 echo "Cleaning confapp"
-cd $PROJDIR/app_solution/conf_app
+cd $PROJDIR/app_solution/shadow_build_confapp
 colormake clean
 
 echo "Cleaning faocas"
-cd $PROJDIR/app_solution/app_new
+cd $PROJDIR/app_solution/shadow_build_faocas
 colormake clean
 
 echo "Ok! ;-)"

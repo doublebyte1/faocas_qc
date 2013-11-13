@@ -18,7 +18,7 @@ CONFIG += debug_and_release
 DESTDIR = $$[QT_INSTALL_PLUGINS]/designer
 QT += core gui sql designer
 CONFIG += qtestlib debug designer plugin
-DEFINES += QT_LARGEFILE_SUPPORT QT_SQL_LIB QT_DLL
+DEFINES += QT_SQL_LIB QT_DLL
 
 CONFIG(debug, debug|release) {
 

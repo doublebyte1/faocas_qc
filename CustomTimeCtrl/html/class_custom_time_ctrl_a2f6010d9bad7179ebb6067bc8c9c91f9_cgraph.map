@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_custom_time_ctrl.html#a753ef319f375e33ca45c68d6604130f6" title="CustomTimeCtrl::onDateChanged" alt="" coords="271,5,484,35"/>
-<area shape="rect" id="node7" href="$class_custom_time_ctrl.html#ab25803203e9910a7d187450c4e1dc8d1" title="CustomTimeCtrl::onTimeChanged" alt="" coords="269,59,485,88"/>
-<area shape="rect" id="node10" href="$class_custom_time_ctrl.html#ad1519295bb4900bc8c35a0885475140b" title="Set Format Info." alt="" coords="276,112,479,141"/>
-<area shape="rect" id="node12" href="$class_ui___date_time.html#aec460e980f671b301914cde3e3802143" title="Ui_DateTime::setupUi" alt="" coords="304,165,451,195"/>
-<area shape="rect" id="node5" href="$class_custom_time_ctrl.html#a9552c85972ed7c3f0c3c61bc507e0931" title="CustomTimeCtrl::dateTimeChanged" alt="" coords="533,32,760,61"/>
-<area shape="rect" id="node14" href="$class_ui___date_time.html#aa8b20acb5b090ebf9e2492f0ec58689f" title="Ui_DateTime::retranslateUi" alt="" coords="559,165,735,195"/>
-</map>

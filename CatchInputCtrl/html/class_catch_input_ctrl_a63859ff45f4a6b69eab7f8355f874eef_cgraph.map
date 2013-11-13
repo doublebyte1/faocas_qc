@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node3" href="$class_catch_input_ctrl.html#aeb737186053f34c7b373b6d480da027d" title="This is a convenience function to block/ublock signals to all the widgets contained in this control;..." alt="" coords="256,5,491,35"/>
-<area shape="rect" id="node5" href="$class_catch_input_ctrl.html#a0fe6e21b361de7336a2cdca8be6edb75" title="CatchInputCtrl::onBlockWidgetsSignals" alt="" coords="248,59,499,88"/>
-<area shape="rect" id="node7" href="$class_ui___catch_input_ctrl.html#aac3148ff222d28ab8911bf1dd9f2a7d5" title="Ui_CatchInputCtrl::setupUi" alt="" coords="287,112,460,141"/>
-<area shape="rect" id="node9" href="$class_ui___catch_input_ctrl.html#a25736584c7fc37974b9de94ed919df6d" title="Ui_CatchInputCtrl::retranslateUi" alt="" coords="548,112,751,141"/>
-</map>

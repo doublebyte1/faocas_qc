@@ -112,6 +112,7 @@ void Login::validate()
                 connect(this, SIGNAL(showStatus(QString)), mainFrmPtr,
                     SLOT(statusShow(QString)));
 
+                //TODO: FIX DATES AND SESSION
                 /*
                 //base date
                 if (!insertBaseDate()) return;
@@ -132,7 +133,7 @@ void Login::validate()
                 mainFrmPtr->show();
                 mainFrmPtr->repaint();
                 //This is assynchronous, so no point in checking for return value now...
-                //mainFrmPtr->initRules();
+                mainFrmPtr->initRules();
             }
 }
 

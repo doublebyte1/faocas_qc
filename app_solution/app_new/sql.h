@@ -1,9 +1,6 @@
 #ifndef SQL_H
 #define SQL_H
 
-//#include <QSqlDatabase>
-//#include <QSqlError>
-//#include <QSqlQuery>
 #include <QDebug>
 #include <QVariant>
 #include <QtSql>

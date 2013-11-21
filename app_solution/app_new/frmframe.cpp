@@ -87,17 +87,16 @@ void FrmFrame::initHelpIds()
 
 void FrmFrame::setPreviewQuery()
 {
+    //TODO: Refactor for the new date structure
     viewFrameTime->setQuery(
-        "SELECT     dbo.FR_Time.ID, dbo.FR_Frame.Name, CONVERT(CHAR(10), A.Date_Local, 103) AS [Lower Limit], CONVERT(CHAR(10), B.Date_Local, 103) AS [Upper Limit],"
-        "                  dbo.FR_Time.id_frame"
-        " FROM         dbo.FR_Time INNER JOIN"
-        "                  dbo.GL_Dates AS A ON dbo.FR_Time.id_start_dt = A.ID INNER JOIN"
-        "                 dbo.GL_Dates AS B ON dbo.FR_Time.id_end_dt = B.ID INNER JOIN"
-        "                  dbo.FR_Frame ON dbo.FR_Time.id_frame = dbo.FR_Frame.ID"
-        " WHERE     (dbo.FR_Time.comments NOT LIKE '%n/a%')"
-        " ORDER BY dbo.FR_Time.ID DESC"
-        //Important: do not show the n/a record!
-    );
+                "select     fr_time.id, fr_frame.name, to_char(a.date_local, 'DD/Mon/YYYY') as \"lower limit\", to_char(b.date_local, 'DD/Mon/YYYY') as \"upper limit\","
+                "                          fr_time.id_frame"
+                "           from         fr_time inner join"
+                "                          gl_dates as a on fr_time.id_start_dt = a.id inner join"
+                "                         gl_dates as b on fr_time.id_end_dt = b.id inner join"
+                "                          fr_frame on fr_time.id_frame = fr_frame.id"
+                "         where     (fr_time.comments not like '%n/a%')"
+                " order by fr_time.id desc;"    );
 
     //qDebug() << viewFrameTime->query().lastQuery() << endl;
 
@@ -644,10 +643,10 @@ bool FrmFrame::isLogBook(const int frameId, bool& bLogbook)
 {
     //check which type of frame we have...
     QString strQuery=
-    "SELECT     dbo.Ref_Source.Name"
-    " FROM         dbo.FR_Frame INNER JOIN"
-    "                      dbo.Ref_Source ON dbo.FR_Frame.id_source = dbo.Ref_Source.ID"
-    " WHERE     (dbo.FR_Frame.ID = ?)";
+    "select     ref_source.name"
+    " from         fr_frame inner join"
+    "                      ref_source on fr_frame.id_source = ref_source.id"
+    " where     (fr_frame.id = ?)";
 
     QSqlQuery query;
     query.prepare(strQuery);

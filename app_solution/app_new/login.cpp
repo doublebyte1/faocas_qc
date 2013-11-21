@@ -35,7 +35,8 @@ Login::~Login()
 
 void Login::finalTouches()
 {
-    endSession();
+    //TODO: REVIEW THIS LATER
+    //endSession();
 }
 
 void Login::updateTooltip(QString user){
@@ -104,13 +105,18 @@ void Login::validate()
                     exit(0);
                 }
 
-                if (mainFrmPtr==0) mainFrmPtr=new MainFrm(m_roleDef);
+                if (mainFrmPtr==0) {
 
-                connect(this, SIGNAL(showError(QString,bool)), mainFrmPtr,
-                    SLOT(displayError(QString,bool)));
 
-                connect(this, SIGNAL(showStatus(QString)), mainFrmPtr,
-                    SLOT(statusShow(QString)));
+                    mainFrmPtr=new MainFrm(m_roleDef);
+
+                    connect(this, SIGNAL(showError(QString,bool)), mainFrmPtr,
+                        SLOT(displayError(QString,bool)));
+
+                    connect(this, SIGNAL(showStatus(QString)), mainFrmPtr,
+                        SLOT(statusShow(QString)));
+
+                }
 
                 //TODO: FIX DATES AND SESSION
                 /*

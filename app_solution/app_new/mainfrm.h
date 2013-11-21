@@ -181,6 +181,7 @@ class MainFrm : public QMainWindow, public Ui::MainWindow
         QToolBar*               toolbar;
         RuleChecker*            ruleCheckerPtr;//!< Pointer to a Rule Checker
         InitRulesThread*        workerThread;//!< Thread that initializes the rule containers
+        //QThread*               thread;
         SessionFileParser       *handler;
 
         enum { MaxRecentFiles = 5 };
@@ -204,7 +205,7 @@ class MainFrm : public QMainWindow, public Ui::MainWindow
         void                    navigateThroughTabs(const bool bNext, const int idx);
         void                    showFrameDetails(const FrmFrameDetails::Mode mode, 
                                         const FrmFrameDetails::Persistence persistence,Sample* sample, 
-                                        QList<int>& blackList, const int options);
+                                        QList<int> blackList, const int options);
         void                    hideFrameDetails();
         void                    showFrmSampling();
         void                    hideFrmSampling();

@@ -43,6 +43,7 @@ MainFrm::~MainFrm()
     tabWidget->disconnect();
     vTabs.clear();
 
+    /*
     if (workerThread!=0){
         // Make sure we stop the thread before deleting it;
         while (workerThread->isRunning()){
@@ -50,7 +51,7 @@ MainFrm::~MainFrm()
             workerThread->wait();
         }
         delete workerThread; workerThread=0;
-    }
+    }*/
 
     if (pFrmReports!=0) delete pFrmReports;
     if (pFrmRegions!=0) delete pFrmRegions;
@@ -85,7 +86,7 @@ MainFrm::~MainFrm()
 void MainFrm::initRules()
 {
     //delete rulechecker, but first wait for the thread to finish
-
+/*
     if (workerThread!=0) {
         while (workerThread->isRunning()){
             workerThread->terminate();
@@ -93,7 +94,7 @@ void MainFrm::initRules()
         }
         delete workerThread; workerThread=0;
     }
-
+*/
     if (ruleCheckerPtr!=0) {delete ruleCheckerPtr; ruleCheckerPtr=0;}
 
     ruleCheckerPtr=new RuleChecker();
@@ -104,12 +105,24 @@ void MainFrm::initRules()
     connect(ruleCheckerPtr, SIGNAL(showError(QString,bool)), this,
         SLOT(displayError(QString,bool)));
 
-    workerThread=new InitRulesThread(ruleCheckerPtr);
+    //thread = new QThread;
 
+    workerThread=new InitRulesThread(ruleCheckerPtr);
+    workerThread->process();
+
+/*
+    workerThread->moveToThread(thread);
+
+    //connect(workerThread, SIGNAL(error(QString)), this, SLOT(displayError(QString)));
+    connect(thread, SIGNAL(started()), workerThread, SLOT(process()));
+    connect(workerThread, SIGNAL(done(bool)), thread, SLOT(quit()));
+    connect(workerThread, SIGNAL(done(bool)), workerThread, SLOT(deleteLater()));
+    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
+*/
     connect(workerThread, SIGNAL(done(bool)), this,
         SLOT(rulesInitialized(bool)));
 
-    workerThread->start();
+   //thread->start();
 }
 
 void MainFrm::rulesInitialized(bool bReady)
@@ -762,8 +775,8 @@ void MainFrm::initTabs()
          connect(vTabs.at(i), SIGNAL(navigate(const bool, const int)), this,
         SLOT(navigateThroughTabs(const bool, const int)),Qt::UniqueConnection);
 
-         connect(vTabs.at(i), SIGNAL(showFrameDetails(const FrmFrameDetails::Mode, const FrmFrameDetails::Persistence, Sample*,QList<int>&, const int)), this,
-        SLOT(showFrameDetails(const FrmFrameDetails::Mode, const FrmFrameDetails::Persistence, Sample*,QList<int>&, const int)),Qt::UniqueConnection);
+         connect(vTabs.at(i), SIGNAL(showFrameDetails(const FrmFrameDetails::Mode, const FrmFrameDetails::Persistence, Sample*,QList<int>, const int)), this,
+        SLOT(showFrameDetails(const FrmFrameDetails::Mode, const FrmFrameDetails::Persistence, Sample*,QList<int>, const int)),Qt::UniqueConnection);
 
          connect(pFrmFrameDetails, SIGNAL(hideFrameDetails(bool)), vTabs.at(i),
         SIGNAL(hideFrameDetails(bool)),Qt::UniqueConnection);
@@ -917,7 +930,7 @@ void MainFrm::hideFrameDetails()
 
 void MainFrm::showFrameDetails(const FrmFrameDetails::Mode mode,
                                const FrmFrameDetails::Persistence persistence,Sample* sample,
-                               QList<int>& blackList, const int options){
+                               QList<int> blackList, const int options){
 
    if (!pFrmFrameDetails->setFrameDetails(mode,persistence,sample,blackList, options)){
        //displayError(tr("Could not initialize form with frame details!"),true);

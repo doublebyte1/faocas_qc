@@ -88,8 +88,13 @@ bool RuleChecker::buildHashes()
             return false;
         }
 
+
+    //QSqlDatabase db=QSqlDatabase::database();
+    //qDebug() << db.driver()->hasFeature(QSqlDriver::QuerySize) << endl;
+
     query.setForwardOnly(true);
     if (!query.exec()) return false;
+
     if (query.numRowsAffected()>0){//Maybe we don't have any active rules?
 
         while (query.next()){
@@ -105,8 +110,9 @@ bool RuleChecker::buildHashes()
                 || eRuleType==RuleChecker::VALIDATION || eRuleType==RuleChecker::POSTTRIGGER){
                 // Watch out this piece of code, cause the pointers and references can get us into a lot of trouble!
                 MapRules* mapPtr=GetContainerFromType(eRuleType);
-                    if (mapPtr!=0)
+                    if (mapPtr!=0){
                         if (!standardRuleInsertion(rule,id,cellShrPtr(new cell(field,form,mapper)),*mapPtr)) return false;
+                    }
             }else if (eRuleType==RuleChecker::PRETRIGGER){
                 // Retrieve the settings from the origin column
                 size_t id=query.value(query.record().indexOf(tr("id_rules"))).toInt();
@@ -251,15 +257,27 @@ bool RuleChecker::applyRule(const QString strRule,QSqlQuery& query, QVariant var
 
 InitRulesThread::InitRulesThread(RuleChecker* parent)
 {
-        rulesPtr=parent;
+
+        rulesPtr=parent;/*
         moveToThread(this);
 
         QObject::connect(this,
                        SIGNAL(finished()),
                        this,
-                       SLOT(deleteLater()));
+                       SLOT(deleteLater()));*/
+}
+InitRulesThread::~InitRulesThread()
+{}
+
+
+void InitRulesThread::process()
+{
+    //mutex.lock();
+    emit done(rulesPtr->init());
+    //mutex.unlock();
 }
 
+/*
 void InitRulesThread::run()
 {
     QTimer::singleShot(0, this, SLOT(doTheWork()));
@@ -271,4 +289,4 @@ void InitRulesThread::doTheWork()
     mutex.tryLock();
     emit done(rulesPtr->init());
     mutex.unlock();
-}
+}*/

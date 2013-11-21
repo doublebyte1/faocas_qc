@@ -216,7 +216,7 @@ Reading the business logic from the database was taking too long, so we put it i
 Like this we still can go on with the user interface, while the app buildes the hashes (it should not take too long!)
 */
 
-class InitRulesThread : public QThread
+class InitRulesThread : public QObject//QThread
 {
     Q_OBJECT
 
@@ -226,19 +226,25 @@ class InitRulesThread : public QThread
       \param parent we need to grabb a pointer to the rulechecker, so that we can initialize it inse the thread;
     */
         InitRulesThread(RuleChecker* parent);
+        ~InitRulesThread();
 
     protected:
-        void run();
+        //void run();
 
     signals:
+        //void finished();
         void done(bool bOk);
+        //void error(QString err);
 
     private slots:
     //! Worker Function
     /*!
       \This is where we do all the work, asynchronously;
     */
-        void doTheWork();
+        //void doTheWork();
+
+    public slots:
+        void process();
 
     private:
     //! A private variable.

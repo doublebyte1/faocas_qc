@@ -185,7 +185,7 @@
       <string>Details</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
-      <item row="0" column="0" colspan="2">
+      <item row="0" column="0" colspan="3">
        <widget class="QGroupBox" name="groupPhysical">
         <property name="focusPolicy">
          <enum>Qt::StrongFocus</enum>
@@ -207,6 +207,9 @@
           <widget class="QLabel" name="label_4">
            <property name="text">
             <string>Choose frame</string>
+           </property>
+           <property name="buddy">
+            <cstring>cmbPrexistent</cstring>
            </property>
           </widget>
          </item>
@@ -323,7 +326,7 @@
         </layout>
        </widget>
       </item>
-      <item row="1" column="0">
+      <item row="1" column="0" rowspan="3">
        <widget class="QGroupBox" name="groupTime">
         <property name="focusPolicy">
          <enum>Qt::StrongFocus</enum>
@@ -332,7 +335,21 @@
          <string>Time Frame</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_3">
-         <item row="0" column="0">
+         <item row="0" column="1" rowspan="2" colspan="2">
+          <widget class="QGroupBox" name="groupProcess">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
+           <property name="title">
+            <string/>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+          </widget>
+         </item>
+         <item row="1" column="0">
           <widget class="QLabel" name="label">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -343,9 +360,12 @@
            <property name="text">
             <string>Start Date</string>
            </property>
+           <property name="buddy">
+            <cstring>customDtStart</cstring>
+           </property>
           </widget>
          </item>
-         <item row="0" column="1">
+         <item row="1" column="2">
           <widget class="QLabel" name="label_2">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -356,139 +376,94 @@
            <property name="text">
             <string>End Date</string>
            </property>
+           <property name="buddy">
+            <cstring>customDtEnd</cstring>
+           </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="CustomTimeCtrl" name="customDtStart">
+         <item row="2" column="0">
+          <widget class="QDateEdit" name="customDtStart">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
-           </property>
-           <property name="toolTip">
-            <string>Input start date for current frame;</string>
-           </property>
-           <property name="statusTip">
-            <string>Input start date for current frame;</string>
-           </property>
-           <property name="whatsThis">
-            <string>Input start date for current frame;</string>
+           <property name="calendarPopup">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="CustomTimeCtrl" name="customDtEnd">
+         <item row="2" column="2">
+          <widget class="QDateEdit" name="customDtEnd">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="focusPolicy">
-            <enum>Qt::StrongFocus</enum>
-           </property>
-           <property name="toolTip">
-            <string>Input end date for current frame;</string>
-           </property>
-           <property name="statusTip">
-            <string>Input end date for current frame;</string>
-           </property>
-           <property name="whatsThis">
-            <string>Input end date for current frame;</string>
+           <property name="calendarPopup">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
         </layout>
        </widget>
       </item>
-      <item row="1" column="1">
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="QGroupBox" name="groupProcess">
-          <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
-          </property>
-          <property name="title">
-           <string/>
-          </property>
-          <property name="flat">
-           <bool>true</bool>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <item>
-              <widget class="QLabel" name="label_5">
-               <property name="text">
-                <string>Sampling Technique</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolProcess">
-               <property name="focusPolicy">
-                <enum>Qt::StrongFocus</enum>
-               </property>
-               <property name="toolTip">
-                <string>Characterise the sampling methodology(ies);</string>
-               </property>
-               <property name="statusTip">
-                <string>Characterise the sampling methodology(ies);</string>
-               </property>
-               <property name="whatsThis">
-                <string>Characterise the sampling methodology(ies);</string>
-               </property>
-               <property name="text">
-                <string>...</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="lbHeader">
-          <property name="text">
-           <string>LBHEADER</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QDialogButtonBox" name="buttonBox">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="focusPolicy">
-           <enum>Qt::StrongFocus</enum>
-          </property>
-          <property name="standardButtons">
-           <set>QDialogButtonBox::Apply|QDialogButtonBox::Close</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
+      <item row="1" column="1" colspan="2">
+       <widget class="QSplitter" name="splitter">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Sampling Technique</string>
+         </property>
+         <property name="buddy">
+          <cstring>toolProcess</cstring>
+         </property>
+        </widget>
+        <widget class="QToolButton" name="toolProcess">
+         <property name="focusPolicy">
+          <enum>Qt::StrongFocus</enum>
+         </property>
+         <property name="toolTip">
+          <string>Characterise the sampling methodology(ies);</string>
+         </property>
+         <property name="statusTip">
+          <string>Characterise the sampling methodology(ies);</string>
+         </property>
+         <property name="whatsThis">
+          <string>Characterise the sampling methodology(ies);</string>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="lbHeader">
+        <property name="text">
+         <string>LBHEADER</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QDialogButtonBox" name="buttonBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="standardButtons">
+         <set>QDialogButtonBox::Apply|QDialogButtonBox::Close</set>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -551,13 +526,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>CustomTimeCtrl</class>
-   <extends>QWidget</extends>
-   <header>customtimectrl.h</header>
-  </customwidget>
- </customwidgets>
  <tabstops>
   <tabstop>tableView</tabstop>
   <tabstop>pushNew</tabstop>
@@ -569,9 +537,6 @@
   <tabstop>radioCopy</tabstop>
   <tabstop>cmbCopy</tabstop>
   <tabstop>toolEdit</tabstop>
-  <tabstop>customDtStart</tabstop>
-  <tabstop>customDtEnd</tabstop>
-  <tabstop>toolProcess</tabstop>
   <tabstop>buttonBox</tabstop>
   <tabstop>pushPrevious</tabstop>
   <tabstop>pushNext</tabstop>
@@ -605,22 +570,6 @@
     <hint type="sourcelabel">
      <x>787</x>
      <y>23</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>406</x>
-     <y>249</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>buttonBox</sender>
-   <signal>clicked(QAbstractButton*)</signal>
-   <receiver>frmframe</receiver>
-   <slot>onButtonClick(QAbstractButton*)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>713</x>
-     <y>412</y>
     </hint>
     <hint type="destinationlabel">
      <x>406</x>
@@ -689,6 +638,22 @@
     <hint type="destinationlabel">
      <x>406</x>
      <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>clicked(QAbstractButton*)</signal>
+   <receiver>frmframe</receiver>
+   <slot>onButtonClick(QAbstractButton*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>713</x>
+     <y>412</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>406</x>
+     <y>249</y>
     </hint>
    </hints>
   </connection>

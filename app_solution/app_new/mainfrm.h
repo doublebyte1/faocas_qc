@@ -180,7 +180,7 @@ class MainFrm : public QMainWindow, public Ui::MainWindow
         Sample*                 sSample;
         QToolBar*               toolbar;
         RuleChecker*            ruleCheckerPtr;//!< Pointer to a Rule Checker
-        InitRulesThread*        workerThread;//!< Thread that initializes the rule containers
+        //InitRulesThread*        workerThread;//!< Thread that initializes the rule containers
         //QThread*               thread;
         SessionFileParser       *handler;
 

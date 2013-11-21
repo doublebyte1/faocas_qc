@@ -7,7 +7,6 @@
 MainFrm::MainFrm(RoleDef* roleDef, QWidget *parent, Qt::WFlags flags):
 m_roleDef(roleDef),QMainWindow(parent, flags){
 
-    workerThread=0;
     tDateTime=0;
     pFrmFrame=0;
     pFrmMinorStrata=0;
@@ -43,16 +42,6 @@ MainFrm::~MainFrm()
     tabWidget->disconnect();
     vTabs.clear();
 
-    /*
-    if (workerThread!=0){
-        // Make sure we stop the thread before deleting it;
-        while (workerThread->isRunning()){
-            workerThread->terminate();
-            workerThread->wait();
-        }
-        delete workerThread; workerThread=0;
-    }*/
-
     if (pFrmReports!=0) delete pFrmReports;
     if (pFrmRegions!=0) delete pFrmRegions;
     if (pFrmImportRegions!=0) delete pFrmImportRegions;
@@ -85,16 +74,6 @@ MainFrm::~MainFrm()
 
 void MainFrm::initRules()
 {
-    //delete rulechecker, but first wait for the thread to finish
-/*
-    if (workerThread!=0) {
-        while (workerThread->isRunning()){
-            workerThread->terminate();
-            workerThread->wait();
-        }
-        delete workerThread; workerThread=0;
-    }
-*/
     if (ruleCheckerPtr!=0) {delete ruleCheckerPtr; ruleCheckerPtr=0;}
 
     ruleCheckerPtr=new RuleChecker();
@@ -105,24 +84,7 @@ void MainFrm::initRules()
     connect(ruleCheckerPtr, SIGNAL(showError(QString,bool)), this,
         SLOT(displayError(QString,bool)));
 
-    //thread = new QThread;
-
-    workerThread=new InitRulesThread(ruleCheckerPtr);
-    workerThread->process();
-
-/*
-    workerThread->moveToThread(thread);
-
-    //connect(workerThread, SIGNAL(error(QString)), this, SLOT(displayError(QString)));
-    connect(thread, SIGNAL(started()), workerThread, SLOT(process()));
-    connect(workerThread, SIGNAL(done(bool)), thread, SLOT(quit()));
-    connect(workerThread, SIGNAL(done(bool)), workerThread, SLOT(deleteLater()));
-    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
-*/
-    connect(workerThread, SIGNAL(done(bool)), this,
-        SLOT(rulesInitialized(bool)));
-
-   //thread->start();
+    rulesInitialized(ruleCheckerPtr->init());
 }
 
 void MainFrm::rulesInitialized(bool bReady)

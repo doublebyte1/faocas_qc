@@ -29,8 +29,8 @@ class FrmFrame : public PreviewTab, public Ui::frmframe
         ~FrmFrame();
 
     public slots:
-        void                                   blockCustomDateCtrls();
-        void                                   unblockCustomDateCtrls();
+        //void                                   blockCustomDateCtrls();
+        //void                                   unblockCustomDateCtrls();
 
     private slots:
         //! Edit finished

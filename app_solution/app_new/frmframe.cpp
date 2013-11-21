@@ -25,16 +25,6 @@ PreviewTab(0,inRoleDef,inSample,inTDateTime,tr("Frame"), ruleCheckerPtr, parent,
 
     m_tabsDefined=false;
 
-    blockCustomDateCtrls();
-
-    customDtStart->setIsDateTime(true,false,false);
-    customDtStart->setIsUTC(false);
-    customDtStart->setIsAuto(false);
-
-    customDtEnd->setIsDateTime(true,false,false);
-    customDtEnd->setIsUTC(false);
-    customDtEnd->setIsAuto(false);
-
     connect(toolView, SIGNAL(clicked()), this,
         SLOT(onShowFrameDetails()));//TODO:change curidex to grabb the id
 
@@ -187,7 +177,7 @@ void FrmFrame::createRecord()
     genericCreateRecord();
 
     mapper->toLast();
-
+/*
     bool bDate, bTime;
     customDtStart->getIsDateTime(bDate,bTime);
     m_tDateTime->insertNewRecord(customDtStart->getIsAuto(),bDate,bTime);
@@ -202,7 +192,7 @@ void FrmFrame::createRecord()
 
     connect(m_mapperBinderPtr, SIGNAL(defaultValuesRead()), this,
         SLOT(unblockCustomDateCtrls()));
-
+*/
     m_bInsert=true;
 
     uI4NewRecord();//init UI
@@ -280,7 +270,7 @@ void FrmFrame::previewRow(QModelIndex index)
         }
         mapper->setCurrentModelIndex(pIdx);
 
-        blockCustomDateCtrls();
+        //blockCustomDateCtrls();
 
         //Now fix the dates
         idx=tFrameTime->index(pIdx.row(),2);
@@ -306,7 +296,7 @@ void FrmFrame::previewRow(QModelIndex index)
         mapperEndDt->toLast();
         mapperStartDt->setCurrentIndex(mapperEndDt->currentIndex()-1);
 
-        unblockCustomDateCtrls();
+        //unblockCustomDateCtrls();
     }
 }
 
@@ -316,7 +306,7 @@ void FrmFrame::onItemSelection()
     pushNext->setEnabled(tableView->selectionModel()->hasSelection()/* && !m_bSampling*/);
     emit disableTabs();
 }
-
+/*
 void FrmFrame::blockCustomDateCtrls()
 {
     //block signals here because of the rule binder!
@@ -330,7 +320,7 @@ void FrmFrame::unblockCustomDateCtrls()
     customDtStart->blockSignals(false);
     customDtEnd->blockSignals(false);
 }
-
+*/
 void FrmFrame::initModels()
 {
     initFrModel();
@@ -470,7 +460,7 @@ void FrmFrame::onHideFrmSampling(bool bSubmitted)
 
 void FrmFrame::initMapper2()
 {
-    emit blockCatchUISignals(true);
+    //emit blockCatchUISignals(true);
 
     if (tFrameTime==0) return ;
     if (m_mapperBinderPtr!=0) {delete m_mapperBinderPtr; m_mapperBinderPtr=0;}
@@ -487,13 +477,18 @@ void FrmFrame::initMapper2()
 
     mapper->addMapping(this->cmbPrexistent, 1/*, tr("currentIndex").toAscii()*/);
 
+    mapper->addMapping(this->customDtStart,6);
+    mapper->addMapping(this->customDtEnd,7);
+
+    //TODO: COME BACK TO THIS LATER
+    /*
     QList<QDataWidgetMapper*> lMapper;
     lMapper << mapper << mapperStartDt << mapperEndDt;
     m_mapperBinderPtr=new MapperRuleBinder(m_ruleCheckerPtr, m_sample, lMapper, this->objectName());
     if (!initBinder(m_mapperBinderPtr))
         emit showError(tr("Could not init binder!"));
 
-    emit blockCatchUISignals(false);
+    emit blockCatchUISignals(false);*/
 }
 
 void FrmFrame::initMappers()
@@ -501,6 +496,7 @@ void FrmFrame::initMappers()
     cmbCopy->setModel(frModel);
     cmbCopy->setModelColumn(1);
 
+/*
     if (m_tDateTime==0) return;
 
     if (mapperStartDt!=0) delete mapperStartDt;
@@ -518,7 +514,7 @@ void FrmFrame::initMappers()
     mapperEndDt->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
     mapperEndDt->setItemDelegate(new QItemDelegate(this));
     mapperEndDt->addMapping(customDtEnd,2,QString("dateTime").toAscii());
-
+*/
     initMapper2();
     mapper->toLast();
 }

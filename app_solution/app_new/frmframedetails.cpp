@@ -308,8 +308,8 @@ bool FrmFrameDetails::setFrameDetails(const Mode mode, const Persistence persist
             if (mode==FrmFrameDetails::EDIT){
                 //set Frame Name
                 QSqlQuery query;
-                query.prepare(tr("SELECT dbo.FR_Frame.Name FROM dbo.FR_Frame ") + 
-                              tr("WHERE     (dbo.FR_Frame.ID = ?)"));
+                query.prepare(tr("SELECT fr_frame.Name from fr_frame ") +
+                              tr("where     (fr_frame.id = ?)"));
                 query.addBindValue(sample->frameId);
                 if (!query.exec() || query.numRowsAffected()<1){
                     qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
@@ -324,9 +324,9 @@ bool FrmFrameDetails::setFrameDetails(const Mode mode, const Persistence persist
                     query.value(0).toString()));
 
                 //Set src ID
-                query.prepare(tr("SELECT dbo.Ref_Source.Name FROM dbo.FR_Frame INNER JOIN ") + 
-                              tr("dbo.Ref_Source ON dbo.FR_Frame.id_source = dbo.Ref_Source.ID ") +
-                              tr("WHERE     (dbo.FR_Frame.ID = ?)"));
+                query.prepare(tr("SELECT ref_source.name FROM fr_frame INNER JOIN ") +
+                              tr("ref_source ON fr_frame.id_source = ref_source.id ") +
+                              tr("WHERE     (fr_frame.id = ?)"));
                 query.addBindValue(sample->frameId);
                 if (!query.exec() || query.numRowsAffected()<1){
                     qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );

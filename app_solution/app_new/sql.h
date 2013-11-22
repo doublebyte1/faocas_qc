@@ -2731,6 +2731,39 @@ static bool identifyDate(const InfoDate& dateTime, QList<int>& ids, QString& str
     return true;
 }
 
+static bool getLastId(const QString strTable, int& id, QString& strError)
+{
+    //! Get Last id
+    /* This function find the id of the last inserted row from a given table
+    \par strTable table name;
+    \par id integer to write the results;
+    \return boolean as sucess or failure
+    */
+
+    QString str="select id from [strTable] ORDER BY id DESC limit 1";
+    str=str.replace("[strTable]",strTable);
+    QSqlQuery query;
+    if (!query.prepare(
+                str)){
+
+        return false;
+     }
+
+    query.setForwardOnly(true);
+    if (!query.exec()|| query.numRowsAffected()!=1){
+        if (query.lastError().type()!=QSqlError::NoError)
+           strError= query.lastError().text();
+        else
+           strError= QObject::tr("Could not identify this date record!");
+       return false;
+    }
+
+    query.first();//! Not to mention this is *very* important!!!
+    id=query.value(0).toInt();
+
+    return true;
+}
+
 
 
 #endif

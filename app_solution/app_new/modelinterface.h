@@ -59,6 +59,7 @@ public slots:
     void                                   removeFilters();
 
 private:
+    bool                                   Count(int& cnt);
     bool                                   mapData(const int inRow, const int outRow, const int cIn, const int cOut, const QModelIndex& parent, QSqlTableModel* tModel, QVariant& result);
     bool                                   createRootElements(QModelIndex& bin, QModelIndex& root);
     bool                                   readOneGLS(const int inRow, const int outRow, const QModelIndex& parent, const bool bBin, QModelIndex& cIndex);

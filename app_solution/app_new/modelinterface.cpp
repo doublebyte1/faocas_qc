@@ -2,6 +2,7 @@
 #include <QtSql>
 #include "modelinterface.h"
 #include "generictab.h"
+#include "sql.h"
 
 ModelInterface::ModelInterface (QObject *parent):
 QObject(parent)
@@ -850,20 +851,52 @@ bool ModelInterface::insertSubFrame(const QString str, const int frameId, int& i
     return true;
 }
 
+bool ModelInterface::Count(int& cnt)
+{
+    QSqlQuery query;
+    QString strQuery="select count(*) from fr_frame";
+    if (!query.prepare(strQuery))
+        return false;
+    query.setForwardOnly(true);
+    if (!query.exec()){
+        qDebug() << query.lastError().text() << endl;
+        return false;
+    }
+    query.first();
+    cnt=query.record().value(0).toInt();
+    return true;
+}
+
 bool ModelInterface::writeTables()
 {
     //first write the frame
     if (!tRefFrame->submitAll())
         return false;
 
+/*
+    int cnt=-1;
+    if (!Count(cnt)) return false;
+
+    while (tRefFrame->canFetchMore())
+         tRefFrame->fetchMore();
+
+    tRefFrame->select();
+
     // and grab the id...
     QModelIndex idx=tRefFrame->index(
-        tRefFrame->rowCount()-1,0);
+        cnt-1,0);
 
     if (!idx.isValid()) return false;
 
     int frameId=idx.data().toInt();
+    */
 
+    QString strError;
+    int frameId=-1;
+    if (!getLastId("fr_frame",frameId, strError)){
+        qDebug() << strError << endl;
+        return false;
+    }
     TreeItem* root=treeModel->root();
 
     for (int i=0; i < root->childCount(); ++i){

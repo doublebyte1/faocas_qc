@@ -269,9 +269,9 @@ bool FrmFrameDetails::setFrameDetails(const Mode mode, const Persistence persist
     pushApply->setVisible(mode!=FrmFrameDetails::VIEW || (persistence==FrmFrameDetails::TEMPORARY && !invis));
     //pushUndo->setVisible(mode!=FrmFrameDetails::VIEW || persistence==FrmFrameDetails::TEMPORARY && !invis);
 
-    lineName->clear();
-    textComments->clear();
-    textDesc->clear();
+    //lineName->clear();
+    //textComments->clear();
+    //textDesc->clear();
 
     if (!initModel(mode,sample,options)){
         qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
@@ -289,8 +289,10 @@ bool FrmFrameDetails::setFrameDetails(const Mode mode, const Persistence persist
 
         persistence==FrmFrameDetails::PERMANENT?setTreeReadOnly(true):setTreeReadOnly(false);
 
-        initMapper();//TODO: maybe throw an error here later?
-        modelInterface->tRefFrame->setFilter(tr("Fr_Frame.ID=") + QVariant(sample->frameId).toString());
+        initMapper();//TODO: maybe tBhrow an error here later?
+
+        modelInterface->tRefFrame->setFilter(tr("fr_frame.id=") + QVariant(sample->frameId).toString());
+        modelInterface->tRefFrame->select();
         mapper->toLast();
 
     }else{
@@ -405,7 +407,7 @@ bool FrmFrameDetails::initModel(const Mode mode, /*const int frameId*/const Samp
                      modelInterface, SLOT(removeFilters()));
 
     //fills the actual model
-    if (!setupItems(mode,sample,/*frameId,*/options)) return false;
+    if (!setupItems(mode,sample,options)) return false;
 
     //Using a proxy model for filtering purposes!
     QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);
@@ -431,13 +433,13 @@ bool FrmFrameDetails::initModel(const Mode mode, /*const int frameId*/const Samp
     return true;
 }
 
-bool FrmFrameDetails::setupItems(const Mode mode, /*const int frameId*/const Sample* sample, const int options)
+bool FrmFrameDetails::setupItems(const Mode mode, const Sample* sample, const int options)
 {
     switch (mode) {
     case FrmFrameDetails::VIEW:
-        return modelInterface->readModel(/*frameId,*/sample,options);
+        return modelInterface->readModel(sample,options);
     case FrmFrameDetails::EDIT:
-        return modelInterface->readModel(/*frameId,*/sample,options);
+        return modelInterface->readModel(sample,options);
     case FrmFrameDetails::CREATE:
         return modelInterface->createModel();
     default:
@@ -559,6 +561,9 @@ void FrmFrameDetails::initMapper()
     if (!modelInterface) return;
     mapper= new QDataWidgetMapper(this);
     mapper->setModel(modelInterface->tRefFrame);
+
+    qDebug() << modelInterface->tRefFrame->rowCount() << endl;
+
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
 
     if (nullDellegate!=0) delete nullDellegate;
@@ -576,13 +581,13 @@ void FrmFrameDetails::initMapper()
 
     cmbType->setModel(modelInterface->tRefFrame->relationModel(5));
     cmbType->setModelColumn(
-        modelInterface->tRefFrame->relationModel(5)->fieldIndex(tr("Name")));
+        modelInterface->tRefFrame->relationModel(5)->fieldIndex(tr("name")));
 
     mapper->addMapping(cmbType, 5);
 
     cmbCloned->setModel(modelInterface->tRefFrame->relationModel(4));
     cmbCloned->setModelColumn(
-        modelInterface->tRefFrame->relationModel(4)->fieldIndex(tr("Name")));
+        modelInterface->tRefFrame->relationModel(4)->fieldIndex(tr("name")));
 
     mapper->addMapping(cmbCloned, 4);
 }

@@ -33,11 +33,11 @@ bool ModelInterface::buildSourceFilter(QString& strFilter)
     QSqlQuery query;
         query.prepare(
 
-    tr("SELECT     ID, Name") +
-    tr(" FROM         dbo.Ref_Source") +
-    tr(" WHERE     (Name NOT IN") +
+    tr("SELECT     ID, name") +
+    tr(" FROM         ref_source") +
+    tr(" WHERE     (name NOT IN") +
     tr("                          (SELECT     internal_name") +
-    tr("                            FROM          dbo.GL_Null_Replacements))")
+    tr("                            FROM          gl_null_replacements))")
 
 );
     if (!query.exec()) return false;
@@ -56,19 +56,23 @@ bool ModelInterface::buildSourceFilter(QString& strFilter)
 
 void ModelInterface::initModels()
 {
+
     if (tRefFrame!=0) delete tRefFrame;
-    tRefFrame=new QSqlRelationalTableModel;
-    tRefFrame->setTable(QSqlDatabase().driver()->escapeIdentifier("FR_Frame",
+    tRefFrame=new QSqlRelationalTableModel(this,QSqlDatabase::database());
+    tRefFrame->setTable(QSqlDatabase().driver()->escapeIdentifier("fr_frame",
         QSqlDriver::TableName));
-    tRefFrame->setRelation(5, QSqlRelation("Ref_Source", "ID", "Name"));
-
-    filterTable(tRefFrame->relationModel(5));
-
-    tRefFrame->setRelation(4, QSqlRelation("FR_Frame", "ID", "Name"));
+    //tRefFrame->setTable("fr_frame");
     tRefFrame->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tRefFrame->sort(0,Qt::AscendingOrder);
 
+    tRefFrame->setRelation(5, QSqlRelation("ref_source", "id", "name"));
+
+    filterTable(tRefFrame->relationModel(5));
+
+    tRefFrame->setRelation(4, QSqlRelation("fr_frame", "id", "name"));
+
     tRefFrame->select();
+
     vTables << tRefFrame;
 
     if (tSubFrame!=0) delete tSubFrame;
@@ -94,20 +98,20 @@ void ModelInterface::initModels()
     if (tChangesPermGLS!=0) delete tChangesPermGLS;
     tChangesPermGLS=new QSqlTableModel();
 
-    initModel(tSubFrame,"FR_Sub_Frame");
-    initModel(tRefGLS,"Ref_Group_of_LandingSites");
+    initModel(tSubFrame,"fr_sub_frame");
+    initModel(tRefGLS,"ref_group_of_landingsites");
     filterTable(tRefGLS);
-    initModel(tRefLS,"Ref_Abstract_LandingSite");
+    initModel(tRefLS,"ref_abstract_landingsite");
     filterTable(tRefLS);
-    initModel(tRefVessels,"Ref_Vessels");
+    initModel(tRefVessels,"ref_vessels");
     filterTable(tRefVessels);
-    initModel(tLinkFr2GLS,"FR_F2GLS");
-    initModel(tLinkGLS2LS,"FR_GLS2ALS");
-    initModel(tLinkLS2Vessels,"FR_ALS2Vessel");
-    initModel(tChangesPermVessel,"Changes_Perm_Vessel");
-    initModel(tChangesTempVessel,"Abstract_Changes_Temp_Vessel");
-    initModel(tChangesPermLS,"Changes_Perm_LS");
-    initModel(tChangesPermGLS,"Changes_Perm_GLS");
+    initModel(tLinkFr2GLS,"fr_f2gls");
+    initModel(tLinkGLS2LS,"fr_gls2als");
+    initModel(tLinkLS2Vessels,"fr_als2vessel");
+    initModel(tChangesPermVessel,"changes_perm_vessel");
+    initModel(tChangesTempVessel,"abstract_changes_temp_vessel");
+    initModel(tChangesPermLS,"changes_perm_ls");
+    initModel(tChangesPermGLS,"changes_lerm_gls");
 }
 
 bool ModelInterface::filterTables()
@@ -207,9 +211,9 @@ bool ModelInterface::writeTempChanges(Sample* sample, int& ct)
 bool ModelInterface::getNonAbstractProperties(Sample* sample, int& id_source, int& id_cell, int& id_minor_strata)
 {
     QSqlQuery query;
-    query.prepare( "SELECT     ID"
-                   " FROM         dbo.Ref_Source"
-                   " WHERE     (Name = :name)" );
+    query.prepare( "SELECT     id"
+                   " FROM         ref_source"
+                   " WHERE     (name = :name)" );
     query.bindValue(0,qApp->translate("frame", (sample->bLogBook? strLogbook: strSampling) ));
 
     if (!query.exec() || query.numRowsAffected()!=1){
@@ -222,9 +226,9 @@ bool ModelInterface::getNonAbstractProperties(Sample* sample, int& id_source, in
         id_minor_strata=sample->minorStrataId;
         //id_cell=1;
 
-        query.prepare(" SELECT ID FROM         Sampled_Cell"
-                       " WHERE id_Minor_Strata=(SELECT ID from Ref_Minor_Strata"
-                       " WHERE     (Name = 'n/a') )" );
+        query.prepare(" SELECT id FROM         sampled_cell"
+                       " WHERE id_minor_strata=(SELECT id from ref_minor_strata"
+                       " WHERE     (name = 'n/a') )" );
 
         if (!query.exec() || query.numRowsAffected()!=1){
             return false;
@@ -236,8 +240,8 @@ bool ModelInterface::getNonAbstractProperties(Sample* sample, int& id_source, in
         id_cell=sample->cellId;
         //id_minor_strata=3;
 
-        query.prepare(" SELECT ID FROM         Ref_Minor_Strata"
-                      " WHERE     (Name = 'n/a') " );
+        query.prepare(" SELECT id FROM         ref_minor_strata"
+                      " WHERE     (name = 'n/a') " );
 
         if (!query.exec() || query.numRowsAffected()!=1){
             return false;
@@ -602,8 +606,8 @@ bool ModelInterface::getIdofSubFrameType(const QString strType, int& id)
     QSqlQuery query;
     query.prepare(
     "SELECT     ID"
-    " FROM         Ref_Frame"
-    " WHERE     (Name = :name)"
+    " FROM         ref_frame"
+    " WHERE     (name = :name)"
     );
 
     query.bindValue(0, strType);
@@ -621,9 +625,9 @@ bool ModelInterface::getIdofBin(const QString strTable, int& id)
 {
     QSqlQuery query;
     QString queryStr=
-    tr("SELECT     ID")+
+    tr("SELECT     id")+
     tr(" FROM         [table]")+
-    tr(" WHERE     (Name = :bin)")
+    tr(" WHERE     (name = :bin)")
     ;
 
     queryStr.replace(tr("[table]"),strTable);
@@ -645,9 +649,9 @@ bool ModelInterface::getIdofReason(const QString strReason, int& id)
     QSqlQuery query;
 
     query.prepare(
-    tr("SELECT     ID")+
-    tr(" FROM         Ref_Changes")+
-    tr(" WHERE     (Name = :name)")
+    tr("SELECT     id")+
+    tr(" FROM         ref_changes")+
+    tr(" WHERE     (name = :name)")
     );
 
     if (strReason.isEmpty())
@@ -670,8 +674,8 @@ bool ModelInterface::getOutsideALS(int& id)
 {
     QSqlQuery query;
     query.prepare(
-    tr("SELECT     ID")+
-    tr(" FROM         Ref_Abstract_LandingSite")+
+    tr("SELECT     id")+
+    tr(" FROM         ref_abstract_landingsite")+
     tr(" WHERE     (Name = :name)")
     );
 
@@ -692,9 +696,9 @@ bool ModelInterface::getIdofVessel(const TreeItem* item, int& id)
 
     QSqlQuery query;
     query.prepare(
-    tr("SELECT     VesselID")+
-    tr(" FROM         Ref_Vessels")+
-    tr(" WHERE     (VesselID = :id)")
+    tr("SELECT     vesselid")+
+    tr(" FROM         ref_vessels")+
+    tr(" WHERE     (vesselid = :id)")
     );
 
     query.bindValue(0, item->data(4));
@@ -773,7 +777,7 @@ bool ModelInterface::writeBin(TreeItem* item, const int id)
         }else if (static_cast<TreeModel::Level>(item->child(i)->data(2).toInt())==TreeModel::LS){
 
             int glsBinId;
-            if (!getIdofBin(tr("Ref_Group_of_LandingSites"),glsBinId))
+            if (!getIdofBin("ref_group_of_landingsites",glsBinId))
                 return false;
             QVector<int> vId;
             if (!writeLS(item->child(i),id, vId))
@@ -783,7 +787,7 @@ bool ModelInterface::writeBin(TreeItem* item, const int id)
         }else if (static_cast<TreeModel::Level>(item->child(i)->data(2).toInt())==TreeModel::VS){
 
             int lsBinId;//=34;
-            if (!getIdofBin(tr("Ref_Abstract_LandingSite"),lsBinId))
+            if (!getIdofBin("ref_abstract_landingsite",lsBinId))
                 return false;
             QVector<int> vId;
             if (!writeVessel(item->child(i),id,vId)) return false;
@@ -873,30 +877,18 @@ bool ModelInterface::writeTables()
     if (!tRefFrame->submitAll())
         return false;
 
-/*
-    int cnt=-1;
-    if (!Count(cnt)) return false;
-
     while (tRefFrame->canFetchMore())
          tRefFrame->fetchMore();
 
-    tRefFrame->select();
 
     // and grab the id...
     QModelIndex idx=tRefFrame->index(
-        cnt-1,0);
+        tRefFrame->rowCount()-1,0);
 
     if (!idx.isValid()) return false;
 
     int frameId=idx.data().toInt();
-    */
 
-    QString strError;
-    int frameId=-1;
-    if (!getLastId("fr_frame",frameId, strError)){
-        qDebug() << strError << endl;
-        return false;
-    }
     TreeItem* root=treeModel->root();
 
     for (int i=0; i < root->childCount(); ++i){
@@ -1150,66 +1142,67 @@ bool ModelInterface::getVesselsBlackList(const Sample* sample, QVector<int>& vVe
     QSqlQuery query;
     QString strQuery;
 
+    //TODO: review this because of:
+    // - GL_DATES
+    // - TOP 100 %
     if (!sample->bLogBook){
         strQuery=
-            tr("SELECT     TOP (100) PERCENT dbo.Abstract_Sampled_Vessels.VesselID, dbo.Sampled_Cell_Vessel_Types.id_cell") +
-            tr(" FROM         dbo.Sampled_Cell_Vessel_Types INNER JOIN") +
-            tr("                      dbo.Sampled_Cell_Vessels ON dbo.Sampled_Cell_Vessel_Types.ID = dbo.Sampled_Cell_Vessels.id_cell_vessel_types INNER JOIN") +
-            tr("                      dbo.Abstract_Sampled_Vessels ON dbo.Sampled_Cell_Vessels.ID = dbo.Abstract_Sampled_Vessels.id_Sampled_Cell_Vessels") +
-            tr(" WHERE dbo.Sampled_Cell_Vessel_Types.id_cell IN (") +
-            tr("SELECT     ")+
-            tr("  dbo.Sampled_Cell.ID FROM       ")+
-            tr("  dbo.Sampled_Cell INNER JOIN                     ") +
-            tr("  dbo.Ref_Minor_Strata ON dbo.Sampled_Cell.id_Minor_Strata = dbo.Ref_Minor_Strata.ID INNER JOIN             ")+
-            tr("  dbo.GL_Dates AS Dates2 ON dbo.Sampled_Cell.id_end_dt = Dates2.ID INNER JOIN                    ")+
-            tr("  dbo.GL_Dates AS Dates1 ON dbo.Sampled_Cell.id_start_dt = Dates1.ID WHERE     (") + 
-            tr("( (Dates1.Date_Local <=      ")+
-            tr("  (SELECT     Date_Local")+
-            tr("  FROM          dbo.GL_Dates         ") +
-            tr("  WHERE      (ID =                        ")+
-            tr("  (SELECT     id_end_dt                ")+
-            tr("  FROM          dbo.Sampled_Cell AS Sampled_Cell_1 ")+
-            tr("  WHERE      (ID = ") + QVariant(sample->cellId).toString() +tr("))))) AND ") +
-            tr(" (Dates2.Date_Local >=         ")+
-            tr("  (SELECT     Date_Local                ")+
-            tr("  FROM          dbo.GL_Dates AS GL_Dates_1        ")+
-            tr("  WHERE      (ID =                                ")+
-            tr("  (SELECT     id_start_dt                       ")+
-            tr("  FROM          dbo.Sampled_Cell AS Sampled_Cell_1   ")+
-            tr("  WHERE      (ID = ") + QVariant(sample->cellId).toString() +tr(")))))) ") +
-            tr(") AND (dbo.Ref_Minor_Strata.id_frame_time = ") + QVariant(sample->frameTimeId).toString() +tr(") AND (dbo.Sampled_Cell.ID<>") + QVariant(sample->cellId).toString() +tr(")") +
-            tr(")");
-            //    tr(" ORDER BY dbo.Abstract_Sampled_Vessels.VesselID DESC")
-            ;
+                "select     top (100) percent abstract_sampled_vessels.vesselid, sampled_cell_vessel_types.id_cell"
+                                " from         sampled_cell_vessel_types inner join"
+                                "                      sampled_cell_vessels on sampled_cell_vessel_types.id = sampled_cell_vessels.id_cell_vessel_types inner join"
+                                "                      abstract_sampled_vessels on sampled_cell_vessels.id = abstract_sampled_vessels.id_sampled_cell_vessels"
+                                " where sampled_cell_vessel_types.id_cell in ("
+                                "select     "
+                                "  sampled_cell.id from       "
+                                "  sampled_cell inner join                     "
+                                "  ref_minor_strata on sampled_cell.id_minor_strata = ref_minor_strata.id inner join             "
+                                "  gl_dates as dates2 on sampled_cell.id_end_dt = dates2.id inner join                    "
+                                "  gl_dates as dates1 on sampled_cell.id_start_dt = dates1.id where     ("
+                                "( (dates1.date_local <=      "
+                                "  (select     date_local"
+                                "  from          gl_dates         "
+                                "  where      (id =                        "
+                                "  (select     id_end_dt                "
+                                "  from          sampled_cell as sampled_cell_1 "
+                                "  where      (id = " + QVariant(sample->cellId).toString() + "))))) and "
+                                " (dates2.date_local >=         "
+                                "  (select     date_local                "
+                                "  from          gl_dates as gl_dates_1        "
+                                "  where      (id =                                "
+                                "  (select     id_start_dt                       "
+                                "  from          sampled_cell as sampled_cell_1   "
+                                "  where      (id = " + QVariant(sample->cellId).toString() + ")))))) "
+                                ") and (ref_minor_strata.id_frame_time = " + QVariant(sample->frameTimeId).toString() + ") and (sampled_cell.id<>" + QVariant(sample->cellId).toString() + ")"
+                                ")";
     }else{
         strQuery=
-            tr("SELECT     dbo.Abstract_Sampled_Vessels.VesselID, dbo.Sampled_Strata_Vessels.id_minor_strata") +
-            tr(" FROM         dbo.Abstract_Sampled_Vessels INNER JOIN") +
-            tr("                      dbo.Sampled_Strata_Vessels ON dbo.Abstract_Sampled_Vessels.id_Sampled_Strata_Vessels = dbo.Sampled_Strata_Vessels.ID")+
-            tr("            WHERE dbo.Sampled_Strata_Vessels.id_minor_strata IN ")+
-            tr(" (") +
-            tr(" SELECT     Ref_Minor_Strata.ID")+
-            tr(" FROM         dbo.Ref_Minor_Strata")+
-            tr(" INNER JOIN             ")+
-            tr(" dbo.GL_Dates AS Dates2 ON dbo.Ref_Minor_Strata.id_end_dt = Dates2.ID INNER JOIN                    ")+
-            tr(" dbo.GL_Dates AS Dates1 ON dbo.Ref_Minor_Strata.id_start_dt = Dates1.ID ")+
-            tr(" WHERE  ")+
-            tr(" (Dates1.Date_Local <=      ")+
-            tr(" (SELECT     Date_Local")+
-            tr(" FROM          dbo.GL_Dates         ")+
-            tr("WHERE      (ID =                        ")+
-            tr(" (SELECT     id_end_dt                ")+
-            tr(" FROM          dbo.Ref_Minor_Strata AS Ref_Minor_Strata_1 ")+
-            tr(" WHERE      (ID = ") + QVariant(sample->minorStrataId).toString() +tr(")))) AND ")+
-            tr(" (Dates2.Date_Local >=         ")+
-            tr(" (SELECT     Date_Local                ")+
-            tr(" FROM          dbo.GL_Dates AS GL_Dates_1        ")+
-            tr(" WHERE      (ID =                                ")+
-            tr(" (SELECT     id_start_dt                       ")+
-            tr(" FROM          dbo.Ref_Minor_Strata AS Ref_Minor_Strata_1   ")+
-            tr(" WHERE      (ID = ") + QVariant(sample->minorStrataId).toString() +tr(")) ) ) ) AND")+
-            tr(" (dbo.Ref_Minor_Strata.id_frame_time = ") + QVariant(sample->frameTimeId).toString() +tr(") AND (Ref_Minor_Strata.ID <>") + QVariant(sample->minorStrataId).toString() +tr(")")+
-            tr("  ) )");
+                "select     abstract_sampled_vessels.vesselid, sampled_strata_vessels.id_minor_strata"
+                " from         abstract_sampled_vessels inner join"
+                "                      sampled_strata_vessels on abstract_sampled_vessels.id_sampled_strata_vessels = sampled_strata_vessels.id"
+                "            where sampled_strata_vessels.id_minor_strata in "
+                " ("
+                " select     ref_minor_strata.id"
+                " from         ref_minor_strata"
+                " inner join             "
+                " gl_dates as dates2 on ref_minor_strata.id_end_dt = dates2.id inner join                    "
+                " gl_dates as dates1 on ref_minor_strata.id_start_dt = dates1.id "
+                " where  "
+                " (dates1.date_local <=      "
+                " (select     date_local"
+                " from          gl_dates         "
+                "where      (id =                        "
+                " (select     id_end_dt                "
+                " from          ref_minor_strata as ref_minor_strata_1 "
+                " where      (id = " + QVariant(sample->minorStrataId).toString() +"))) and "
+                " (dates2.date_local >=         "
+                " (select     date_local                "
+                " from          gl_dates as gl_dates_1        "
+                " where      (id =                                "
+                " (select     id_start_dt                       "
+                " from          ref_minor_strata as ref_minor_strata_1   "
+                " where      (id = " + QVariant(sample->minorStrataId).toString() +") ) ) ) and"
+                " (ref_minor_strata.id_frame_time = " + QVariant(sample->frameTimeId).toString() +" and (ref_minor_strata.id <>" + QVariant(sample->minorStrataId).toString() +""
+                "  ) )";
 
     }
 
@@ -1225,62 +1218,68 @@ bool ModelInterface::getVesselsBlackList(const Sample* sample, QVector<int>& vVe
 
 bool ModelInterface::readTempChangesVessel(const Sample* sample)
 {
+
+
     //filter for cells that refer to the same frame, and that fall within the interval of this cell;
     // A< B' and A'< B
+
+
+    //TODO: review this because of:
+    // - GL_DATES
 
     QSqlQuery query;
     QString strQuery, strUnit;
 
     if (!sample->bLogBook){
         strQuery=
-            tr("SELECT     ")+
-            tr("  dbo.Sampled_Cell.ID, dbo.Ref_Minor_Strata.id_frame_time, Dates1.Date_Local AS start_dt, Dates2.Date_Local AS end_dt FROM       ")+
-            tr("  dbo.Sampled_Cell INNER JOIN                     ") +
-            tr("  dbo.Ref_Minor_Strata ON dbo.Sampled_Cell.id_Minor_Strata = dbo.Ref_Minor_Strata.ID INNER JOIN             ")+
-            tr("  dbo.GL_Dates AS Dates2 ON dbo.Sampled_Cell.id_end_dt = Dates2.ID INNER JOIN                    ")+
-            tr("  dbo.GL_Dates AS Dates1 ON dbo.Sampled_Cell.id_start_dt = Dates1.ID WHERE     (") + 
-            tr("( (Dates1.Date_Local <=      ")+
-            tr("  (SELECT     Date_Local")+
-            tr("  FROM          dbo.GL_Dates         ") +
-            tr("  WHERE      (ID =                        ")+
-            tr("  (SELECT     id_end_dt                ")+
-            tr("  FROM          dbo.Sampled_Cell AS Sampled_Cell_1 ")+
-            tr("  WHERE      (ID = ") + QVariant(sample->cellId).toString() +tr("))))) AND ") +
-            tr(" (Dates2.Date_Local >=         ")+
-            tr("  (SELECT     Date_Local                ")+
-            tr("  FROM          dbo.GL_Dates AS GL_Dates_1        ")+
-            tr("  WHERE      (ID =                                ")+
-            tr("  (SELECT     id_start_dt                       ")+
-            tr("  FROM          dbo.Sampled_Cell AS Sampled_Cell_1   ")+
-            tr("  WHERE      (ID = ") + QVariant(sample->cellId).toString() +tr(")))))) ") +
-            tr(") AND (dbo.Ref_Minor_Strata.id_frame_time = ") + QVariant(sample->frameTimeId).toString() +tr(") AND (dbo.Sampled_Cell.ID<=") + QVariant(sample->cellId).toString() +tr(")")
-            ;
-            strUnit=("id_cell");
+                "select     "
+                "  sampled_cell.id, ref_minor_strata.id_frame_time, dates1.date_local as start_dt, dates2.date_local as end_dt from       "
+                "  sampled_cell inner join                     "
+                "  ref_minor_strata on sampled_cell.id_minor_strata = ref_minor_strata.id inner join             "
+                "  gl_dates as dates2 on sampled_cell.id_end_dt = dates2.id inner join                    "
+                "  gl_dates as dates1 on sampled_cell.id_start_dt = dates1.id where     ("
+                "( (dates1.date_local <=      "
+                "  (select     date_local"
+                "  from          gl_dates         "
+                "  where      (id =                        "
+                "  (select     id_end_dt                "
+                "  from          sampled_cell as sampled_cell_1 "
+                "  where      (id = " + QVariant(sample->cellId).toString() +"))))) and "
+                " (dates2.date_local >=         "
+                "  (select     date_local                "
+                "  from          gl_dates as gl_dates_1        "
+                "  where      (id =                                "
+                "  (select     id_start_dt                       "
+                "  from          sampled_cell as sampled_cell_1   "
+                "  where      (id = " + QVariant(sample->cellId).toString() +")))))) "
+                ") and (ref_minor_strata.id_frame_time = " + QVariant(sample->frameTimeId).toString() +") and (sampled_cell.id<=" + QVariant(sample->cellId).toString() +")"
+                ;
+                strUnit="id_cell";
     }else{
         strQuery=
-        tr("SELECT     Ref_Minor_Strata.ID, id_start_dt, id_end_dt, id_frame_time, Dates1.Date_Local AS start_dt, Dates2.Date_Local AS end_dt") +
-        tr(" FROM         dbo.Ref_Minor_Strata") +
-        tr(" INNER JOIN             ") +
-        tr(" dbo.GL_Dates AS Dates2 ON dbo.Ref_Minor_Strata.id_end_dt = Dates2.ID INNER JOIN                    ") +
-        tr(" dbo.GL_Dates AS Dates1 ON dbo.Ref_Minor_Strata.id_start_dt = Dates1.ID ") +
-        tr(" WHERE  ")+
-        tr(" (Dates1.Date_Local <=      ")+
-        tr(" (SELECT     Date_Local")+
-        tr(" FROM          dbo.GL_Dates         ")+
-        tr(" WHERE      (ID =                        ")+
-        tr(" (SELECT     id_end_dt                ")+
-        tr(" FROM          dbo.Ref_Minor_Strata AS Ref_Minor_Strata_1 ")+
-        tr(" WHERE      (ID = ") + QVariant(sample->minorStrataId).toString() +tr("))))) AND ")+
-        tr(" (Dates2.Date_Local >=         ")+
-        tr(" (SELECT     Date_Local                ")+
-        tr(" FROM          dbo.GL_Dates AS GL_Dates_1        ")+
-        tr(" WHERE      (ID =                                ")+
-        tr(" (SELECT     id_start_dt                       ")+
-        tr(" FROM          dbo.Ref_Minor_Strata AS Ref_Minor_Strata_1   ")+
-        tr(" WHERE      (ID = ") + QVariant(sample->minorStrataId).toString() +tr(")) ) ) ) AND") + //we compare with minor strata that came before
-        tr(" (dbo.Ref_Minor_Strata.id_frame_time = ") + QVariant(sample->frameTimeId).toString() +tr(") AND (Ref_Minor_Strata.ID <=") + QVariant(sample->minorStrataId).toString() +tr(")");
+            "select     ref_minor_strata.id, id_start_dt, id_end_dt, id_frame_time, dates1.date_local as start_dt, dates2.date_local as end_dt"
+            " from         dbo.ref_minor_strata"
+            " inner join             "
+            " dbo.gl_dates as dates2 on dbo.ref_minor_strata.id_end_dt = dates2.id inner join                    "
+            " dbo.gl_dates as dates1 on dbo.ref_minor_strata.id_start_dt = dates1.id "
+            " where  "
+            " (dates1.date_local <=      "
+            " (select     date_local"
+            " from          dbo.gl_dates         "
+            " where      (id =                        "
+            " (select     id_end_dt                "
+            " from          dbo.ref_minor_strata as ref_minor_strata_1 "
+            " where      (id = " + QVariant(sample->minorStrataId).toString() +"))))) and "
+            " (dates2.date_local >=         "
+            " (select     date_local                "
+            " from          dbo.gl_dates as gl_dates_1        "
+            " where      (id =                                "
+            " (select     id_start_dt                       "
+            " from          dbo.ref_minor_strata as ref_minor_strata_1   "
+            " where      (id = " +QVariant(sample->minorStrataId).toString() +")) ) ) ) and" //we compare with minor strata that came before
+            " (dbo.ref_minor_strata.id_frame_time = " + QVariant(sample->frameTimeId).toString() +") and (ref_minor_strata.id <=" + QVariant(sample->minorStrataId).toString() +")";
 
-        strUnit=("id_minor_strata");
+        strUnit="id_minor_strata";
     }
 
     //qDebug() << strQuery << endl;
@@ -1565,51 +1564,26 @@ bool ModelInterface::readBin(const int subFrameId, QModelIndex& bin, const bool 
 {
     if (!readGenericStructure(subFrameId,bin,true,vVesselsBlackList)) return false;
 
-    tLinkGLS2LS->setFilter(tr("id_sub_frame=") + QVariant(subFrameId).toString());
+    tLinkFr2GLS->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
+    tLinkGLS2LS->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
+    tLinkLS2Vessels->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
 
-    //read LS
+    //read GLS & LS
     for (int j=0; j < tLinkGLS2LS->rowCount(); ++j)
     {
-        QModelIndex index=tLinkGLS2LS->index(j,2);
-        if (index.data()==1){//TODO: get this value programatically
-
-            tRefLS->setFilter(tr("ID=") + tLinkGLS2LS->index(j,3).data().toString());
-            QModelIndex ls;
-            if (!readOneLS(0,j,bin,bBin,ls)) return false;
-
-            QModelIndex aIdx=tRefLS->index(0,0);
-            if (!aIdx.isValid()) return false;
-
-            tLinkLS2Vessels->setFilter(tr("id_sub_frame=") + QVariant(subFrameId).toString() +
-                tr(" AND ") + tr("id_abstract_landingsite=") + aIdx.data().toString());
-
-            //read Vessel
-            for (int k=0; k < tLinkLS2Vessels->rowCount(); ++k)
-            {
-                tRefVessels->setFilter(tr("VesselId=") + tLinkLS2Vessels->index(k,3).data().toString());
-                if (!readOneVS(0,k,bBin,ls,vVesselsBlackList)) return false;
-            }
-        }
-    }
-
-    tLinkLS2Vessels->setFilter(tr("id_sub_frame=") + QVariant(subFrameId).toString());
+        QModelIndex ls;
+        if (!readOneLS(j,j,bin,bBin,ls)) return false;
+     }
 
     //read Vessel
     for (int k=0; k < tLinkLS2Vessels->rowCount(); ++k)
     {
-        QModelIndex index=tLinkLS2Vessels->index(k,2);
-        if (index.data()==34){//TODO: get this value programatically
-
-        tRefVessels->setFilter(tr("VesselId=") + tLinkLS2Vessels->index(k,3).data().toString());
-        if (!readOneVS(0,k,bBin,bin,vVesselsBlackList)) return false;
-
-        }
+        if (!readOneVS(k,k,bBin,bin,vVesselsBlackList)) return false;
     }
 
-    tLinkGLS2LS->setFilter(tr(""));
-    tRefLS->setFilter(tr(""));
-    tLinkLS2Vessels->setFilter(tr(""));
-    tRefVessels->setFilter(tr(""));
+    tLinkFr2GLS->setFilter("");
+    tLinkGLS2LS->setFilter("");
+    tLinkLS2Vessels->setFilter("");
 
     return true;
 }

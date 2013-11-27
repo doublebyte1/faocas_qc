@@ -2764,6 +2764,38 @@ static bool getLastId(const QString strTable, int& id, QString& strError)
     return true;
 }
 
+static bool getKeywordID(const QString strTable, const QString strKeyword, size_t& id)
+{
+    //! Get the ID of the name keyword
+    /* This is a convenience function to grab the ID of the a row that contains the a specific "name" value;
+     *Attention has to be brought into the following:
+     *- there is a field named 'name' on the table
+     *- the id field should be called id;
+     * This is generally true on reference tables, except for Ref_Vessels;
+    \par id size_t address, to put the id of the rule
+    \return boolean as sucess or failure
+    */
+
+    QString strQuery="select id from [strTable] WHERE name like '[strKeyword]'";
+    strQuery.replace("[strTable]", strTable);
+    strQuery.replace("[strKeyword]", strKeyword);
+
+    qDebug() << strQuery << endl;
+
+    QSqlQuery query;
+    if (!query.prepare(
+                strQuery)) return false;
+
+    query.setForwardOnly(true);
+    if (!query.exec()|| query.numRowsAffected()!=1){
+        return false;
+    }
+
+    query.first();//! Not to mention this is *very* important!!!
+    id=(size_t)query.value(0).toInt();
+
+    return true;
+}
 
 
 #endif

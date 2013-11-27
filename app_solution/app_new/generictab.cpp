@@ -145,11 +145,11 @@ QWidget(parent, flags){
 
 void filterTable(QSqlTableModel* table)
 {
-    table->setFilter("Name<>'" + qApp->translate("null_replacements", strNa)
-            + "' AND Name<>'" + qApp->translate("bin", strOutside)
-            + "' AND Name<>'" + qApp->translate("null_replacements", strMissing)
-            + "' AND Name<>'" + qApp->translate("null_replacements", strOther)
-            + "' AND Name<>'" + qApp->translate("null_replacements", strUnknown)
+    table->setFilter("name<>'" + qApp->translate("null_replacements", strNa)
+            + "' AND name<>'" + qApp->translate("bin", strOutside)
+            + "' AND name<>'" + qApp->translate("null_replacements", strMissing)
+            + "' AND name<>'" + qApp->translate("null_replacements", strOther)
+            + "' AND name<>'" + qApp->translate("null_replacements", strUnknown)
             + "'");
 }
 

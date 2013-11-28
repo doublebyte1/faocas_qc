@@ -112,6 +112,7 @@ void ModelInterface::initModels()
     initModel(tChangesTempVessel,"abstract_changes_temp_vessel");
     initModel(tChangesPermLS,"changes_perm_ls");
     initModel(tChangesPermGLS,"changes_lerm_gls");
+
 }
 
 bool ModelInterface::filterTables()

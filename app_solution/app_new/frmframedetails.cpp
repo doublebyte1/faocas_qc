@@ -562,8 +562,6 @@ void FrmFrameDetails::initMapper()
     mapper= new QDataWidgetMapper(this);
     mapper->setModel(modelInterface->tRefFrame);
 
-    qDebug() << modelInterface->tRefFrame->rowCount() << endl;
-
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
 
     if (nullDellegate!=0) delete nullDellegate;

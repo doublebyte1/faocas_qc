@@ -11,13 +11,13 @@ void NullRelationalDelegate::setModelData(QWidget *editor, QAbstractItemModel *m
         QSqlRelationalDelegate::setModelData(editor,model,index);
     }else{
         if (m_colsText.contains(index.column())){//textEdits
-            model->setData(index, editor->property("plainText") == tr("") ?
-                QVariant() :
-            editor->property("plainText"));
+
+            if (editor->property("plainText") != "")
+                model->setData(index, editor->property("plainText"));
         }else {
-            model->setData(index, editor->property("text") == tr("") ?
-            QVariant() :
-            editor->property("text"));
+            if (editor->property("text") != "")
+                model->setData(index, editor->property("text"));
+
         }
     }
 }

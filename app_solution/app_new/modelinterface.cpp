@@ -1017,8 +1017,6 @@ bool ModelInterface::readOneLS(const int inRow, const int outRow, const QModelIn
     if (!mapData(inRow,outRow,4,0,parent,tRefLS,var))
         return false;//Name
 
-    qDebug() << var.toString() << endl;
-
     if (!mapData(inRow,outRow,6,1,parent,tRefLS,var))
         return false;//Description
 

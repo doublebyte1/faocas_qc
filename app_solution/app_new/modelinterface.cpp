@@ -1017,6 +1017,8 @@ bool ModelInterface::readOneLS(const int inRow, const int outRow, const QModelIn
     if (!mapData(inRow,outRow,4,0,parent,tRefLS,var))
         return false;//Name
 
+    qDebug() << var.toString() << endl;
+
     if (!mapData(inRow,outRow,6,1,parent,tRefLS,var))
         return false;//Description
 
@@ -1551,36 +1553,61 @@ bool ModelInterface::readGenericStructure(const int subFrameId, QModelIndex& roo
         }
     }
 
-    tRefGLS->setFilter(tr(""));
-    tLinkFr2GLS->setFilter(tr(""));
-    tLinkGLS2LS->setFilter(tr(""));
-    tRefLS->setFilter(tr(""));
-    tLinkLS2Vessels->setFilter(tr(""));
-    tRefVessels->setFilter(tr(""));
+    tRefGLS->setFilter("");
+    tLinkFr2GLS->setFilter("");
+    tLinkGLS2LS->setFilter("");
+    tRefLS->setFilter("");
+    tLinkLS2Vessels->setFilter("");
+    tRefVessels->setFilter("");
 
     return true;
 }
 
 bool ModelInterface::readBin(const int subFrameId, QModelIndex& bin, const bool bBin, const QVector<int>& vVesselsBlackList)
 {
+    // Since the bin has a flat structure, we can only read the GLS from the hierarchical generic structure function
     if (!readGenericStructure(subFrameId,bin,true,vVesselsBlackList)) return false;
 
     tLinkFr2GLS->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
     tLinkGLS2LS->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
     tLinkLS2Vessels->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
 
-    //read GLS & LS
+    QString strFilter;
+
+    //read LS
+    for (int i=0; i < tLinkGLS2LS->rowCount();++i)
+    {
+        if (i>0)
+            strFilter.append(tr(" OR "));
+
+        strFilter.append(tr("id=")+tLinkGLS2LS->index(i,3).data().toString());
+    }
+    tRefLS->setFilter(strFilter);
+
     for (int j=0; j < tLinkGLS2LS->rowCount(); ++j)
     {
         QModelIndex ls;
         if (!readOneLS(j,j,bin,bBin,ls)) return false;
      }
 
+    strFilter.clear();
     //read Vessel
+    for (int i=0; i < tLinkLS2Vessels->rowCount();++i)
+    {
+        if (i>0)
+            strFilter.append(tr(" OR "));
+
+        strFilter.append(tr("vesselid=")+tLinkLS2Vessels->index(i,3).data().toString());
+    }
+    tRefVessels->setFilter(strFilter);
+
     for (int k=0; k < tLinkLS2Vessels->rowCount(); ++k)
     {
         if (!readOneVS(k,k,bBin,bin,vVesselsBlackList)) return false;
     }
+
+    tRefVessels->setFilter("");
+    tRefLS->setFilter("");
 
     tLinkFr2GLS->setFilter("");
     tLinkGLS2LS->setFilter("");

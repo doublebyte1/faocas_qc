@@ -111,7 +111,7 @@ void ModelInterface::initModels()
     initModel(tChangesPermVessel,"changes_perm_vessel");
     initModel(tChangesTempVessel,"abstract_changes_temp_vessel");
     initModel(tChangesPermLS,"changes_perm_ls");
-    initModel(tChangesPermGLS,"changes_lerm_gls");
+    initModel(tChangesPermGLS,"changes_perm_gls");
 
 }
 
@@ -1567,8 +1567,15 @@ bool ModelInterface::readBin(const int subFrameId, QModelIndex& bin, const bool 
     if (!readGenericStructure(subFrameId,bin,true,vVesselsBlackList)) return false;
 
     tLinkFr2GLS->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
-    tLinkGLS2LS->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
-    tLinkLS2Vessels->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
+
+    size_t naID;
+    if (!getKeywordID(tRefGLS->tableName(),"outside",naID)) return false;
+
+    tLinkGLS2LS->setFilter("id_sub_frame=" + QVariant(subFrameId).toString() + " AND id_gls=" + QVariant(naID).toString());
+
+    if (!getKeywordID(tRefLS->tableName(),"outside",naID)) return false;
+
+    tLinkLS2Vessels->setFilter("id_sub_frame=" + QVariant(subFrameId).toString() + " AND id_abstract_landingsite=" + QVariant(naID).toString());
 
     QString strFilter;
 
@@ -1585,7 +1592,9 @@ bool ModelInterface::readBin(const int subFrameId, QModelIndex& bin, const bool 
     for (int j=0; j < tLinkGLS2LS->rowCount(); ++j)
     {
         QModelIndex ls;
-        if (!readOneLS(j,j,bin,bBin,ls)) return false;
+
+        if (!readOneLS(j,j,bin,bBin,ls))
+            return false;
      }
 
     strFilter.clear();

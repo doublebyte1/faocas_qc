@@ -2780,7 +2780,7 @@ static bool getKeywordID(const QString strTable, const QString strKeyword, size_
     strQuery.replace("[strTable]", strTable);
     strQuery.replace("[strKeyword]", strKeyword);
 
-    qDebug() << strQuery << endl;
+    //qDebug() << strQuery << endl;
 
     QSqlQuery query;
     if (!query.prepare(

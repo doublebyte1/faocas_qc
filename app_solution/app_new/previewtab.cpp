@@ -15,22 +15,22 @@ GenericTab(index,inRoleDef,inSample,inTDateTime,inStrTitle,ruleCheckerPtr,parent
     m_pushEdit=0;
 
     //Logbook flow
-    mapTablesL.insert("Fr_Time",sTable(qApp->translate("null_replacements", strNa),"Ref_Minor_Strata",true));
-    mapTablesL.insert("Ref_Minor_Strata",sTable("id_frame_time","Sampled_Strata_Vessels",true));
-    mapTablesL.insert("Sampled_Strata_Vessels",sTable("id_minor_strata","Abstract_Sampled_Vessels",false));
-    mapTablesL.insert("Abstract_Sampled_Vessels",sTable("id_sampled_strata_vessels","Sampled_Fishing_Trips",false));
-    mapTablesL.insert("Sampled_Fishing_Trips",sTable("id_abstract_sampled_vessels","Sampled_Fishing_Operations",true));
-    mapTablesL.insert("Sampled_Fishing_Operations",sTable("id_fishing_trip",qApp->translate("null_replacements", strNa),true));
+    mapTablesL.insert("fr_time",sTable(qApp->translate("null_replacements", strNa),"ref_minor_strata",true));
+    mapTablesL.insert("ref_minor_strata",sTable("id_frame_time","sampled_strata_vessels",true));
+    mapTablesL.insert("sampled_strata_vessels",sTable("id_minor_strata","abstract_sampled_vessels",false));
+    mapTablesL.insert("abstract_sampled_Vessels",sTable("id_sampled_strata_vessels","sampled_fishing_trips",false));
+    mapTablesL.insert("sampled_fishing_trips",sTable("id_abstract_sampled_vessels","sampled_fishing_operations",true));
+    mapTablesL.insert("sampled_fishing_operations",sTable("id_fishing_trip",qApp->translate("null_replacements", strNa),true));
 
     //sampling flow
-    mapTablesS.insert("Fr_Time",sTable(qApp->translate("null_replacements", strNa),"Ref_Minor_Strata",true));
-    mapTablesS.insert("Ref_Minor_Strata",sTable("id_frame_time","Sampled_Cell",true));
-    mapTablesS.insert("Sampled_Cell",sTable("id_minor_strata","Sampled_Cell_Vessel_Types",false));
-    mapTablesS.insert("Sampled_Cell_Vessel_Types",sTable("id_cell","Sampled_Cell_Vessels",false));
-    mapTablesS.insert("Sampled_Cell_Vessels",sTable("id_cell_vessel_types","Abstract_Sampled_Vessels",false));
-    mapTablesS.insert("Abstract_Sampled_Vessels",sTable("id_sampled_cell_vessels","Sampled_Fishing_Trips",false));
-    mapTablesS.insert("Sampled_Fishing_Trips",sTable("id_abstract_sampled_vessels","Sampled_Fishing_Operations",true));
-    mapTablesS.insert("Sampled_Fishing_Operations",sTable("id_fishing_trip",qApp->translate("null_replacements", strNa),true));
+    mapTablesS.insert("fr_time",sTable(qApp->translate("null_replacements", strNa),"ref_minor_strata",true));
+    mapTablesS.insert("ref_minor_strata",sTable("id_frame_time","sampled_cell",true));
+    mapTablesS.insert("sampled_cell",sTable("id_minor_strata","sampled_cell_vessel_types",false));
+    mapTablesS.insert("sampled_cell_vessel_types",sTable("id_cell","sampled_cell_vessels",false));
+    mapTablesS.insert("sampled_cell_vessels",sTable("id_cell_vessel_types","abstract_sampled_vessels",false));
+    mapTablesS.insert("abstract_sampled_vessels",sTable("id_sampled_cell_vessels","sampled_fishing_trips",false));
+    mapTablesS.insert("sampled_fishing_trips",sTable("id_abstract_sampled_vessels","sampled_fishing_operations",true));
+    mapTablesS.insert("sampled_fishing_operations",sTable("id_fishing_trip",qApp->translate("null_replacements", strNa),true));
 
     setAttribute( Qt::WA_AlwaysShowToolTips);
 

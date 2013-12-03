@@ -79,11 +79,9 @@ void FrmFrame::setPreviewQuery()
 {
     //TODO: Refactor for the new date structure
     viewFrameTime->setQuery(
-                "select     fr_time.id, fr_frame.name, to_char(a.date_local, 'DD/Mon/YYYY') as \"lower limit\", to_char(b.date_local, 'DD/Mon/YYYY') as \"upper limit\","
+                "select     fr_time.id, fr_frame.name, to_char(start_dt, 'DD/Mon/YYYY') as \"lower limit\", to_char(end_dt, 'DD/Mon/YYYY') as \"upper limit\","
                 "                          fr_time.id_frame"
                 "           from         fr_time inner join"
-                "                          gl_dates as a on fr_time.id_start_dt = a.id inner join"
-                "                         gl_dates as b on fr_time.id_end_dt = b.id inner join"
                 "                          fr_frame on fr_time.id_frame = fr_frame.id"
                 "         where     (fr_time.comments not like '%n/a%')"
                 " order by fr_time.id desc;"    );
@@ -482,15 +480,14 @@ void FrmFrame::initMapper2()
     mapper->addMapping(this->customDtStart,6);
     mapper->addMapping(this->customDtEnd,7);
 
-    //TODO: COME BACK TO THIS LATER
-    /*
+
     QList<QDataWidgetMapper*> lMapper;
-    lMapper << mapper << mapperStartDt << mapperEndDt;
+    lMapper << mapper;// << mapperStartDt << mapperEndDt;
     m_mapperBinderPtr=new MapperRuleBinder(m_ruleCheckerPtr, m_sample, lMapper, this->objectName());
     if (!initBinder(m_mapperBinderPtr))
         emit showError(tr("Could not init binder!"));
 
-    emit blockCatchUISignals(false);*/
+    emit blockCatchUISignals(false);
 }
 
 void FrmFrame::initMappers()
@@ -537,22 +534,24 @@ bool FrmFrame::reallyApply()
          int id= tFrameTime->relationModel(1)->index(cmbPrexistent->currentIndex(),0).data().toInt();
 
         int n=0;
-        query.prepare("{CALL spCountGLS4Frame(?,?)}");
-        query.bindValue(0,id);
-        query.bindValue("Number",n,QSql::Out);
+        QString strQuery="select spcountgls4frame([id])";
+        strQuery.replace("[id]",QVariant(id).toString());
+        query.prepare(strQuery);
 
          if (!query.exec()){
              emit showError(query.lastError().text());
-             bError=true;;
+             bError=true;
          }
 
-        n = query.boundValue("Number").toInt();
+        query.first();
+        n = query.value(0).toInt();//*/query.boundValue("Number").toInt();
 
         if (n<1){
             emit showError(tr("There are no Group of Landing Sites for this frame!"));
             bError=true;
         }else{
 
+            /*
             bError=!submitDates(mapperStartDt, mapperEndDt);
 
             while(m_tDateTime->canFetchMore())
@@ -591,7 +590,7 @@ bool FrmFrame::reallyApply()
                     }else bError=true;
                 }else bError=true;
             }
-
+*/
             bError=!submitMapperAndModel(mapper);
 
         }

@@ -73,6 +73,8 @@ void FrmSampling::onShowForm()
 
     if (m_mode==CREATE){
 
+        tRefSampTec->setFilter("");
+
         if (!createRecords()){
             emit showError(tr("Could not initialize records for Sampling Technique!"));
             return;
@@ -167,6 +169,8 @@ bool FrmSampling::comitSamplingTechnique()
 {
     bool bError=false;
 
+    int prevCnt=tRefSampTec->rowCount();
+
     int curIndex=mapper1->currentIndex();
     if (curIndex==-1) return true; //there are no changes on this form!! (CAREFULL WITH THIS TEST)
 
@@ -177,6 +181,13 @@ bool FrmSampling::comitSamplingTechnique()
                 emit showError(tr("Could not submit mapper!"));
             bError=true;
     }else{
+
+             Q_ASSERT_X(prevCnt >= tRefSampTec->rowCount(), "Table RowCount", "Ref_Sampling_Technique Table rowcount was not correctly updated!");
+
+                while(tRefSampTec->canFetchMore())
+                    tRefSampTec->fetchMore();
+
+
             QModelIndex idx=tRefSampTec->index(tRefSampTec->rowCount()-1,8);
             if (!idx.isValid()) return false;
             if (!tRefSampTec->setData(idx,m_sample->frameTimeId)) return false;
@@ -255,8 +266,8 @@ void FrmSampling::initModels()
     if (tRefSampTec!=0) delete tRefSampTec;
 
     tRefSampTec = new QSqlRelationalTableModel;
-    tRefSampTec->setTable(tr("Ref_Sampling_Technique"));
-    tRefSampTec->setRelation(5, QSqlRelation(tr("Ref_Strategy"), tr("ID"), tr("Name")));
+    tRefSampTec->setTable("ref_sampling_technique");
+    tRefSampTec->setRelation(5, QSqlRelation("ref_strategy", "id", "name"));
 
     //filter n/a records
     filterTable(tRefSampTec->relationModel(5));
@@ -268,10 +279,10 @@ void FrmSampling::initModels()
     if (tSampLevels!=0) delete tSampLevels;
 
     tSampLevels=new QSqlRelationalTableModel();
-    tSampLevels->setTable(QSqlDatabase().driver()->escapeIdentifier(tr("Sampled_Levels"),
+    tSampLevels->setTable(QSqlDatabase().driver()->escapeIdentifier("sampled_levels",
         QSqlDriver::TableName));
-    tSampLevels->setRelation(1, QSqlRelation(tr("Ref_Levels"), tr("ID"), tr("Name")));
-    tSampLevels->setRelation(4, QSqlRelation(tr("Ref_Strategy"), tr("ID"), tr("Name")));
+    tSampLevels->setRelation(1, QSqlRelation("ref_levels", "id", "name"));
+    tSampLevels->setRelation(4, QSqlRelation("ref_strategy", "id", "name"));
 
     //filter n/a records
     filterTable(tSampLevels->relationModel(1));
@@ -289,9 +300,9 @@ void FrmSampling::initModels()
     tSampLevels->setHeaderData(6,Qt::Horizontal, tr("Comments"));
 
     tRefLevels = new QSqlTableModel;
-    tRefLevels->setTable("Ref_Levels");
+    tRefLevels->setTable("ref_levels");
     tRefLevels->setEditStrategy(QSqlTableModel::OnManualSubmit);
-    tRefLevels->sort(0,Qt::AscendingOrder);
+    //tRefLevels->sort(0,Qt::AscendingOrder);
     tRefLevels->select();
 }
 

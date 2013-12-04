@@ -518,8 +518,13 @@ void PreviewTab::removeRecord()
                     showStatus(tr("Record successfully removed from the database!"));
                     setPreviewQuery();
                     emit recordRemoved();
-                    if (m_table->model()->rowCount()>0) m_table->selectRow(0);//to avoid a selection on a non existent row!
-                    else m_groupDetails->hide();
+
+                    m_table->clearSelection();
+                    /*
+                    if (m_table->model()->rowCount()>0){
+                        m_table->selectRow(0);//to avoid a selection on a non existent row!
+                     }
+                    else*/ m_groupDetails->hide();
                 }
             }
 
@@ -608,7 +613,7 @@ bool PreviewTab::abstractPreviewRow(QModelIndex index)
 
     QString id=idx.data().toString();
 
-    m_model->setFilter(m_model->tableName()+".ID="+id);
+    m_model->setFilter(m_model->tableName()+".id="+id);
 
     if (m_model->rowCount()!=1)
         return false;

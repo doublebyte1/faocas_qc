@@ -238,16 +238,16 @@ void FrmMinorStrata::uI4NewRecord()
 void FrmMinorStrata::filterModel4Combo()
 {
     QString strQuery=
-    "SELECT     dbo.FR_F2GLS.id_gls "
-    "FROM         dbo.FR_Sub_Frame INNER JOIN"
-    "                 dbo.FR_F2GLS ON dbo.FR_Sub_Frame.ID = dbo.FR_F2GLS.id_sub_frame INNER JOIN"
-    "                  dbo.FR_Frame INNER JOIN"
-    "                  dbo.FR_Time ON dbo.FR_Frame.ID = dbo.FR_Time.id_frame ON dbo.FR_Sub_Frame.id_frame = dbo.FR_Frame.ID "
-    "WHERE     (dbo.FR_Time.ID = :id) AND (dbo.FR_Sub_Frame.Type ="
-    "                      (SELECT     ID"
-    "                        FROM          dbo.Ref_Frame"
-    "                        WHERE      (Name = :root)) )";
-
+            "select     fr_f2gls.id_gls "
+            "from         fr_sub_frame inner join"
+            "                 fr_f2gls on fr_sub_frame.id = fr_f2gls.id_sub_frame inner join"
+            "                  fr_frame inner join"
+            "                  fr_time on fr_frame.id = fr_time.id_frame on fr_sub_frame.id_frame = fr_frame.id "
+            " where     (fr_time.id = :id) and (fr_sub_frame.type ="
+            "                      (select     id"
+            "                        from          ref_frame"
+            "                        where      (name = :root)) );"
+            ;
     QSqlQuery query;
     query.prepare(strQuery);
     query.bindValue(0,m_sample->frameTimeId);
@@ -258,10 +258,10 @@ void FrmMinorStrata::filterModel4Combo()
         return;
     }
 
-    QString strFilter(tr(""));
+    QString strFilter("");
      while (query.next()) {
-        strFilter.append(tr("ID=") + query.value(0).toString());
-        strFilter.append(tr(" OR "));
+        strFilter.append("id=" + query.value(0).toString());
+        strFilter.append(" OR ");
      }
      if (!strFilter.isEmpty())
          strFilter=strFilter.remove(strFilter.size()-QString(" OR ").length(),QString(" OR ").length());

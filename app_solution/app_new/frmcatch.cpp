@@ -72,15 +72,15 @@ void FrmCatch::setPreviewQuery()
 {
     if (m_sample==0) return;
 
-    QString strQuery=
-    "SELECT     dbo.Sampled_Catch.ID, dbo.Ref_Commercial_Categories.Name AS [Commercial Category], "
-    "                      dbo.Sampled_Catch.catch_weight_estimated AS [Total Catch], dbo.Ref_Units.Name AS Units"
-    " FROM         dbo.Sampled_Catch INNER JOIN"
-    "                      dbo.Ref_Commercial_Categories ON dbo.Sampled_Catch.id_commercial_category = dbo.Ref_Commercial_Categories.ID INNER JOIN"
-    "                      dbo.Ref_Units ON dbo.Sampled_Catch.id_catch_no_boxes_units = dbo.Ref_Units.ID AND "
-    "                      dbo.Sampled_Catch.id_catch_units_units = dbo.Ref_Units.ID AND dbo.Sampled_Catch.id_catch_weight_units = dbo.Ref_Units.ID AND "
-    "                      dbo.Sampled_Catch.id_sample_units = dbo.Ref_Units.ID"
-    "                      WHERE     (dbo.Sampled_Catch.id_fishing_operation = :id) ORDER BY ID DESC"
+    QString strQuery=            
+            "select     sampled_catch.id, ref_commercial_categories.name as \"commercial category\", "
+            "                      sampled_catch.catch_weight_estimated as \"total catch\", ref_units.name as units"
+            " from         sampled_catch inner join"
+            "                      ref_commercial_categories on sampled_catch.id_commercial_category = ref_commercial_categories.id inner join"
+            "                      ref_units on sampled_catch.id_catch_no_boxes_units = ref_units.id and "
+            "                      sampled_catch.id_catch_units_units = ref_units.id and sampled_catch.id_catch_weight_units = ref_units.id and "
+            "                      sampled_catch.id_sample_units = ref_units.id"
+            "                      where     (sampled_catch.id_fishing_operation = :id) order by id desc"
     ;
 
     QSqlQuery query;

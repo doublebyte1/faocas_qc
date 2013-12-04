@@ -16,8 +16,8 @@ PreviewTab(0,inRoleDef,inSample,inTDateTime,tr("Frame"), ruleCheckerPtr, parent,
     viewFrameTime=0;
     frModel=0;
     mapper=0;
-    mapperStartDt=0;
-    mapperEndDt=0;
+    //mapperStartDt=0;
+    //mapperEndDt=0;
     m_submitted=false;
     m_curMode=FrmFrameDetails::NONE;
     m_bInsert=false;
@@ -55,8 +55,8 @@ FrmFrame::~FrmFrame()
     if (viewFrameTime!=0) delete viewFrameTime;
     if (frModel!=0) delete frModel;
     if (mapper!=0) delete mapper;
-    if (mapperStartDt!=0) delete mapperStartDt;
-    if (mapperEndDt!=0) delete mapperEndDt;
+    //if (mapperStartDt!=0) delete mapperStartDt;
+    //if (mapperEndDt!=0) delete mapperEndDt;
 }
 
 void FrmFrame::initHelpIds()
@@ -77,7 +77,6 @@ void FrmFrame::initHelpIds()
 
 void FrmFrame::setPreviewQuery()
 {
-    //TODO: Refactor for the new date structure
     viewFrameTime->setQuery(
                 "select     fr_time.id, fr_frame.name, to_char(start_dt, 'DD/Mon/YYYY') as \"lower limit\", to_char(end_dt, 'DD/Mon/YYYY') as \"upper limit\","
                 "                          fr_time.id_frame"
@@ -134,32 +133,29 @@ void FrmFrame::onEditLeave(const bool bFinished, const bool bDiscarded)
 
 bool FrmFrame::applyChanges()
 {
+    //TODO: REVIEW THIS (DATES)
+
     bool bError=true;
 
-    QString strError;
+//    QString strError;
 
-    if (!checkDependantDates("Fr_Time", customDtStart->dateTime(),
-        customDtEnd->dateTime(),"Fr_Time",m_sample->frameTimeId, strError))
+    //TODO: REVIEW THE DEPENDENT DATES
+    /*
+    if (!checkDependantDates("fr_time", customDtStart->dateTime(),
+        customDtEnd->dateTime(),"fr_time",m_sample->frameTimeId, strError))
     {
         emit showError(strError);
     }else{
-
-        QVariant start,end;
-        bError=!amendDates(mapperStartDt, mapperEndDt,start,end);
-        if (!bError){
+    */
 
             int cur= mapper->currentIndex();
-            if (mapper->model()->index(cur,2).data()!=start)
-                mapper->model()->setData(mapper->model()->index(cur,2),start);
-            if (mapper->model()->index(cur,3).data()!=end)
-                mapper->model()->setData(mapper->model()->index(cur,3),end);
 
             bError=!submitMapperAndModel(mapper);
             if (!bError){
                 mapper->setCurrentIndex(cur);
             }
-        }
-    }
+
+    //}
 
     if (!bError) emit editLeave(true,false);
     return !bError;
@@ -175,22 +171,7 @@ void FrmFrame::createRecord()
     genericCreateRecord();
 
     mapper->toLast();
-/*
-    bool bDate, bTime;
-    customDtStart->getIsDateTime(bDate,bTime);
-    m_tDateTime->insertNewRecord(customDtStart->getIsAuto(),bDate,bTime);
-    customDtEnd->getIsDateTime(bDate,bTime);
-    m_tDateTime->insertNewRecord(customDtStart->getIsAuto(),bDate,bTime);
 
-    while(m_tDateTime->canFetchMore())
-        m_tDateTime->fetchMore();
-
-    mapperStartDt->setCurrentIndex(m_tDateTime->rowCount()-2);//just before last
-    mapperEndDt->setCurrentIndex(m_tDateTime->rowCount()-1);
-
-    connect(m_mapperBinderPtr, SIGNAL(defaultValuesRead()), this,
-        SLOT(unblockCustomDateCtrls()));
-*/
     m_bInsert=true;
 
     uI4NewRecord();//init UI
@@ -267,35 +248,7 @@ void FrmFrame::previewRow(QModelIndex index)
             return;
         }
         mapper->setCurrentModelIndex(pIdx);
-
-        //blockCustomDateCtrls();
-
-        //Now fix the dates
-        idx=tFrameTime->index(pIdx.row(),2);
-        if (!idx.isValid()){
-            emit showError (tr("Could not preview start date of this sampling frame!"));
-            return;
-        }
-
-        QString strStartDt=idx.data().toString();
-
-        idx=tFrameTime->index(pIdx.row(),3);
-        if (!idx.isValid()){
-            emit showError (tr("Could not preview end date of this sampling frame!"));
-            return;
-        }
-        QString strEndDt=idx.data().toString();
-
-        m_tDateTime->setFilter(tr("ID=") + strStartDt + tr(" OR ID=") + strEndDt + " ORDER BY DATE_LOCAL ASC");
-
-        if (m_tDateTime->rowCount()!=2)
-            return;
-
-        mapperEndDt->toLast();
-        mapperStartDt->setCurrentIndex(mapperEndDt->currentIndex()-1);
-
-        //unblockCustomDateCtrls();
-    }
+     }
 }
 
 void FrmFrame::onItemSelection()
@@ -304,21 +257,7 @@ void FrmFrame::onItemSelection()
     pushNext->setEnabled(tableView->selectionModel()->hasSelection()/* && !m_bSampling*/);
     emit disableTabs();
 }
-/*
-void FrmFrame::blockCustomDateCtrls()
-{
-    //block signals here because of the rule binder!
-    customDtStart->blockSignals(true);
-    customDtEnd->blockSignals(true);
-}
 
-void FrmFrame::unblockCustomDateCtrls()
-{
-    //block signals here because of the rule binder!
-    customDtStart->blockSignals(false);
-    customDtEnd->blockSignals(false);
-}
-*/
 void FrmFrame::initModels()
 {
     initFrModel();
@@ -359,10 +298,10 @@ void FrmFrame::initFrModel()
     if (tFrameTime!=0) delete tFrameTime;
 
     tFrameTime=new QSqlRelationalTableModel();
-    tFrameTime->setTable(QSqlDatabase().driver()->escapeIdentifier("FR_Time",
+    tFrameTime->setTable(QSqlDatabase().driver()->escapeIdentifier("fr_time",
         QSqlDriver::TableName));
 
-    tFrameTime->setRelation(1, QSqlRelation("FR_Frame", "ID", "Name"));
+    tFrameTime->setRelation(1, QSqlRelation("fr_frame", "id", "name"));
 
     filterTable(tFrameTime->relationModel(1));
 
@@ -495,25 +434,6 @@ void FrmFrame::initMappers()
     cmbCopy->setModel(frModel);
     cmbCopy->setModelColumn(1);
 
-/*
-    if (m_tDateTime==0) return;
-
-    if (mapperStartDt!=0) delete mapperStartDt;
-
-    mapperStartDt= new QDataWidgetMapper(this);
-    mapperStartDt->setModel(m_tDateTime);
-    mapperStartDt->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
-    mapperStartDt->setItemDelegate(new QItemDelegate(this));
-    mapperStartDt->addMapping(customDtStart,2,tr("dateTime").toAscii());
-
-    if (mapperEndDt!=0) delete mapperEndDt;
-
-    mapperEndDt= new QDataWidgetMapper(this);
-    mapperEndDt->setModel(m_tDateTime);
-    mapperEndDt->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
-    mapperEndDt->setItemDelegate(new QItemDelegate(this));
-    mapperEndDt->addMapping(customDtEnd,2,QString("dateTime").toAscii());
-*/
     initMapper2();
     mapper->toLast();
 }
@@ -544,53 +464,13 @@ bool FrmFrame::reallyApply()
          }
 
         query.first();
-        n = query.value(0).toInt();//*/query.boundValue("Number").toInt();
+        n = query.value(0).toInt();
 
         if (n<1){
             emit showError(tr("There are no Group of Landing Sites for this frame!"));
             bError=true;
         }else{
 
-            /*
-            bError=!submitDates(mapperStartDt, mapperEndDt);
-
-            while(m_tDateTime->canFetchMore())
-                m_tDateTime->fetchMore();
-
-            mapperStartDt->setCurrentIndex(m_tDateTime->rowCount()-2);
-            mapperEndDt->setCurrentIndex(m_tDateTime->rowCount()-1);
-
-            int startIdx=mapperStartDt->currentIndex();
-            int endIdx=mapperEndDt->currentIndex();
-
-            if (bError) {
-                emit showError(tr("Could not create dates in the database!"));
-            }else{
-
-            //Now insert the record
-            while(tFrameTime->canFetchMore())
-                tFrameTime->fetchMore();
-
-            QModelIndex idx=tFrameTime->index(tFrameTime->rowCount()-1,1);//id frame
-            if (idx.isValid()){
-                    tFrameTime->setData(idx,id);
-                    QModelIndex idx=tFrameTime->index(tFrameTime->rowCount()-1,2);//start dt
-                    if (idx.isValid()){
-                        int idStart;
-                        if (getDtId(startIdx,idStart)){
-                            tFrameTime->setData(idx,idStart);
-                            idx=tFrameTime->index(tFrameTime->rowCount()-1,3);//end dt
-                            if (idx.isValid()){
-                                int idEnd;
-                                if (getDtId(endIdx,idEnd)){
-                                    tFrameTime->setData(idx,idEnd);
-                                }else bError=true;
-                            }
-                        }else bError=true;
-                    }else bError=true;
-                }else bError=true;
-            }
-*/
             bError=!submitMapperAndModel(mapper);
 
         }

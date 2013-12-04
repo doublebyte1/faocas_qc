@@ -470,14 +470,12 @@ void FrmMinorStrata::onItemSelection()
 void FrmMinorStrata::setPreviewQuery()
 {
     viewMinorStrata->setQuery(
-    "SELECT     dbo.Ref_Minor_Strata.ID, dbo.Ref_Minor_Strata.Name, CONVERT(CHAR(10),F1.Date_Local,103) AS [Start Date], CONVERT(CHAR(10),F2.Date_Local,103) AS [End Date], "
-    "CASE WHEN dbo.Ref_Minor_Strata.IsClosed=0 THEN 'false' ELSE 'true' END Closed "
-    " FROM         dbo.Ref_Minor_Strata INNER JOIN"
-    "                      dbo.GL_Dates AS F1 ON dbo.Ref_Minor_Strata.id_start_dt = F1.ID INNER JOIN"
-    "                      dbo.GL_Dates AS F2 ON dbo.Ref_Minor_Strata.id_end_dt = F2.ID"
-    "                      WHERE     (dbo.Ref_Minor_Strata.id_frame_time = " + QVariant(m_sample->frameTimeId).toString() + ")"
-    "                      ORDER BY dbo.Ref_Minor_Strata.ID DESC"
-    );
+             "select     ref_minor_strata.id, ref_minor_strata.name, to_char(start_dt, 'DD/Mon/YYYY') as \"start date\", to_char(end_dt, 'DD/Mon/YYYY') as \"end date\","
+             "  ref_minor_strata.isclosed as closed"
+             " from         ref_minor_strata "
+             "                      where     (ref_minor_strata.id_frame_time =" + QVariant(m_sample->frameTimeId).toString() + ")"
+             "                      order by ref_minor_strata.id desc"
+            );
 
     tableView->hideColumn(0);
     resizeToVisibleColumns(tableView);

@@ -153,15 +153,12 @@ void FrmCell::previewRow(QModelIndex index)
 void FrmCell::setPreviewQuery()
 {
     viewCell->setQuery(
-    "SELECT     TOP (100) PERCENT dbo.Sampled_Cell.ID, dbo.Ref_Abstract_LandingSite.Name as [Landing Site], CONVERT(CHAR(10), F1.Date_Local, 103) AS [Start Date], CONVERT(CHAR(10), "
-    "                      F2.Date_Local, 103) AS [End Date] "
-    "FROM         dbo.Sampled_Cell INNER JOIN"
-    "                      dbo.GL_Dates AS F1 ON dbo.Sampled_Cell.id_start_dt = F1.ID INNER JOIN"
-    "                      dbo.GL_Dates AS F2 ON dbo.Sampled_Cell.id_end_dt = F2.ID INNER JOIN"
-    "                      dbo.Ref_Abstract_LandingSite ON dbo.Ref_Abstract_LandingSite.ID = dbo.Sampled_Cell.id_abstract_LandingSite "
-    "WHERE     (dbo.Sampled_Cell.id_Minor_Strata = "  + QVariant(m_sample->minorStrataId).toString() +
-    " ) ORDER BY dbo.Sampled_Cell.ID DESC"
-    );
+                "select    sampled_cell.id, ref_abstract_landingsite.name as \"landing site\", to_char(start_dt, 'DD/Mon/YYYY') as \"start date\", to_char(end_dt, 'DD/Mon/YYYY') as \"end date\" "
+                "from         sampled_cell inner join"
+                "                      ref_abstract_landingsite on ref_abstract_landingsite.id = sampled_cell.id_abstract_landingsite"
+                " where     (sampled_cell.id_minor_strata ="  + QVariant(m_sample->minorStrataId).toString() +
+                " ) order by sampled_cell.id desc"
+                );
 
     tableView->hideColumn(0);
     resizeToVisibleColumns(tableView);

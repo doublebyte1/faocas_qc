@@ -124,20 +124,23 @@ void FrmOperation::previewRow(QModelIndex index)
 
 void FrmOperation::setPreviewQuery()
 {
+    //TODO: REVIEW THIS; the idea is to compare the time (hours, minutes and seconds) with Unix time 0; if it is the case, than we don't have a valid time
+    // for this record, and we just assigned it as 'missing';
     if (m_sample==0) return;
     QString strQuery=
 
-    "SELECT     dbo.Sampled_Fishing_Operations.ID, dbo.Ref_Gears.Name as [Gear Used], CONVERT(CHAR(10), F1.Date_Local, 103) AS [Start Date], "
-    " CASE WHEN F1.Date_Type=(SELECT ID from Ref_DateTime_Type WHERE Name='Date') THEN 'missing' ELSE"
-    " CONVERT(VARCHAR(8), F1.Date_Local, 108) END [Start Time]"
-    " , CONVERT(CHAR(10), F2.Date_Local, 103) AS [End Date], "
-    " CASE WHEN F2.Date_Type=(SELECT ID from Ref_DateTime_Type WHERE Name='Date') THEN 'missing' ELSE"
-    " CONVERT(VARCHAR(8), F2.Date_Local, 108) END [End Time] "
-    " FROM         dbo.Sampled_Fishing_Operations INNER JOIN"
-    "                      dbo.Ref_Gears ON dbo.Sampled_Fishing_Operations.id_gear = dbo.Ref_Gears.ID INNER JOIN"
-    "                      dbo.GL_Dates AS F1 ON dbo.Sampled_Fishing_Operations.id_start_dt = F1.ID INNER JOIN"
-    "                      dbo.GL_Dates AS F2 ON dbo.Sampled_Fishing_Operations.id_end_dt = F2.ID"
-    " WHERE     (dbo.Sampled_Fishing_Operations.id_fishing_trip = :id) ORDER BY ID DESC"
+            "select     sampled_fishing_operations.id, ref_gears.name as \"gear used\", to_char(start_dt, 'DD/Mon/YYYY') as \"start date\",  to_char(end_dt, 'DD/Mon/YYYY') as \"end date\",  "
+            "    case when"
+            "    (select extract(hour from start_dt)=0) and (select extract(minute from  start_dt)=0) and (select extract(second from  start_dt)=0)"
+            "    then 'missing' else  "
+            "    to_char(start_dt, 'hh/mm/ss') end \"start time\","
+            "    case when"
+            "    (select extract(hour from  end_dt)=0) and (select extract(minute from  end_dt)=0) and (select extract(second from  end_dt)=0)"
+            "    then 'missing' else  "
+            "    to_char(end_dt, 'hh/mm/ss') end \"end time\""
+            "     from         sampled_fishing_operations inner join"
+            "                          ref_gears on sampled_fishing_operations.id_gear = ref_gears.id "
+            "     where     (sampled_fishing_operations.id_fishing_trip = :id) order by id desc            "
     ;
 
     QSqlQuery query;

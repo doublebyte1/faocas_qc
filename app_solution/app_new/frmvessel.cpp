@@ -109,25 +109,25 @@ void FrmVessel::setPreviewQuery()
     if (m_sample->bLogBook){//logbook
 
         strQuery=
-        "                SELECT     dbo.Abstract_Sampled_Vessels.ID, dbo.Ref_Vessels.Name as [Vessel Name], dbo.Ref_Sample_Status.name AS Status"
-        " FROM         dbo.Abstract_Sampled_Vessels INNER JOIN"
-        "                      dbo.Ref_Vessels ON dbo.Abstract_Sampled_Vessels.VesselID = dbo.Ref_Vessels.VesselID INNER JOIN"
-        "                      dbo.Sampled_Strata_Vessels ON dbo.Abstract_Sampled_Vessels.id_Sampled_Strata_Vessels = dbo.Sampled_Strata_Vessels.ID INNER JOIN"
-        "                      dbo.Ref_Sample_Status ON dbo.Abstract_Sampled_Vessels.id_sample_status = dbo.Ref_Sample_Status.ID"
-        "                      WHERE     (dbo.Sampled_Strata_Vessels.id_minor_strata = :id)"
-        "                      ORDER BY dbo.Abstract_Sampled_Vessels.ID DESC"
+        "select     abstract_sampled_vessels.id, ref_vessels.name as \"vessel name\", ref_sample_status.name as status"
+        " from         abstract_sampled_vessels inner join"
+        "		      ref_vessels on abstract_sampled_vessels.vesselid = ref_vessels.vesselid inner join"
+        "		      sampled_strata_vessels on abstract_sampled_vessels.id_sampled_strata_vessels = sampled_strata_vessels.id inner join"
+        "		      ref_sample_status on abstract_sampled_vessels.id_sample_status = ref_sample_status.id"
+        "		      where     (sampled_strata_vessels.id_minor_strata = :id)"
+        "		      order by abstract_sampled_vessels.id desc"
         ;
         id=m_sample->minorStrataId;
 
     } else{//sampling
         strQuery=
-         "            SELECT     dbo.Abstract_Sampled_Vessels.ID, dbo.Ref_Vessels.Name as [Vessel Name], dbo.Ref_Sample_Status.name AS Status, id_Sampled_Cell_Vessels"
-         " FROM         dbo.Abstract_Sampled_Vessels INNER JOIN"
-         "                     dbo.Sampled_Cell_Vessels ON dbo.Abstract_Sampled_Vessels.id_Sampled_Cell_Vessels = dbo.Sampled_Cell_Vessels.ID INNER JOIN"
-         "                     dbo.Ref_Vessels ON dbo.Abstract_Sampled_Vessels.VesselID = dbo.Ref_Vessels.VesselID INNER JOIN"
-         "                     dbo.Ref_Sample_Status ON dbo.Abstract_Sampled_Vessels.id_sample_status = dbo.Ref_Sample_Status.ID"
-         "             WHERE     (dbo.Sampled_Cell_Vessels.id_cell_vessel_types = :id)"
-         "                      ORDER BY dbo.Abstract_Sampled_Vessels.ID DESC"
+        "select     abstract_sampled_vessels.id, ref_vessels.name as \"vessel name\", ref_sample_status.name as status, id_sampled_cell_vessels"
+         " from         abstract_sampled_vessels inner join"
+         "                    sampled_cell_vessels on abstract_sampled_vessels.id_sampled_cell_vessels = sampled_cell_vessels.id inner join"
+         "                    ref_vessels on abstract_sampled_vessels.vesselid = ref_vessels.vesselid inner join"
+         "                    ref_sample_status on abstract_sampled_vessels.id_sample_status = ref_sample_status.id"
+         "            where     (sampled_cell_vessels.id_cell_vessel_types = :id)"
+         "                     order by abstract_sampled_vessels.id desc"
          ;
         id=m_sample->vesselTypeId;
     }

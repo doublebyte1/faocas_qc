@@ -225,7 +225,7 @@ bool FrmFrame::updateFrameSampleParts()
 
 void FrmFrame::previewRow(QModelIndex index)
 {
-    //TODO: REVIEW THIS! Do we really want to exit in sampling forms?
+    //m_bSampling: tells us if the input about the sampling technique was already provided
     if (m_bSampling) return;
 
     QModelIndex idx=tableView->model()->index(index.row(),0);
@@ -255,7 +255,7 @@ void FrmFrame::previewRow(QModelIndex index)
 void FrmFrame::onItemSelection()
 {
     //no pusPrevious in this form!
-    pushNext->setEnabled(tableView->selectionModel()->hasSelection()/* && !m_bSampling*/);
+    pushNext->setEnabled(tableView->selectionModel()->hasSelection() && !m_bSampling);
     emit disableTabs();
 }
 

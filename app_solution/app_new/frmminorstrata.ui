@@ -308,7 +308,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
               <string>Active</string>
              </property>
              <attribute name="buttonGroup">
-              <string>buttonGroup</string>
+              <string notr="true">buttonGroup</string>
              </attribute>
             </widget>
            </item>
@@ -320,7 +320,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
                 <string>Inactive</string>
                </property>
                <attribute name="buttonGroup">
-                <string>buttonGroup</string>
+                <string notr="true">buttonGroup</string>
                </attribute>
               </widget>
              </item>
@@ -381,7 +381,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
-         <widget class="CustomTimeCtrl" name="customDtStart">
+         <widget class="QDateEdit" name="customDtStart">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
@@ -390,11 +390,17 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
           </property>
           <property name="focusPolicy">
            <enum>Qt::StrongFocus</enum>
+          </property>
+          <property name="displayFormat">
+           <string>dd/MM/yyyy</string>
+          </property>
+          <property name="calendarPopup">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="CustomTimeCtrl" name="customDtEnd">
+         <widget class="QDateEdit" name="customDtEnd">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
             <horstretch>0</horstretch>
@@ -403,6 +409,12 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
           </property>
           <property name="focusPolicy">
            <enum>Qt::StrongFocus</enum>
+          </property>
+          <property name="displayFormat">
+           <string>dd/MM/yyyy</string>
+          </property>
+          <property name="calendarPopup">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -510,13 +522,6 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>CustomTimeCtrl</class>
-   <extends>QWidget</extends>
-   <header>customtimectrl.h</header>
-  </customwidget>
- </customwidgets>
  <tabstops>
   <tabstop>tableView</tabstop>
   <tabstop>pushNew</tabstop>

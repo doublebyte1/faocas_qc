@@ -7,16 +7,12 @@ PreviewTab(1, inRoleDef, inSample,inTDateTime,tr("Stratum"), ruleCheckerPtr, par
 
     setupUi(this);
 
-    blockCustomDateCtrls();
-
     installEventFilters();
 
     viewMinorStrata=0;
     tRefMinorStrata=0;
     buttonGroup=0;
     mapper1=0;
-    mapperStartDt=0;
-    mapperEndDt=0;
 
     connect(pushNext, SIGNAL(clicked()), this,
     SLOT(next()));
@@ -33,9 +29,9 @@ PreviewTab(1, inRoleDef, inSample,inTDateTime,tr("Stratum"), ruleCheckerPtr, par
     initModels();
     initUI();
     initMappers();
-
+/*
     connect(m_mapperBinderPtr, SIGNAL(defaultValuesRead()), this,
-        SLOT(unblockCustomDateCtrls()));
+        SLOT(unblockCustomDateCtrls()));*/
 }
 
 FrmMinorStrata::~FrmMinorStrata()
@@ -43,8 +39,6 @@ FrmMinorStrata::~FrmMinorStrata()
     if (tRefMinorStrata!=0) delete tRefMinorStrata;
     if (buttonGroup!=0) delete buttonGroup;
     if (mapper1!=0) delete mapper1;
-    if (mapperStartDt!=0) delete mapperStartDt;
-    if (mapperEndDt!=0) delete mapperEndDt;
     if (viewMinorStrata!=0) delete viewMinorStrata;
 }
 
@@ -105,29 +99,20 @@ bool FrmMinorStrata::applyChanges()
 {
     bool bError=true;
 
-    QString strError;
+    //TODO: REVIEW THIS LATER!!!
+    /*QString strError;
     if (!checkDependantDates("Ref_Minor_Strata", customDtStart->dateTime(),
         customDtEnd->dateTime(),"Ref_Minor_Strata",m_sample->minorStrataId, strError))
     {
         emit showError(strError);
-    }else{
-
-        QVariant start,end;
-        bError=!amendDates(mapperStartDt, mapperEndDt,start,end);
-        if (!bError){
-
-            int cur= mapper1->currentIndex();
-            if (mapper1->model()->index(cur,1).data()!=start)
-                mapper1->model()->setData(mapper1->model()->index(cur,1),start);
-            if (mapper1->model()->index(cur,2).data()!=end)
-                mapper1->model()->setData(mapper1->model()->index(cur,2),end);
-
+    }else{*/
+            int cur=mapper1->currentIndex();
             bError=!submitMapperAndModel(mapper1);
             if (!bError){
                 mapper1->setCurrentIndex(cur);
-            }
+
         }
-    }
+    //}
 
     if (!bError) emit editLeave(true,false);
     return !bError;
@@ -198,29 +183,6 @@ void FrmMinorStrata::previewRow(QModelIndex index)
         }
 
         mapper1->toLast();
-
-        //Now fix the dates
-        idx=tRefMinorStrata->index(0,1);
-        if (!idx.isValid()){
-            emit showError (tr("Could not preview this stratum!"));
-            return;
-        }
-        QString strStartDt=idx.data().toString();
-        idx=tRefMinorStrata->index(0,2);
-        if (!idx.isValid()){
-            emit showError (tr("Could not preview this stratum!"));
-            return;
-        }
-        QString strEndDt=idx.data().toString();
-
-        m_tDateTime->setFilter(tr("ID=") + strStartDt + tr(" OR ID=") + strEndDt + " ORDER BY DATE_LOCAL ASC");
-
-        if (m_tDateTime->rowCount()!=2)
-            return;
-
-        mapperEndDt->toLast();
-        mapperStartDt->setCurrentIndex(mapperEndDt->currentIndex()-1);
-
     }
 }
 
@@ -287,25 +249,6 @@ void FrmMinorStrata::createRecord()
     mapper1->toLast();
 
     //TODO: put dates from the frame as default
-
-    if(!m_tDateTime) return;
-    m_tDateTime->select();
-
-    bool bDate, bTime;
-    customDtStart->getIsDateTime(bDate,bTime);
-    if (!m_tDateTime->insertNewRecord(customDtStart->getIsAuto(),bDate,bTime)){
-        emit showError(tr("Could not insert start date!"));
-        return;
-    }
-    customDtEnd->getIsDateTime(bDate,bTime);
-    if (!m_tDateTime->insertNewRecord(customDtStart->getIsAuto(),bDate,bTime)){
-        emit showError(tr("Could not insert start date!"));
-        return;
-    }
-
-    mapperStartDt->setCurrentIndex(m_tDateTime->rowCount()-2);
-    mapperEndDt->setCurrentIndex(m_tDateTime->rowCount()-1);
-
     QModelIndex idx=tRefMinorStrata->index(tRefMinorStrata->rowCount()-1,3);
     tRefMinorStrata->setData(idx,m_sample->frameTimeId);//id_frame_time
 
@@ -317,110 +260,51 @@ void FrmMinorStrata::createRecord()
 
 bool FrmMinorStrata::reallyApply()
 {
-        bool bError=false;
-        //First insert the dates...
-        if (!mapperStartDt->submit() 
-            || !mapperEndDt->submit()){
-            if (m_tDateTime->lastError().type()!=QSqlError::NoError)
-                emit showError(m_tDateTime->lastError().text());
+    bool bError=false;
+
+    if (mapper1->submit()){
+        bError=!
+            tRefMinorStrata->submitAll();
+        if (bError){
+            if (tRefMinorStrata->lastError().type()!=QSqlError::NoError)
+                emit showError(tRefMinorStrata->lastError().text());
             else
-                emit showError(tr("Could not submit mapper!"));
-            bError=true;
+                emit showError(tr("Could not write stratum in the database!"));
         }
-        else{
-            if (!m_tDateTime->submitAll()){
-                if (m_tDateTime->lastError().type()!=QSqlError::NoError)
-                    emit showError(m_tDateTime->lastError().text());
-                else
-                    emit showError(tr("Could not write DateTime in the database!"));
+    }else bError=true;
 
-                bError=true;
-            }
+    buttonBox->button(QDialogButtonBox::Apply)->setEnabled(bError);
+
+    emit lockControls(!bError,m_lWidgets);
+    buttonBox->button(QDialogButtonBox::Apply)->setVisible(bError);
+
+    if (!bError){
+        if (!afterApply()){
+            bError=false;
+        }else if (m_sample->bLogBook) {
+
+            toolButton->setEnabled(true);
+
+            updateSample();
+
+            QToolTip::showText(toolButton->mapToGlobal(toolButton->pos()),
+                tr("You have just initialized a stratum!\n Now before starting to introduce information, ")
+                + tr("take a moment to have a look at the frame.\n ")
+                + tr("If you wish to do any temporary changes, *please do it NOW*! ")
+                , toolButton);
+
+            //lets disable next till we review the frame
+            pushNext->setEnabled(false);
+            pushPrevious->setEnabled(false);
+
         }
-
-        while(m_tDateTime->canFetchMore())
-            m_tDateTime->fetchMore();
-
-        int startIdx=m_tDateTime->rowCount()-2;
-        int endIdx=m_tDateTime->rowCount()-1;
-
-        mapperStartDt->setCurrentIndex(startIdx);
-        mapperEndDt->setCurrentIndex(endIdx);
-
-        if (bError) {
-            emit showError(tr("Could not create dates in the database!"));
-        }else{
-
-            int idStart;
-            if (getDtId(startIdx,idStart)){
-                QModelIndex idxStart=tRefMinorStrata->index(tRefMinorStrata->rowCount()-1,1);
-                if (idxStart.isValid()){
-                    tRefMinorStrata->setData(idxStart,idStart);
-                }else bError=true;
-            }else bError=true;
-
-            int idEnd;
-            if (getDtId(endIdx,idEnd)){
-                QModelIndex idxEnd=tRefMinorStrata->index(tRefMinorStrata->rowCount()-1,2);
-                if (idxEnd.isValid()){
-                    tRefMinorStrata->setData(idxEnd,idEnd);
-                }else bError=true;
-            }else bError=true;
-
-            if (!bError){
-                if (mapper1->submit()){
-                    bError=!
-                        tRefMinorStrata->submitAll();
-                    if (bError){
-                        if (tRefMinorStrata->lastError().type()!=QSqlError::NoError)
-                            emit showError(tRefMinorStrata->lastError().text());
-                        else
-                            emit showError(tr("Could not write stratum in the database!"));
-                    }//mapper1->toLast();
-                }else bError=true;
-            }
-        }
-        //button->setEnabled(bError);
-        buttonBox->button(QDialogButtonBox::Apply)->setEnabled(bError);
-
-        emit lockControls(!bError,m_lWidgets);
-        buttonBox->button(QDialogButtonBox::Apply)->setVisible(bError);
-
-        if (!bError){
-            if (!afterApply()){
-                bError=false;
-            }else if (m_sample->bLogBook) {
-
-                toolButton->setEnabled(true);
-
-                updateSample();
-
-                QToolTip::showText(toolButton->mapToGlobal(toolButton->pos()), 
-                    tr("You have just initialized a stratum!\n Now before starting to introduce information, ")
-                    + tr("take a moment to have a look at the frame.\n ")
-                    + tr("If you wish to do any temporary changes, *please do it NOW*! ")
-                    , toolButton);
-
-                //lets disable next till we review the frame
-                pushNext->setEnabled(false);
-                pushPrevious->setEnabled(false);
-
-            }
-        }
-        return !bError;
+    }
+    return !bError;
 }
 
 void FrmMinorStrata::initUI()
 {
     setHeader();
-
-    customDtStart->setIsDateTime(true,false,false);
-    customDtStart->setIsUTC(false);
-    customDtStart->setIsAuto(false);
-
-    customDtEnd->setIsDateTime(true,false,false);
-    customDtEnd->setIsUTC(false);
-    customDtEnd->setIsAuto(false);
 
     buttonGroup=new ButtonGroup(this);
     buttonGroup->addButton(radioActive,0);
@@ -485,10 +369,10 @@ void FrmMinorStrata::initModels()
 {
     //Minor Strata
     tRefMinorStrata=new QSqlRelationalTableModel();
-    tRefMinorStrata->setTable(QSqlDatabase().driver()->escapeIdentifier("Ref_Minor_Strata",
+    tRefMinorStrata->setTable(QSqlDatabase().driver()->escapeIdentifier("ref_minor_strata",
         QSqlDriver::TableName));
-    tRefMinorStrata->setRelation(4, QSqlRelation("Ref_Group_of_LandingSites", "ID", "Name"));
-    tRefMinorStrata->setRelation(6, QSqlRelation("Ref_No_Recording_Activities", "ID", "Name"));
+    tRefMinorStrata->setRelation(4, QSqlRelation("ref_group_of_landingsites", "id", "name"));
+    tRefMinorStrata->setRelation(6, QSqlRelation("ref_no_Recording_activities", "id", "name"));
     tRefMinorStrata->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tRefMinorStrata->sort(0,Qt::AscendingOrder);
     tRefMinorStrata->select();
@@ -533,39 +417,12 @@ void FrmMinorStrata::initMappers()
     mapper1->addMapping(buttonGroup,5);
     mapper1->addMapping(textComments,7);
 
-    if (mapperStartDt!=0) delete mapperStartDt;
-    if (mapperEndDt!=0) delete mapperEndDt;
-
-    mapperStartDt= new QDataWidgetMapper(this);
-    mapperStartDt->setModel(m_tDateTime);
-    mapperStartDt->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
-    mapperStartDt->setItemDelegate(new QItemDelegate(this));
-    mapperStartDt->addMapping(customDtStart,2,QString("dateTime").toAscii());
-
-    mapperEndDt= new QDataWidgetMapper(this);
-    mapperEndDt->setModel(m_tDateTime);
-    mapperEndDt->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
-    mapperEndDt->setItemDelegate(new QItemDelegate(this));
-    mapperEndDt->addMapping(customDtEnd,2,QString("dateTime").toAscii());
+    mapper1->addMapping(customDtStart,9);
+    mapper1->addMapping(customDtEnd,10);
 
     QList<QDataWidgetMapper*> lMapper;
-    lMapper << mapper1 << mapperStartDt << mapperEndDt;
+    lMapper << mapper1;// << mapperStartDt << mapperEndDt;
     m_mapperBinderPtr=new MapperRuleBinder(m_ruleCheckerPtr, m_sample, lMapper, this->objectName());
     if (!initBinder(m_mapperBinderPtr))
         emit showError(tr("Could not init binder!"));
 }
-
-void FrmMinorStrata::blockCustomDateCtrls()
-{
-    //block signals here because of the rule binder!
-    customDtStart->blockSignals(true);
-    customDtEnd->blockSignals(true);
-}
-
-void FrmMinorStrata::unblockCustomDateCtrls()
-{
-    //block signals here because of the rule binder!
-    customDtStart->blockSignals(false);
-    customDtEnd->blockSignals(false);
-}
-

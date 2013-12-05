@@ -35,9 +35,6 @@ class FrmMinorStrata : public PreviewTab, public Ui::frmminorstrata
         /*! Reimplemented from the PreviewTab base class
         */
         void                                   previewRow(QModelIndex index);
-        void                                   blockCustomDateCtrls();
-        void                                   unblockCustomDateCtrls();
-
         void                                   setActiveReason(bool bActive);
         void                                   disableReasonCombo();
         //! On item selection
@@ -114,8 +111,6 @@ class FrmMinorStrata : public PreviewTab, public Ui::frmminorstrata
         QSqlRelationalTableModel*              tRefMinorStrata;
         QSqlQueryModel*                        viewMinorStrata;
         QDataWidgetMapper*                     mapper1;
-        QDataWidgetMapper*                     mapperStartDt;
-        QDataWidgetMapper*                     mapperEndDt;
         ButtonGroup*                           buttonGroup;
 };
 #endif //FRMMINORSTRATA_H

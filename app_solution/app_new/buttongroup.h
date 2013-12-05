@@ -14,6 +14,10 @@
 This class implements a custom control, with an array of exclusive radio buttons, tha
 provides a unique user property, to be used with QDataWidgetMapper.
 this was created to enable us to use radio buttons in conjunction with DataWidgetMapper.
+Since we want to map this control to a boolean field in the database, the ids are casted into booleans;
+- id=0 false
+- id=1 true
+ Obviously we *only* support two ids (0,1);
 */
 
 class ButtonGroup: public QWidget
@@ -24,10 +28,10 @@ class ButtonGroup: public QWidget
         ButtonGroup(QWidget *parent = 0);
         virtual ~ButtonGroup();
 
-        Q_PROPERTY(int checkedId READ getCheckedId WRITE checkId USER true)
+        Q_PROPERTY(bool checkedId READ getCheckedId WRITE checkId USER true)
 
-        int getCheckedId();//!< Gets property
-        void checkId(int id);//!< Writes property
+        bool getCheckedId();//!< Gets property
+        void checkId(bool id);//!< Writes property
 
         void addButton(QAbstractButton *button, int id);
 

@@ -292,6 +292,7 @@ void FrmFrame::initUI()
 
     m_lWidgets << groupPhysical;
     m_lWidgets << groupTime;
+
 }
 
 void FrmFrame::initFrModel()

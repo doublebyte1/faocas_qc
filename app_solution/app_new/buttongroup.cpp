@@ -20,22 +20,26 @@ ButtonGroup::~ButtonGroup()
 {
 }
 
-int ButtonGroup::getCheckedId()
+bool ButtonGroup::getCheckedId()
 {
-	return m_buttonGroup->checkedId();
+    return m_buttonGroup->checkedId()==0? false: true;
 }
 
-void ButtonGroup::checkId(int id)
+void ButtonGroup::checkId(bool id)
 {
-    m_buttonGroup->button(id)->setChecked(true);
+    int intID=id==0?false: true;
+
+    m_buttonGroup->button(intID)->setChecked(true);
 
     //! This is to *force* the clicked event on the RadioButton!
-    if (qobject_cast<QRadioButton*>(m_buttonGroup->button(id)))
-        qobject_cast<QRadioButton*>(m_buttonGroup->button(id))->click();
+    if (qobject_cast<QRadioButton*>(m_buttonGroup->button(intID)))
+        qobject_cast<QRadioButton*>(m_buttonGroup->button(intID))->click();
 }
 
 void ButtonGroup::addButton(QAbstractButton * button, int id)
 {
+    Q_ASSERT_X(id<=1,"Buttongroup", "ID out of range!");
+
     return m_buttonGroup->addButton(button,id);
 }
 

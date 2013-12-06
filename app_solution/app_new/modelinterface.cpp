@@ -152,6 +152,7 @@ bool ModelInterface::writeModel()
 bool ModelInterface::writeTempChanges(Sample* sample, int& ct)
 {
     ct=0;
+    bool bOk=true;
 
     TreeItem* root=treeModel->root();
 
@@ -169,8 +170,9 @@ bool ModelInterface::writeTempChanges(Sample* sample, int& ct)
                     for (int l=0; l < ls->childCount(); ++l){
                         TreeItem* vs=ls->child(l);
 
-                        if (writeTempChangesVessel(vs,sample))
+                        if (writeTempChangesVessel(vs,sample,bOk))
                             ct++;
+                        if (bOk==false) return false;
                     }
                 }
             }
@@ -184,20 +186,21 @@ bool ModelInterface::writeTempChanges(Sample* sample, int& ct)
 
                 TreeItem* gls=frameBin->child(j);
 
-                if (writeTempChangesVessel(gls,sample))//root
+                if (writeTempChangesVessel(gls,sample,bOk))//root
                             ct++;
-
+                if (bOk==false) return false;
                 for (int k=0; k < gls->childCount(); ++k){
                     TreeItem* ls=gls->child(k);
 
-                    if (writeTempChangesVessel(ls,sample))//gls
+                    if (writeTempChangesVessel(ls,sample, bOk))//gls
                         ct++;
-
+                    if (bOk==false) return false;
                     for (int l=0; l < ls->childCount(); ++l){
                         TreeItem* vs=ls->child(l);
 
-                        if (writeTempChangesVessel(vs,sample))//ls
+                        if (writeTempChangesVessel(vs,sample, bOk))//ls
                             ct++;
+                        if (bOk==false) return false;
                     }
                 }
             }
@@ -256,49 +259,56 @@ bool ModelInterface::getNonAbstractProperties(Sample* sample, int& id_source, in
 }
 
 
-bool ModelInterface::writeTempChangesVessel(TreeItem* vs, Sample* sample)
+bool ModelInterface::writeTempChangesVessel(TreeItem* vs, Sample* sample,  bool &bOk)
 {
+    bOk=true;
+
     if (vs->data(6)!=-1 ){
-        if (!insertNewRecord(tChangesTempVessel)) return false;
+
+        if (!insertNewRecord(tChangesTempVessel)){
+            bOk=false;
+            return false;
+          }
 
         int outsideId;
-        if (!getOutsideALS(outsideId)) return false;
+        if (!getOutsideALS(outsideId)) {bOk=false; return false;}
 
         int id_source,id_cell,id_minor_strata;
-        if (!getNonAbstractProperties(sample,id_source,id_cell,id_minor_strata)) return false;
+        if (!getNonAbstractProperties(sample,id_source,id_cell,id_minor_strata))
+            {bOk=false; return false;}
 
         QModelIndex idx=tChangesTempVessel->index(tChangesTempVessel->rowCount()-1,1);//cell
         if (!idx.isValid())
-            return false;
+            {bOk=false; return false;}
         tChangesTempVessel->setData(idx,id_cell);
 
         idx=tChangesTempVessel->index(tChangesTempVessel->rowCount()-1,6);//source
         if (!idx.isValid())
-            return false;
+            {bOk=false; return false;}
         tChangesTempVessel->setData(idx,id_source);
 
         idx=tChangesTempVessel->index(tChangesTempVessel->rowCount()-1,7);//MS
         if (!idx.isValid())
-            return false;
+            {bOk=false; return false;}
         tChangesTempVessel->setData(idx,id_minor_strata);
 
         idx=tChangesTempVessel->index(tChangesTempVessel->rowCount()-1,2);//vessel
         if (!idx.isValid())
-            return false;
+            {bOk=false; return false;}
         tChangesTempVessel->setData(idx,vs->data(4));
 
         idx=tChangesTempVessel->index(tChangesTempVessel->rowCount()-1,3);//from
         if (!idx.isValid())
-            return false;
+            {bOk=false; return false;}
         int from;
         if (!findOrigin(vs,/*outsideId,*/from))
-            return false;
+            {bOk=false; return false;}
 
-        if (!tChangesTempVessel->setData(idx,from)) return false;//origin
+        if (!tChangesTempVessel->setData(idx,from)) {bOk=false; return false;}//origin
 
         idx=tChangesTempVessel->index(tChangesTempVessel->rowCount()-1,4);//to
         if (!idx.isValid())
-            return false;
+            {bOk=false; return false;}
 
         QVariant to;
         to=vs->parent()->data(4);
@@ -307,11 +317,11 @@ bool ModelInterface::writeTempChangesVessel(TreeItem* vs, Sample* sample)
 
         idx=tChangesTempVessel->index(tChangesTempVessel->rowCount()-1,5);//reasons
         if (!idx.isValid())
-            return false;
+            {bOk=false; return false;}
         int reasonId;
 
-        if (!getIdofReason(vs->data(5).toString(), reasonId)) return false;
-        if (!tChangesTempVessel->setData(idx,reasonId)) return false;
+        if (!getIdofReason(vs->data(5).toString(), reasonId)) {bOk=false; return false;}
+        if (!tChangesTempVessel->setData(idx,reasonId)) {bOk=false; return false;}
 
         return tChangesTempVessel->submitAll();
     }
@@ -1115,7 +1125,7 @@ bool ModelInterface::readModel(const Sample* sample, const int options)
         return false;
 
     int frameId=sample->frameId;
-    tSubFrame->setFilter(tr("id_frame=") + QVariant(frameId).toString());
+    tSubFrame->setFilter("id_frame=" + QVariant(frameId).toString());
 
     if (tSubFrame->rowCount()!=2) return false;
     //ATTENTION: type for now is hardcoded - root=1, bin=2!
@@ -1128,7 +1138,7 @@ bool ModelInterface::readModel(const Sample* sample, const int options)
         }
     }
 
-    tSubFrame->setFilter(tr(""));
+    tSubFrame->setFilter("");
 
     if (options & FrmFrameDetails::READ_TMP) {
         if (!readTempChangesVessel(sample)) return false;
@@ -1139,71 +1149,56 @@ bool ModelInterface::readModel(const Sample* sample, const int options)
 
 
 bool ModelInterface::getVesselsBlackList(const Sample* sample, QVector<int>& vVesselsBlackList)
-{
+{    
     QSqlQuery query;
     QString strQuery;
 
-    //TODO: review this because of:
-    // - GL_DATES
-    // - TOP 100 %
+    Q_ASSERT_X(sample->bLogBook, "GetVesselsBlackList", "Refer to Sampling Frame!");
+
     if (!sample->bLogBook){
         strQuery=
-                "select     top (100) percent abstract_sampled_vessels.vesselid, sampled_cell_vessel_types.id_cell"
-                                " from         sampled_cell_vessel_types inner join"
-                                "                      sampled_cell_vessels on sampled_cell_vessel_types.id = sampled_cell_vessels.id_cell_vessel_types inner join"
-                                "                      abstract_sampled_vessels on sampled_cell_vessels.id = abstract_sampled_vessels.id_sampled_cell_vessels"
-                                " where sampled_cell_vessel_types.id_cell in ("
-                                "select     "
-                                "  sampled_cell.id from       "
-                                "  sampled_cell inner join                     "
-                                "  ref_minor_strata on sampled_cell.id_minor_strata = ref_minor_strata.id inner join             "
-                                "  gl_dates as dates2 on sampled_cell.id_end_dt = dates2.id inner join                    "
-                                "  gl_dates as dates1 on sampled_cell.id_start_dt = dates1.id where     ("
-                                "( (dates1.date_local <=      "
-                                "  (select     date_local"
-                                "  from          gl_dates         "
-                                "  where      (id =                        "
-                                "  (select     id_end_dt                "
-                                "  from          sampled_cell as sampled_cell_1 "
-                                "  where      (id = " + QVariant(sample->cellId).toString() + "))))) and "
-                                " (dates2.date_local >=         "
-                                "  (select     date_local                "
-                                "  from          gl_dates as gl_dates_1        "
-                                "  where      (id =                                "
-                                "  (select     id_start_dt                       "
-                                "  from          sampled_cell as sampled_cell_1   "
-                                "  where      (id = " + QVariant(sample->cellId).toString() + ")))))) "
-                                ") and (ref_minor_strata.id_frame_time = " + QVariant(sample->frameTimeId).toString() + ") and (sampled_cell.id<>" + QVariant(sample->cellId).toString() + ")"
-                                ")";
+                "select    abstract_sampled_vessels.vesselid, sampled_cell_vessel_types.id_cell"
+        "	  from         sampled_cell_vessel_types inner join"
+        "			      sampled_cell_vessels on sampled_cell_vessel_types.id = sampled_cell_vessels.id_cell_vessel_types inner join"
+        "			      abstract_sampled_vessels on sampled_cell_vessels.id = abstract_sampled_vessels.id_sampled_cell_vessels"
+
+                " where sampled_cell_vessel_types.id_cell in "
+                "("
+                "	select     "
+                "	  sampled_cell.id from       "
+                "	  sampled_cell inner join     "
+                "	  ref_minor_strata on sampled_cell.id_minor_strata = ref_minor_strata.id where"
+                "	  ("
+                "		  sampled_cell.start_dt <= (select sampled_cell.end_dt from sampled_cell where sampled_cell.id=" + QVariant(sample->cellId).toString() + ")"
+                "		  and"
+                "		sampled_cell.end_dt >=(select sampled_cell.start_dt from sampled_cell where sampled_cell.id=" + QVariant(sample->cellId).toString() + ")"
+                "	)"
+                "	and (ref_minor_strata.id_frame_time ="  + QVariant(sample->frameTimeId).toString() + " and (sampled_cell.id<>" + QVariant(sample->cellId).toString() + ") )	"
+                ") "
+                ;
     }else{
         strQuery=
-                "select     abstract_sampled_vessels.vesselid, sampled_strata_vessels.id_minor_strata"
-                " from         abstract_sampled_vessels inner join"
-                "                      sampled_strata_vessels on abstract_sampled_vessels.id_sampled_strata_vessels = sampled_strata_vessels.id"
-                "            where sampled_strata_vessels.id_minor_strata in "
-                " ("
-                " select     ref_minor_strata.id"
-                " from         ref_minor_strata"
-                " inner join             "
-                " gl_dates as dates2 on ref_minor_strata.id_end_dt = dates2.id inner join                    "
-                " gl_dates as dates1 on ref_minor_strata.id_start_dt = dates1.id "
-                " where  "
-                " (dates1.date_local <=      "
-                " (select     date_local"
-                " from          gl_dates         "
-                "where      (id =                        "
-                " (select     id_end_dt                "
-                " from          ref_minor_strata as ref_minor_strata_1 "
-                " where      (id = " + QVariant(sample->minorStrataId).toString() +"))) and "
-                " (dates2.date_local >=         "
-                " (select     date_local                "
-                " from          gl_dates as gl_dates_1        "
-                " where      (id =                                "
-                " (select     id_start_dt                       "
-                " from          ref_minor_strata as ref_minor_strata_1   "
-                " where      (id = " + QVariant(sample->minorStrataId).toString() +") ) ) ) and"
-                " (ref_minor_strata.id_frame_time = " + QVariant(sample->frameTimeId).toString() +" and (ref_minor_strata.id <>" + QVariant(sample->minorStrataId).toString() +""
-                "  ) )";
+                "select     abstract_sampled_vessels.vesselid, sampled_strata_vessels.id_minor_strata "
+                 " from         abstract_sampled_vessels inner join "
+                 "                     sampled_strata_vessels on abstract_sampled_vessels.id_sampled_strata_vessels = sampled_strata_vessels.id"
+                 "           where sampled_strata_vessels.id_minor_strata in "
+                 "("
+                 " select     ref_minor_strata.id"
+                 " from         ref_minor_strata"
+                 " where  "
+
+                        "  ("
+                        "	  ref_minor_strata.start_dt <= (select ref_minor_strata.end_dt from ref_minor_strata where ref_minor_strata.id=" + QVariant(sample->minorStrataId).toString() + ")"
+                        "	  and"
+                        "	  ref_minor_strata.end_dt >=(select ref_minor_strata.end_dt from ref_minor_strata where ref_minor_strata.id=" + QVariant(sample->minorStrataId).toString() + ")"
+
+                "   )"
+              " and "
+
+                 " (ref_minor_strata.id_frame_time ="  + QVariant(sample->frameTimeId).toString() + " and (ref_minor_strata.id <> " + QVariant(sample->minorStrataId).toString() + "))"
+
+            ")"
+             ;
 
     }
 
@@ -1219,66 +1214,44 @@ bool ModelInterface::getVesselsBlackList(const Sample* sample, QVector<int>& vVe
 
 bool ModelInterface::readTempChangesVessel(const Sample* sample)
 {
-
-
     //filter for cells that refer to the same frame, and that fall within the interval of this cell;
     // A< B' and A'< B
-
-
-    //TODO: review this because of:
-    // - GL_DATES
 
     QSqlQuery query;
     QString strQuery, strUnit;
 
+    Q_ASSERT_X(sample->bLogBook, "read Temp ChangesVessel", "Refer to Sampling Frame!");
+
     if (!sample->bLogBook){
         strQuery=
-                "select     "
-                "  sampled_cell.id, ref_minor_strata.id_frame_time, dates1.date_local as start_dt, dates2.date_local as end_dt from       "
-                "  sampled_cell inner join                     "
-                "  ref_minor_strata on sampled_cell.id_minor_strata = ref_minor_strata.id inner join             "
-                "  gl_dates as dates2 on sampled_cell.id_end_dt = dates2.id inner join                    "
-                "  gl_dates as dates1 on sampled_cell.id_start_dt = dates1.id where     ("
-                "( (dates1.date_local <=      "
-                "  (select     date_local"
-                "  from          gl_dates         "
-                "  where      (id =                        "
-                "  (select     id_end_dt                "
-                "  from          sampled_cell as sampled_cell_1 "
-                "  where      (id = " + QVariant(sample->cellId).toString() +"))))) and "
-                " (dates2.date_local >=         "
-                "  (select     date_local                "
-                "  from          gl_dates as gl_dates_1        "
-                "  where      (id =                                "
-                "  (select     id_start_dt                       "
-                "  from          sampled_cell as sampled_cell_1   "
-                "  where      (id = " + QVariant(sample->cellId).toString() +")))))) "
-                ") and (ref_minor_strata.id_frame_time = " + QVariant(sample->frameTimeId).toString() +") and (sampled_cell.id<=" + QVariant(sample->cellId).toString() +")"
-                ;
-                strUnit="id_cell";
+            "select     "
+            "  sampled_cell.id, ref_minor_strata.id_frame_time, sampled_cell.start_dt as start_dt, sampled_cell.end_dt as end_dt "
+            " from       "
+            "  sampled_cell inner join                     "
+            "  ref_minor_strata on sampled_cell.id_minor_strata = ref_minor_strata.id "
+            " where "
+            "  ( "
+            "    sampled_cell.start_dt <= (select sampled_cell.end_dt from sampled_cell where sampled_cell.id=" + QVariant(sample->cellId).toString() + ")"
+            "      and "
+            "    sampled_cell.end_dt >= (select sampled_cell.start_dt from sampled_cell where sampled_cell.id=" + QVariant(sample->cellId).toString() + ")"
+            "  )"
+            "  and (ref_minor_strata.id_frame_time ="  + QVariant(sample->frameTimeId).toString() + ") and (sampled_cell.id<=" + QVariant(sample->cellId).toString() +")"
+
+            ;
+            strUnit="id_cell";
     }else{
-        strQuery=
-            "select     ref_minor_strata.id, id_start_dt, id_end_dt, id_frame_time, dates1.date_local as start_dt, dates2.date_local as end_dt"
-            " from         dbo.ref_minor_strata"
-            " inner join             "
-            " dbo.gl_dates as dates2 on dbo.ref_minor_strata.id_end_dt = dates2.id inner join                    "
-            " dbo.gl_dates as dates1 on dbo.ref_minor_strata.id_start_dt = dates1.id "
+        strQuery=                
+            "select     ref_minor_strata.id, id_start_dt, id_end_dt, id_frame_time, ref_minor_strata.start_dt as start_dt, ref_minor_strata.end_dt as end_dt"
+            " from         ref_minor_strata"
             " where  "
-            " (dates1.date_local <=      "
-            " (select     date_local"
-            " from          dbo.gl_dates         "
-            " where      (id =                        "
-            " (select     id_end_dt                "
-            " from          dbo.ref_minor_strata as ref_minor_strata_1 "
-            " where      (id = " + QVariant(sample->minorStrataId).toString() +"))))) and "
-            " (dates2.date_local >=         "
-            " (select     date_local                "
-            " from          dbo.gl_dates as gl_dates_1        "
-            " where      (id =                                "
-            " (select     id_start_dt                       "
-            " from          dbo.ref_minor_strata as ref_minor_strata_1   "
-            " where      (id = " +QVariant(sample->minorStrataId).toString() +")) ) ) ) and" //we compare with minor strata that came before
-            " (dbo.ref_minor_strata.id_frame_time = " + QVariant(sample->frameTimeId).toString() +") and (ref_minor_strata.id <=" + QVariant(sample->minorStrataId).toString() +")";
+            " ( "
+            " ref_minor_strata.start_dt <= (select ref_minor_strata.end_dt from ref_minor_strata where id ="  + QVariant(sample->minorStrataId).toString() + ") "
+            "  and "
+            " ref_minor_strata.end_dt >= (select ref_minor_strata.start_dt from ref_minor_strata where id ="  + QVariant(sample->minorStrataId).toString()  + ") "
+            " ) "
+            " and "
+            " (ref_minor_strata.id_frame_time ="  + QVariant(sample->frameTimeId).toString() + ") and (ref_minor_strata.id <= " + QVariant(sample->minorStrataId).toString() + ")"
+            ;
 
         strUnit="id_minor_strata";
     }
@@ -1291,8 +1264,8 @@ bool ModelInterface::readTempChangesVessel(const Sample* sample)
     int ct=0;
     while (query.next())
     {
-        if (ct>0) strFilter.append(tr(" OR "));
-        strFilter.append(strUnit + tr("=") + query.value(0).toString());
+        if (ct>0) strFilter.append(" OR ");
+        strFilter.append(strUnit + "=" + query.value(0).toString());
         ct++;
     }
 

@@ -239,6 +239,7 @@ void FrmMinorStrata::beforeShow()
 {
     this->groupDetails->setVisible(false);
     setSourceText(lbSource,m_sample->bLogBook);
+    //TEMPORARY FRAME ONLY FOR LOGBOOK?
     toolButton->setVisible(m_sample->bLogBook);
 }
 

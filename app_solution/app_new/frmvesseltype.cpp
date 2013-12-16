@@ -114,12 +114,14 @@ void FrmVesselType::setPreviewQuery()
     if (m_sample==0) return;
 
     viewVesselTypes->setQuery(
-        tr("SELECT     dbo.Sampled_Cell_Vessel_Types.ID, dbo.Ref_Vessel_Types.Name [Vessel Type]")+
-        tr(" FROM         dbo.Sampled_Cell_Vessel_Types INNER JOIN")+
-        tr("                      dbo.Ref_Vessel_Types ON dbo.Sampled_Cell_Vessel_Types.id_vessel_type = dbo.Ref_Vessel_Types.ID")+
-        tr(" WHERE     (dbo.Sampled_Cell_Vessel_Types.id_cell =")+ QVariant(m_sample->cellId).toString() + tr(")") +
-        tr(" ORDER BY dbo.Sampled_Cell_Vessel_Types.ID DESC")
+        "select     sampled_cell_vessel_types.id, ref_vessel_types.name \"vessel type\""
+        " from         sampled_cell_vessel_types inner join"
+        "                      ref_vessel_types on sampled_cell_vessel_types.id_vessel_type = ref_vessel_types.id"
+        " where     (sampled_cell_vessel_types.id_cell =" + QVariant(m_sample->cellId).toString() + ")"
+        " order by sampled_cell_vessel_types.id desc"
     );
+
+    //qDebug() << viewVesselTypes->query().lastQuery() << endl;
 
     tableView->hideColumn(0);
     resizeToVisibleColumns(tableView);
@@ -193,7 +195,31 @@ void FrmVesselType::createRecord()
 
 void FrmVesselType::filterModel4Combo()
 {
-    QString strQuery(
+    QString strQuery(                
+        "select     ref_vessel_types.id"
+        " from         fr_als2vessel inner join"
+        "                      ref_vessels on fr_als2vessel.vesselid = ref_vessels.vesselid inner join"
+        "                      ref_vessel_types on ref_vessels.vesseltype = ref_vessel_types.id"
+        " where     (fr_als2vessel.id_sub_frame ="
+        "                          (select     id"
+        "                            from          fr_sub_frame"
+        "                            where      (type ="
+        "                                                       (select     id"
+        "                                                         from          ref_frame"
+        "                                                         where      (name = 'root'))) and (id_frame ="  + QVariant(m_sample->frameId).toString() + "))) and (fr_als2vessel.id_abstract_landingsite ="
+        "                          (select     id_abstract_landingsite"
+        "                            from          sampled_cell"
+        "                            where      (id ="  + QVariant(m_sample->cellId).toString() + "))) and (fr_als2vessel.vesselid not in"
+        "                          (select     vesselid"
+        "                            from          abstract_changes_temp_vessel"
+        "                            where      (id_cell ="  + QVariant(m_sample->cellId).toString() +" ) and (to_ls ="
+        "                                                       (select     id"
+        "                                                         from          ref_abstract_landingsite"
+        "                                                         where      (name = 'outside')))))"
+
+
+// Quarantine this query due to the union between different types (do we need the vesseltype name at all??)
+/*
     tr("SELECT     dbo.Ref_Vessel_Types.ID")+
     tr(" FROM         dbo.FR_ALS2Vessel INNER JOIN")+
     tr("                      dbo.Ref_Vessels ON dbo.FR_ALS2Vessel.vesselID = dbo.Ref_Vessels.VesselID INNER JOIN")+
@@ -226,7 +252,9 @@ void FrmVesselType::filterModel4Combo()
     tr("                                                       (SELECT     id_abstract_LandingSite")+
     tr("                                                         FROM          dbo.Sampled_Cell AS Sampled_Cell_1")+
     tr("                                                         WHERE      (ID = ") + QVariant(m_sample->cellId).toString() + tr(")))))")
+*/
     );
+
 
     QSqlQuery query;
     query.prepare(strQuery);
@@ -237,11 +265,11 @@ void FrmVesselType::filterModel4Combo()
 
     QString strFilter(tr(""));
      while (query.next()) {
-        strFilter.append(tr("ID=") + query.value(0).toString());
-        strFilter.append(tr(" OR "));
+        strFilter.append("id=" + query.value(0).toString());
+        strFilter.append(" OR ");
      }
      if (!strFilter.isEmpty())
-         strFilter=strFilter.remove(strFilter.size()-tr(" OR ").length(),tr(" OR ").length());
+         strFilter=strFilter.remove(strFilter.size()-QString(" OR ").length(),QString(" OR ").length());
 
     tSVesselTypes->relationModel(2)->setFilter(strFilter);
     //first we set the relation; then we create a mapper and assign the (amended) model to the mapper;

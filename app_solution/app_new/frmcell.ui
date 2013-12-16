@@ -239,7 +239,11 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
          </widget>
         </item>
         <item>
-         <widget class="CustomTimeCtrl" name="customDtStart"/>
+         <widget class="QDateTimeEdit" name="customDtStart">
+          <property name="calendarPopup">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -263,7 +267,11 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
          </widget>
         </item>
         <item>
-         <widget class="CustomTimeCtrl" name="customDtEnd"/>
+         <widget class="QDateTimeEdit" name="customDtEnd">
+          <property name="calendarPopup">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -493,13 +501,6 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>CustomTimeCtrl</class>
-   <extends>QWidget</extends>
-   <header>customtimectrl.h</header>
-  </customwidget>
- </customwidgets>
  <tabstops>
   <tabstop>tableView</tabstop>
   <tabstop>pushNew</tabstop>

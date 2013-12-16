@@ -172,7 +172,8 @@ bool ModelInterface::writeTempChanges(Sample* sample, int& ct)
 
                         if (writeTempChangesVessel(vs,sample,bOk))
                             ct++;
-                        if (bOk==false) return false;
+                        if (bOk==false)
+                            return false;
                     }
                 }
             }
@@ -1153,7 +1154,7 @@ bool ModelInterface::getVesselsBlackList(const Sample* sample, QVector<int>& vVe
     QSqlQuery query;
     QString strQuery;
 
-    Q_ASSERT_X(sample->bLogBook, "GetVesselsBlackList", "Refer to Sampling Frame!");
+    //Q_ASSERT_X(sample->bLogBook, "GetVesselsBlackList", "Refer to Sampling Frame!");
 
     if (!sample->bLogBook){
         strQuery=
@@ -1219,8 +1220,6 @@ bool ModelInterface::readTempChangesVessel(const Sample* sample)
 
     QSqlQuery query;
     QString strQuery, strUnit;
-
-    Q_ASSERT_X(sample->bLogBook, "read Temp ChangesVessel", "Refer to Sampling Frame!");
 
     if (!sample->bLogBook){
         strQuery=

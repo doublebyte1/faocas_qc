@@ -41,8 +41,8 @@ class FrmCell : public PreviewTab, public Ui::frmCell
         /*! Reimplemented from the PreviewTab base class
         */
         void                                   onItemSelection();
-        void                                   blockCustomDateCtrls();
-        void                                   unblockCustomDateCtrls();
+        //void                                   blockCustomDateCtrls();
+        //void                                   unblockCustomDateCtrls();
         //! Edit finished
         /*! Reimplemented from the PreviewTab base class
         \sa previewRow(QModelIndex index), onEditLeave(const bool bFinished, const bool bDiscarded)
@@ -101,7 +101,7 @@ class FrmCell : public PreviewTab, public Ui::frmCell
         //! Init Mappers
         /*! Reimplemented from the genericTab base class
         */
-        void                                   initMappers();
+        void                                   initMappers(){;}
         //! Init UI
         /*! Reimplemented from the genericTab base class
         */
@@ -121,7 +121,7 @@ class FrmCell : public PreviewTab, public Ui::frmCell
         QSqlRelationalTableModel*              tSampCell;
         QSqlQueryModel*                        viewCell;
         QDataWidgetMapper*                     mapper1;
-        QDataWidgetMapper*                     mapperStartDt;
-        QDataWidgetMapper*                     mapperEndDt;
+        //QDataWidgetMapper*                     mapperStartDt;
+        //QDataWidgetMapper*                     mapperEndDt;
 };
 #endif //FRMCELL_H

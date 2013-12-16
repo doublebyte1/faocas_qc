@@ -7,7 +7,7 @@ PreviewTab(2, inRoleDef,inSample,inTDateTime,tr("Cell"), ruleCheckerPtr, parent,
 
     setupUi(this);
 
-    blockCustomDateCtrls();
+    //blockCustomDateCtrls();
 
     installEventFilters();
 
@@ -26,20 +26,20 @@ PreviewTab(2, inRoleDef,inSample,inTDateTime,tr("Cell"), ruleCheckerPtr, parent,
     tSampCell=0;
     viewCell=0;
     mapper1=0;
-    mapperStartDt=0;
-    mapperEndDt=0;
+    //mapperStartDt=0;
+    //mapperEndDt=0;
 
     initModels();
     initUI();
-    initMappers();
+    //initMappers();
 
 }
 
 FrmCell::~FrmCell()
 {
     if (mapper1!=0) delete mapper1;
-    if (mapperStartDt!=0) delete mapperStartDt;
-    if (mapperEndDt!=0) delete mapperEndDt;
+    //if (mapperStartDt!=0) delete mapperStartDt;
+    //if (mapperEndDt!=0) delete mapperEndDt;
     if (tSampCell!=0) delete tSampCell;
     if (viewCell!=0) delete viewCell;
 }
@@ -121,15 +121,15 @@ void FrmCell::previewRow(QModelIndex index)
             emit showError (tr("Could not preview this cell!"));
             return;
         }
-        QString strStartDt=idx.data().toString();
+        //QString strStartDt=idx.data().toString();
 
         idx=tSampCell->index(0,3);
         if (!idx.isValid()){
             emit showError (tr("Could not preview this cell!"));
             return;
         }
-        QString strEndDt=idx.data().toString();
-
+        //QString strEndDt=idx.data().toString();
+/*
         m_tDateTime->setFilter(tr("ID=") + strStartDt + tr(" OR ID=") + strEndDt + " ORDER BY DATE_LOCAL ASC");
 
         if (m_tDateTime->rowCount()!=2)
@@ -144,7 +144,7 @@ void FrmCell::previewRow(QModelIndex index)
         customDtEnd->adjustDateTime(idxDType,idxDType.data());
 
         mapperEndDt->toLast();
-        mapperStartDt->setCurrentIndex(mapperEndDt->currentIndex()-1);
+        mapperStartDt->setCurrentIndex(mapperEndDt->currentIndex()-1);*/
 
       //  pushNext->setEnabled(true);
     }
@@ -178,7 +178,7 @@ void FrmCell::initUI()
     setHeader();
 
     this->groupDetails->setVisible(false);
-
+/*
     customDtStart->setIsUTC(false);
     customDtStart->setIsAuto(false);
 
@@ -190,7 +190,7 @@ void FrmCell::initUI()
 
     connect(customDtEnd, SIGNAL(isDateTime(bool,int)), m_tDateTime,
         SLOT(amendDateTimeType(bool,int)));
-
+*/
     initPreviewTable(tableView,viewCell);
     setButtonBox(buttonBox);
     setGroupDetails(groupDetails);
@@ -250,15 +250,15 @@ void FrmCell::initMapper1()
     mapper1->addMapping(textComments,13);
 
     QList<QDataWidgetMapper*> lMapper;
-    lMapper << mapper1 << mapperStartDt << mapperEndDt;
+    lMapper << mapper1;// << mapperStartDt << mapperEndDt;
     m_mapperBinderPtr=new MapperRuleBinder(m_ruleCheckerPtr, m_sample, lMapper, this->objectName());
     if (!initBinder(m_mapperBinderPtr))
         emit showError(tr("Could not init binder!"));
-
+/*
     connect(m_mapperBinderPtr, SIGNAL(defaultValuesRead()), this,
-        SLOT(unblockCustomDateCtrls()));
+        SLOT(unblockCustomDateCtrls()));*/
 }
-
+/*
 void FrmCell::blockCustomDateCtrls()
 {
     //block signals here because of the rule binder!
@@ -275,6 +275,7 @@ void FrmCell::unblockCustomDateCtrls()
 
 void FrmCell::initMappers()
 {
+
     if (mapperStartDt!=0) delete mapperStartDt;
     if (mapperEndDt!=0) delete mapperEndDt;
 
@@ -290,7 +291,7 @@ void FrmCell::initMappers()
     mapperEndDt->setItemDelegate(new QItemDelegate(this));
     mapperEndDt->addMapping(customDtEnd,2,QString("dateTime").toAscii());
 }
-
+*/
 void FrmCell::beforeShow()
 {
     //The dictionary of SQL relations does *not* respond to filter changes, and therefore
@@ -305,7 +306,7 @@ void FrmCell::beforeShow()
 bool FrmCell::reallyApply()
 {
         bool bError=false;
-
+/*
         //First insert the dates...
         if (!mapperStartDt->submit() 
             || !mapperEndDt->submit()){
@@ -354,7 +355,7 @@ bool FrmCell::reallyApply()
                     tSampCell->setData(idxEnd,idEnd);
                 }else bError=true;
             }else bError=true;
-
+*/
             if (!bError){
                 if (mapper1->submit()){
                     bError=!
@@ -367,7 +368,7 @@ bool FrmCell::reallyApply()
                     }//mapper1->toLast();
                 }else bError=true;
             }
-        }
+        //}
         buttonBox->button(QDialogButtonBox::Apply)->setEnabled(bError);
 
         emit lockControls(!bError,m_lWidgets);
@@ -403,13 +404,13 @@ bool FrmCell::reallyApply()
 void FrmCell::uI4NewRecord()
 {
     genericUI4NewRecord();
-
+/*
     customDtStart->setIsDateTime(true,true,true);
     customDtStart->checkBox()->click();//the click is necessary to imit the relevant signal
 
     customDtEnd->setIsDateTime(true,true,true);
     customDtEnd->checkBox()->click();//the click is necessary to imit the relevant signal
-
+*/
     textComments->clear();
 
     toolButton->setEnabled(false);
@@ -420,7 +421,7 @@ void FrmCell::createRecord()
     genericCreateRecord();
 
     mapper1->toLast();
-
+/*
     if(!m_tDateTime) return;
     m_tDateTime->select();
 
@@ -448,7 +449,7 @@ void FrmCell::createRecord()
 
     connect(m_tDateTime, SIGNAL(getDateType(QModelIndex,QVariant)), customDtEnd,
         SLOT(adjustDateTime(QModelIndex,QVariant)),Qt::UniqueConnection);
-
+*/
     while(tSampCell->canFetchMore())
         tSampCell->fetchMore();
 
@@ -466,9 +467,9 @@ void FrmCell::initCellModel()
     if (tSampCell!=0) delete tSampCell;
 
     tSampCell=new QSqlRelationalTableModel();
-    tSampCell->setTable(QSqlDatabase().driver()->escapeIdentifier("Sampled_Cell",
+    tSampCell->setTable(QSqlDatabase().driver()->escapeIdentifier("sampled_cell",
         QSqlDriver::TableName));
-    tSampCell->setRelation(4, QSqlRelation("Ref_Abstract_LandingSite", "ID", "Name"));
+    tSampCell->setRelation(4, QSqlRelation("ref_abstract_landingsite", "id", "name"));
     tSampCell->relationModel(4)->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tSampCell->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tSampCell->sort(0,Qt::AscendingOrder);
@@ -481,13 +482,13 @@ void FrmCell::initCellModel()
 void FrmCell::filterModel4Combo()
 {
     QString strQuery =
-"SELECT     dbo.FR_GLS2ALS.id_abstract_landingsite AS ls, dbo.Ref_Minor_Strata.id_gls, dbo.FR_GLS2ALS.id_gls AS Expr1"
-" FROM         dbo.Ref_Minor_Strata INNER JOIN"
-"                      dbo.FR_Time ON dbo.Ref_Minor_Strata.id_frame_time = dbo.FR_Time.ID INNER JOIN"
-"                      dbo.FR_Frame ON dbo.FR_Time.id_frame = dbo.FR_Frame.ID INNER JOIN"
-"                      dbo.FR_Sub_Frame ON dbo.FR_Frame.ID = dbo.FR_Sub_Frame.id_frame INNER JOIN"
-"                      dbo.FR_GLS2ALS ON dbo.FR_Sub_Frame.ID = dbo.FR_GLS2ALS.id_sub_frame AND dbo.Ref_Minor_Strata.id_gls = dbo.FR_GLS2ALS.id_gls"
-" WHERE     (dbo.Ref_Minor_Strata.ID = :id)"
+            "select     fr_gls2als.id_abstract_landingsite as ls, ref_minor_strata.id_gls, fr_gls2als.id_gls as expr1"
+            " from         ref_minor_strata inner join"
+            "                      fr_time on ref_minor_strata.id_frame_time = fr_time.id inner join"
+            "                      fr_frame on fr_time.id_frame = fr_frame.id inner join"
+            "                      fr_sub_frame on fr_frame.id = fr_sub_frame.id_frame inner join"
+            "                      fr_gls2als on fr_sub_frame.id = fr_gls2als.id_sub_frame and ref_minor_strata.id_gls = fr_gls2als.id_gls"
+            " where     (ref_minor_strata.id = :id)"
 ;
 
     QSqlQuery query;
@@ -552,7 +553,8 @@ bool FrmCell::applyChanges()
 {
     bool bError=true;
 
-    QString strError;
+    //TODO: REVIEW THIS LATER: checkdependant dates
+    QString strError;/*
     if (!checkDependantDates(tSampCell->tableName(), customDtStart->dateTime(),
         customDtEnd->dateTime(),tSampCell->tableName(),m_sample->cellId, strError))
     {
@@ -562,8 +564,8 @@ bool FrmCell::applyChanges()
         QVariant start,end;
         bError=!amendDates(mapperStartDt, mapperEndDt,start,end);
         if (!bError){
-
-            int cur= mapper1->currentIndex();
+*/
+            int cur= mapper1->currentIndex();/*
             if (mapper1->model()->index(cur,2).data()!=start)
                 mapper1->model()->setData(mapper1->model()->index(cur,2),start);
             if (mapper1->model()->index(cur,3).data()!=end)
@@ -584,13 +586,13 @@ bool FrmCell::applyChanges()
                 return false;
             }
             m_tDateTime->setData(m_tDateTime->index(1,3),typeID);
-
+*/
             bError=!submitMapperAndModel(mapper1);
             if (!bError){
                 mapper1->setCurrentIndex(cur);
             }
-        }
-    }
+        //}
+    //}
 
     if (!bError) emit editLeave(true,false);
     return !bError;

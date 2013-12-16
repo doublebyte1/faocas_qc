@@ -72,7 +72,7 @@ void FrmMinorStrata::onShowFrameDetails()
     }
 
     QList<int> blackList;
-    blackList << 1 << 2;//TODO: what are this hardcoded values? tests?
+    blackList << 1 << 2;//TODO: what are these hardcoded values? tests?
     int options=FrmFrameDetails::READ_TMP;
 
     if (pushEdit->isChecked()){

@@ -31,7 +31,7 @@ INCLUDEPATH += ./GeneratedFiles \
 LIBS += -L"$(QTDIR)/plugins/designer" \
     -L"$(EXARO_LIBRARIES_D)" \
     -lcustomtimectrld \
-    -lCatchInputCtrld \
+    -lcatchinputctrld \
     -lReport
 MOC_DIR += ./GeneratedFiles/debug
 OBJECTS_DIR += debug
@@ -52,7 +52,7 @@ INCLUDEPATH += ./GeneratedFiles \
 LIBS += -L"$(QTDIR)/plugins/designer" \
     -L"$(EXARO_LIBRARIES)" \
     -lcustomtimectrl \
-    -lCatchInputCtrl \
+    -lcatchinputctrl \
     -lReport
 MOC_DIR += ./GeneratedFiles/release
 OBJECTS_DIR += release

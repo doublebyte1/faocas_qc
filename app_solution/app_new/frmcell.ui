@@ -239,7 +239,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
          </widget>
         </item>
         <item>
-         <widget class="QDateTimeEdit" name="customDtStart">
+         <widget class="QDateEdit" name="customDtStart">
           <property name="calendarPopup">
            <bool>true</bool>
           </property>
@@ -267,7 +267,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
          </widget>
         </item>
         <item>
-         <widget class="QDateTimeEdit" name="customDtEnd">
+         <widget class="QDateEdit" name="customDtEnd">
           <property name="calendarPopup">
            <bool>true</bool>
           </property>

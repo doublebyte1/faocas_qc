@@ -204,7 +204,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
      <property name="title">
       <string>Details</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
+     <layout class="QFormLayout" name="formLayout">
       <item row="0" column="0" colspan="2">
        <layout class="QHBoxLayout" name="horizontalLayout_11">
         <item>
@@ -375,25 +375,23 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
            <string>Start</string>
           </property>
           <property name="buddy">
-           <cstring>customDtStart</cstring>
+           <cstring>dtStart</cstring>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="CustomTimeCtrl" name="customDtStart">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="toolTip">
-           <string>Start datetime</string>
-          </property>
-          <property name="whatsThis">
-           <string>Input the starting datetime of the fishing trip</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QDateEdit" name="dtStart">
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTimeEdit" name="timeStart"/>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLabel" name="label_25">
@@ -407,25 +405,23 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
            <string>End</string>
           </property>
           <property name="buddy">
-           <cstring>customDtEnd</cstring>
+           <cstring>dtEnd</cstring>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="CustomTimeCtrl" name="customDtEnd">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="toolTip">
-           <string>End datetime</string>
-          </property>
-          <property name="whatsThis">
-           <string>Input the finishing datetime of the fishing trip</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QDateEdit" name="dtEnd">
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTimeEdit" name="timeEnd"/>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLabel" name="label_13">
@@ -926,11 +922,6 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
    <extends>QWidget</extends>
    <header>catchinputctrl.h</header>
   </customwidget>
-  <customwidget>
-   <class>CustomTimeCtrl</class>
-   <extends>QWidget</extends>
-   <header>customtimectrl.h</header>
-  </customwidget>
  </customwidgets>
  <tabstops>
   <tabstop>tableView</tabstop>
@@ -941,8 +932,6 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
   <tabstop>cmbSite</tabstop>
   <tabstop>spinProf</tabstop>
   <tabstop>spinPart</tabstop>
-  <tabstop>customDtStart</tabstop>
-  <tabstop>customDtEnd</tabstop>
   <tabstop>textComments</tabstop>
   <tabstop>spinNOE</tabstop>
   <tabstop>spinNOC</tabstop>

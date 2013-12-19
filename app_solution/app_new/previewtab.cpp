@@ -543,10 +543,10 @@ void PreviewTab::genericCreateRecord()
 {
     //removing filters
     if (m_model==0) return ;
-    if (!m_model->filter().isEmpty()) m_model->setFilter(tr(""));
+    if (!m_model->filter().isEmpty()) m_model->setFilter("");
 
     if (m_tDateTime==0) return ;
-    if (!m_tDateTime->filter().isEmpty()) m_tDateTime->setFilter(tr(""));
+    if (!m_tDateTime->filter().isEmpty()) m_tDateTime->setFilter("");
 
     if (!discardNewRecord()) return;
 

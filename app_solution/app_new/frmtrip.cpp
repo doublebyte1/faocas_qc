@@ -7,8 +7,6 @@ PreviewTab(5,inRoleDef,inSample,inTDateTime,tr("Fishing Trip"), ruleCheckerPtr, 
 
     setupUi(this);
 
-    blockCustomDateCtrls();
-
     installEventFilters();
 
     connect(pushNext, SIGNAL(clicked()), this,
@@ -29,13 +27,10 @@ PreviewTab(5,inRoleDef,inSample,inTDateTime,tr("Fishing Trip"), ruleCheckerPtr, 
     mapper1=0;
     multiModelI=0;
     multiModelI2=0;
-    mapperStartDt=0;
-    mapperEndDt=0;
     nullDelegate=0;
 
     initModels();
     initUI();
-    initMappers();
 }
 
 FrmTrip::~FrmTrip()
@@ -50,8 +45,6 @@ FrmTrip::~FrmTrip()
     if (mapper1!=0) delete mapper1;
     if (multiModelI!=0) delete multiModelI;
     if (multiModelI2!=0) delete multiModelI2;
-    if (mapperStartDt!=0) delete mapperStartDt;
-    if (mapperEndDt!=0) delete mapperEndDt;
 }
 
 void FrmTrip::initHelpIds()
@@ -89,36 +82,6 @@ void FrmTrip::previewRow(QModelIndex index)
 
         mapper1->toLast();
 
-        //Now fix the dates
-        idx=tTrips->index(0,2);
-        if (!idx.isValid()){
-            emit showError (tr("Could not preview this trip!"));
-            return;
-        }
-        QString strStartDt=idx.data().toString();
-        idx=tTrips->index(0,3);
-        if (!idx.isValid()){
-            emit showError (tr("Could not preview this trip!"));
-            return;
-        }
-        QString strEndDt=idx.data().toString();
-
-        m_tDateTime->setFilter(tr("ID=") + strStartDt + tr(" OR ID=") + strEndDt + " ORDER BY DATE_LOCAL ASC");
-
-        if (m_tDateTime->rowCount()!=2)
-            return;
-
-        //adjusting the display format of the dates on preview
-        QModelIndex idxDType=m_tDateTime->index(0,4);
-        if (!idxDType.isValid()) return;
-        customDtStart->adjustDateTime(idxDType,idxDType.data());
-        idxDType=m_tDateTime->index(1,4);
-        if (!idxDType.isValid()) return;
-        customDtEnd->adjustDateTime(idxDType,idxDType.data());
-
-        mapperEndDt->toLast();
-        mapperStartDt->setCurrentIndex(mapperEndDt->currentIndex()-1);
-
         //preview record on the listView
         multiModelI->setParentId(intId);
         multiModelI->model2List("id_fishing_trip");
@@ -133,22 +96,22 @@ void FrmTrip::previewRow(QModelIndex index)
 
 void FrmTrip::setPreviewQuery()
 {
-    //TODO: REVIEW THIS; the idea is to compare the time (hours, minutes and seconds) with Unix time 0; if it is the case, than we don't have a valid time
+    //TODO: REVIEW THIS; the idea is to compare the time with Unix time 0 ('allballs'::time); if it is the case, than we don't have a valid time
     // for this record, and we just assigned it as 'missing';
     if (m_sample==0) return;
     QString strQuery=
-    "select     sampled_fishing_trips.id, ref_samplers.name as sampler, to_char(start_dt, 'DD/Mon/YYYY') as \"start date\",  to_char(end_dt, 'DD/Mon/YYYY') as \"end date\",  "
-    "            case when"
-    "            (select extract(hour from start_dt)=0) and (select extract(minute from  start_dt)=0) and (select extract(second from  start_dt)=0)"
-    "            then 'missing' else  "
-    "            to_char(start_dt, 'hh/mm/ss') end \"start time\","
-    "        case when"
-    "            (select extract(hour from  end_dt)=0) and (select extract(minute from  end_dt)=0) and (select extract(second from  end_dt)=0)"
-    "            then 'missing' else  "
-    "            to_char(end_dt, 'hh/mm/ss') end \"end time\""
-    "        from         sampled_fishing_trips inner join"
-    "             ref_samplers on sampled_fishing_trips.id_sampler = ref_samplers.id "
-    "where     (sampled_fishing_trips.id_abstract_sampled_vessels = :id) order by id desc"
+            "select     sampled_fishing_trips.id, ref_samplers.name as sampler, to_char(start_dt, 'DD/Mon/YYYY') as \"start date\",  to_char(end_dt, 'DD/Mon/YYYY') as \"end date\",  "
+            "            case when"
+            "            (select start_time)=(select 'allballs'::time)"
+            "            then 'missing' else  "
+            "            to_char(start_time, 'hh:mm:ss') end \"start time\","
+            "        case when"
+            "            (select end_time)=(select 'allballs'::time)"
+            "            then 'missing' else  "
+            "            to_char(end_time, 'hh:mm:ss') end \"end time\""
+            "        from         sampled_fishing_trips inner join"
+            "             ref_samplers on sampled_fishing_trips.id_sampler = ref_samplers.id "
+            "where     (sampled_fishing_trips.id_abstract_sampled_vessels = :id) order by id desc"
     ;
 
     QSqlQuery query;
@@ -180,20 +143,20 @@ void FrmTrip::initModels()
 
      tRefGears = new QSqlQueryModel;
      tRefGears->setQuery(
-        "SELECT     ID, Name"
-        " FROM         dbo.Ref_Gears ORDER BY ID ASC"
+        "SELECT     id, name"
+        " FROM         ref_gears ORDER BY ID ASC"
          );
 
     if (tTripGears!=0) delete tTripGears;
 
     tTripGears=new QSqlTableModel();
-    tTripGears->setTable(QSqlDatabase().driver()->escapeIdentifier("Sampled_Fishing_Trips_Gears",
+    tTripGears->setTable(QSqlDatabase().driver()->escapeIdentifier("sampled_fishing_trips_gears",
         QSqlDriver::TableName));
     tTripGears->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tTripGears->sort(0,Qt::AscendingOrder);
     tTripGears->select();
 
-    QString strDep="select count(id) from Sampled_Fishing_operations WHERE (id_fishing_trip=:id)";
+    QString strDep="select count(id) from sampled_fishing_operations WHERE (id_fishing_trip=:id)";
 
      multiModelI=new MultiModelI(listGears,tRefGears,tTripGears,
          strDep);
@@ -202,14 +165,14 @@ void FrmTrip::initModels()
 
      tRefZones = new QSqlQueryModel;
      tRefZones->setQuery(
-        "SELECT     ID, Name"
-        " FROM         dbo.Ref_Fishing_zones ORDER BY ID ASC"
+        "SELECT     id, name"
+        " FROM         ref_fishing_zones ORDER BY ID ASC"
          );
 
     if (tTripZones!=0) delete tTripZones;
 
     tTripZones=new QSqlTableModel();
-    tTripZones->setTable(QSqlDatabase().driver()->escapeIdentifier("Sampled_fishing_trips_zones",
+    tTripZones->setTable(QSqlDatabase().driver()->escapeIdentifier("sampled_fishing_trips_zones",
         QSqlDriver::TableName));
     tTripZones->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tTripZones->sort(0,Qt::AscendingOrder);
@@ -239,29 +202,17 @@ void FrmTrip::initUI()
     m_lWidgets << cmbSampler;
     m_lWidgets << spinProf;
     m_lWidgets << spinPart;
-    m_lWidgets << customDtStart;
-    m_lWidgets << customDtEnd;
+    m_lWidgets << dtStart;
+    m_lWidgets << timeStart;
+    m_lWidgets << dtEnd;
+    m_lWidgets << timeEnd;
     m_lWidgets << catchInputCtrl;
     m_lWidgets << textComments;
     m_lWidgets << spinNOE;
-    //m_lWidgets << spinNOC;
-    //m_lWidgets << cmbFishingZone;
     m_lWidgets << listGears;
     m_lWidgets << listZones;
     m_lWidgets << cmbSite;
     m_lWidgets << pushClear;
-
-    customDtStart->setIsUTC(false);
-    customDtStart->setIsAuto(false);
-
-    customDtEnd->setIsUTC(false);
-    customDtEnd->setIsAuto(false);
-
-    connect(customDtStart, SIGNAL(isDateTime(bool,int)), m_tDateTime,
-        SLOT(amendDateTimeType(bool,int)));
-
-    connect(customDtEnd, SIGNAL(isDateTime(bool,int)), m_tDateTime,
-        SLOT(amendDateTimeType(bool,int)));
 }
 
 void FrmTrip::initMapper1()
@@ -293,23 +244,23 @@ void FrmTrip::initMapper1()
 
     cmbSite->setModel(tTrips->relationModel(4));
     cmbSite->setModelColumn(
-        tTrips->relationModel(4)->fieldIndex("Name"));
+        tTrips->relationModel(4)->fieldIndex("name"));
 
     cmbSampler->setModel(tTrips->relationModel(5));
     cmbSampler->setModelColumn(
-        tTrips->relationModel(5)->fieldIndex("Name"));
+        tTrips->relationModel(5)->fieldIndex("name"));
 
     catchInputCtrl->pCmbWeightUnits()->setModel(tTrips->relationModel(12));
     catchInputCtrl->pCmbWeightUnits()->setModelColumn(
-        tTrips->relationModel(12)->fieldIndex("Name"));
+        tTrips->relationModel(12)->fieldIndex("name"));
 
     catchInputCtrl->pCmbBoxUnits()->setModel(tTrips->relationModel(15));
     catchInputCtrl->pCmbBoxUnits()->setModelColumn(
-        tTrips->relationModel(15)->fieldIndex("Name"));
+        tTrips->relationModel(15)->fieldIndex("name"));
 
     catchInputCtrl->pCmbUnitUnits()->setModel(tTrips->relationModel(20));
     catchInputCtrl->pCmbUnitUnits()->setModelColumn(
-        tTrips->relationModel(20)->fieldIndex("Name"));
+        tTrips->relationModel(20)->fieldIndex("name"));
 
     mapper1->addMapping(cmbSite, 4);
     mapper1->addMapping(cmbSampler, 5);
@@ -332,48 +283,18 @@ void FrmTrip::initMapper1()
     mapper1->addMapping(catchInputCtrl->pCmbUnitUnits(), 20);
     mapper1->addMapping(catchInputCtrl->pSpinUnitsC(), 21);
 
+    mapper1->addMapping(dtStart, 22);
+    mapper1->addMapping(timeStart, 23);
+    mapper1->addMapping(dtEnd, 24);
+    mapper1->addMapping(timeEnd, 25);
+
     QList<QDataWidgetMapper*> lMapper;
-    lMapper << mapper1 << mapperStartDt << mapperEndDt;
+    lMapper << mapper1;
     m_mapperBinderPtr=new MapperRuleBinder(m_ruleCheckerPtr, m_sample, lMapper, this->objectName());
     if (!initBinder(m_mapperBinderPtr))
         emit showError(tr("Could not init binder!"));
 
-    connect(m_mapperBinderPtr, SIGNAL(defaultValuesRead()), this,
-        SLOT(unblockCustomDateCtrls()));
-
     emit blockCatchUISignals(false);
-}
-
-void FrmTrip::blockCustomDateCtrls()
-{
-    //block signals here because of the rule binder!
-    customDtStart->blockSignals(true);
-    customDtEnd->blockSignals(true);
-}
-
-void FrmTrip::unblockCustomDateCtrls()
-{
-    //block signals here because of the rule binder!
-    customDtStart->blockSignals(false);
-    customDtEnd->blockSignals(false);
-}
-
-void FrmTrip::initMappers()
-{
-    if (mapperStartDt!=0) delete mapperStartDt;
-    if (mapperEndDt!=0) delete mapperEndDt;
-
-    mapperStartDt= new QDataWidgetMapper(this);
-    mapperStartDt->setModel(m_tDateTime);
-    mapperStartDt->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
-    mapperStartDt->setItemDelegate(new QItemDelegate(this));
-    mapperStartDt->addMapping(customDtStart,2,QString("dateTime").toAscii());
-
-    mapperEndDt= new QDataWidgetMapper(this);
-    mapperEndDt->setModel(m_tDateTime);
-    mapperEndDt->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
-    mapperEndDt->setItemDelegate(new QItemDelegate(this));
-    mapperEndDt->addMapping(customDtEnd,2,QString("dateTime").toAscii());
 }
 
 void FrmTrip::beforeShow()
@@ -400,55 +321,6 @@ bool FrmTrip::reallyApply()
             emit showError(tr("You must select one or more gears for this trip!"));
             bError=true;
         }else{
-
-            //First insert the dates...
-            if (!mapperStartDt->submit() 
-                || !mapperEndDt->submit()){
-                if (m_tDateTime->lastError().type()!=QSqlError::NoError)
-                    emit showError(m_tDateTime->lastError().text());
-                else
-                    emit showError(tr("Could not submit mapper!"));
-                bError=true;
-            }
-            else{
-                if (!m_tDateTime->submitAll()){
-                    if (m_tDateTime->lastError().type()!=QSqlError::NoError)
-                        emit showError(m_tDateTime->lastError().text());
-                    else
-                        emit showError(tr("Could not write DateTime in the database!"));
-
-                    bError=true;
-                }
-            }
-
-            while(m_tDateTime->canFetchMore())
-                m_tDateTime->fetchMore();
-
-            int startIdx=m_tDateTime->rowCount()-2;
-            int endIdx=m_tDateTime->rowCount()-1;
-
-            mapperStartDt->setCurrentIndex(startIdx);
-            mapperEndDt->setCurrentIndex(endIdx);
-
-            if (bError) {
-                emit showError(tr("Could not create dates in the database!"));
-            }else{
-
-                int idStart;
-                if (getDtId(startIdx,idStart)){
-                    QModelIndex idxStart=tTrips->index(tTrips->rowCount()-1,2);
-                    if (idxStart.isValid()){
-                        tTrips->setData(idxStart,idStart);
-                    }else bError=true;
-                }else bError=true;
-
-                int idEnd;
-                if (getDtId(endIdx,idEnd)){
-                    QModelIndex idxEnd=tTrips->index(tTrips->rowCount()-1,3);
-                    if (idxEnd.isValid()){
-                        tTrips->setData(idxEnd,idEnd);
-                    }else bError=true;
-                }else bError=true;
 
             if (mapper1->submit()){
                 bError=!
@@ -477,7 +349,6 @@ bool FrmTrip::reallyApply()
 
                 }
             }
-            }
         }
     }
     buttonBox->button(QDialogButtonBox::Apply)->setEnabled(bError);
@@ -499,9 +370,6 @@ void FrmTrip::uI4NewRecord()
 {
     genericUI4NewRecord();
 
-    customDtStart->setIsDateTime(true,true,true);
-    customDtEnd->setIsDateTime(true,true,true);
-
     textComments->clear();
     listGears->clearSelection();
     listZones->clearSelection();
@@ -518,34 +386,6 @@ void FrmTrip::createRecord()
     genericCreateRecord();
     mapper1->toLast();
 
-    if(!m_tDateTime) return;
-    m_tDateTime->select();
-
-    bool bDate, bTime;
-    customDtStart->getIsDateTime(bDate,bTime);
-    if (!m_tDateTime->insertNewRecord(customDtStart->getIsAuto(),bDate,bTime)){
-        emit showError(tr("Could not insert start date!"));
-        return;
-    }
-    customDtEnd->getIsDateTime(bDate,bTime);
-    if (!m_tDateTime->insertNewRecord(customDtStart->getIsAuto(),bDate,bTime)){
-        emit showError(tr("Could not insert start date!"));
-        return;
-    }
-
-    customDtStart->setModelRow(m_tDateTime->rowCount()-2);
-    customDtEnd->setModelRow(m_tDateTime->rowCount()-1);
-
-    mapperStartDt->setCurrentIndex(m_tDateTime->rowCount()-2);
-    mapperEndDt->setCurrentIndex(m_tDateTime->rowCount()-1);
-
-    //IMPORTANT: do this after setting the model row!
-    connect(m_tDateTime, SIGNAL(getDateType(QModelIndex,QVariant)), customDtStart,
-        SLOT(adjustDateTime(QModelIndex,QVariant)),Qt::UniqueConnection);
-
-    connect(m_tDateTime, SIGNAL(getDateType(QModelIndex,QVariant)), customDtEnd,
-        SLOT(adjustDateTime(QModelIndex,QVariant)),Qt::UniqueConnection);
-
     while(tTrips->canFetchMore())
         tTrips->fetchMore();
 
@@ -559,7 +399,7 @@ void FrmTrip::createRecord()
         cmbSite->setEnabled(false);
     }
 
-    tTripGears->setFilter(tr(""));
+    tTripGears->setFilter("");
 
     uI4NewRecord();//init UI
 
@@ -574,14 +414,14 @@ void FrmTrip::initTripModel()
     if (tTrips!=0) delete tTrips;
 
     tTrips=new QSqlRelationalTableModel();
-    tTrips->setTable(QSqlDatabase().driver()->escapeIdentifier(tr("Sampled_Fishing_Trips"),
+    tTrips->setTable(QSqlDatabase().driver()->escapeIdentifier("sampled_fishing_trips",
         QSqlDriver::TableName));
-    tTrips->setRelation(4, QSqlRelation("Ref_Abstract_LandingSite", "ID", "Name"));
-    tTrips->setRelation(5, QSqlRelation("Ref_Samplers", "ID", "Name"));
-    tTrips->setRelation(12, QSqlRelation("Ref_Units", "ID", "Name"));
-    tTrips->setRelation(15, QSqlRelation("Ref_Units", "ID", "Name"));
-    tTrips->setRelation(20, QSqlRelation("Ref_Units", "ID", "Name"));
-    tTrips->setRelation(22, QSqlRelation("Ref_Fishing_Zones", "ID", "Name"));
+
+    tTrips->setRelation(4, QSqlRelation("ref_abstract_landingsite", "id", "name"));
+    tTrips->setRelation(5, QSqlRelation("ref_samplers", "id", "name"));
+    tTrips->setRelation(12, QSqlRelation("ref_units", "id", "name"));
+    tTrips->setRelation(15, QSqlRelation("ref_units", "id", "name"));
+    tTrips->setRelation(20, QSqlRelation("ref_units", "id", "name"));
     tTrips->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tTrips->sort(0,Qt::AscendingOrder);
     tTrips->select();
@@ -604,17 +444,17 @@ void FrmTrip::filterModel4Combo()
         }
 
         strQuery=
-        "SELECT     TOP (100) PERCENT dbo.Ref_Abstract_LandingSite.ID"
-        " FROM         dbo.Ref_Minor_Strata INNER JOIN"
-        "                      dbo.FR_Time ON dbo.Ref_Minor_Strata.id_frame_time = dbo.FR_Time.ID INNER JOIN"
-        "                      dbo.FR_Frame ON dbo.FR_Time.id_frame = dbo.FR_Frame.ID INNER JOIN"
-        "                      dbo.FR_Sub_Frame ON dbo.FR_Frame.ID = dbo.FR_Sub_Frame.id_frame INNER JOIN"
-        "                      dbo.FR_GLS2ALS ON dbo.FR_Sub_Frame.ID = dbo.FR_GLS2ALS.id_sub_frame INNER JOIN"
-        "                      dbo.Ref_Abstract_LandingSite ON dbo.FR_GLS2ALS.id_abstract_landingsite = dbo.Ref_Abstract_LandingSite.ID"
-        " WHERE     (dbo.Ref_Minor_Strata.ID = " + QVariant(m_sample->minorStrataId).toString() + " ) AND (dbo.FR_GLS2ALS.id_gls ="
-        "                  (SELECT     id_gls"
-        "                    FROM          dbo.Ref_Minor_Strata AS Ref_Minor_Strata_1"
-        "                    WHERE      (ID = " + QVariant(m_sample->minorStrataId).toString() + ")))"
+            "select     ref_abstract_landingsite.id"
+                    " from         ref_minor_strata inner join"
+                    "                      fr_time on ref_minor_strata.id_frame_time = fr_time.id inner join"
+                    "                      fr_frame on fr_time.id_frame = fr_frame.id inner join"
+                    "                      fr_sub_frame on fr_frame.id = fr_sub_frame.id_frame inner join"
+                    "                      fr_gls2als on fr_sub_frame.id = fr_gls2als.id_sub_frame inner join"
+                    "                      ref_abstract_landingsite on fr_gls2als.id_abstract_landingsite = ref_abstract_landingsite.id"
+                " where     (ref_minor_strata.id ="  + QVariant(m_sample->minorStrataId).toString() +  ") and (fr_gls2als.id_gls ="
+                    "                  (select     id_gls"
+                    "                    from          ref_minor_strata as ref_minor_strata_1"
+                "                    where      (id ="  + QVariant(m_sample->minorStrataId).toString() + ")))"
         ;//for getting all the boats on the frame, just remove the last condition
 
         query.prepare(strQuery);
@@ -625,20 +465,20 @@ void FrmTrip::filterModel4Combo()
 
         QString strFilter("");
         while (query.next()) {
-            strFilter.append("ID=" + query.value(0).toString());
-            strFilter.append(" OR ");
+            strFilter.append("id=" + query.value(0).toString());
+            strFilter.append(" or ");
         }
         if (!strFilter.isEmpty())
-            strFilter=strFilter.remove(strFilter.size()-QString(" OR ").length(),QString(" OR ").length());
+            strFilter=strFilter.remove(strFilter.size()-QString(" or ").length(),QString(" or ").length());
 
         tTrips->relationModel(4)->setFilter(strFilter);
 
     }else{
 
         strQuery=
-        "SELECT     id_abstract_LandingSite"
-        " FROM         dbo.Sampled_Cell"
-        " WHERE     (ID = :id)"
+        "SELECT     id_abstract_landingsite"
+        " FROM         sampled_cell"
+        " WHERE     (id = :id)"
         ;
 
         query.prepare(strQuery);
@@ -655,7 +495,7 @@ void FrmTrip::filterModel4Combo()
         }
 
         query.first();
-        strFilter.append("ID=" + query.value(0).toString());
+        strFilter.append("id=" + query.value(0).toString());
 
         if (!strFilter.isEmpty()){
             tTrips->relationModel(4)->setFilter(strFilter);
@@ -706,41 +546,16 @@ bool FrmTrip::applyChanges()
             emit showError(tr("You must select one or more gears for this trip!"));
             bError=true;
         }else{
-
-            QString strError;
+/*
+            QString strError; //TODO: PORT THIS LATER
             if (!checkDependantDates(tTrips->tableName(), customDtStart->dateTime(),
                 customDtEnd->dateTime(),tTrips->tableName(),m_sample->tripId, strError))
             {
                 emit showError(strError);
                 bError=true;
             }else{
-
-                QVariant start,end;
-                bError=!amendDates(mapperStartDt, mapperEndDt,start,end);
-                if (!bError){
-
+*/
                     int cur= mapper1->currentIndex();
-                    if (mapper1->model()->index(cur,2).data()!=start)
-                        mapper1->model()->setData(mapper1->model()->index(cur,2),start);
-                    if (mapper1->model()->index(cur,3).data()!=end)
-                        mapper1->model()->setData(mapper1->model()->index(cur,3),end);
-
-                    //Setting the datetime type changes here!
-                    bool bDate, bTime;
-                    int typeID;
-
-                    customDtStart->getIsDateTime(bDate,bTime);
-                    if (!m_tDateTime->getDateTimeType(true,bTime,typeID)){
-                    return false;
-                    }
-                    m_tDateTime->setData(m_tDateTime->index(0,3),typeID);
-
-                    customDtEnd->getIsDateTime(bDate,bTime);
-                    if (!m_tDateTime->getDateTimeType(true,bTime,typeID)){
-                    return false;
-                    }
-                    m_tDateTime->setData(m_tDateTime->index(1,3),typeID);
-
                     bError=!submitMapperAndModel(mapper1);
                     if (!bError){
                         mapper1->setCurrentIndex(cur);
@@ -764,8 +579,8 @@ bool FrmTrip::applyChanges()
                         }
 
                     }// mapper 1 submission
-                } else emit showError(tr("Could not edit dates in the database!"));
-            }//check dependant dates
+                //} else emit showError(tr("Could not edit dates in the database!"));
+            //}//check dependant dates
         }//if list gears has selection
     }//if list zones has selection
 

@@ -6,8 +6,6 @@ PreviewTab(6, inRoleDef, inSample,inTDateTime,tr("Fishing Operation"), ruleCheck
 
     setupUi(this);
 
-    blockCustomDateCtrls();
-
     installEventFilters();
 
     connect(pushNext, SIGNAL(clicked()), this,
@@ -25,14 +23,10 @@ PreviewTab(6, inRoleDef, inSample,inTDateTime,tr("Fishing Operation"), ruleCheck
     multiModelI=0;
     viewOperations=0;
     mapper1=0;
-    mapperStartDt=0;
-    mapperEndDt=0;
     nullDelegate=0;
 
     initModels();
     initUI();
-    initMappers();
-
 }
 
 FrmOperation::~FrmOperation()
@@ -43,9 +37,7 @@ FrmOperation::~FrmOperation()
     if (tOperations!=0) delete tOperations;
     if (viewOperations!=0) delete viewOperations;
     if (nullDelegate!=0) delete nullDelegate;
-    if (mapper1!=0) delete mapper1;
-    if (mapperStartDt!=0) delete mapperStartDt;
-    if (mapperEndDt!=0) delete mapperEndDt;
+    if (mapper1!=0) delete mapper1 ;
 }
 
 void FrmOperation::initHelpIds()
@@ -83,36 +75,6 @@ void FrmOperation::previewRow(QModelIndex index)
 
         mapper1->toLast();
 
-        //Now fix the dates
-        idx=tOperations->index(0,2);
-        if (!idx.isValid()){
-            emit showError (tr("Could not preview this operation!"));
-            return;
-        }
-        QString strStartDt=idx.data().toString();
-        idx=tOperations->index(0,3);
-        if (!idx.isValid()){
-            emit showError (tr("Could not preview this operation!"));
-            return;
-        }
-        QString strEndDt=idx.data().toString();
-
-        m_tDateTime->setFilter(tr("ID=") + strStartDt + tr(" OR ID=") + strEndDt + " ORDER BY DATE_LOCAL ASC");
-
-        if (m_tDateTime->rowCount()!=2)
-            return;
-
-        //adjusting the display format of the dates on preview
-        QModelIndex idxDType=m_tDateTime->index(0,3);
-        if (!idxDType.isValid()) return;
-        customDtStart->adjustDateTime(idxDType,idxDType.data());
-        idxDType=m_tDateTime->index(1,3);
-        if (!idxDType.isValid()) return;
-        customDtEnd->adjustDateTime(idxDType,idxDType.data());
-
-        mapperEndDt->toLast();
-        mapperStartDt->setCurrentIndex(mapperEndDt->currentIndex()-1);
-
         //preview record on the listView
         multiModelI->setParentId(intId);
         multiModelI->model2List("id_fishing_operation");
@@ -124,23 +86,25 @@ void FrmOperation::previewRow(QModelIndex index)
 
 void FrmOperation::setPreviewQuery()
 {
-    //TODO: REVIEW THIS; the idea is to compare the time (hours, minutes and seconds) with Unix time 0; if it is the case, than we don't have a valid time
-    // for this record, and we just assigned it as 'missing';
     if (m_sample==0) return;
     QString strQuery=
-
             "select     sampled_fishing_operations.id, ref_gears.name as \"gear used\", to_char(start_dt, 'DD/Mon/YYYY') as \"start date\",  to_char(end_dt, 'DD/Mon/YYYY') as \"end date\",  "
+
             "    case when"
-            "    (select extract(hour from start_dt)=0) and (select extract(minute from  start_dt)=0) and (select extract(second from  start_dt)=0)"
+            "            (select start_time)=(select 'allballs'::time)"
             "    then 'missing' else  "
-            "    to_char(start_dt, 'hh/mm/ss') end \"start time\","
+
+            "    to_char(start_dt, 'hh:mm:ss') end \"start time\","
+
             "    case when"
-            "    (select extract(hour from  end_dt)=0) and (select extract(minute from  end_dt)=0) and (select extract(second from  end_dt)=0)"
+            "            (select end_time)=(select 'allballs'::time)"
             "    then 'missing' else  "
-            "    to_char(end_dt, 'hh/mm/ss') end \"end time\""
+
+            "    to_char(end_dt, 'hh:mm:ss') end \"end time\""
+
             "     from         sampled_fishing_operations inner join"
             "                          ref_gears on sampled_fishing_operations.id_gear = ref_gears.id "
-            "     where     (sampled_fishing_operations.id_fishing_trip = :id) order by id desc            "
+            "     where     (sampled_fishing_operations.id_fishing_trip = :id) order by id desc"
     ;
 
     QSqlQuery query;
@@ -166,7 +130,7 @@ void FrmOperation::initModels()
 
      tRefCat = new QSqlQueryModel;
      tRefCat->setQuery(
-        "SELECT   ID, Name FROM         dbo.Ref_Commercial_Categories ORDER BY ID"
+        "SELECT   id, name FROM         ref_commercial_categories ORDER BY ID"
          );
 
     if (tOpCat!=0) delete tOpCat;
@@ -201,26 +165,16 @@ void FrmOperation::initUI()
     m_lWidgets << spinOrder;
     m_lWidgets << cmbFishingZone;
     m_lWidgets << cmbGear;
-    m_lWidgets << customDtStart;
-    m_lWidgets << customDtEnd;
+    m_lWidgets << dtStart;
+    m_lWidgets << dtEnd;
+    m_lWidgets << timeStart;
+    m_lWidgets << timeEnd;
     m_lWidgets << spinNoUnits;
     m_lWidgets << doubleSpinSize;
     m_lWidgets << catchInputCtrl;
     m_lWidgets << textComments;
     m_lWidgets << listCategories;
     m_lWidgets << pushClear;
-
-    customDtStart->setIsUTC(false);
-    customDtStart->setIsAuto(false);
-
-    customDtEnd->setIsUTC(false);
-    customDtEnd->setIsAuto(false);
-
-    connect(customDtStart, SIGNAL(isDateTime(bool,int)), m_tDateTime,
-        SLOT(amendDateTimeType(bool,int)));
-
-    connect(customDtEnd, SIGNAL(isDateTime(bool,int)), m_tDateTime,
-        SLOT(amendDateTimeType(bool,int)));
 
     //pushNext->setEnabled(false);
 }
@@ -286,50 +240,20 @@ void FrmOperation::initMapper1()
     mapper1->addMapping(cmbFishingZone, 18);
     mapper1->addMapping(catchInputCtrl->pDoubleSpinWeightUnit(), 20);
 
+    mapper1->addMapping(dtEnd, 21);
+    mapper1->addMapping(dtStart, 22);
+    mapper1->addMapping(timeEnd, 23);
+    mapper1->addMapping(timeStart, 24);
+
     mapper1->addMapping(textComments,19);
 
     QList<QDataWidgetMapper*> lMapper;
-    lMapper << mapper1 << mapperStartDt << mapperEndDt;
+    lMapper << mapper1;
     m_mapperBinderPtr=new MapperRuleBinder(m_ruleCheckerPtr, m_sample, lMapper, this->objectName());
     if (!initBinder(m_mapperBinderPtr))
         emit showError(tr("Could not init binder!"));
 
-    connect(m_mapperBinderPtr, SIGNAL(defaultValuesRead()), this,
-        SLOT(unblockCustomDateCtrls()));
-
     emit blockCatchUISignals(false);
-}
-
-void FrmOperation::blockCustomDateCtrls()
-{
-    //block signals here because of the rule binder!
-    customDtStart->blockSignals(true);
-    customDtEnd->blockSignals(true);
-}
-
-void FrmOperation::unblockCustomDateCtrls()
-{
-    //block signals here because of the rule binder!
-    customDtStart->blockSignals(false);
-    customDtEnd->blockSignals(false);
-}
-
-void FrmOperation::initMappers()
-{
-    if (mapperStartDt!=0) delete mapperStartDt;
-    if (mapperEndDt!=0) delete mapperEndDt;
-
-    mapperStartDt= new QDataWidgetMapper(this);
-    mapperStartDt->setModel(m_tDateTime);
-    mapperStartDt->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
-    mapperStartDt->setItemDelegate(new QItemDelegate(this));
-    mapperStartDt->addMapping(customDtStart,2,QString("dateTime").toAscii());
-
-    mapperEndDt= new QDataWidgetMapper(this);
-    mapperEndDt->setModel(m_tDateTime);
-    mapperEndDt->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
-    mapperEndDt->setItemDelegate(new QItemDelegate(this));
-    mapperEndDt->addMapping(customDtEnd,2,QString("dateTime").toAscii());
 }
 
 void FrmOperation::beforeShow()
@@ -348,56 +272,6 @@ bool FrmOperation::reallyApply()
             emit showError(tr("You must select one or more commercial categories for this trip!"));
             bError=true;
         }else{
-
-            //First insert the dates...
-            if (!mapperStartDt->submit() 
-                || !mapperEndDt->submit()){
-                if (m_tDateTime->lastError().type()!=QSqlError::NoError)
-                    emit showError(m_tDateTime->lastError().text());
-                else
-                    emit showError(tr("Could not submit mapper!"));
-                bError=true;
-            }
-            else{
-                if (!m_tDateTime->submitAll()){
-                    if (m_tDateTime->lastError().type()!=QSqlError::NoError)
-                        emit showError(m_tDateTime->lastError().text());
-                    else
-                        emit showError(tr("Could not write DateTime in the database!"));
-
-                    bError=true;
-                }
-            }
-
-            while(m_tDateTime->canFetchMore())
-                m_tDateTime->fetchMore();
-
-            int startIdx=m_tDateTime->rowCount()-2;
-            int endIdx=m_tDateTime->rowCount()-1;
-
-            mapperStartDt->setCurrentIndex(startIdx);
-            mapperEndDt->setCurrentIndex(endIdx);
-
-            if (bError) {
-                emit showError(tr("Could not create dates in the database!"));
-            }else{
-
-                int idStart;
-                if (getDtId(startIdx,idStart)){
-                    QModelIndex idxStart=tOperations->index(tOperations->rowCount()-1,2);
-                    if (idxStart.isValid()){
-                        tOperations->setData(idxStart,idStart);
-                    }else bError=true;
-                }else bError=true;
-
-                int idEnd;
-                if (getDtId(endIdx,idEnd)){
-                    QModelIndex idxEnd=tOperations->index(tOperations->rowCount()-1,3);
-                    if (idxEnd.isValid()){
-                        tOperations->setData(idxEnd,idEnd);
-                    }else bError=true;
-                }else bError=true;
-
             if (mapper1->submit()){
                 bError=!
                     tOperations->submitAll();
@@ -419,7 +293,7 @@ bool FrmOperation::reallyApply()
                     }
             }
 
-            }
+            //}
         }
         //button->setEnabled(bError);
         buttonBox->button(QDialogButtonBox::Apply)->setEnabled(bError);
@@ -441,13 +315,13 @@ void FrmOperation::uI4NewRecord()
 {
     genericUI4NewRecord();
 
-    customDtStart->setIsDateTime(true,true,true);
-    customDtEnd->setIsDateTime(true,true,true);
     textComments->clear();
     listCategories->clearSelection();
 
-    if (cmbFishingZone->count()) cmbFishingZone->setCurrentIndex(0);
-    if (cmbGear->count()) cmbGear->setCurrentIndex(0);
+    if (cmbFishingZone->count())
+        cmbFishingZone->setCurrentIndex(0);
+    if (cmbGear->count())
+        cmbGear->setCurrentIndex(0);
 }
 
 void FrmOperation::createRecord()
@@ -456,34 +330,6 @@ void FrmOperation::createRecord()
 
     genericCreateRecord();
     mapper1->toLast();
-
-    if(!m_tDateTime) return;
-    m_tDateTime->select();
-
-    bool bDate, bTime;
-    customDtStart->getIsDateTime(bDate,bTime);
-    if (!m_tDateTime->insertNewRecord(customDtStart->getIsAuto(),bDate,bTime)){
-        emit showError(tr("Could not insert start date!"));
-        return;
-    }
-    customDtEnd->getIsDateTime(bDate,bTime);
-    if (!m_tDateTime->insertNewRecord(customDtStart->getIsAuto(),bDate,bTime)){
-        emit showError(tr("Could not insert start date!"));
-        return;
-    }
-
-    customDtStart->setModelRow(m_tDateTime->rowCount()-2);
-    customDtEnd->setModelRow(m_tDateTime->rowCount()-1);
-
-    mapperStartDt->setCurrentIndex(m_tDateTime->rowCount()-2);
-    mapperEndDt->setCurrentIndex(m_tDateTime->rowCount()-1);
-
-    //IMPORTANT: do this after setting the model row!
-    connect(m_tDateTime, SIGNAL(getDateType(QModelIndex,QVariant)), customDtStart,
-        SLOT(adjustDateTime(QModelIndex,QVariant)),Qt::UniqueConnection);
-
-    connect(m_tDateTime, SIGNAL(getDateType(QModelIndex,QVariant)), customDtEnd,
-        SLOT(adjustDateTime(QModelIndex,QVariant)),Qt::UniqueConnection);
 
     while(tOperations->canFetchMore())
         tOperations->fetchMore();
@@ -505,14 +351,14 @@ void FrmOperation::initOperationModel()
     if (tOperations!=0) delete tOperations;
 
     tOperations=new QSqlRelationalTableModel();
-    tOperations->setTable(QSqlDatabase().driver()->escapeIdentifier("Sampled_Fishing_Operations",
+    tOperations->setTable(QSqlDatabase().driver()->escapeIdentifier("sampled_fishing_operations",
         QSqlDriver::TableName));
 
-    tOperations->setRelation(4, QSqlRelation("Ref_Gears", "ID", "Name"));
-    tOperations->setRelation(7, QSqlRelation("Ref_Units", "ID", "Name"));
-    tOperations->setRelation(10, QSqlRelation("Ref_Units", "ID", "Name"));
-    tOperations->setRelation(14, QSqlRelation("Ref_Units", "ID", "Name"));
-    tOperations->setRelation(18, QSqlRelation("Ref_Fishing_Zones", "ID", "Name"));
+    tOperations->setRelation(4, QSqlRelation("ref_gears", "id", "name"));
+    tOperations->setRelation(7, QSqlRelation("ref_units", "id", "name"));
+    tOperations->setRelation(10, QSqlRelation("ref_units", "id", "name"));
+    tOperations->setRelation(14, QSqlRelation("ref_units", "id", "name"));
+    tOperations->setRelation(18, QSqlRelation("ref_fishing_zones", "id", "name"));
 
     tOperations->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tOperations->sort(0,Qt::AscendingOrder);
@@ -535,7 +381,7 @@ void FrmOperation::filterModel4Combo()
 
     strQuery=
         "SELECT     id_fishing_gear"
-        " FROM         dbo.Sampled_Fishing_Trips_Gears"
+        " FROM         sampled_fishing_trips_gears"
         " WHERE     (id_fishing_trip = " + QVariant(m_sample->tripId).toString() + ")";
 
     query.prepare(strQuery);
@@ -550,17 +396,17 @@ void FrmOperation::filterModel4Combo()
 
     QString strFilter("");
     while (query.next()) {
-        strFilter.append("ID=" + query.value(0).toString());
-        strFilter.append(" OR ");
+        strFilter.append("id=" + query.value(0).toString());
+        strFilter.append(" or ");
     }
     if (!strFilter.isEmpty())
-        strFilter=strFilter.remove(strFilter.size()-QString(" OR ").length(),QString(" OR ").length());
+        strFilter=strFilter.remove(strFilter.size()-QString(" or ").length(),QString(" or ").length());
 
     tOperations->relationModel(4)->setFilter(strFilter);
 
     strQuery=
         "SELECT     id_fishing_zone"
-        " FROM         dbo.Sampled_fishing_trips_zones"
+        " FROM         sampled_fishing_trips_zones"
         " WHERE     (id_fishing_trip = " + QVariant(m_sample->tripId).toString() + ")";
 
     query.prepare(strQuery);
@@ -575,11 +421,11 @@ void FrmOperation::filterModel4Combo()
 
     strFilter="";
     while (query.next()) {
-        strFilter.append("ID=" + query.value(0).toString());
-        strFilter.append(" OR ");
+        strFilter.append("id=" + query.value(0).toString());
+        strFilter.append(" or ");
     }
     if (!strFilter.isEmpty())
-        strFilter=strFilter.remove(strFilter.size()-QString(" OR ").length(),QString(" OR ").length());
+        strFilter=strFilter.remove(strFilter.size()-QString(" or ").length(),QString(" or ").length());
 
     tOperations->relationModel(18)->setFilter(strFilter);
 
@@ -622,43 +468,15 @@ bool FrmOperation::applyChanges()
         bError=true;
     }else{
 
+        /*TODO: PUT THIS BACK!
         QString strError;
         if (!checkDependantDates(tOperations->tableName(), customDtStart->dateTime(),
             customDtEnd->dateTime(),tOperations->tableName(),m_sample->operationId, strError))
         {
             emit showError(strError);
             bError=true;
-        }else{
+        }else{*/
 
-	
-	
-            QVariant start,end;
-            bError=!amendDates(mapperStartDt, mapperEndDt,start,end);
-            if (!bError){
-
-                int cur= mapper1->currentIndex();
-                if (mapper1->model()->index(cur,2).data()!=start)
-                    mapper1->model()->setData(mapper1->model()->index(cur,2),start);
-                if (mapper1->model()->index(cur,3).data()!=end)
-                    mapper1->model()->setData(mapper1->model()->index(cur,3),end);
-
-                //Setting the datetime type changes here!
-                bool bDate, bTime;
-                int typeID;
-
-                customDtStart->getIsDateTime(bDate,bTime);
-                if (!m_tDateTime->getDateTimeType(true,bTime,typeID)){
-                    return false;
-                }
-                m_tDateTime->setData(m_tDateTime->index(0,3),typeID);
-
-                customDtEnd->getIsDateTime(bDate,bTime);
-                if (!m_tDateTime->getDateTimeType(true,bTime,typeID)){
-                    return false;
-                }
-                m_tDateTime->setData(m_tDateTime->index(1,3),typeID);
-
-                bError=!submitDates(mapperStartDt, mapperEndDt);
                 if (!bError){
                     int cur= mapper1->currentIndex();
                     bError=!submitMapperAndModel(mapper1);
@@ -677,8 +495,7 @@ bool FrmOperation::applyChanges()
 				}
 			}
 		}//bError			
-	}//bError		
-        }//check dependant dates
+//        }//check dependant dates
     }//list categories
     if (!bError) emit editLeave(true,false);
     return !bError;

@@ -39,8 +39,6 @@ class FrmOperation : public PreviewTab, public Ui::FrmOperation
         /*! Reimplemented from the PreviewTab base class
         */
         void                                   onItemSelection();
-        void                                   blockCustomDateCtrls();
-        void                                   unblockCustomDateCtrls();
         //! On Edit Leave
         /*! Reimplemented from the PreviewTab base class
          \par bFinished flag that indicates if we started/finished editing
@@ -92,7 +90,7 @@ class FrmOperation : public PreviewTab, public Ui::FrmOperation
         //! Init Mappers
         /*! Reimplemented from the genericTab base class
         */
-        void                                   initMappers();
+        void                                   initMappers(){;}
         //! Init UI
         /*! Reimplemented from the genericTab base class
         */
@@ -117,7 +115,5 @@ class FrmOperation : public PreviewTab, public Ui::FrmOperation
         QSqlRelationalTableModel*              tOperations;
         QSqlQueryModel*                        viewOperations;
         QDataWidgetMapper*                     mapper1;
-        QDataWidgetMapper*                     mapperStartDt;
-        QDataWidgetMapper*                     mapperEndDt;
 };
 #endif //FRMOPERATION_H

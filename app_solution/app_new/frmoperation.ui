@@ -198,11 +198,11 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
      <property name="title">
       <string>Details</string>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_6">
-      <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
            <widget class="QLabel" name="label_3">
             <property name="text">
@@ -253,12 +253,23 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
            <string>Start</string>
           </property>
           <property name="buddy">
-           <cstring>customDtStart</cstring>
+           <cstring>dtStart</cstring>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="CustomTimeCtrl" name="customDtStart"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QDateEdit" name="dtStart">
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTimeEdit" name="timeStart"/>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLabel" name="label_2">
@@ -272,12 +283,23 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
            <string>End</string>
           </property>
           <property name="buddy">
-           <cstring>customDtEnd</cstring>
+           <cstring>dtEnd</cstring>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="CustomTimeCtrl" name="customDtEnd"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QDateEdit" name="dtEnd">
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTimeEdit" name="timeEnd"/>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLabel" name="label_8">
@@ -310,7 +332,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
         </item>
        </layout>
       </item>
-      <item>
+      <item row="0" column="1">
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
          <widget class="QGroupBox" name="groupGear">
@@ -587,11 +609,6 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
    <extends>QWidget</extends>
    <header>catchinputctrl.h</header>
   </customwidget>
-  <customwidget>
-   <class>CustomTimeCtrl</class>
-   <extends>QWidget</extends>
-   <header>customtimectrl.h</header>
-  </customwidget>
  </customwidgets>
  <tabstops>
   <tabstop>tableView</tabstop>
@@ -600,8 +617,6 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
   <tabstop>pushRemove</tabstop>
   <tabstop>spinOrder</tabstop>
   <tabstop>cmbFishingZone</tabstop>
-  <tabstop>customDtStart</tabstop>
-  <tabstop>customDtEnd</tabstop>
   <tabstop>textComments</tabstop>
   <tabstop>cmbGear</tabstop>
   <tabstop>spinNoUnits</tabstop>

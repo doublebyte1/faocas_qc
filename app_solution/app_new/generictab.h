@@ -1,7 +1,6 @@
 #include <QtGui>
 #include <QtSql>
 #include "frmframedetails.h"
-#include "datemodel.h"
 #include "globaldefs.h"
 #include "rulechecker.h"
 #include "mapperrulebinder.h"
@@ -17,7 +16,6 @@ void                    filterTable(QSqlTableModel* table);
 /*! This is an utility function to resize the table, in order to show
 the contents of the visible columns.
   \par table pointer to a table;
-  \sa getDtId(const int mapIdx, int& id)
 */
 void                    resizeToVisibleColumns ( QTableView* table );
 
@@ -95,7 +93,7 @@ class GenericTab : public QWidget
     Q_OBJECT
 
     public:
-        GenericTab(const int index, RoleDef* inRoleDef, Sample* inSample, DateModel* inTDateTime, const QString inStrTitle, RuleChecker* ruleCheckerPtr=0,
+        GenericTab(const int index, RoleDef* inRoleDef, Sample* inSample, const QString inStrTitle, RuleChecker* ruleCheckerPtr=0,
             QWidget *parent = 0, Qt::WFlags flags = 0);
         ~GenericTab();
 
@@ -201,14 +199,7 @@ class GenericTab : public QWidget
         widgets and help references.
         */
         virtual void            initHelpIds()=0; 
-        //! Get Date Id
-        /*! This is an utility function to ge the id of a record on the dateTime Model, provided a QModelIndex;
-        It is provided for convenience, to use with the DateTimeCustomCtrl;
-          \par mapIdx model row for the record, as integer;
-          \par id address of a variable to put the id of the record;
-          \sa resizeToVisibleColumns ( QTableView* table )
-      */
-        bool                    getDtId(const int mapIdx, int& id);
+
         //! Init Rule Binder
         /*! This function initializes the rule binder, connecting all the necessary signals
         to have interaction with this class;
@@ -219,7 +210,6 @@ class GenericTab : public QWidget
 
         int                     m_index;/**< tab index */
         const QString           m_title;/**< tab title */
-        DateModel*              m_tDateTime;/**< pointer to the DateTime Table, hosted on the main form */
         Sample*                 m_sample;/**< pointer to the Sample structure, hosted on the main form */
         RoleDef*                m_roleDef;/**< pointer to the RoleDef structure, hosted on the login form */
         NullRelationalDelegate* nullDellegate;/**< delegate for handling the null values in AdvancedTextEdit ctrls */

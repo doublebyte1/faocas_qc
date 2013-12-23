@@ -3,8 +3,8 @@
 #include "modelinterface.h"
 #include "globaldefs.h"
 
-FrmFrame::FrmFrame(RoleDef* inRoleDef, Sample* inSample, DateModel* inTDateTime, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
-PreviewTab(0,inRoleDef,inSample,inTDateTime,tr("Frame"), ruleCheckerPtr, parent,flags){
+FrmFrame::FrmFrame(RoleDef* inRoleDef, Sample* inSample, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
+PreviewTab(0,inRoleDef,inSample,tr("Frame"), ruleCheckerPtr, parent,flags){
 
     setupUi(this);
 
@@ -16,8 +16,6 @@ PreviewTab(0,inRoleDef,inSample,inTDateTime,tr("Frame"), ruleCheckerPtr, parent,
     viewFrameTime=0;
     frModel=0;
     mapper=0;
-    //mapperStartDt=0;
-    //mapperEndDt=0;
     m_submitted=false;
     m_curMode=FrmFrameDetails::NONE;
     m_bInsert=false;
@@ -55,8 +53,6 @@ FrmFrame::~FrmFrame()
     if (viewFrameTime!=0) delete viewFrameTime;
     if (frModel!=0) delete frModel;
     if (mapper!=0) delete mapper;
-    //if (mapperStartDt!=0) delete mapperStartDt;
-    //if (mapperEndDt!=0) delete mapperEndDt;
 }
 
 void FrmFrame::initHelpIds()
@@ -423,7 +419,7 @@ void FrmFrame::initMapper2()
 
 
     QList<QDataWidgetMapper*> lMapper;
-    lMapper << mapper;// << mapperStartDt << mapperEndDt;
+    lMapper << mapper;
     m_mapperBinderPtr=new MapperRuleBinder(m_ruleCheckerPtr, m_sample, lMapper, this->objectName());
     if (!initBinder(m_mapperBinderPtr))
         emit showError(tr("Could not init binder!"));

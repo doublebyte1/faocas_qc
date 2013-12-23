@@ -25,7 +25,7 @@ class FrmFrame : public PreviewTab, public Ui::frmframe
     Q_OBJECT
 
     public:
-        FrmFrame(RoleDef* inRoleDef, Sample* inSample, DateModel* inTDateTime, RuleChecker* ruleCheckerPtr=0, QWidget *parent=0, Qt::WFlags flags=0);
+        FrmFrame(RoleDef* inRoleDef, Sample* inSample, RuleChecker* ruleCheckerPtr=0, QWidget *parent=0, Qt::WFlags flags=0);
         ~FrmFrame();
 
     public slots:
@@ -134,8 +134,6 @@ class FrmFrame : public PreviewTab, public Ui::frmframe
         QSqlRelationalTableModel*              tFrameTime;
         QSqlTableModel*                        frModel;
         QDataWidgetMapper*                     mapper;
-        //QDataWidgetMapper*                     mapperStartDt;
-        //QDataWidgetMapper*                     mapperEndDt;
         FrmFrameDetails::Mode                  m_curMode;
         bool                                   m_submitted;/**< flag to define if the record was finalised and successfully submitted */
         bool                                   m_bSampling;/**< flag to define if the sampling process definition is ongoing */

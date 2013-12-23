@@ -7,7 +7,6 @@
 MainFrm::MainFrm(RoleDef* roleDef, QWidget *parent, Qt::WFlags flags):
 m_roleDef(roleDef),QMainWindow(parent, flags){
 
-    tDateTime=0;
     pFrmFrame=0;
     pFrmMinorStrata=0;
     pFrmFrameDetails=0;
@@ -60,7 +59,6 @@ MainFrm::~MainFrm()
     if (pFrmPrjPage!=0) delete pFrmPrjPage;
     if (toolbar!=0) delete toolbar;
     //n.b.: delete these in the end, as they are used by the forms!
-    if (tDateTime!=0) delete tDateTime;
     if (sSample!=0) delete sSample;
     if (ruleCheckerPtr!=0) delete ruleCheckerPtr;
     if (handler!=0) delete handler;
@@ -264,9 +262,6 @@ void MainFrm::loadTabs()
     statusShow(tr("Wait..."));
 
         resetTabs();
-
-        if (!initDateModel())
-            emit displayError(tr("Could not initialize date model!"),false);
 
         initTabs();
 
@@ -611,7 +606,6 @@ void MainFrm::resetTabs()
         if (pFrmTrip!=0) {delete pFrmTrip; pFrmTrip=0;}
         if (pFrmOperation!=0) {delete pFrmOperation; pFrmOperation=0;}
         if (pFrmCatch!=0) {delete pFrmCatch; pFrmCatch=0;}
-        if (tDateTime!=0) {delete tDateTime; tDateTime=0;}
 
         //if (sSample!=0) {delete sSample; sSample=0;}
         //if (ruleCheckerPtr!=0) {delete ruleCheckerPtr; ruleCheckerPtr=0;}
@@ -623,21 +617,6 @@ void MainFrm::initPreviewTab(PreviewTab* tab)
     vTabs.push_back(tab);
 }
 
-bool MainFrm::initDateModel()
-{
-    if (tDateTime!=0) return false;//must be empty!!!!
-
-    //Dates
-    tDateTime= new DateModel();
-    tDateTime->setTable(QSqlDatabase().driver()->escapeIdentifier(tr("GL_Dates"),
-        QSqlDriver::TableName));
-    tDateTime->setEditStrategy(QSqlTableModel::OnManualSubmit);
-    tDateTime->setAuto(false);
-    tDateTime->select();
-
-    return true;
-}
-
 void MainFrm::newTabs()
 {
     qApp->setOverrideCursor( QCursor(Qt::BusyCursor ) );
@@ -647,8 +626,6 @@ void MainFrm::newTabs()
             closeSecondaryFrm(pFrmReports);
 
         resetTabs();
-        if (!initDateModel())
-            emit displayError(tr("Could not initialize date model!"),false);
 
         if (sSample!=0) {delete sSample; sSample=0;}
         sSample=new Sample;
@@ -660,25 +637,25 @@ void MainFrm::newTabs()
 
 void MainFrm::initTabs()
 {
-    pFrmFrame=new FrmFrame(m_roleDef,sSample,tDateTime,ruleCheckerPtr);
+    pFrmFrame=new FrmFrame(m_roleDef,sSample,ruleCheckerPtr);
     initPreviewTab(pFrmFrame);
 
      connect(pFrmFrame, SIGNAL(disableTabs(bool)), this,
     SLOT(disableTabs(bool)));
 
-    pFrmMinorStrata=new FrmMinorStrata(m_roleDef,sSample,tDateTime,ruleCheckerPtr);
+    pFrmMinorStrata=new FrmMinorStrata(m_roleDef,sSample,ruleCheckerPtr);
     initPreviewTab(pFrmMinorStrata);
-    pFrmCell=new FrmCell(m_roleDef,sSample,tDateTime,ruleCheckerPtr);
+    pFrmCell=new FrmCell(m_roleDef,sSample,ruleCheckerPtr);
     initPreviewTab(pFrmCell);
-    pFrmVesselType=new FrmVesselType(m_roleDef,sSample,tDateTime,ruleCheckerPtr);
+    pFrmVesselType=new FrmVesselType(m_roleDef,sSample,ruleCheckerPtr);
     initPreviewTab(pFrmVesselType);
-    pFrmVessel=new FrmVessel(m_roleDef,sSample,tDateTime,ruleCheckerPtr);
+    pFrmVessel=new FrmVessel(m_roleDef,sSample,ruleCheckerPtr);
     initPreviewTab(pFrmVessel);
-    pFrmTrip=new FrmTrip(m_roleDef,sSample,tDateTime,ruleCheckerPtr);
+    pFrmTrip=new FrmTrip(m_roleDef,sSample,ruleCheckerPtr);
     initPreviewTab(pFrmTrip);
-    pFrmOperation=new FrmOperation(m_roleDef,sSample,tDateTime,ruleCheckerPtr);
+    pFrmOperation=new FrmOperation(m_roleDef,sSample,ruleCheckerPtr);
     initPreviewTab(pFrmOperation);
-    pFrmCatch=new FrmCatch(m_roleDef,sSample,tDateTime,ruleCheckerPtr);
+    pFrmCatch=new FrmCatch(m_roleDef,sSample,ruleCheckerPtr);
     initPreviewTab(pFrmCatch);
 
     pFrmFrameDetails=new FrmFrameDetails();
@@ -706,7 +683,7 @@ void MainFrm::initTabs()
     gridLayout->addWidget(pFrmFrameDetails);
     pFrmFrameDetails->hide();
 
-    pFrmSampling=new FrmSampling(m_roleDef,sSample,tDateTime,ruleCheckerPtr);
+    pFrmSampling=new FrmSampling(m_roleDef,sSample,ruleCheckerPtr);
      connect(pFrmSampling, SIGNAL(hideFrmSampling(bool)), this,
     SLOT(hideFrmSampling()));
 

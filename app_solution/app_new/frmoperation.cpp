@@ -1,8 +1,8 @@
 #include <QTest>
 #include "frmoperation.h"
 
-FrmOperation::FrmOperation(RoleDef* inRoleDef, Sample* inSample, DateModel* inTDateTime, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
-PreviewTab(6, inRoleDef, inSample,inTDateTime,tr("Fishing Operation"), ruleCheckerPtr, parent, flags){
+FrmOperation::FrmOperation(RoleDef* inRoleDef, Sample* inSample, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
+PreviewTab(6, inRoleDef, inSample,tr("Fishing Operation"), ruleCheckerPtr, parent, flags){
 
     setupUi(this);
 

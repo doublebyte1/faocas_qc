@@ -13,7 +13,6 @@ HEADERS += ./abstractformat.h \
     ./buttongroup.h \
     ./connection.h \
     ./custommsgbox.h \
-    ./datemodel.h \
     ./dragdropmodel.h \
     ./fieldlistmodel.h \
     ./frameview.h \
@@ -58,7 +57,6 @@ SOURCES += ./abstractformat.cpp \
     ./abstracttableformat.cpp \
     ./buttongroup.cpp \
     ./custommsgbox.cpp \
-    ./datemodel.cpp \
     ./dragdropmodel.cpp \
     ./fieldlistmodel.cpp \
     ./frameview.cpp \

@@ -143,7 +143,6 @@ class MainFrm : public QMainWindow, public Ui::MainWindow
         bool                    getPrevIndex(const int idx, const bool bLogbook, int& newIndex);
 
         void                    initSecondaryFrm(SecondaryFrm* frm);
-        bool                    initDateModel();
         void                    resetTabs();
         void                    initPreviewTab(PreviewTab* tab);
         void                    initUi();
@@ -157,7 +156,6 @@ class MainFrm : public QMainWindow, public Ui::MainWindow
         void                    applyReportAdminPermissions();
 
         RoleDef*                m_roleDef;
-        DateModel               *tDateTime;
         FrmFrame                *pFrmFrame;
         FrmMinorStrata          *pFrmMinorStrata;
         FrmFrameDetails         *pFrmFrameDetails;

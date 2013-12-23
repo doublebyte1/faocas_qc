@@ -1,8 +1,8 @@
 //#include <QTest>
 #include "generictab.h"
 
-GenericTab::GenericTab(const int index, RoleDef* inRoleDef, Sample* inSample, DateModel* inTDateTime, const QString inStrTitle, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
-QWidget(parent, flags),m_index(index), m_tDateTime(inTDateTime), m_roleDef(inRoleDef), m_sample(inSample), m_title(inStrTitle), m_ruleCheckerPtr(ruleCheckerPtr) {
+GenericTab::GenericTab(const int index, RoleDef* inRoleDef, Sample* inSample, const QString inStrTitle, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
+QWidget(parent, flags),m_index(index), m_roleDef(inRoleDef), m_sample(inSample), m_title(inStrTitle), m_ruleCheckerPtr(ruleCheckerPtr) {
 
     lbHead=0;
     m_mapperBinderPtr=0;
@@ -108,7 +108,7 @@ void GenericTab::setLbHead(QLabel* inLbHeader)
 {
     lbHead=inLbHeader;
 }
-
+/*
 bool GenericTab::getDtId(const int mapIdx, int& id)
 {
     QModelIndex idx= m_tDateTime->index(mapIdx,0,QModelIndex());
@@ -117,7 +117,7 @@ bool GenericTab::getDtId(const int mapIdx, int& id)
     id=m_tDateTime->data(idx).toInt();
     return true;
 }
-
+*/
 void GenericTab::goBack()
 {
     emit navigate(false,m_index);

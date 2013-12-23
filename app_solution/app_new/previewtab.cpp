@@ -1,7 +1,7 @@
 #include "previewtab.h"
 
-PreviewTab::PreviewTab(const int index, RoleDef* inRoleDef, Sample* inSample, DateModel* inTDateTime, const QString inStrTitle, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
-GenericTab(index,inRoleDef,inSample,inTDateTime,inStrTitle,ruleCheckerPtr,parent,flags){
+PreviewTab::PreviewTab(const int index, RoleDef* inRoleDef, Sample* inSample, const QString inStrTitle, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
+GenericTab(index,inRoleDef,inSample,inStrTitle,ruleCheckerPtr,parent,flags){
 
     m_model=0;
     m_table=0;
@@ -59,130 +59,6 @@ void PreviewTab::setTips(const bool bLogbook)
     lbHead->setToolTip(tr("This is a ") + (bLogbook? tr("logbook"): tr("sampling")) + tr(" frame"));
     lbHead->setStatusTip(tr("This is a ") + (bLogbook? tr("logbook"): tr("sampling")) + tr(" frame"));
     lbHead->setWhatsThis(tr("This is a ") + (bLogbook? tr("logbook"): tr("sampling")) + tr(" frame"));
-}
-
-bool PreviewTab::amendDates(QDataWidgetMapper* startMapper, QDataWidgetMapper* endMapper,
-                            QVariant& start, QVariant& end)
-{
-    bool bError=false;
-
-//    int curStart=startMapper->currentIndex();
-//    int curEnd=endMapper->currentIndex();
-
-    startMapper->submit();
-    endMapper->submit();
-
-    //grabbed the comited values
-    QVariant startUTC=m_tDateTime->index(0,1).data();
-    QVariant startLocal=m_tDateTime->index(0,2).data();
-    QVariant startType=m_tDateTime->index(0,3).data();
-
-    QVariant endUTC=m_tDateTime->index(1,1).data();
-    QVariant endLocal=m_tDateTime->index(1,2).data();
-    QVariant endType=m_tDateTime->index(1,3).data();
-
-    //and undo the changes
-    startMapper->revert();
-    endMapper->revert();
-    m_tDateTime->revertAll();
-
-    bool bChangeStart=startLocal!=m_tDateTime->index(0,2).data();
-    bool bChangeEnd=endLocal!=m_tDateTime->index(1,2).data();
-
-    //nothing changed
-    start=m_tDateTime->index(0,0).data();
-    end=m_tDateTime->index(1,0).data();
-
-    if (bChangeStart || bChangeEnd){
-
-        //First of all, remove the filter
-         m_tDateTime->setFilter("");
-         int rowCount;
-
-        if (bChangeStart){
-            if (!insertRecordIntoModel(m_tDateTime)) return false;
-
-            while(m_tDateTime->canFetchMore())
-                m_tDateTime->fetchMore();
-
-            rowCount=m_tDateTime->rowCount();
-
-            QModelIndex idx=m_tDateTime->index(rowCount-1,1);
-            m_tDateTime->setData(idx,startUTC);
-            idx=m_tDateTime->index(rowCount-1,2);
-            m_tDateTime->setData(idx,startLocal);
-            idx=m_tDateTime->index(rowCount-1,3);
-            m_tDateTime->setData(idx,startType);
-            m_tDateTime->submitAll();
-
-        }
-        if (bChangeEnd){
-            if (!insertRecordIntoModel(m_tDateTime)) return false;
-
-            while(m_tDateTime->canFetchMore())
-                m_tDateTime->fetchMore();
-
-            rowCount=m_tDateTime->rowCount();
-
-            QModelIndex idx=m_tDateTime->index(rowCount-1,1);
-            m_tDateTime->setData(idx,endUTC);
-            idx=m_tDateTime->index(rowCount-1,2);
-            m_tDateTime->setData(idx,endLocal);
-            idx=m_tDateTime->index(rowCount-1,3);
-            m_tDateTime->setData(idx,endType);
-            m_tDateTime->submitAll();
-
-        }
-
-        while(m_tDateTime->canFetchMore())
-            m_tDateTime->fetchMore();
-
-        rowCount=m_tDateTime->rowCount();
-
-        if (bChangeStart){
-            if(bChangeEnd)
-                start=m_tDateTime->index(rowCount-2,0).data();
-            else
-                start=m_tDateTime->index(rowCount-1,0).data();
-        }
-        if (bChangeEnd)
-            end=m_tDateTime->index(rowCount-1,0).data();
-
-        QString strFilter="ID=" +start.toString()+" OR ID=" + end.toString() + " ORDER BY DATE_LOCAL ASC";
-        m_tDateTime->setFilter(strFilter);
-        m_tDateTime->select();
-
-        if (m_tDateTime->rowCount()!=2)
-            return false;
-    }
-
-    startMapper->setCurrentIndex(0);
-    endMapper->setCurrentIndex(1);
-
-    return !bError;
-}
-
-bool PreviewTab::submitDates(QDataWidgetMapper* startMapper, QDataWidgetMapper* endMapper)
-{
-    bool bError=false;
-    if (!startMapper->submit() || !endMapper->submit()){
-        if (m_tDateTime->lastError().type()!=QSqlError::NoError)
-            emit showError(m_tDateTime->lastError().text());
-        else
-            emit showError(tr("Could not submit dates(s)!!"));
-        bError=true;
-    }
-    else{
-        if (!m_tDateTime->submitAll()){
-            if (m_tDateTime->lastError().type()!=QSqlError::NoError)
-                emit showError(m_tDateTime->lastError().text());
-            else
-                emit showError(tr("Could not write DateTime in the database!"));
-
-            bError=true;
-        }
-    }
-    return !bError;
 }
 
 bool PreviewTab::submitMapperAndModel(QDataWidgetMapper* aMapper)
@@ -323,11 +199,8 @@ void PreviewTab::onShowForm()
     //Make sure all models are up to date, and without filters
     if (m_model==0) return;
     m_model->select();
-    m_tDateTime->select();
 
     setPreviewQuery();
-
-    if (m_tDateTime==0) return ;
 
     //filter the relational model
     filterModel4Combo();
@@ -387,7 +260,6 @@ bool PreviewTab::editRecord(bool on)
 {
     //removing filters
     if (m_model==0) return false;
-    if (m_tDateTime==0) return false;
     if (m_pushNew==0) return false;
     if (m_pushEdit==0) return false;
     if (m_pushRemove==0) return false;
@@ -544,9 +416,6 @@ void PreviewTab::genericCreateRecord()
     //removing filters
     if (m_model==0) return ;
     if (!m_model->filter().isEmpty()) m_model->setFilter("");
-
-    if (m_tDateTime==0) return ;
-    if (!m_tDateTime->filter().isEmpty()) m_tDateTime->setFilter("");
 
     if (!discardNewRecord()) return;
 

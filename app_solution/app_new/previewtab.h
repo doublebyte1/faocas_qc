@@ -32,7 +32,7 @@ class PreviewTab : public GenericTab
     Q_OBJECT
 
     public:
-        PreviewTab(const int index, RoleDef* inRoleDef, Sample* inSample, DateModel* inTDateTime, const QString inStrTitle, 
+        PreviewTab(const int index, RoleDef* inRoleDef, Sample* inSample, const QString inStrTitle,
             RuleChecker* ruleCheckerPtr=0, QWidget *parent=0, Qt::WFlags flags=0);
         ~PreviewTab();
 
@@ -196,9 +196,6 @@ class PreviewTab : public GenericTab
         \return boolean as success or failure
         */
         bool                                  submitMapperAndModel(QDataWidgetMapper* aMapper);
-        bool                                  submitDates(QDataWidgetMapper* startMapper, QDataWidgetMapper* endMapper);
-        bool                                  amendDates(QDataWidgetMapper* startMapper, QDataWidgetMapper* endMapper,
-                                                    QVariant& start, QVariant& end);
 
         bool                                  translateIndex(const QModelIndex inIdx, QModelIndex& outIdx);
 

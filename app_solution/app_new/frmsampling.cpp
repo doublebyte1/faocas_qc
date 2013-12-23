@@ -2,8 +2,8 @@
 #include "frmsampling.h"
 #include "previewtab.h"
 
-FrmSampling::FrmSampling(RoleDef* inRoleDef, Sample* inSample, DateModel* inTDateTime, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
-GenericTab(0, inRoleDef, inSample,inTDateTime,tr("Sampling Technique"), ruleCheckerPtr, parent, flags){
+FrmSampling::FrmSampling(RoleDef* inRoleDef, Sample* inSample, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
+GenericTab(0, inRoleDef, inSample,tr("Sampling Technique"), ruleCheckerPtr, parent, flags){
 
     setupUi(this);
     m_submitted=false;

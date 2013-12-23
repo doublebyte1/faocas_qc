@@ -2,8 +2,8 @@
 #include "globaldefs.h"
 #include "frmminorstrata.h"
 
-FrmMinorStrata::FrmMinorStrata(RoleDef* inRoleDef, Sample* inSample, DateModel* inTDateTime, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
-PreviewTab(1, inRoleDef, inSample,inTDateTime,tr("Stratum"), ruleCheckerPtr, parent, flags){
+FrmMinorStrata::FrmMinorStrata(RoleDef* inRoleDef, Sample* inSample, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
+PreviewTab(1, inRoleDef, inSample,tr("Stratum"), ruleCheckerPtr, parent, flags){
 
     setupUi(this);
 
@@ -29,9 +29,7 @@ PreviewTab(1, inRoleDef, inSample,inTDateTime,tr("Stratum"), ruleCheckerPtr, par
     initModels();
     initUI();
     initMappers();
-/*
-    connect(m_mapperBinderPtr, SIGNAL(defaultValuesRead()), this,
-        SLOT(unblockCustomDateCtrls()));*/
+
 }
 
 FrmMinorStrata::~FrmMinorStrata()
@@ -422,7 +420,7 @@ void FrmMinorStrata::initMappers()
     mapper1->addMapping(customDtEnd,10);
 
     QList<QDataWidgetMapper*> lMapper;
-    lMapper << mapper1;// << mapperStartDt << mapperEndDt;
+    lMapper << mapper1;
     m_mapperBinderPtr=new MapperRuleBinder(m_ruleCheckerPtr, m_sample, lMapper, this->objectName());
     if (!initBinder(m_mapperBinderPtr))
         emit showError(tr("Could not init binder!"));

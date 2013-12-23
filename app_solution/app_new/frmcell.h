@@ -23,7 +23,7 @@ class FrmCell : public PreviewTab, public Ui::frmCell
     Q_OBJECT
 
     public:
-        FrmCell(RoleDef* inRoleDef, Sample* inSample, DateModel* inTDateTime, RuleChecker* ruleCheckerPtr=0, QWidget *parent = 0, Qt::WFlags flags = 0);
+        FrmCell(RoleDef* inRoleDef, Sample* inSample, RuleChecker* ruleCheckerPtr=0, QWidget *parent = 0, Qt::WFlags flags = 0);
         ~FrmCell();
 
     signals:
@@ -41,8 +41,7 @@ class FrmCell : public PreviewTab, public Ui::frmCell
         /*! Reimplemented from the PreviewTab base class
         */
         void                                   onItemSelection();
-        //void                                   blockCustomDateCtrls();
-        //void                                   unblockCustomDateCtrls();
+
         //! Edit finished
         /*! Reimplemented from the PreviewTab base class
         \sa previewRow(QModelIndex index), onEditLeave(const bool bFinished, const bool bDiscarded)
@@ -121,7 +120,5 @@ class FrmCell : public PreviewTab, public Ui::frmCell
         QSqlRelationalTableModel*              tSampCell;
         QSqlQueryModel*                        viewCell;
         QDataWidgetMapper*                     mapper1;
-        //QDataWidgetMapper*                     mapperStartDt;
-        //QDataWidgetMapper*                     mapperEndDt;
 };
 #endif //FRMCELL_H

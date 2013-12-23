@@ -2,8 +2,8 @@
 #include "globaldefs.h"
 #include "frmcell.h"
 
-FrmCell::FrmCell(RoleDef* inRoleDef, Sample* inSample, DateModel* inTDateTime, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
-PreviewTab(2, inRoleDef,inSample,inTDateTime,tr("Cell"), ruleCheckerPtr, parent, flags){
+FrmCell::FrmCell(RoleDef* inRoleDef, Sample* inSample, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):
+PreviewTab(2, inRoleDef,inSample,tr("Cell"), ruleCheckerPtr, parent, flags){
 
     setupUi(this);
 
@@ -26,20 +26,15 @@ PreviewTab(2, inRoleDef,inSample,inTDateTime,tr("Cell"), ruleCheckerPtr, parent,
     tSampCell=0;
     viewCell=0;
     mapper1=0;
-    //mapperStartDt=0;
-    //mapperEndDt=0;
 
     initModels();
     initUI();
-    //initMappers();
 
 }
 
 FrmCell::~FrmCell()
 {
     if (mapper1!=0) delete mapper1;
-    //if (mapperStartDt!=0) delete mapperStartDt;
-    //if (mapperEndDt!=0) delete mapperEndDt;
     if (tSampCell!=0) delete tSampCell;
     if (viewCell!=0) delete viewCell;
 }
@@ -121,31 +116,12 @@ void FrmCell::previewRow(QModelIndex index)
             emit showError (tr("Could not preview this cell!"));
             return;
         }
-        //QString strStartDt=idx.data().toString();
 
         idx=tSampCell->index(0,3);
         if (!idx.isValid()){
             emit showError (tr("Could not preview this cell!"));
             return;
         }
-        //QString strEndDt=idx.data().toString();
-/*
-        m_tDateTime->setFilter(tr("ID=") + strStartDt + tr(" OR ID=") + strEndDt + " ORDER BY DATE_LOCAL ASC");
-
-        if (m_tDateTime->rowCount()!=2)
-            return;
-
-        //adjusting the display format of the dates on preview
-        QModelIndex idxDType=m_tDateTime->index(0,3);
-        if (!idxDType.isValid()) return;
-        customDtStart->adjustDateTime(idxDType,idxDType.data());
-        idxDType=m_tDateTime->index(1,3);
-        if (!idxDType.isValid()) return;
-        customDtEnd->adjustDateTime(idxDType,idxDType.data());
-
-        mapperEndDt->toLast();
-        mapperStartDt->setCurrentIndex(mapperEndDt->currentIndex()-1);*/
-
       //  pushNext->setEnabled(true);
     }
 }
@@ -178,19 +154,7 @@ void FrmCell::initUI()
     setHeader();
 
     this->groupDetails->setVisible(false);
-/*
-    customDtStart->setIsUTC(false);
-    customDtStart->setIsAuto(false);
 
-    customDtEnd->setIsUTC(false);
-    customDtEnd->setIsAuto(false);
-
-    connect(customDtStart, SIGNAL(isDateTime(bool,int)), m_tDateTime,
-        SLOT(amendDateTimeType(bool,int)));
-
-    connect(customDtEnd, SIGNAL(isDateTime(bool,int)), m_tDateTime,
-        SLOT(amendDateTimeType(bool,int)));
-*/
     initPreviewTable(tableView,viewCell);
     setButtonBox(buttonBox);
     setGroupDetails(groupDetails);
@@ -250,48 +214,12 @@ void FrmCell::initMapper1()
     mapper1->addMapping(textComments,13);
 
     QList<QDataWidgetMapper*> lMapper;
-    lMapper << mapper1;// << mapperStartDt << mapperEndDt;
+    lMapper << mapper1;
     m_mapperBinderPtr=new MapperRuleBinder(m_ruleCheckerPtr, m_sample, lMapper, this->objectName());
     if (!initBinder(m_mapperBinderPtr))
         emit showError(tr("Could not init binder!"));
-/*
-    connect(m_mapperBinderPtr, SIGNAL(defaultValuesRead()), this,
-        SLOT(unblockCustomDateCtrls()));*/
-}
-/*
-void FrmCell::blockCustomDateCtrls()
-{
-    //block signals here because of the rule binder!
-    customDtStart->blockSignals(true);
-    customDtEnd->blockSignals(true);
 }
 
-void FrmCell::unblockCustomDateCtrls()
-{
-    //block signals here because of the rule binder!
-    customDtStart->blockSignals(false);
-    customDtEnd->blockSignals(false);
-}
-
-void FrmCell::initMappers()
-{
-
-    if (mapperStartDt!=0) delete mapperStartDt;
-    if (mapperEndDt!=0) delete mapperEndDt;
-
-    mapperStartDt= new QDataWidgetMapper(this);
-    mapperStartDt->setModel(m_tDateTime);
-    mapperStartDt->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
-    mapperStartDt->setItemDelegate(new QItemDelegate(this));
-    mapperStartDt->addMapping(customDtStart,2,QString("dateTime").toAscii());
-
-    mapperEndDt= new QDataWidgetMapper(this);
-    mapperEndDt->setModel(m_tDateTime);
-    mapperEndDt->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
-    mapperEndDt->setItemDelegate(new QItemDelegate(this));
-    mapperEndDt->addMapping(customDtEnd,2,QString("dateTime").toAscii());
-}
-*/
 void FrmCell::beforeShow()
 {
     //The dictionary of SQL relations does *not* respond to filter changes, and therefore
@@ -306,56 +234,6 @@ void FrmCell::beforeShow()
 bool FrmCell::reallyApply()
 {
         bool bError=false;
-/*
-        //First insert the dates...
-        if (!mapperStartDt->submit() 
-            || !mapperEndDt->submit()){
-            if (m_tDateTime->lastError().type()!=QSqlError::NoError)
-                emit showError(m_tDateTime->lastError().text());
-            else
-                emit showError(tr("Could not submit mapper!"));
-            bError=true;
-        }
-        else{
-            if (!m_tDateTime->submitAll()){
-                if (m_tDateTime->lastError().type()!=QSqlError::NoError)
-                    emit showError(m_tDateTime->lastError().text());
-                else
-                    emit showError(tr("Could not write DateTime in the database!"));
-
-                bError=true;
-            }
-        }
-
-        while(m_tDateTime->canFetchMore())
-            m_tDateTime->fetchMore();
-
-        int startIdx=m_tDateTime->rowCount()-2;
-        int endIdx=m_tDateTime->rowCount()-1;
-
-        mapperStartDt->setCurrentIndex(startIdx);
-        mapperEndDt->setCurrentIndex(endIdx);
-
-        if (bError) {
-            emit showError(tr("Could not create dates in the database!"));
-        }else{
-
-            int idStart;
-            if (getDtId(startIdx,idStart)){
-                QModelIndex idxStart=tSampCell->index(tSampCell->rowCount()-1,2);
-                if (idxStart.isValid()){
-                    tSampCell->setData(idxStart,idStart);
-                }else bError=true;
-            }else bError=true;
-
-            int idEnd;
-            if (getDtId(endIdx,idEnd)){
-                QModelIndex idxEnd=tSampCell->index(tSampCell->rowCount()-1,3);
-                if (idxEnd.isValid()){
-                    tSampCell->setData(idxEnd,idEnd);
-                }else bError=true;
-            }else bError=true;
-*/
             if (!bError){
                 if (mapper1->submit()){
                     bError=!
@@ -404,13 +282,7 @@ bool FrmCell::reallyApply()
 void FrmCell::uI4NewRecord()
 {
     genericUI4NewRecord();
-/*
-    customDtStart->setIsDateTime(true,true,true);
-    customDtStart->checkBox()->click();//the click is necessary to imit the relevant signal
 
-    customDtEnd->setIsDateTime(true,true,true);
-    customDtEnd->checkBox()->click();//the click is necessary to imit the relevant signal
-*/
     textComments->clear();
 
     toolButton->setEnabled(false);
@@ -421,35 +293,7 @@ void FrmCell::createRecord()
     genericCreateRecord();
 
     mapper1->toLast();
-/*
-    if(!m_tDateTime) return;
-    m_tDateTime->select();
 
-    bool bDate, bTime;
-    customDtStart->getIsDateTime(bDate,bTime);
-    if (!m_tDateTime->insertNewRecord(customDtStart->getIsAuto(),bDate,bTime)){
-        emit showError(tr("Could not insert start date!"));
-        return;
-    }
-    customDtEnd->getIsDateTime(bDate,bTime);
-    if (!m_tDateTime->insertNewRecord(customDtStart->getIsAuto(),bDate,bTime)){
-        emit showError(tr("Could not insert start date!"));
-        return;
-    }
-
-    customDtStart->setModelRow(m_tDateTime->rowCount()-2);
-    customDtEnd->setModelRow(m_tDateTime->rowCount()-1);
-
-    mapperStartDt->setCurrentIndex(m_tDateTime->rowCount()-2);
-    mapperEndDt->setCurrentIndex(m_tDateTime->rowCount()-1);
-
-    //IMPORTANT: do this after setting the model row!
-    connect(m_tDateTime, SIGNAL(getDateType(QModelIndex,QVariant)), customDtStart,
-        SLOT(adjustDateTime(QModelIndex,QVariant)),Qt::UniqueConnection);
-
-    connect(m_tDateTime, SIGNAL(getDateType(QModelIndex,QVariant)), customDtEnd,
-        SLOT(adjustDateTime(QModelIndex,QVariant)),Qt::UniqueConnection);
-*/
     while(tSampCell->canFetchMore())
         tSampCell->fetchMore();
 
@@ -561,37 +405,13 @@ bool FrmCell::applyChanges()
         emit showError(strError);
     }else{
 
-        QVariant start,end;
-        bError=!amendDates(mapperStartDt, mapperEndDt,start,end);
         if (!bError){
 */
-            int cur= mapper1->currentIndex();/*
-            if (mapper1->model()->index(cur,2).data()!=start)
-                mapper1->model()->setData(mapper1->model()->index(cur,2),start);
-            if (mapper1->model()->index(cur,3).data()!=end)
-                mapper1->model()->setData(mapper1->model()->index(cur,3),end);
-
-            //Setting the datetime type changes here!
-            bool bDate, bTime;
-            int typeID;
-
-            customDtStart->getIsDateTime(bDate,bTime);
-            if (!m_tDateTime->getDateTimeType(true,bTime,typeID)){
-                return false;
-            }
-            m_tDateTime->setData(m_tDateTime->index(0,3),typeID);
-
-            customDtEnd->getIsDateTime(bDate,bTime);
-            if (!m_tDateTime->getDateTimeType(true,bTime,typeID)){
-                return false;
-            }
-            m_tDateTime->setData(m_tDateTime->index(1,3),typeID);
-*/
+            int cur= mapper1->currentIndex();
             bError=!submitMapperAndModel(mapper1);
             if (!bError){
                 mapper1->setCurrentIndex(cur);
             }
-        //}
     //}
 
     if (!bError) emit editLeave(true,false);

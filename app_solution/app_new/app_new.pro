@@ -13,7 +13,7 @@ CONFIG(debug, debug|release) {
  }
 
 QT += core gui sql network xml script xmlpatterns webkit
-CONFIG += qtestlib help help
+CONFIG += qtestlib help
 DEFINES += QT_XML_LIB QT_SQL_LIB QT_XMLPATTERNS_LIB QT_SCRIPT_LIB
 
 CONFIG(debug, debug|release) {

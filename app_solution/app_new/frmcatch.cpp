@@ -279,15 +279,15 @@ void FrmCatch::initCatchModel()
     if (tCatch!=0) delete tCatch;
 
     tCatch=new QSqlRelationalTableModel();
-    tCatch->setTable(QSqlDatabase().driver()->escapeIdentifier("Sampled_Catch",
+    tCatch->setTable(QSqlDatabase().driver()->escapeIdentifier("sampled_catch",
         QSqlDriver::TableName));
 
-    tCatch->setRelation(2, QSqlRelation("Ref_Commercial_Categories", "ID", "Name"));
+    tCatch->setRelation(2, QSqlRelation("ref_commercial_categories", "id", "name"));
 
-    tCatch->setRelation(5, QSqlRelation("Ref_Units", "ID", "Name"));//catch_weight units
-    tCatch->setRelation(8, QSqlRelation("Ref_Units", "ID", "Name"));//no_boxes_units
-    tCatch->setRelation(11, QSqlRelation("Ref_Units", "ID", "Name"));//units units
-    tCatch->setRelation(14, QSqlRelation("Ref_Units", "ID", "Name"));//sample units
+    tCatch->setRelation(5, QSqlRelation("ref_units", "id", "name"));//catch_weight units
+    tCatch->setRelation(8, QSqlRelation("ref_units", "id", "name"));//no_boxes_units
+    tCatch->setRelation(11, QSqlRelation("ref_units", "id", "name"));//units units
+    tCatch->setRelation(14, QSqlRelation("ref_units", "id", "name"));//sample units
 
     tCatch->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tCatch->sort(0,Qt::AscendingOrder);
@@ -310,7 +310,7 @@ void FrmCatch::filterModel4Combo()
 
     strQuery=
         "SELECT     id_commercial_category"
-        " FROM         dbo.Sampled_Fishing_Operations_Categories"
+        " FROM         sampled_fishing_operations_categories"
         " WHERE     (id_fishing_operation = " + QVariant(m_sample->operationId).toString() + ")";
 
     query.prepare(strQuery);

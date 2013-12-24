@@ -1,7 +1,5 @@
 #include "mapperrulebinder.h"
-#include "customtimectrl.h"
 #include "sql.h"
-//#include "generictab.h"
 
 MapperRuleBinder::MapperRuleBinder( RuleChecker* ruleChecker, Sample* sample, QList<QDataWidgetMapper*> aLMapper, const QString strForm, QWidget *parent): 
 AbstractRuleBinder(ruleChecker, sample, strForm, parent), lMapper(aLMapper){
@@ -29,12 +27,32 @@ void MapperRuleBinder::connectSignals()
                         SLOT(onFireTrigger()));
 
                 }
+                else if ( qobject_cast<QDateTimeEdit*>(aWidget)!=0 ){
+                    QDateTimeEdit* dateTime=qobject_cast<QDateTimeEdit*>(aWidget);
+
+                    connect(dateTime, SIGNAL(dateTimeChanged( const QDateTime &)), this,
+                        SLOT(onFireTrigger()));}
+
+                else if ( qobject_cast<QDateEdit*>(aWidget)!=0 ){
+                    QDateEdit* date=qobject_cast<QDateEdit*>(aWidget);
+
+                    connect(date, SIGNAL(dateChanged( const QDate &)), this,
+                        SLOT(onFireTrigger()));}
+
+                else if ( qobject_cast<QTimeEdit*>(aWidget)!=0 ){
+                    QTimeEdit* time=qobject_cast<QTimeEdit*>(aWidget);
+
+                    connect(time, SIGNAL(timeChanged( const QTime &)), this,
+                        SLOT(onFireTrigger()));}
+
+                /*
                 else if ( qobject_cast<CustomTimeCtrl*>(aWidget)!=0 ){
                     CustomTimeCtrl* customTime=qobject_cast<CustomTimeCtrl*>(aWidget);
 
                     connect(customTime, SIGNAL(dateTimeChanged ( const QDateTime &)), this,
                         SLOT(onFireTrigger()));
-                }
+                 */
+
                 else if ( qobject_cast<QComboBox*>(aWidget)!=0){
 
                     QComboBox* comboBox=qobject_cast<QComboBox*>(aWidget);
@@ -67,11 +85,28 @@ void MapperRuleBinder::onFireTrigger()
     if ( qobject_cast<QLineEdit*>(sender())!=0 ){
         QLineEdit *senderWidget = (QLineEdit *)sender();
         onFireTriggerGeneric(senderWidget,senderWidget->text());
+
+    }
+    else if ( qobject_cast<QDateTimeEdit*>(sender())!=0 ){
+        QDateTimeEdit *senderWidget = (QDateTimeEdit *)sender();
+        onFireTriggerGeneric(senderWidget,senderWidget->dateTime());
+    }
+    else if ( qobject_cast<QDateEdit*>(sender())!=0 ){
+        QDateEdit *senderWidget = (QDateEdit *)sender();
+        onFireTriggerGeneric(senderWidget,senderWidget->date());
+    }
+    else if ( qobject_cast<QTimeEdit*>(sender())!=0 ){
+        QTimeEdit *senderWidget = (QTimeEdit *)sender();
+        onFireTriggerGeneric(senderWidget,senderWidget->time());
+    }
+
+    /*
     }
     else if ( qobject_cast<CustomTimeCtrl*>(sender())!=0 ){
         CustomTimeCtrl *senderWidget = (CustomTimeCtrl *)sender();
         onFireTriggerGeneric(senderWidget,senderWidget->dateTime());
     }
+    */
     else if ( qobject_cast<ButtonGroup*>(sender())!=0 ){
         ButtonGroup *senderWidget = qobject_cast<ButtonGroup*>(sender());
         onFireTriggerGeneric(senderWidget,senderWidget->getCheckedId());
@@ -129,8 +164,15 @@ bool MapperRuleBinder::getCurrentWidgetValue(QWidget* aWidget, QVariant& val)
         val=qobject_cast<QLineEdit*>(aWidget)->text();
     else if ( qobject_cast<QDateEdit*>(aWidget)!=0 )
         val=qobject_cast<QDateEdit*>(aWidget)->date();
+    /*
     else if ( qobject_cast<CustomTimeCtrl*>(aWidget)!=0 )
-        val=qobject_cast<CustomTimeCtrl*>(aWidget)->dateTime();
+        val=qobject_cast<CustomTimeCtrl*>(aWidget)->dateTime();*/
+    else if ( qobject_cast<QDateTimeEdit*>(aWidget)!=0 )
+        val=qobject_cast<QDateTimeEdit*>(aWidget)->dateTime();
+    else if ( qobject_cast<QDateEdit*>(aWidget)!=0 )
+        val=qobject_cast<QDateEdit*>(aWidget)->date();
+    else if ( qobject_cast<QTimeEdit*>(aWidget)!=0 )
+        val=qobject_cast<QTimeEdit*>(aWidget)->time();
     else if ( qobject_cast<QComboBox*>(aWidget)!=0 )
         val=qobject_cast<QComboBox*>(aWidget)->currentText();
     else if ( qobject_cast<ButtonGroup*>(aWidget)!=0 )
@@ -253,12 +295,18 @@ bool MapperRuleBinder::applyRule(QHash<size_t,QString>::const_iterator& rule, QW
                 qobject_cast<QLineEdit*>(aWidget)->setText(val.toString());
             else if ( qobject_cast<QDateEdit*>(aWidget)!=0 )
                 qobject_cast<QDateEdit*>(aWidget)->setDate(val.toDate());
+            else if ( qobject_cast<QTimeEdit*>(aWidget)!=0 )
+                qobject_cast<QTimeEdit*>(aWidget)->setTime(val.toTime());
+            else if ( qobject_cast<QDateTimeEdit*>(aWidget)!=0 )
+                qobject_cast<QDateTimeEdit*>(aWidget)->setDateTime(val.toDateTime());
+
+/*
             else if ( qobject_cast<CustomTimeCtrl*>(aWidget)!=0 ){
                 QDateTime myDate;
                 if (val.type()==QVariant::DateTime){
                     qobject_cast<CustomTimeCtrl*>(aWidget)->setDateTime(val.toDateTime());
                 }
-            }
+            }*/
             else if ( qobject_cast<QComboBox*>(aWidget)!=0 )
                 qobject_cast<QComboBox*>(aWidget)->setCurrentIndex(
                     qobject_cast<QComboBox*>(aWidget)->findText(val.toString()));
@@ -296,10 +344,25 @@ bool MapperRuleBinder::applyRule(QHash<size_t,QString>::const_iterator& rule, QW
                     aWidget->setFocus();
                     if ( qobject_cast<QLineEdit*>(aWidget)!=0 )
                         qobject_cast<QLineEdit*>(aWidget)->selectAll();
+                    /*
                     else if ( qobject_cast<CustomTimeCtrl*>(aWidget)!=0 ){
                         qobject_cast<CustomTimeCtrl*>(aWidget)->setFocus();
                         qobject_cast<CustomTimeCtrl*>(aWidget)->selectAll();
+                    }*/
+                    else if ( qobject_cast<QDateTimeEdit*>(aWidget)!=0 ){
+                        qobject_cast<QDateTimeEdit*>(aWidget)->setFocus();
+                        qobject_cast<QDateTimeEdit*>(aWidget)->selectAll();
                     }
+                    else if ( qobject_cast<QDateEdit*>(aWidget)!=0 ){
+                        qobject_cast<QDateEdit*>(aWidget)->setFocus();
+                        qobject_cast<QDateEdit*>(aWidget)->selectAll();
+                    }
+                    else if ( qobject_cast<QTimeEdit*>(aWidget)!=0 ){
+                        qobject_cast<QTimeEdit*>(aWidget)->setFocus();
+                        qobject_cast<QTimeEdit*>(aWidget)->selectAll();
+                    }
+
+
                     else if ( qobject_cast<QComboBox*>(aWidget)!=0 ){
                         qobject_cast<QComboBox*>(aWidget)->setFocus();
                         if (qobject_cast<QComboBox*>(aWidget)->isEditable())

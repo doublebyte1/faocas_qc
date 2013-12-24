@@ -23,14 +23,11 @@ INCLUDEPATH += ./GeneratedFiles \
     ./GeneratedFiles/debug \
     . \
     $(BOOSTDIR) \
-    $(PROJDIR)/CustomTimeCtrl/CustomTimeCtrl \
-    $(PROJDIR)/CustomTimeCtrl/shadow_build/GeneratedFiles \
     $(PROJDIR)/CatchInputCtrl/CatchInputCtrl \
     $(PROJDIR)/CatchInputCtrl/shadow_build/GeneratedFiles \
     $(EXARO_INCLUDE_DIR)
 LIBS += -L"$(QTDIR)/plugins/designer" \
     -L"$(EXARO_LIBRARIES_D)" \
-    -lcustomtimectrld \
     -lcatchinputctrld \
     -lReport
 MOC_DIR += ./GeneratedFiles/debug
@@ -44,14 +41,11 @@ INCLUDEPATH += ./GeneratedFiles \
     ./GeneratedFiles/release \
     . \
     $(BOOSTDIR) \
-    $(PROJDIR)/CustomTimeCtrl/CustomTimeCtrl \
-    $(PROJDIR)/CustomTimeCtrl/shadow_build/GeneratedFiles \
     $(PROJDIR)/CatchInputCtrl/CatchInputCtrl \
     $(PROJDIR)/CatchInputCtrl/shadow_build/GeneratedFiles \
     $(EXARO_INCLUDE_DIR)
 LIBS += -L"$(QTDIR)/plugins/designer" \
     -L"$(EXARO_LIBRARIES)" \
-    -lcustomtimectrl \
     -lcatchinputctrl \
     -lReport
 MOC_DIR += ./GeneratedFiles/release

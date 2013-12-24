@@ -1,6 +1,5 @@
 #include <QtGui>
 #include <QtSql>
-#include "customtimectrl.h"
 #include "generictab.h"
 #include "sql.h"
 

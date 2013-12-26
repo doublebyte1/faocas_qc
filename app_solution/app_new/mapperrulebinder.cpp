@@ -290,14 +290,6 @@ bool MapperRuleBinder::applyRule(QHash<size_t,QString>::const_iterator& rule, QW
                 qobject_cast<QTimeEdit*>(aWidget)->setTime(val.toTime());
             else if ( qobject_cast<QDateTimeEdit*>(aWidget)!=0 )
                 qobject_cast<QDateTimeEdit*>(aWidget)->setDateTime(val.toDateTime());
-
-/*
-            else if ( qobject_cast<CustomTimeCtrl*>(aWidget)!=0 ){
-                QDateTime myDate;
-                if (val.type()==QVariant::DateTime){
-                    qobject_cast<CustomTimeCtrl*>(aWidget)->setDateTime(val.toDateTime());
-                }
-            }*/
             else if ( qobject_cast<QComboBox*>(aWidget)!=0 )
                 qobject_cast<QComboBox*>(aWidget)->setCurrentIndex(
                     qobject_cast<QComboBox*>(aWidget)->findText(val.toString()));
@@ -312,7 +304,7 @@ bool MapperRuleBinder::applyRule(QHash<size_t,QString>::const_iterator& rule, QW
       case RuleChecker::VALIDATION:
       case RuleChecker::PRESUBMIT:
 
-          if (val.toBool()==0){
+          if (!val.toBool()){
                 // Look for error
                 QSqlQuery eQuery;
                 eQuery.prepare(tr("SELECT description, rule FROM ui_rules WHERE (id = :rule)"));

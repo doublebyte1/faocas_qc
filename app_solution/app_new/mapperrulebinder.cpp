@@ -99,14 +99,6 @@ void MapperRuleBinder::onFireTrigger()
         QTimeEdit *senderWidget = (QTimeEdit *)sender();
         onFireTriggerGeneric(senderWidget,senderWidget->time());
     }
-
-    /*
-    }
-    else if ( qobject_cast<CustomTimeCtrl*>(sender())!=0 ){
-        CustomTimeCtrl *senderWidget = (CustomTimeCtrl *)sender();
-        onFireTriggerGeneric(senderWidget,senderWidget->dateTime());
-    }
-    */
     else if ( qobject_cast<ButtonGroup*>(sender())!=0 ){
         ButtonGroup *senderWidget = qobject_cast<ButtonGroup*>(sender());
         onFireTriggerGeneric(senderWidget,senderWidget->getCheckedId());
@@ -260,7 +252,6 @@ bool MapperRuleBinder::applyRule(QHash<size_t,QString>::const_iterator& rule, QW
 
     if (!parseRuleReferences(strRule)) return false;
 
-    //qDebug() << strRule << endl;
     //qDebug() << varPar.toString() << endl;
 
     QSqlQuery query;
@@ -324,7 +315,7 @@ bool MapperRuleBinder::applyRule(QHash<size_t,QString>::const_iterator& rule, QW
           if (val.toBool()==0){
                 // Look for error
                 QSqlQuery eQuery;
-                eQuery.prepare(tr("SELECT description, [rule] FROM dbo.UI_Rules WHERE (id LIKE :rule)"));
+                eQuery.prepare(tr("SELECT description, rule FROM ui_rules WHERE (id = :rule)"));
                 eQuery.bindValue(tr(":rule"),rule.key());
                 eQuery.setForwardOnly(true);
                 if (!eQuery.exec()) return false;
@@ -344,11 +335,6 @@ bool MapperRuleBinder::applyRule(QHash<size_t,QString>::const_iterator& rule, QW
                     aWidget->setFocus();
                     if ( qobject_cast<QLineEdit*>(aWidget)!=0 )
                         qobject_cast<QLineEdit*>(aWidget)->selectAll();
-                    /*
-                    else if ( qobject_cast<CustomTimeCtrl*>(aWidget)!=0 ){
-                        qobject_cast<CustomTimeCtrl*>(aWidget)->setFocus();
-                        qobject_cast<CustomTimeCtrl*>(aWidget)->selectAll();
-                    }*/
                     else if ( qobject_cast<QDateTimeEdit*>(aWidget)!=0 ){
                         qobject_cast<QDateTimeEdit*>(aWidget)->setFocus();
                         qobject_cast<QDateTimeEdit*>(aWidget)->selectAll();

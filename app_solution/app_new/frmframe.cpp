@@ -414,8 +414,8 @@ void FrmFrame::initMapper2()
 
     mapper->addMapping(this->cmbPrexistent, 1/*, tr("currentIndex").toAscii()*/);
 
-    mapper->addMapping(this->customDtStart,6);
-    mapper->addMapping(this->customDtEnd,7);
+    mapper->addMapping(this->customDtStart,4);
+    mapper->addMapping(this->customDtEnd,5);
 
 
     QList<QDataWidgetMapper*> lMapper;

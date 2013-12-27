@@ -7,8 +7,6 @@ PreviewTab(2, inRoleDef,inSample,tr("Cell"), ruleCheckerPtr, parent, flags){
 
     setupUi(this);
 
-    //blockCustomDateCtrls();
-
     installEventFilters();
 
     connect(pushNext, SIGNAL(clicked()), this,
@@ -190,28 +188,31 @@ void FrmCell::initMapper1()
 
     if (nullDellegate!=0) delete nullDellegate;
     QList<int> lOthers;
-    lOthers << 4 << 5 << 6 << 7 << 8 << 9 << 10 << 11 << 12;
+    lOthers << 2 << 3 << 4 << 5 << 6 << 7 << 8 << 9 << 10;
     QList<int> lText;
-    lText << 13;
+    lText << 11;
     nullDellegate=new NullRelationalDelegate(lOthers,lText);
     mapper1->setItemDelegate(nullDellegate);
 
-    cmbLS->setModel(tSampCell->relationModel(4));
+    cmbLS->setModel(tSampCell->relationModel(2));
     cmbLS->setModelColumn(
-        tSampCell->relationModel(4)->fieldIndex("Name"));
+        tSampCell->relationModel(2)->fieldIndex("name"));
 
-    mapper1->addMapping(cmbLS, 4);
+    mapper1->addMapping(cmbLS, 2);
 
-    mapper1->addMapping(spinNE, 5);
-    mapper1->addMapping(spinNC, 6);
-    mapper1->addMapping(spinAE, 7);
-    mapper1->addMapping(spinAC, 8);
-    mapper1->addMapping(spinIE, 9);
-    mapper1->addMapping(spinIC, 10);
-    mapper1->addMapping(spinOE, 11);
-    mapper1->addMapping(spinOC, 12);
+    mapper1->addMapping(spinNE, 3);
+    mapper1->addMapping(spinNC, 4);
+    mapper1->addMapping(spinAE, 5);
+    mapper1->addMapping(spinAC, 6);
+    mapper1->addMapping(spinIE, 7);
+    mapper1->addMapping(spinIC, 8);
+    mapper1->addMapping(spinOE, 9);
+    mapper1->addMapping(spinOC, 10);
 
-    mapper1->addMapping(textComments,13);
+    mapper1->addMapping(textComments,11);
+
+    mapper1->addMapping(customDtStart,13,QString("date").toAscii());
+    mapper1->addMapping(customDtEnd,14,QString("date").toAscii());
 
     QList<QDataWidgetMapper*> lMapper;
     lMapper << mapper1;
@@ -313,8 +314,8 @@ void FrmCell::initCellModel()
     tSampCell=new QSqlRelationalTableModel();
     tSampCell->setTable(QSqlDatabase().driver()->escapeIdentifier("sampled_cell",
         QSqlDriver::TableName));
-    tSampCell->setRelation(4, QSqlRelation("ref_abstract_landingsite", "id", "name"));
-    tSampCell->relationModel(4)->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    tSampCell->setRelation(2, QSqlRelation("ref_abstract_landingsite", "id", "name"));
+    tSampCell->relationModel(2)->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tSampCell->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tSampCell->sort(0,Qt::AscendingOrder);
     tSampCell->select();
@@ -351,7 +352,7 @@ void FrmCell::filterModel4Combo()
      if (!strFilter.isEmpty())
          strFilter=strFilter.remove(strFilter.size()-QString(" OR ").length(),QString(" OR ").length());
 
-    tSampCell->relationModel(4)->setFilter(strFilter);
+    tSampCell->relationModel(2)->setFilter(strFilter);
     //first we set the relation; then we create a mapper and assign the (amended) model to the mapper;
     initMapper1();
 }

@@ -69,7 +69,7 @@ void FrmVesselType::initMapper1()
 
     cmbTypes->setModel(tSVesselTypes->relationModel(2));
     cmbTypes->setModelColumn(
-        tSVesselTypes->relationModel(2)->fieldIndex(tr("Name")));
+        tSVesselTypes->relationModel(2)->fieldIndex(tr("name")));
 
     mapper1->addMapping(cmbTypes, 2);
 
@@ -179,10 +179,10 @@ void FrmVesselType::createRecord()
 {
     genericCreateRecord();
 
-    mapper1->toLast();
-
     while(tSVesselTypes->canFetchMore())
-        tSVesselTypes->fetchMore();
+       tSVesselTypes->fetchMore();
+
+    mapper1->toLast();
 
     QModelIndex idx=tSVesselTypes->index(tSVesselTypes->rowCount()-1,1);
     tSVesselTypes->setData(idx,m_sample->cellId);//id_cell
@@ -319,9 +319,9 @@ void FrmVesselType::initVesselTypeModel()
     if (tSVesselTypes!=0) delete tSVesselTypes;
 
     tSVesselTypes=new QSqlRelationalTableModel();
-    tSVesselTypes->setTable(QSqlDatabase().driver()->escapeIdentifier("Sampled_Cell_Vessel_Types",
+    tSVesselTypes->setTable(QSqlDatabase().driver()->escapeIdentifier("sampled_cell_vessel_types",
         QSqlDriver::TableName));
-    tSVesselTypes->setRelation(2, QSqlRelation("Ref_Vessel_Types", "ID", "Name"));
+    tSVesselTypes->setRelation(2, QSqlRelation("ref_vessel_types", "id", "name"));
     tSVesselTypes->relationModel(2)->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tSVesselTypes->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tSVesselTypes->sort(0,Qt::AscendingOrder);

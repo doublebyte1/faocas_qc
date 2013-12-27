@@ -230,7 +230,7 @@ void FrmMinorStrata::filterModel4Combo()
         return;
      }
 
-    tRefMinorStrata->relationModel(4)->setFilter(strFilter);
+    tRefMinorStrata->relationModel(2)->setFilter(strFilter);
 }
 
 void FrmMinorStrata::beforeShow()
@@ -248,7 +248,7 @@ void FrmMinorStrata::createRecord()
     mapper1->toLast();
 
     //TODO: put dates from the frame as default
-    QModelIndex idx=tRefMinorStrata->index(tRefMinorStrata->rowCount()-1,3);
+    QModelIndex idx=tRefMinorStrata->index(tRefMinorStrata->rowCount()-1,1);
     tRefMinorStrata->setData(idx,m_sample->frameTimeId);//id_frame_time
 
     uI4NewRecord();//init UI
@@ -340,7 +340,7 @@ void FrmMinorStrata::initUI()
 void FrmMinorStrata::onItemSelection()
 {
     //the signal radio button does not work very well, so lets read the value on the table!
-    QModelIndex idx=viewMinorStrata->index(tableView->currentIndex().row(),4);
+    QModelIndex idx=viewMinorStrata->index(tableView->currentIndex().row(),3);
 
     pushNext->setEnabled(tableView->selectionModel()->hasSelection()
         && idx.data().toBool()==false
@@ -370,8 +370,8 @@ void FrmMinorStrata::initModels()
     tRefMinorStrata=new QSqlRelationalTableModel();
     tRefMinorStrata->setTable(QSqlDatabase().driver()->escapeIdentifier("ref_minor_strata",
         QSqlDriver::TableName));
-    tRefMinorStrata->setRelation(4, QSqlRelation("ref_group_of_landingsites", "id", "name"));
-    tRefMinorStrata->setRelation(6, QSqlRelation("ref_no_Recording_activities", "id", "name"));
+    tRefMinorStrata->setRelation(2, QSqlRelation("ref_group_of_landingsites", "id", "name"));
+    tRefMinorStrata->setRelation(4, QSqlRelation("ref_no_Recording_activities", "id", "name"));
     tRefMinorStrata->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tRefMinorStrata->sort(0,Qt::AscendingOrder);
     tRefMinorStrata->select();
@@ -396,28 +396,28 @@ void FrmMinorStrata::initMappers()
 
     if (nullDellegate!=0) delete nullDellegate;
     QList<int> lCmb;
-    lCmb << 4 << 5 << 6;
+    lCmb << 2 << 3 << 4;
     QList<int> lText;
-    lText << 7;
+    lText << 5;
     nullDellegate=new NullRelationalDelegate(lCmb,lText);
     mapper1->setItemDelegate(nullDellegate);
 
-    cmbGLS->setModel(tRefMinorStrata->relationModel(4));
+    cmbGLS->setModel(tRefMinorStrata->relationModel(2));
     cmbGLS->setModelColumn(
-        tRefMinorStrata->relationModel(4)->fieldIndex("Name"));
+        tRefMinorStrata->relationModel(2)->fieldIndex("name"));
 
-    cmbReasons->setModel(tRefMinorStrata->relationModel(6));
+    cmbReasons->setModel(tRefMinorStrata->relationModel(4));
     cmbReasons->setModelColumn(
-        tRefMinorStrata->relationModel(6)->fieldIndex("Name"));
+        tRefMinorStrata->relationModel(4)->fieldIndex("name"));
 
-    mapper1->addMapping(lineNew, 8);
-    mapper1->addMapping(cmbGLS, 4);
-    mapper1->addMapping(cmbReasons, 6);
-    mapper1->addMapping(buttonGroup,5);
-    mapper1->addMapping(textComments,7);
+    mapper1->addMapping(lineNew, 6);
+    mapper1->addMapping(cmbGLS, 2);
+    mapper1->addMapping(cmbReasons, 4);
+    mapper1->addMapping(buttonGroup,3);
+    mapper1->addMapping(textComments,5);
 
-    mapper1->addMapping(customDtStart,9);
-    mapper1->addMapping(customDtEnd,10);
+    mapper1->addMapping(customDtStart,7,QString("date").toAscii());
+    mapper1->addMapping(customDtEnd,8,QString("date").toAscii());
 
     QList<QDataWidgetMapper*> lMapper;
     lMapper << mapper1;

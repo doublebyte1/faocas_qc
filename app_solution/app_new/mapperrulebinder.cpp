@@ -45,14 +45,6 @@ void MapperRuleBinder::connectSignals()
                     connect(time, SIGNAL(timeChanged( const QTime &)), this,
                         SLOT(onFireTrigger()));}
 
-                /*
-                else if ( qobject_cast<CustomTimeCtrl*>(aWidget)!=0 ){
-                    CustomTimeCtrl* customTime=qobject_cast<CustomTimeCtrl*>(aWidget);
-
-                    connect(customTime, SIGNAL(dateTimeChanged ( const QDateTime &)), this,
-                        SLOT(onFireTrigger()));
-                 */
-
                 else if ( qobject_cast<QComboBox*>(aWidget)!=0){
 
                     QComboBox* comboBox=qobject_cast<QComboBox*>(aWidget);
@@ -156,9 +148,6 @@ bool MapperRuleBinder::getCurrentWidgetValue(QWidget* aWidget, QVariant& val)
         val=qobject_cast<QLineEdit*>(aWidget)->text();
     else if ( qobject_cast<QDateEdit*>(aWidget)!=0 )
         val=qobject_cast<QDateEdit*>(aWidget)->date();
-    /*
-    else if ( qobject_cast<CustomTimeCtrl*>(aWidget)!=0 )
-        val=qobject_cast<CustomTimeCtrl*>(aWidget)->dateTime();*/
     else if ( qobject_cast<QDateTimeEdit*>(aWidget)!=0 )
         val=qobject_cast<QDateTimeEdit*>(aWidget)->dateTime();
     else if ( qobject_cast<QDateEdit*>(aWidget)!=0 )
@@ -281,12 +270,12 @@ bool MapperRuleBinder::applyRule(QHash<size_t,QString>::const_iterator& rule, QW
               if (!enableWidget(aWidget,val)) return false;
           }else{
 
-            // Cast control to the right type (Permissibyle types: QlineEdit, QDateEdit, QComboBox, ButtonGroup)
+            // Cast control to the right type (Permissibyle types: QlineEdit, QDateEdit/QDateTimeEdit/QTimeEdit, QComboBox, ButtonGroup)
             if ( qobject_cast<QLineEdit*>(aWidget)!=0 )
                 qobject_cast<QLineEdit*>(aWidget)->setText(val.toString());
-            else if ( qobject_cast<QDateEdit*>(aWidget)!=0 )
+            else if ( qobject_cast<QDateEdit*>(aWidget)!=0 ){
                 qobject_cast<QDateEdit*>(aWidget)->setDate(val.toDate());
-            else if ( qobject_cast<QTimeEdit*>(aWidget)!=0 )
+            }else if ( qobject_cast<QTimeEdit*>(aWidget)!=0 )
                 qobject_cast<QTimeEdit*>(aWidget)->setTime(val.toTime());
             else if ( qobject_cast<QDateTimeEdit*>(aWidget)!=0 )
                 qobject_cast<QDateTimeEdit*>(aWidget)->setDateTime(val.toDateTime());

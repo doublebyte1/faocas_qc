@@ -261,8 +261,28 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
            <widget class="QDateEdit" name="dtStart">
+            <property name="maximumDate">
+             <date>
+              <year>2070</year>
+              <month>1</month>
+              <day>1</day>
+             </date>
+            </property>
+            <property name="minimumDate">
+             <date>
+              <year>1970</year>
+              <month>1</month>
+              <day>1</day>
+             </date>
+            </property>
+            <property name="displayFormat">
+             <string>yyyy-MM-dd</string>
+            </property>
             <property name="calendarPopup">
              <bool>true</bool>
+            </property>
+            <property name="timeSpec">
+             <enum>Qt::UTC</enum>
             </property>
            </widget>
           </item>

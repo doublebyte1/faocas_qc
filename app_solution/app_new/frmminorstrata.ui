@@ -391,11 +391,28 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
           <property name="focusPolicy">
            <enum>Qt::StrongFocus</enum>
           </property>
+          <property name="maximumDate">
+           <date>
+            <year>2070</year>
+            <month>1</month>
+            <day>1</day>
+           </date>
+          </property>
+          <property name="minimumDate">
+           <date>
+            <year>1969</year>
+            <month>12</month>
+            <day>28</day>
+           </date>
+          </property>
           <property name="displayFormat">
-           <string>dd/MM/yyyy</string>
+           <string>yyyy-MM-dd</string>
           </property>
           <property name="calendarPopup">
            <bool>true</bool>
+          </property>
+          <property name="timeSpec">
+           <enum>Qt::UTC</enum>
           </property>
          </widget>
         </item>
@@ -410,11 +427,28 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
           <property name="focusPolicy">
            <enum>Qt::StrongFocus</enum>
           </property>
+          <property name="maximumDate">
+           <date>
+            <year>2070</year>
+            <month>1</month>
+            <day>1</day>
+           </date>
+          </property>
+          <property name="minimumDate">
+           <date>
+            <year>1968</year>
+            <month>12</month>
+            <day>28</day>
+           </date>
+          </property>
           <property name="displayFormat">
-           <string>dd/MM/yyyy</string>
+           <string>yyyy-MM-dd</string>
           </property>
           <property name="calendarPopup">
            <bool>true</bool>
+          </property>
+          <property name="timeSpec">
+           <enum>Qt::UTC</enum>
           </property>
          </widget>
         </item>

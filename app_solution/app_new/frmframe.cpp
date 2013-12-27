@@ -410,12 +410,12 @@ void FrmFrame::initMapper2()
 
     cmbPrexistent->setModel(tFrameTime->relationModel(1));
     cmbPrexistent->setModelColumn(
-        tFrameTime->relationModel(1)->fieldIndex("Name"));
+        tFrameTime->relationModel(1)->fieldIndex("name"));
 
     mapper->addMapping(this->cmbPrexistent, 1/*, tr("currentIndex").toAscii()*/);
 
-    mapper->addMapping(this->customDtStart,4);
-    mapper->addMapping(this->customDtEnd,5);
+    mapper->addMapping(this->customDtStart,4,QString("date").toAscii());
+    mapper->addMapping(this->customDtEnd,5,QString("date").toAscii());
 
 
     QList<QDataWidgetMapper*> lMapper;

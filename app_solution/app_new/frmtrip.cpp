@@ -232,8 +232,8 @@ void FrmTrip::initMapper1()
 
     QList<int> lOthers;
     QList<int> lText;
-    for (int i=4; i < 22; ++i){
-        if (i!=16)
+    for (int i=2; i < 20; ++i){
+        if (i!=14)
             lOthers << i;
         else
             lText << i;
@@ -242,51 +242,51 @@ void FrmTrip::initMapper1()
     nullDellegate=new NullRelationalDelegate(lOthers,lText);
     mapper1->setItemDelegate(nullDellegate);
 
-    cmbSite->setModel(tTrips->relationModel(4));
+    cmbSite->setModel(tTrips->relationModel(2));
     cmbSite->setModelColumn(
-        tTrips->relationModel(4)->fieldIndex("name"));
+        tTrips->relationModel(2)->fieldIndex("name"));
 
-    cmbSampler->setModel(tTrips->relationModel(5));
+    cmbSampler->setModel(tTrips->relationModel(3));
     cmbSampler->setModelColumn(
-        tTrips->relationModel(5)->fieldIndex("name"));
+        tTrips->relationModel(3)->fieldIndex("name"));
 
-    catchInputCtrl->pCmbWeightUnits()->setModel(tTrips->relationModel(12));
+    catchInputCtrl->pCmbWeightUnits()->setModel(tTrips->relationModel(10));
     catchInputCtrl->pCmbWeightUnits()->setModelColumn(
-        tTrips->relationModel(12)->fieldIndex("name"));
+        tTrips->relationModel(10)->fieldIndex("name"));
 
-    catchInputCtrl->pCmbBoxUnits()->setModel(tTrips->relationModel(15));
+    catchInputCtrl->pCmbBoxUnits()->setModel(tTrips->relationModel(13));
     catchInputCtrl->pCmbBoxUnits()->setModelColumn(
-        tTrips->relationModel(15)->fieldIndex("name"));
+        tTrips->relationModel(13)->fieldIndex("name"));
 
-    catchInputCtrl->pCmbUnitUnits()->setModel(tTrips->relationModel(20));
+    catchInputCtrl->pCmbUnitUnits()->setModel(tTrips->relationModel(18));
     catchInputCtrl->pCmbUnitUnits()->setModelColumn(
-        tTrips->relationModel(20)->fieldIndex("name"));
+        tTrips->relationModel(18)->fieldIndex("name"));
 
-    mapper1->addMapping(cmbSite, 4);
-    mapper1->addMapping(cmbSampler, 5);
-    mapper1->addMapping(spinProf, 6);
-    mapper1->addMapping(spinPart, 7);
+    mapper1->addMapping(cmbSite, 2);
+    mapper1->addMapping(cmbSampler, 3);
+    mapper1->addMapping(spinProf, 4);
+    mapper1->addMapping(spinPart, 5);
 
-    mapper1->addMapping(spinNOE, 8);
-    mapper1->addMapping(spinNOC, 9);
+    mapper1->addMapping(spinNOE, 6);
+    mapper1->addMapping(spinNOC, 7);
 
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinTotalE(), 10);
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinTotalC(), 11);
-    mapper1->addMapping(catchInputCtrl->pCmbWeightUnits(), 12);
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinNoBoxesE(), 13);
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinNoBoxesC(), 14);
-    mapper1->addMapping(catchInputCtrl->pCmbBoxUnits(), 15);
-    mapper1->addMapping(textComments,16);
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinWeightBox(), 17);
-    mapper1->addMapping(catchInputCtrl->pSpinUnitsE(), 18);
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinWeightUnit(), 19);
-    mapper1->addMapping(catchInputCtrl->pCmbUnitUnits(), 20);
-    mapper1->addMapping(catchInputCtrl->pSpinUnitsC(), 21);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinTotalE(), 8);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinTotalC(), 9);
+    mapper1->addMapping(catchInputCtrl->pCmbWeightUnits(), 10);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinNoBoxesE(), 11);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinNoBoxesC(), 12);
+    mapper1->addMapping(catchInputCtrl->pCmbBoxUnits(), 13);
+    mapper1->addMapping(textComments,14);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinWeightBox(), 15);
+    mapper1->addMapping(catchInputCtrl->pSpinUnitsE(), 16);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinWeightUnit(), 17);
+    mapper1->addMapping(catchInputCtrl->pCmbUnitUnits(), 18);
+    mapper1->addMapping(catchInputCtrl->pSpinUnitsC(), 19);
 
-    mapper1->addMapping(dtStart, 22);
-    mapper1->addMapping(timeStart, 23);
-    mapper1->addMapping(dtEnd, 24);
-    mapper1->addMapping(timeEnd, 25);
+    mapper1->addMapping(dtStart, 20);
+    mapper1->addMapping(timeStart, 21);
+    mapper1->addMapping(dtEnd, 22);
+    mapper1->addMapping(timeEnd, 23);
 
     QList<QDataWidgetMapper*> lMapper;
     lMapper << mapper1;
@@ -417,11 +417,11 @@ void FrmTrip::initTripModel()
     tTrips->setTable(QSqlDatabase().driver()->escapeIdentifier("sampled_fishing_trips",
         QSqlDriver::TableName));
 
-    tTrips->setRelation(4, QSqlRelation("ref_abstract_landingsite", "id", "name"));
-    tTrips->setRelation(5, QSqlRelation("ref_samplers", "id", "name"));
-    tTrips->setRelation(12, QSqlRelation("ref_units", "id", "name"));
-    tTrips->setRelation(15, QSqlRelation("ref_units", "id", "name"));
-    tTrips->setRelation(20, QSqlRelation("ref_units", "id", "name"));
+    tTrips->setRelation(2, QSqlRelation("ref_abstract_landingsite", "id", "name"));
+    tTrips->setRelation(3, QSqlRelation("ref_samplers", "id", "name"));
+    tTrips->setRelation(10, QSqlRelation("ref_units", "id", "name"));
+    tTrips->setRelation(13, QSqlRelation("ref_units", "id", "name"));
+    tTrips->setRelation(18, QSqlRelation("ref_units", "id", "name"));
     tTrips->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tTrips->sort(0,Qt::AscendingOrder);
     tTrips->select();
@@ -471,7 +471,7 @@ void FrmTrip::filterModel4Combo()
         if (!strFilter.isEmpty())
             strFilter=strFilter.remove(strFilter.size()-QString(" or ").length(),QString(" or ").length());
 
-        tTrips->relationModel(4)->setFilter(strFilter);
+        tTrips->relationModel(2)->setFilter(strFilter);
 
     }else{
 
@@ -498,7 +498,7 @@ void FrmTrip::filterModel4Combo()
         strFilter.append("id=" + query.value(0).toString());
 
         if (!strFilter.isEmpty()){
-            tTrips->relationModel(4)->setFilter(strFilter);
+            tTrips->relationModel(2)->setFilter(strFilter);
         }
 
     }

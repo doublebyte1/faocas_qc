@@ -72,10 +72,10 @@ bool AbstractRuleBinder::parseRuleReferences(QString& strRule)
 
              QVariant var=getVal(field,mapper);
              if (var.type()==QVariant::Invalid) return false;
-             if (var.type()==QVariant::String) strResult=tr("'") + var.toString() + tr("'");
+             if (var.type()==QVariant::String) strResult="'" + var.toString() + "'";
              else strResult=var.toString();
 
-             QString searchStr=StrRulePtr + tr("(") + QVariant(j.key()).toString() + tr(")");
+             QString searchStr=StrRulePtr + QString("(") + QVariant(j.key()).toString() + QString(")");
              strRule=strRule.replace(searchStr,
                  strResult);
 
@@ -91,7 +91,7 @@ bool AbstractRuleBinder::parseRuleReferences(QString& strRule)
     QMap<QString, QString>::iterator j = mapSample.begin();
      while (j != mapSample.end()) {
 
-             QString searchStr=StrRuleSample + tr("(") + QVariant(j.key()).toString() + tr(")");
+             QString searchStr=StrRuleSample + QString("(") + QVariant(j.key()).toString() + QString(")");
              strRule=strRule.replace(searchStr,
                  j.value());
 

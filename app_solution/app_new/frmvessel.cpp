@@ -66,7 +66,7 @@ bool FrmVessel::filterSampledCellVessels(QModelIndex index)
 
     QString id=idx.data().toString();
 
-    tCellVessels->setFilter("ID="+id);
+    tCellVessels->setFilter("id="+id);
     if (tCellVessels->rowCount()!=1){
         emit showError (tr("Could not preview this vessel!"));
         return false;
@@ -157,7 +157,7 @@ void FrmVessel::initModels()
     //two mappers to implement the polymorphism of abstract sampled vessels
 
      tCellVessels = new QSqlTableModel;
-     tCellVessels->setTable("Sampled_Cell_Vessels");
+     tCellVessels->setTable("sampled_cell_vessels");
      tCellVessels->setEditStrategy(QSqlTableModel::OnManualSubmit);
      tCellVessels->sort(0,Qt::AscendingOrder);
      tCellVessels->select();
@@ -165,7 +165,7 @@ void FrmVessel::initModels()
     if (tStrataVessels!=0) delete tStrataVessels;
 
      tStrataVessels = new QSqlTableModel;
-     tStrataVessels->setTable("Sampled_Strata_Vessels");
+     tStrataVessels->setTable("sampled_strata_vessels");
      tStrataVessels->setEditStrategy(QSqlTableModel::OnManualSubmit);
      tStrataVessels->sort(0,Qt::AscendingOrder);
      tStrataVessels->select();
@@ -447,7 +447,7 @@ void FrmVessel::initVesselModel()
     if (tAVessel!=0) delete tAVessel;
 
     tAVessel=new QSqlRelationalTableModel();
-    tAVessel->setTable(QSqlDatabase().driver()->escapeIdentifier("Abstract_Sampled_Vessels",
+    tAVessel->setTable(QSqlDatabase().driver()->escapeIdentifier("abstract_sampled_vessels",
         QSqlDriver::TableName));
     tAVessel->setRelation(2, QSqlRelation("ref_vessels", "vesselid", "name"));
     tAVessel->setRelation(3, QSqlRelation("ref_sample_origin", "id", "name"));

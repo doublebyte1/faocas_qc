@@ -30,6 +30,10 @@ int main(int argc, char *argv[])
     a.setStyleSheet(qss.readAll());
     qss.close();
 
+    //qDebug() << QStyleFactory::keys() << endl;
+
+    //QApplication::setStyle("Cleanlooks");
+
     /*
     QTranslator qtTranslator;
     qtTranslator.load(("app_new_pt"),

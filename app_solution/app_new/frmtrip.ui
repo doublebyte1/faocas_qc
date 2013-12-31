@@ -394,7 +394,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
              <date>
               <year>1969</year>
               <month>12</month>
-              <day>29</day>
+              <day>28</day>
              </date>
             </property>
             <property name="displayFormat">
@@ -414,7 +414,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
              <string>hh:mm AP</string>
             </property>
             <property name="timeSpec">
-             <enum>Qt::LocalTime</enum>
+             <enum>Qt::UTC</enum>
             </property>
            </widget>
           </item>
@@ -451,7 +451,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
              <date>
               <year>1969</year>
               <month>12</month>
-              <day>29</day>
+              <day>28</day>
              </date>
             </property>
             <property name="displayFormat">
@@ -471,7 +471,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
              <string>hh:mm AP</string>
             </property>
             <property name="timeSpec">
-             <enum>Qt::LocalTime</enum>
+             <enum>Qt::UTC</enum>
             </property>
            </widget>
           </item>

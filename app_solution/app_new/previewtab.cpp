@@ -247,7 +247,7 @@ bool PreviewTab::next()
 bool PreviewTab::getNewHeader(QString& strLabel)
 {
     if (!getNextLabel(strLabel)) return false;
-    strLabel=(lbHead->text().isEmpty()? strLabel:lbHead->text()+ tr("-> ") + strLabel);
+    strLabel=(lbHead->text().isEmpty()? strLabel:lbHead->text()+ QString("-> ") + strLabel);
     return true;
 }
 

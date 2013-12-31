@@ -94,13 +94,13 @@ void FrmOperation::setPreviewQuery()
             "            (select start_time)=(select 'allballs'::time)"
             "    then 'missing' else  "
 
-            "    to_char(start_dt, 'hh:mm:ss') end \"start time\","
+            "    to_char(start_time, 'hh:mmAM') end \"start time\","
 
             "    case when"
             "            (select end_time)=(select 'allballs'::time)"
             "    then 'missing' else  "
 
-            "    to_char(end_dt, 'hh:mm:ss') end \"end time\""
+            "    to_char(end_time, 'hh:mmAM') end \"end time\""
 
             "     from         sampled_fishing_operations inner join"
             "                          ref_gears on sampled_fishing_operations.id_gear = ref_gears.id "
@@ -194,58 +194,58 @@ void FrmOperation::initMapper1()
 
     if (nullDellegate!=0) delete nullDellegate;
     QList<int> lOthers;
-    for (int i=4; i < 19; ++i){
+    for (int i=2; i < 17; ++i){
         lOthers << i;
     }
-    lOthers << 20;
+    lOthers << 18;
     QList<int> lText;
-    lText << 19;
+    lText << 17;
     nullDellegate=new NullRelationalDelegate(lOthers,lText);
     mapper1->setItemDelegate(nullDellegate);
 
-    cmbFishingZone->setModel(tOperations->relationModel(18));
+    cmbFishingZone->setModel(tOperations->relationModel(16));
     cmbFishingZone->setModelColumn(
-        tOperations->relationModel(18)->fieldIndex("Name"));
+        tOperations->relationModel(16)->fieldIndex("Name"));
 
-    cmbGear->setModel(tOperations->relationModel(4));
+    cmbGear->setModel(tOperations->relationModel(2));
     cmbGear->setModelColumn(
-        tOperations->relationModel(4)->fieldIndex("Name"));
+        tOperations->relationModel(2)->fieldIndex("Name"));
 
-    catchInputCtrl->pCmbWeightUnits()->setModel(tOperations->relationModel(7));
+    catchInputCtrl->pCmbWeightUnits()->setModel(tOperations->relationModel(5));
     catchInputCtrl->pCmbWeightUnits()->setModelColumn(
-        tOperations->relationModel(7)->fieldIndex("Name"));
+        tOperations->relationModel(5)->fieldIndex("Name"));
 
-    catchInputCtrl->pCmbBoxUnits()->setModel(tOperations->relationModel(10));
+    catchInputCtrl->pCmbBoxUnits()->setModel(tOperations->relationModel(8));
     catchInputCtrl->pCmbBoxUnits()->setModelColumn(
-        tOperations->relationModel(10)->fieldIndex("Name"));
+        tOperations->relationModel(8)->fieldIndex("Name"));
 
-    catchInputCtrl->pCmbUnitUnits()->setModel(tOperations->relationModel(14));
+    catchInputCtrl->pCmbUnitUnits()->setModel(tOperations->relationModel(12));
     catchInputCtrl->pCmbUnitUnits()->setModelColumn(
-        tOperations->relationModel(14)->fieldIndex(tr("Name")));
+        tOperations->relationModel(12)->fieldIndex(tr("Name")));
 
-    mapper1->addMapping(cmbGear, 4);
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinTotalE(), 5);
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinTotalC(), 6);
-    mapper1->addMapping(catchInputCtrl->pCmbWeightUnits(), 7);
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinNoBoxesE(), 8);
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinNoBoxesC(), 9);
-    mapper1->addMapping(catchInputCtrl->pCmbBoxUnits(), 10);
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinWeightBox(), 11);
-    mapper1->addMapping(catchInputCtrl->pSpinUnitsE(), 12);
-    mapper1->addMapping(catchInputCtrl->pSpinUnitsC(), 13);
-    mapper1->addMapping(catchInputCtrl->pCmbUnitUnits(), 14);
-    mapper1->addMapping(spinNoUnits, 15);
-    mapper1->addMapping(doubleSpinSize, 16);
-    mapper1->addMapping(spinOrder, 17);
-    mapper1->addMapping(cmbFishingZone, 18);
-    mapper1->addMapping(catchInputCtrl->pDoubleSpinWeightUnit(), 20);
+    mapper1->addMapping(cmbGear, 2);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinTotalE(), 3);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinTotalC(), 4);
+    mapper1->addMapping(catchInputCtrl->pCmbWeightUnits(), 5);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinNoBoxesE(), 6);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinNoBoxesC(), 7);
+    mapper1->addMapping(catchInputCtrl->pCmbBoxUnits(), 8);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinWeightBox(), 9);
+    mapper1->addMapping(catchInputCtrl->pSpinUnitsE(), 10);
+    mapper1->addMapping(catchInputCtrl->pSpinUnitsC(), 11);
+    mapper1->addMapping(catchInputCtrl->pCmbUnitUnits(), 12);
+    mapper1->addMapping(spinNoUnits, 13);
+    mapper1->addMapping(doubleSpinSize, 14);
+    mapper1->addMapping(spinOrder, 15);
+    mapper1->addMapping(cmbFishingZone, 16);
+    mapper1->addMapping(catchInputCtrl->pDoubleSpinWeightUnit(), 18);
 
-    mapper1->addMapping(dtEnd, 21);
-    mapper1->addMapping(dtStart, 22);
-    mapper1->addMapping(timeEnd, 23);
-    mapper1->addMapping(timeStart, 24);
+    mapper1->addMapping(dtEnd, 19, QString("dateTime").toAscii());
+    mapper1->addMapping(dtStart, 20, QString("dateTime").toAscii());
+    mapper1->addMapping(timeEnd, 21, QString("time").toAscii());
+    mapper1->addMapping(timeStart, 22, QString("time").toAscii());
 
-    mapper1->addMapping(textComments,19);
+    mapper1->addMapping(textComments,17);
 
     QList<QDataWidgetMapper*> lMapper;
     lMapper << mapper1;
@@ -354,11 +354,11 @@ void FrmOperation::initOperationModel()
     tOperations->setTable(QSqlDatabase().driver()->escapeIdentifier("sampled_fishing_operations",
         QSqlDriver::TableName));
 
-    tOperations->setRelation(4, QSqlRelation("ref_gears", "id", "name"));
-    tOperations->setRelation(7, QSqlRelation("ref_units", "id", "name"));
-    tOperations->setRelation(10, QSqlRelation("ref_units", "id", "name"));
-    tOperations->setRelation(14, QSqlRelation("ref_units", "id", "name"));
-    tOperations->setRelation(18, QSqlRelation("ref_fishing_zones", "id", "name"));
+    tOperations->setRelation(2, QSqlRelation("ref_gears", "id", "name"));
+    tOperations->setRelation(5, QSqlRelation("ref_units", "id", "name"));
+    tOperations->setRelation(8, QSqlRelation("ref_units", "id", "name"));
+    tOperations->setRelation(12, QSqlRelation("ref_units", "id", "name"));
+    tOperations->setRelation(16, QSqlRelation("ref_fishing_zones", "id", "name"));
 
     tOperations->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tOperations->sort(0,Qt::AscendingOrder);
@@ -402,7 +402,7 @@ void FrmOperation::filterModel4Combo()
     if (!strFilter.isEmpty())
         strFilter=strFilter.remove(strFilter.size()-QString(" or ").length(),QString(" or ").length());
 
-    tOperations->relationModel(4)->setFilter(strFilter);
+    tOperations->relationModel(2)->setFilter(strFilter);
 
     strQuery=
         "SELECT     id_fishing_zone"
@@ -427,7 +427,7 @@ void FrmOperation::filterModel4Combo()
     if (!strFilter.isEmpty())
         strFilter=strFilter.remove(strFilter.size()-QString(" or ").length(),QString(" or ").length());
 
-    tOperations->relationModel(18)->setFilter(strFilter);
+    tOperations->relationModel(16)->setFilter(strFilter);
 
     initMapper1();
 }

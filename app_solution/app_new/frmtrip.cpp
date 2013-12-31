@@ -283,10 +283,10 @@ void FrmTrip::initMapper1()
     mapper1->addMapping(catchInputCtrl->pCmbUnitUnits(), 18);
     mapper1->addMapping(catchInputCtrl->pSpinUnitsC(), 19);
 
-    mapper1->addMapping(dtStart, 20);
-    mapper1->addMapping(timeStart, 21);
-    mapper1->addMapping(dtEnd, 22);
-    mapper1->addMapping(timeEnd, 23);
+    mapper1->addMapping(dtStart, 20, QString("dateTime").toAscii());
+    mapper1->addMapping(timeStart, 21, QString("time").toAscii());
+    mapper1->addMapping(dtEnd, 22,QString("dateTime").toAscii());
+    mapper1->addMapping(timeEnd, 23, QString("time").toAscii());
 
     QList<QDataWidgetMapper*> lMapper;
     lMapper << mapper1;

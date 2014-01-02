@@ -33,7 +33,7 @@ int FieldListModel::rowCount(const QModelIndex & ) const
      return m_strData.at(index.row()).at(index.column());
  }
 
-
+/*
 QVariant FieldListModel::headerData(int section ,
                              Qt::Orientation orientation,
                              int role) const
@@ -43,3 +43,4 @@ QVariant FieldListModel::headerData(int section ,
     }
     else return QVariant();
 }
+*/

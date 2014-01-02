@@ -61,7 +61,7 @@ QVariant TreeModel::data(const QModelIndex &index, int role) const
     return item->data(index.column());
 
 }
-
+/*
 QString TreeModel::getEnumString(Level l) const
 {
         switch (l) {
@@ -82,7 +82,7 @@ QString TreeModel::getEnumString(Level l) const
             break;
         }
 }
-
+*/
 Qt::ItemFlags TreeModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())

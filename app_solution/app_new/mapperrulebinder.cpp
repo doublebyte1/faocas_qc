@@ -150,8 +150,6 @@ bool MapperRuleBinder::getCurrentWidgetValue(QWidget* aWidget, QVariant& val)
         val=qobject_cast<QDateEdit*>(aWidget)->date();
     else if ( qobject_cast<QDateTimeEdit*>(aWidget)!=0 )
         val=qobject_cast<QDateTimeEdit*>(aWidget)->dateTime();
-    else if ( qobject_cast<QDateEdit*>(aWidget)!=0 )
-        val=qobject_cast<QDateEdit*>(aWidget)->date();
     else if ( qobject_cast<QTimeEdit*>(aWidget)!=0 )
         val=qobject_cast<QTimeEdit*>(aWidget)->time();
     else if ( qobject_cast<QComboBox*>(aWidget)!=0 )

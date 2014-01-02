@@ -30,7 +30,7 @@ This class provides a model, to fill the TableWidget with a field description of
      int                                        columnCount(const QModelIndex &parent = QModelIndex()) const;
 
      QVariant                                   data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-     QVariant                                   headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+     //QVariant                                   headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
 
  private:
      FieldList                                  m_strData;

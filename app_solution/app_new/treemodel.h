@@ -63,7 +63,7 @@ public:
 
 private:
     void setupModelData(TreeItem *parent);
-    QString getEnumString(Level l) const;
+    //QString getEnumString(Level l) const;
 
     TreeItem *rootItem;
 };

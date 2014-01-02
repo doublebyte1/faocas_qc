@@ -340,7 +340,7 @@ void FrmMinorStrata::initUI()
 void FrmMinorStrata::onItemSelection()
 {
     //the signal radio button does not work very well, so lets read the value on the table!
-    QModelIndex idx=viewMinorStrata->index(tableView->currentIndex().row(),3);
+    QModelIndex idx=viewMinorStrata->index(tableView->currentIndex().row(),4);
 
     pushNext->setEnabled(tableView->selectionModel()->hasSelection()
         && idx.data().toBool()==false

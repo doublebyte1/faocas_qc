@@ -15,7 +15,6 @@
 #define FRMFRAMEDETAILS_H
 
 class QTreeView;
-//class NullRelationalDelegate;
 struct Sample;
 class ModelInterface;
 
@@ -81,6 +80,8 @@ class FrmFrameDetails : public QWidget, public Ui::frmframedetails
         void                    showLegend();
         void                    onApplyChanges2FrameDetails();
         bool                    onNoChanges();
+        void                    editFrame();
+        void                    createFrame();
 
     private:
         Sample*                 m_sample;

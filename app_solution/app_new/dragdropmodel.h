@@ -40,7 +40,7 @@ public:
 
     const ComplexItemList* itemList() const { return &m_itemList; }
 
-    //QStringList formats() const;
+    QStringList formats() const;
 
 protected:
     QVariant retrieveData(const QString &format,

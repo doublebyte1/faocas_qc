@@ -17,20 +17,17 @@ PreviewTab(0,inRoleDef,inSample,tr("Frame"), ruleCheckerPtr, parent,flags){
     frModel=0;
     mapper=0;
     m_submitted=false;
-    m_curMode=FrmFrameDetails::NONE;
+    //m_curMode=FrmFrameDetails::NONE;
     m_bInsert=false;
     m_bSampling=false;
 
     m_tabsDefined=false;
 
-    connect(toolView, SIGNAL(clicked()), this,
-        SLOT(onShowFrameDetails()));//TODO:change curidex to grabb the id
-
     connect(toolEdit, SIGNAL(clicked()), this,
     SLOT(onShowFrameDetails()));
 
     connect(this, SIGNAL(hideFrameDetails(bool)), this,
-        SLOT(onHideFrameDetails()));
+        SLOT(onHideFrameDetails(bool)));
 
     connect(toolProcess, SIGNAL(clicked()), this,
         SIGNAL(showFrmSampling()));
@@ -57,9 +54,6 @@ FrmFrame::~FrmFrame()
 
 void FrmFrame::initHelpIds()
 {
-    m_widgetInfo.insert(radioCreate,"Medfisis::new_frame_scratch");
-    m_widgetInfo.insert(radioCopy,"Medfisis::frame_existing");
-    m_widgetInfo.insert(cmbCopy,"Medfisis::frame_existing");
     m_widgetInfo.insert(cmbPrexistent,"Medfisis::pre-existent_frame");
     m_widgetInfo.insert(groupPhysical,"Medfisis::geographical_frame");
     m_widgetInfo.insert(groupTime,"Medfisis::time_validity");
@@ -112,7 +106,7 @@ void FrmFrame::editFinished()
 
 void FrmFrame::onEditLeave(const bool bFinished, const bool bDiscarded)
 {
-    if (!bFinished){
+    if (!bFinished){        
         emit setFrmSamplingMode(FrmSampling::EDIT);
     }else{
         if (!bDiscarded){
@@ -199,7 +193,11 @@ bool FrmFrame::updateFrameSampleParts(const QModelIndex index)
 
     //logbook
     bool bLogbook;
-    if (!isLogBook(m_sample->frameId,bLogbook)) return false;
+    QString strError;
+    if (!isLogBook(m_sample->frameId,bLogbook,strError)){
+        emit showError(strError);
+        return false;
+    }
     m_sample->bLogBook=bLogbook;
 
     return true;
@@ -273,7 +271,7 @@ void FrmFrame::initUI()
 {
     setHeader();
 
-    radioCopy->setChecked(true);
+    //radioCopy->setChecked(true);
 
     initPreviewTable(tableView,viewFrameTime);
 
@@ -311,64 +309,19 @@ void FrmFrame::initFrModel()
     setPreviewModel(tFrameTime);
 }
 
-void FrmFrame::onHideFrameDetails()
+void FrmFrame::onHideFrameDetails(bool bSubmitted)
 {
-    int curP=cmbPrexistent->currentIndex();
-    int curC=cmbCopy->currentIndex();
-
-    if (m_curMode==FrmFrameDetails::VIEW){
-        cmbPrexistent->setCurrentIndex(curP);
-        cmbCopy->setCurrentIndex(curC);
-    }else{
-        int m=mapper->currentIndex();
-        //We have to do all this, to reset the model and the relation!!!!
-
-        if (m_bInsert){
-            QModelIndex idx=tFrameTime->index(tFrameTime->rowCount()-1,1);
-            if (tFrameTime->isDirty(idx)) tFrameTime->revertAll();
-        }
-
-        initFrModel();
-
-        if (m_bInsert)
-            genericCreateRecord();
-
-        initMapper2();
-        mapper->setCurrentIndex(m);
-        cmbPrexistent->setCurrentIndex(cmbPrexistent->count()-1);
-
-        frModel->select();
-        cmbCopy->setCurrentIndex(cmbCopy->count()-1);
-
-    }
-
-    m_curMode=FrmFrameDetails::NONE;
+    if (bSubmitted){
+        tFrameTime->relationModel(1)->select();
+        cmbPrexistent->setCurrentIndex(tFrameTime->relationModel(1)->rowCount()-1);
+     }
 }
 
 void FrmFrame::onShowFrameDetails()
 {
-    if (dynamic_cast<QToolButton*>(QObject::sender())!=0){
-        if (QObject::sender()->objectName()==tr("toolView")){
-            m_curMode=FrmFrameDetails::VIEW;
-            if (cmbPrexistent->currentIndex()!=-1){
-                m_sample->frameId=cmbPrexistent->model()->index(cmbPrexistent->currentIndex(),0).data().toInt();
-                emit showFrameDetails(FrmFrameDetails::VIEW,FrmFrameDetails::PERMANENT,
-                m_sample);
-            }
-        }else if (QObject::sender()->objectName()==tr("toolEdit")){
-            if (radioCopy->isChecked() && cmbCopy->currentIndex()!=-1){
-                m_curMode=FrmFrameDetails::EDIT;
-                m_sample->frameId=cmbCopy->model()->index(cmbCopy->currentIndex(),0).data().toInt();
-                emit showFrameDetails(FrmFrameDetails::EDIT,FrmFrameDetails::PERMANENT,
-                m_sample);
-            }
-            else if (radioCreate->isChecked()){
-                m_curMode=FrmFrameDetails::CREATE;
-                m_sample->frameId=-1;
-                emit showFrameDetails(FrmFrameDetails::CREATE,FrmFrameDetails::PERMANENT,m_sample);
-            }
-        }
-    }
+    m_sample->frameId=cmbPrexistent->model()->index(cmbPrexistent->currentIndex(),0).data().toInt();
+    emit showFrameDetails(FrmFrameDetails::VIEW,FrmFrameDetails::PERMANENT,
+    m_sample);
 }
 
 void FrmFrame::onHideFrmSampling(bool bSubmitted)
@@ -395,10 +348,8 @@ void FrmFrame::onHideFrmSampling(bool bSubmitted)
     groupDetails->setVisible(m_roleDef->bView && !groupDetails->isVisible());
 }
 
-void FrmFrame::initMapper2()
+void FrmFrame::initMappers()
 {
-    //emit blockCatchUISignals(true);
-
     if (tFrameTime==0) return ;
     if (m_mapperBinderPtr!=0) {delete m_mapperBinderPtr; m_mapperBinderPtr=0;}
     if (mapper!=0) delete mapper;
@@ -412,7 +363,7 @@ void FrmFrame::initMapper2()
     cmbPrexistent->setModelColumn(
         tFrameTime->relationModel(1)->fieldIndex("name"));
 
-    mapper->addMapping(this->cmbPrexistent, 1/*, tr("currentIndex").toAscii()*/);
+    mapper->addMapping(this->cmbPrexistent, 1);
 
     mapper->addMapping(this->customDtStart,4,QString("date").toAscii());
     mapper->addMapping(this->customDtEnd,5,QString("date").toAscii());
@@ -424,16 +375,6 @@ void FrmFrame::initMapper2()
     if (!initBinder(m_mapperBinderPtr))
         emit showError(tr("Could not init binder!"));
 
-    emit blockCatchUISignals(false);
-}
-
-void FrmFrame::initMappers()
-{
-    cmbCopy->setModel(frModel);
-    cmbCopy->setModelColumn(1);
-
-    initMapper2();
-    mapper->toLast();
 }
 
 bool FrmFrame::reallyApply()
@@ -444,36 +385,30 @@ bool FrmFrame::reallyApply()
      QSqlQuery query;
      query.setForwardOnly(true);
 
-     if (cmbPrexistent->currentIndex()==-1){
-        emit showError(tr("You must select a frame!"));
-        bError=true;
-     }else{
+     int id= tFrameTime->relationModel(1)->index(cmbPrexistent->currentIndex(),0).data().toInt();
 
-         int id= tFrameTime->relationModel(1)->index(cmbPrexistent->currentIndex(),0).data().toInt();
+    int n=0;
+    QString strQuery="select spcountgls4frame([id])";
+    strQuery.replace("[id]",QVariant(id).toString());
+    query.prepare(strQuery);
 
-        int n=0;
-        QString strQuery="select spcountgls4frame([id])";
-        strQuery.replace("[id]",QVariant(id).toString());
-        query.prepare(strQuery);
-
-         if (!query.exec()){
-             emit showError(query.lastError().text());
-             bError=true;
-         }
-
-        query.first();
-        n = query.value(0).toInt();
-
-        if (n<1){
-            emit showError(tr("There are no Group of Landing Sites for this frame!"));
-            bError=true;
-        }else{
-
-            bError=!submitMapperAndModel(mapper);
-
-        }
-
+     if (!query.exec()){
+         emit showError(query.lastError().text());
+         bError=true;
      }
+
+    query.first();
+    n = query.value(0).toInt();
+
+    if (n<1){
+        emit showError(tr("There are no Group of Landing Sites for this frame!"));
+        bError=true;
+    }else{
+
+        bError=!submitMapperAndModel(mapper);
+
+    }
+
     buttonBox->button(QDialogButtonBox::Apply)->setEnabled(bError);
 
     emit lockControls(!bError,m_lWidgets);
@@ -514,7 +449,7 @@ void FrmFrame::setReadOnly(const bool bRO)
     }
 }
 
-bool FrmFrame::isLogBook(const int frameId, bool& bLogbook)
+bool FrmFrame::isLogBook(const int frameId, bool& bLogbook, QString& strError)
 {
     //check which type of frame we have...
     QString strQuery=
@@ -531,7 +466,7 @@ bool FrmFrame::isLogBook(const int frameId, bool& bLogbook)
         return false;
     }
     if (query.numRowsAffected()<1){
-        emit showError(tr("Could not determine the type of this frame!"));
+        strError=tr("Could not determine the type of this frame!");
         return false;
     }
 
@@ -542,7 +477,7 @@ bool FrmFrame::isLogBook(const int frameId, bool& bLogbook)
     else if (strSource.compare(qApp->translate("frame", strSampling),Qt::CaseInsensitive)==0)
         bLogbook=false;
     else{
-        emit showError(tr("The type of this frame is not usable! (not logbook and not sampling)!"));
+        strError=tr("The type of this frame is not usable! (not logbook and not sampling)!");
         return false;
     }
 
@@ -563,20 +498,17 @@ bool FrmFrame::getNextLabel(QString& strLabel)
 
 void FrmFrame::adjustFrmSamplingMode()
 {
-    if ( !pushEdit->isChecked() ||
-        cmbPrexistent->currentText().compare(
-                    qApp->translate("null_replacements", strNa))==0 )
-                                                                            return;
-
     //set here if it is logbook or not
-    m_sample->frameId=cmbPrexistent->model()->index(cmbPrexistent->currentIndex(),0).data().toInt();
+    m_sample->frameId=
+            cmbPrexistent->model()->index(cmbPrexistent->currentIndex(),
+                                          0).data().toInt();
+
     bool bLogbook;
-    if (!isLogBook(m_sample->frameId,bLogbook)){
-        emit showError(tr("Could not determine the type of this frame!"));
+    QString strError;
+    if (!isLogBook(m_sample->frameId,bLogbook,strError)){
+        qDebug() << strError << endl;
         return;
     }
 
     m_sample->bLogBook=bLogbook;
-
-    emit setFrmSamplingMode(FrmSampling::REPLACE);
 }

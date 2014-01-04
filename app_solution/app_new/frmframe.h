@@ -3,6 +3,7 @@
 #include "ui_frmframe.h"
 #include "previewtab.h"
 #include "frmsampling.h"
+#include "generictab.h"
 
   #if defined(WIN32) && defined(_DEBUG)
      #define DEBUG_NEW new( _NORMAL_BLOCK, __FILE__, __LINE__ )
@@ -39,7 +40,7 @@ class FrmFrame : public PreviewTab, public Ui::frmframe
         //! On Hide FrameDetails
         /*! Slot that is called, when FrameDetails Form hide event
         */
-        void                                   onHideFrameDetails();
+        void                                   onHideFrameDetails(bool bSubmitted);
         //! On Show FrameDetails
         /*! Slot that is called, when FrameDetails Form show event
         */
@@ -79,7 +80,7 @@ class FrmFrame : public PreviewTab, public Ui::frmframe
         bool                                   updateFrameSampleParts();
         bool                                   updateFrameSampleParts(const QModelIndex index);
 
-        bool                                   isLogBook(const int frameId, bool& bLogbook);
+        bool                                   isLogBook(const int frameId, bool& bLogbook, QString& strError);
         //! Set main model query
         /*! Reimplemented from the PreviewTab base class
         */
@@ -125,7 +126,6 @@ class FrmFrame : public PreviewTab, public Ui::frmframe
         void                                   initHelpIds(); 
 
         void                                   initMappers();
-        void                                   initMapper2();
         //! Init UI
         /*! Reimplemented from the genericTab base class
         */
@@ -134,7 +134,7 @@ class FrmFrame : public PreviewTab, public Ui::frmframe
         QSqlRelationalTableModel*              tFrameTime;
         QSqlTableModel*                        frModel;
         QDataWidgetMapper*                     mapper;
-        FrmFrameDetails::Mode                  m_curMode;
+        //FrmFrameDetails::Mode                  m_curMode;
         bool                                   m_submitted;/**< flag to define if the record was finalised and successfully submitted */
         bool                                   m_bSampling;/**< flag to define if the sampling process definition is ongoing */
         bool                                   m_tabsDefined;

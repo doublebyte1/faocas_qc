@@ -33,7 +33,7 @@ bool ModelInterface::buildSourceFilter(QString& strFilter)
     QSqlQuery query;
         query.prepare(
 
-    tr("SELECT     ID, name") +
+    tr("SELECT     id, name") +
     tr(" FROM         ref_source") +
     tr(" WHERE     (name NOT IN") +
     tr("                          (SELECT     internal_name") +
@@ -61,7 +61,6 @@ void ModelInterface::initModels()
     tRefFrame=new QSqlRelationalTableModel(this,QSqlDatabase::database());
     tRefFrame->setTable(QSqlDatabase().driver()->escapeIdentifier("fr_frame",
         QSqlDriver::TableName));
-    //tRefFrame->setTable("fr_frame");
     tRefFrame->setEditStrategy(QSqlTableModel::OnManualSubmit);
     tRefFrame->sort(0,Qt::AscendingOrder);
 

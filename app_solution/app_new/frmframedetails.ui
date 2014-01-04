@@ -251,6 +251,20 @@
       </spacer>
      </item>
      <item>
+      <widget class="QPushButton" name="pushEdit">
+       <property name="text">
+        <string>Edit</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushReset">
+       <property name="text">
+        <string>Reset</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushBack">
        <property name="toolTip">
         <string>Cancel</string>
@@ -338,8 +352,8 @@
    <slot>apply()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>678</x>
-     <y>569</y>
+     <x>624</x>
+     <y>584</y>
     </hint>
     <hint type="destinationlabel">
      <x>362</x>
@@ -386,8 +400,8 @@
    <slot>verify()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>435</x>
-     <y>569</y>
+     <x>560</x>
+     <y>584</y>
     </hint>
     <hint type="destinationlabel">
      <x>362</x>
@@ -427,6 +441,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushEdit</sender>
+   <signal>clicked()</signal>
+   <receiver>frmframedetails</receiver>
+   <slot>editFrame()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>339</x>
+     <y>572</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>362</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushReset</sender>
+   <signal>clicked()</signal>
+   <receiver>frmframedetails</receiver>
+   <slot>createFrame()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>396</x>
+     <y>572</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>362</x>
+     <y>295</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>cancel()</slot>
@@ -436,5 +482,7 @@
   <slot>undo()</slot>
   <slot>verify()</slot>
   <slot>showLegend()</slot>
+  <slot>editFrame()</slot>
+  <slot>createFrame()</slot>
  </slots>
 </ui>

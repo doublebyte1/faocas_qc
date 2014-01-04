@@ -162,12 +162,12 @@ TreeMimeData::TreeMimeData(const ComplexItemList itemList):
 {
     myFormats << tr("application/tree");
 }
-/*
+
 QStringList TreeMimeData::formats() const
 {
     return myFormats;
 }
-*/
+
 QVariant TreeMimeData::retrieveData(const QString &format,
                                      QVariant::Type preferredType) const
 {

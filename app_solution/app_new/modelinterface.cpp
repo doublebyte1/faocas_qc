@@ -1223,7 +1223,7 @@ bool ModelInterface::readTempChangesVessel(const Sample* sample)
     if (!sample->bLogBook){
         strQuery=
             "select     "
-            "  sampled_cell.id, ref_minor_strata.id_frame_time, sampled_cell.start_dt as start_dt, sampled_cell.end_dt as end_dt "
+            "  sampled_cell.id "
             " from       "
             "  sampled_cell inner join                     "
             "  ref_minor_strata on sampled_cell.id_minor_strata = ref_minor_strata.id "
@@ -1239,7 +1239,7 @@ bool ModelInterface::readTempChangesVessel(const Sample* sample)
             strUnit="id_cell";
     }else{
         strQuery=                
-            "select     ref_minor_strata.id, id_start_dt, id_end_dt, id_frame_time, ref_minor_strata.start_dt as start_dt, ref_minor_strata.end_dt as end_dt"
+            "select     ref_minor_strata.id"
             " from         ref_minor_strata"
             " where  "
             " ( "

@@ -275,6 +275,9 @@ bool FrmFrameDetails::setFrameDetails(const Mode mode, const Persistence persist
     pushVerify->setEnabled(true);
     pushApply->setEnabled(!pushVerify->isEnabled());
     pushVerify->setVisible(mode!=FrmFrameDetails::VIEW || persistence==FrmFrameDetails::TEMPORARY);
+    pushEdit->setVisible(persistence!=FrmFrameDetails::TEMPORARY);
+    pushReset->setVisible(persistence!=FrmFrameDetails::TEMPORARY);
+
     pushBack->setVisible(true);
 
     bool invis=options & FrmFrameDetails::CACHE_CHANGES;

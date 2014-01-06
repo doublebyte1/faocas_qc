@@ -67,6 +67,7 @@ class FrmFrame : public PreviewTab, public Ui::frmframe
         \sa previewRow(QModelIndex index), editFinished()
         */
         void                                   onEditLeave(const bool bFinished, const bool bDiscarded);
+        void                                   onFrameChange(int index);
 
     signals:
         void                                   isLogBook(bool bLogBook);

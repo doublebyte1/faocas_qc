@@ -52,6 +52,28 @@ FrmFrame::~FrmFrame()
     if (mapper!=0) delete mapper;
 }
 
+void FrmFrame::onFrameChange(int index)
+{
+    bool bLogbook,bError=true;
+
+    int id= tFrameTime->relationModel(1)->index(cmbPrexistent->currentIndex(),0).data().toInt();
+
+    QSqlQuery query;
+    QString strQuery="select isLogBook([id])";
+    strQuery.replace("[id]",QVariant(id).toString());
+    query.prepare(strQuery);
+
+    if (!query.exec()){
+        emit showError(query.lastError().text());
+        bError=true;
+    }
+
+    query.first();
+    bLogbook = query.value(0).toBool();
+
+    setSourceText(this->lbSource,bLogbook);
+}
+
 void FrmFrame::initHelpIds()
 {
     m_widgetInfo.insert(cmbPrexistent,"Medfisis::pre-existent_frame");

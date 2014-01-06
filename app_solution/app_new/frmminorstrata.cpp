@@ -218,6 +218,8 @@ void FrmMinorStrata::filterModel4Combo()
         return;
     }
 
+    Q_ASSERT_X(query.numRowsAffected()>=1, "Minor Strata", "Selection of a frame without GLS!");
+
     QString strFilter("");
      while (query.next()) {
         strFilter.append("id=" + query.value(0).toString());

@@ -21,7 +21,6 @@ PreviewTab(3,inRoleDef,inSample,tr("Vessel Type"), ruleCheckerPtr, parent, flags
 
     initModels();
     initUI();
-    initMappers();
 }
 
 FrmVesselType::~FrmVesselType()
@@ -47,11 +46,6 @@ void FrmVesselType::onItemSelection()
 
 void FrmVesselType::initMappers()
 {
-    //NOTHING
-}
-
-void FrmVesselType::initMapper1()
-{
     if (m_mapperBinderPtr!=0) {delete m_mapperBinderPtr; m_mapperBinderPtr=0;}
     if (mapper1!=0) delete mapper1;
     mapper1= new QDataWidgetMapper(this);
@@ -67,9 +61,11 @@ void FrmVesselType::initMapper1()
     nullDellegate=new NullRelationalDelegate(lOthers,lText);
     mapper1->setItemDelegate(nullDellegate);
 
+    qDebug() << tSVesselTypes->relationModel(2)->filter() << endl;
+
     cmbTypes->setModel(tSVesselTypes->relationModel(2));
     cmbTypes->setModelColumn(
-        tSVesselTypes->relationModel(2)->fieldIndex(tr("name")));
+        tSVesselTypes->relationModel(2)->fieldIndex("name"));
 
     mapper1->addMapping(cmbTypes, 2);
 
@@ -195,7 +191,39 @@ void FrmVesselType::createRecord()
 
 void FrmVesselType::filterModel4Combo()
 {
-    QString strQuery(                
+    QString strQuery(
+                "SELECT DISTINCT"
+                "  ref_vessel_types.id,"
+                "  ref_vessel_types.name"
+                " FROM "
+                "  public.fr_frame, "
+                "  public.fr_sub_frame,"
+                "  public.ref_frame, "
+                "  public.fr_f2gls, "
+                "  public.ref_group_of_landingsites,"
+                "  public.fr_gls2als,"
+                "  public.ref_abstract_landingsite,"
+                "  public.fr_als2vessel,"
+                "  public.ref_vessels,"
+                "  public.ref_vessel_types"
+                " WHERE "
+                "  fr_sub_frame.id_frame = fr_frame.id AND"
+                "  fr_sub_frame.type = ref_frame.id AND"
+                "  fr_f2gls.id_sub_frame = fr_sub_frame.id AND"
+                "  fr_f2gls.id_gls = ref_group_of_landingsites.id AND"
+                "  fr_gls2als.id_sub_frame = fr_sub_frame.id AND  "
+                "  fr_gls2als.id_gls = fr_f2gls.id_gls AND "
+                "  fr_gls2als.id_abstract_landingsite=ref_abstract_landingsite.id and"
+                "  fr_als2vessel.id_abstract_landingsite=fr_gls2als.id_abstract_landingsite AND"
+                "  fr_als2vessel.id_sub_frame=fr_sub_frame.id AND"
+                "  fr_als2vessel.vesselid=ref_vessels.vesselid AND"
+                "  ref_vessels.vesseltype=ref_vessel_types.id AND"
+                "  ref_abstract_landingsite.id=(SELECT sampled_cell.id_abstract_landingsite from sampled_cell WHERE sampled_cell.id=" + QVariant(m_sample->cellId).toString() + ") AND"
+                "  fr_frame.id = " + QVariant(m_sample->frameId).toString() + " AND "
+                "  ref_frame.name = 'root'"
+
+
+/*
         "select     ref_vessel_types.id"
         " from         fr_als2vessel inner join"
         "                      ref_vessels on fr_als2vessel.vesselid = ref_vessels.vesselid inner join"
@@ -216,45 +244,11 @@ void FrmVesselType::filterModel4Combo()
         "                                                       (select     id"
         "                                                         from          ref_abstract_landingsite"
         "                                                         where      (name = 'outside')))))"
-
-
-// Quarantine this query due to the union between different types (do we need the vesseltype name at all??)
-/*
-    tr("SELECT     dbo.Ref_Vessel_Types.ID")+
-    tr(" FROM         dbo.FR_ALS2Vessel INNER JOIN")+
-    tr("                      dbo.Ref_Vessels ON dbo.FR_ALS2Vessel.vesselID = dbo.Ref_Vessels.VesselID INNER JOIN")+
-    tr("                      dbo.Ref_Vessel_Types ON dbo.Ref_Vessels.VesselType = dbo.Ref_Vessel_Types.ID")+
-    tr(" WHERE     (dbo.FR_ALS2Vessel.id_sub_frame =")+
-    tr("                          (SELECT     ID")+
-    tr("                            FROM          dbo.FR_Sub_Frame")+
-    tr("                            WHERE      (Type =")+
-    tr("                                                       (SELECT     ID")+
-    tr("                                                         FROM          dbo.Ref_Frame")+
-    tr("                                                         WHERE      (Name = 'root'))) AND (id_frame = ") + QVariant(m_sample->frameId).toString() + tr("))) AND (dbo.FR_ALS2Vessel.id_abstract_landingsite =")+
-    tr("                          (SELECT     id_abstract_LandingSite")+
-    tr("                            FROM          dbo.Sampled_Cell")+
-    tr("                            WHERE      (ID = ") + QVariant(m_sample->cellId).toString() + tr("))) AND (dbo.FR_ALS2Vessel.vesselID NOT IN")+
-    tr("                          (SELECT     VesselID")+
-    tr("                            FROM          dbo.Abstract_Changes_Temp_Vessel")+
-    tr("                            WHERE      (id_cell = ") + QVariant(m_sample->cellId).toString() + tr(") AND (To_LS =")+
-    tr("                                                       (SELECT     ID")+
-    tr("                                                         FROM          dbo.Ref_Abstract_LandingSite")+
-    tr("                                                         WHERE      (Name = 'outside')))))")+
-    tr(" UNION")+
-    tr(" SELECT     Ref_Vessel_Types_1.Name")+
-    tr(" FROM         dbo.FR_ALS2Vessel AS FR_ALS2Vessel_1 INNER JOIN")+
-    tr("                      dbo.Ref_Vessels AS Ref_Vessels_1 ON FR_ALS2Vessel_1.vesselID = Ref_Vessels_1.VesselID INNER JOIN")+
-    tr("                      dbo.Ref_Vessel_Types AS Ref_Vessel_Types_1 ON Ref_Vessels_1.VesselType = Ref_Vessel_Types_1.ID")+
-    tr(" WHERE     (Ref_Vessels_1.VesselID IN")+
-    tr("                          (SELECT     VesselID")+
-    tr("                            FROM          dbo.Abstract_Changes_Temp_Vessel AS Abstract_Changes_Temp_Vessel_1")+
-    tr("                            WHERE      (id_cell = ") + QVariant(m_sample->cellId).toString() + tr(") AND (To_LS =")+
-    tr("                                                       (SELECT     id_abstract_LandingSite")+
-    tr("                                                         FROM          dbo.Sampled_Cell AS Sampled_Cell_1")+
-    tr("                                                         WHERE      (ID = ") + QVariant(m_sample->cellId).toString() + tr(")))))")
 */
+
     );
 
+    //qDebug() << strQuery << endl;
 
     QSqlQuery query;
     query.prepare(strQuery);
@@ -263,17 +257,20 @@ void FrmVesselType::filterModel4Combo()
         return;
     }
 
-    QString strFilter(tr(""));
+    Q_ASSERT_X(query.numRowsAffected()>=1, "Vessel Types", "Selection of a LS without vessels!");
+
+    QString strFilter("");
      while (query.next()) {
         strFilter.append("id=" + query.value(0).toString());
         strFilter.append(" OR ");
      }
+
      if (!strFilter.isEmpty())
          strFilter=strFilter.remove(strFilter.size()-QString(" OR ").length(),QString(" OR ").length());
 
     tSVesselTypes->relationModel(2)->setFilter(strFilter);
     //first we set the relation; then we create a mapper and assign the (amended) model to the mapper;
-    initMapper1();
+    initMappers();
 }
 
 void FrmVesselType::initUI()

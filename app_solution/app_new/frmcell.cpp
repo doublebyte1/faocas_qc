@@ -344,6 +344,8 @@ void FrmCell::filterModel4Combo()
         return;
     }
 
+    Q_ASSERT_X(query.numRowsAffected()>=1, "Cell", "Selection of a GLS without landing sites!");
+
     QString strFilter("");
      while (query.next()) {
         strFilter.append("ID=" + query.value(0).toString());

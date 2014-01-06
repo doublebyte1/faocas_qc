@@ -56,7 +56,8 @@ void FrmFrame::onFrameChange(int index)
 {
     bool bLogbook,bError=true;
 
-    int id= tFrameTime->relationModel(1)->index(cmbPrexistent->currentIndex(),0).data().toInt();
+    //int id= tFrameTime->relationModel(1)->index(cmbPrexistent->currentIndex(),0).data().toInt();
+    int id= tFrameTime->relationModel(1)->index(index,0).data().toInt();
 
     QSqlQuery query;
     QString strQuery="select isLogBook([id])";
@@ -401,35 +402,7 @@ void FrmFrame::initMappers()
 
 bool FrmFrame::reallyApply()
 {
-    bool bError=false;
-
-    //We call a stored procedure to see if there are GLS available outside the bin
-     QSqlQuery query;
-     query.setForwardOnly(true);
-
-     int id= tFrameTime->relationModel(1)->index(cmbPrexistent->currentIndex(),0).data().toInt();
-
-    int n=0;
-    QString strQuery="select spcountgls4frame([id])";
-    strQuery.replace("[id]",QVariant(id).toString());
-    query.prepare(strQuery);
-
-     if (!query.exec()){
-         emit showError(query.lastError().text());
-         bError=true;
-     }
-
-    query.first();
-    n = query.value(0).toInt();
-
-    if (n<1){
-        emit showError(tr("There are no Group of Landing Sites for this frame!"));
-        bError=true;
-    }else{
-
-        bError=!submitMapperAndModel(mapper);
-
-    }
+    bool bError=!submitMapperAndModel(mapper);
 
     buttonBox->button(QDialogButtonBox::Apply)->setEnabled(bError);
 

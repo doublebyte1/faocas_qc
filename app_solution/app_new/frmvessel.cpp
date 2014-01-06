@@ -550,6 +550,8 @@ void FrmVessel::filterModel4Combo()
         return;
     }
 
+    Q_ASSERT_X(query.numRowsAffected()>=1, "Vessels", "Selection of a GLS without vessels!");
+
     QString strFilter("");
      while (query.next()) {
         strFilter.append("vesselid=" + query.value(0).toString());

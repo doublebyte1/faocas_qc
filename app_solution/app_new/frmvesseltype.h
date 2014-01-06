@@ -95,7 +95,6 @@ class FrmVesselType : public PreviewTab, public Ui::FrmVesselType
         /*! Reimplemented from the PreviewTab base class
         */
         void                                   beforeShow();
-        void                                   initMapper1();
         void                                   initVesselTypeModel();
 
         //! Get the title label of the next form

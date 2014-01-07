@@ -241,9 +241,14 @@ bool FrmFrame::updateFrameSampleParts()
 }
 
 void FrmFrame::previewRow(QModelIndex index)
-{
+{    
     //m_bSampling: tells us if the input about the sampling technique was already provided
     if (m_bSampling) return;
+
+    //no pusPrevious in this form!
+    pushNext->setEnabled(tableView->selectionModel()->hasSelection() &&
+                         !m_bSampling);
+    emit disableTabs();
 
     QModelIndex idx=tableView->model()->index(index.row(),0);
     if (!updateFrameSample(idx)){
@@ -271,9 +276,11 @@ void FrmFrame::previewRow(QModelIndex index)
 
 void FrmFrame::onItemSelection()
 {
+    /*
     //no pusPrevious in this form!
-    pushNext->setEnabled(tableView->selectionModel()->hasSelection() && !m_bSampling);
-    emit disableTabs();
+    pushNext->setEnabled(tableView->selectionModel()->hasSelection() &&
+                         !m_bSampling);
+    emit disableTabs();*/
 }
 
 void FrmFrame::initModels()

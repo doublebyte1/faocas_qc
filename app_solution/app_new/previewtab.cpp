@@ -420,6 +420,8 @@ void PreviewTab::genericCreateRecord()
     if (!discardNewRecord()) return;
 
     insertRecordIntoModel(m_model);
+
+    if (!resetSample()) return;
 }
 
 bool PreviewTab::discardNewRecord()
@@ -500,6 +502,11 @@ bool PreviewTab::checkDependantDates(const QString curTable, const QDateTime& cu
 bool PreviewTab::updateSample(const QModelIndex& idx)
 {
     return (m_sample->setMemberById(m_index,idx.data().toInt()));
+}
+
+bool PreviewTab::resetSample()
+{
+    return (m_sample->setMemberById(m_index,-1));
 }
 
 bool PreviewTab::updateSample()

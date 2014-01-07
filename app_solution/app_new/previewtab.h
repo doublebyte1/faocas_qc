@@ -210,6 +210,8 @@ class PreviewTab : public GenericTab
         */
         bool                                  updateSample();
 
+        bool                                  resetSample();
+
         QList<QWidget*>                       m_lWidgets;/**< list of widgets on the preview tab, that we want to enable/disable as we create/submit a record*/
         //! Init Help Ids
         /*! Abstract function (ihnerited from base class) that initializes the m_widgetInfo container, by associating

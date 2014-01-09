@@ -63,6 +63,19 @@ struct Sample{
     tripId(-1),operationId(-1),catchId(-1){;}
 
     bool       setMemberById(const int id, const int val);
+    QString    print(){
+        return QString("bLogBook:") + QVariant(bLogBook).toString() + QString(",") +
+                ((frameId!=-1)?QString("frameId:") + QVariant(frameId).toString() + QString(",") : QString("")) +
+                ((frameTimeId!=-1)?QString("frameTimeId:") + QVariant(frameTimeId).toString() + QString(","): QString("")) +
+                ((minorStrataId!=-1)?QString("minorStrataId:") + QVariant(minorStrataId).toString() + QString(","):QString("")) +
+                ((cellId!=-1)?QString("cellId:") + QVariant(cellId).toString() + QString(","):QString("")) +
+                ((vesselTypeId!=-1)?QString("vesselTypeId:") + QVariant(vesselTypeId).toString() + QString(","):QString("")) +
+                ((sampVesselId!=-1)?QString("sampVesselId:") + QVariant(sampVesselId).toString() + QString(","):QString("")) +
+                ((tripId!=-1)?QString("tripId:") + QVariant(tripId).toString() + QString(","):QString("")) +
+                ((operationId!=-1)?QString("operationId:") + QVariant(operationId).toString() + QString(","):QString("")) +
+                                   ((catchId!=-1)?QString("catchId:") + QVariant(catchId).toString():QString(""))
+                ;
+                }
 
     bool        bLogBook;/**< boolean to indicate if its logbook (true) or sampling(false) */
     int         frameId;/**< frame id */

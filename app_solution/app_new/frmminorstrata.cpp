@@ -218,7 +218,7 @@ void FrmMinorStrata::filterModel4Combo()
         return;
     }
 
-    Q_ASSERT_X(query.numRowsAffected()>=1, "Minor Strata", "Selection of a frame without GLS!");
+    Q_ASSERT_X(query.numRowsAffected()>=1, "Minor Strata", QString(QString("Selection of a frame without GLS!") + m_sample->print()).toUtf8().constData());
 
     QString strFilter("");
      while (query.next()) {

@@ -550,7 +550,7 @@ void FrmVessel::filterModel4Combo()
         return;
     }
 
-    Q_ASSERT_X(query.numRowsAffected()>=1, "Vessels", "Selection of a GLS without vessels!");
+    Q_ASSERT_X(query.numRowsAffected()>=1, "Vessels", QString(QString("Selection of a GLS without vessels!") + m_sample->print()).toUtf8().constData());
 
     QString strFilter("");
      while (query.next()) {

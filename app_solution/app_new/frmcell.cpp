@@ -398,24 +398,19 @@ void FrmCell::onEditLeave(const bool bFinished, const bool bDiscarded)
 
 bool FrmCell::applyChanges()
 {
-    bool bError=true;
-
-    //TODO: REVIEW THIS LATER: checkdependant dates
-    QString strError;/*
-    if (!checkDependantDates(tSampCell->tableName(), customDtStart->dateTime(),
-        customDtEnd->dateTime(),tSampCell->tableName(),m_sample->cellId, strError))
+    QString strError;
+    bool bError=!checkDependantDates(tSampCell->tableName(), QDateTime(customDtStart->date(),QTime(0,0,0,0),Qt::UTC),
+                             QDateTime(customDtEnd->date(),QTime(23,59,59,999),Qt::UTC),tSampCell->tableName(),m_sample->cellId, strError);
+    if (bError)
     {
         emit showError(strError);
     }else{
-
+        int cur= mapper1->currentIndex();
+        bError=!submitMapperAndModel(mapper1);
         if (!bError){
-*/
-            int cur= mapper1->currentIndex();
-            bError=!submitMapperAndModel(mapper1);
-            if (!bError){
-                mapper1->setCurrentIndex(cur);
-            }
-    //}
+            mapper1->setCurrentIndex(cur);
+        }
+    }
 
     if (!bError) emit editLeave(true,false);
     return !bError;

@@ -104,11 +104,11 @@ void FrmTrip::setPreviewQuery()
             "            case when"
             "            (select start_time)=(select 'allballs'::time)"
             "            then 'missing' else  "
-            "            to_char(start_time, 'hh:mmAM') end \"start time\","
+            "            to_char(start_time, 'HH24:MI:SS') end \"start time\","
             "        case when"
             "            (select end_time)=(select 'allballs'::time)"
             "            then 'missing' else  "
-            "            to_char(end_time, 'hh:mmAM') end \"end time\""
+            "            to_char(end_time, 'HH24:MI:SS') end \"end time\""
             "        from         sampled_fishing_trips inner join"
             "             ref_samplers on sampled_fishing_trips.id_sampler = ref_samplers.id "
             "where     (sampled_fishing_trips.id_abstract_sampled_vessels = :id) order by id desc"
@@ -546,15 +546,15 @@ bool FrmTrip::applyChanges()
             emit showError(tr("You must select one or more gears for this trip!"));
             bError=true;
         }else{
-/*
-            QString strError; //TODO: PORT THIS LATER
-            if (!checkDependantDates(tTrips->tableName(), customDtStart->dateTime(),
-                customDtEnd->dateTime(),tTrips->tableName(),m_sample->tripId, strError))
+
+            QString strError;
+            if (!checkDependantDates(tTrips->tableName(), QDateTime(dtStart->date(),timeStart->time(),Qt::UTC),
+                QDateTime(dtEnd->date(),timeEnd->time(),Qt::UTC),tTrips->tableName(),m_sample->tripId, strError))
             {
                 emit showError(strError);
                 bError=true;
             }else{
-*/
+
                     int cur= mapper1->currentIndex();
                     bError=!submitMapperAndModel(mapper1);
                     if (!bError){
@@ -580,7 +580,7 @@ bool FrmTrip::applyChanges()
 
                     }// mapper 1 submission
                 //} else emit showError(tr("Could not edit dates in the database!"));
-            //}//check dependant dates
+            }//check dependant dates
         }//if list gears has selection
     }//if list zones has selection
 

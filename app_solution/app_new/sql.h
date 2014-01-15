@@ -48,14 +48,15 @@ Each element (table) provides us with the necessary information for navigation: 
 the next table and if it contains or not dates (for Date Validation purposes)
 */
 struct sTable {
-    sTable( const QString refField, const QString next, const bool bHasDates):
-    m_refField(refField), m_next(next), m_bHasDates(bHasDates)
+    sTable( const QString refField, const QString next, const bool bHasDates, const bool bHasTimes):
+    m_refField(refField), m_next(next), m_bHasDates(bHasDates), m_bHasTimes(bHasTimes)
     {}
     sTable():m_bHasDates(true)
     {}
    QString             m_refField;//!< name of the field that stores a reference to the parent
    QString             m_next;//!< name of the table that is next on the sequence
    bool                m_bHasDates;//!< boolean to flag if we have dates
+   bool                m_bHasTimes;//!< boolean to flag if we have times
 };
 
 //! FK struct
@@ -110,7 +111,7 @@ struct NodeRef {
 //! Info Date struct
 /*! TODO: write somethin here later!!!
 */
-struct InfoDate {
+/*struct InfoDate {
     InfoDate( const QString strUTC, const QString strLocal, const int type):
     m_strUTC(strUTC), m_strLocal(strLocal), m_type(type)
     {}
@@ -120,7 +121,7 @@ struct InfoDate {
    QString             m_strUTC;//!< UTC date
    int                 m_type;//!< Date type
 };
-
+*/
 //! Info Changes struct
 /*! TODO: write somethin here later!!!
 */
@@ -1780,7 +1781,7 @@ static QString rebuildIndexesSql()
         "EXEC sp_MSforeachtable @command1=\"print '?' DBCC DBREINDEX ('?', ' ', 80)\""
         ;
 }
-
+/*
 static bool grabDateById(const int inId, QDateTime& outDate)
 {
     //! Grab date by id
@@ -1790,7 +1791,7 @@ static bool grabDateById(const int inId, QDateTime& outDate)
     \param outDate address of QDateTime to store the results
     \return boolean stating as success or failure
     */
-
+/*
      QSqlQueryModel model;
      model.setQuery("SELECT Date_Local from GL_Dates WHERE ID=" + QVariant(inId).toString());
 
@@ -1799,6 +1800,10 @@ static bool grabDateById(const int inId, QDateTime& outDate)
 
      return true;
 }
+*/
+
+
+
 
 static bool onCheckDependantDates(const QMap<QString,sTable>& mapTables, const QString curTable, const QDateTime& curStartDt, const QDateTime& curEndDt
                                    ,QString strTable, int id, QString& strError)
@@ -1833,13 +1838,15 @@ static bool onCheckDependantDates(const QMap<QString,sTable>& mapTables, const Q
          model.setQuery("SELECT * FROM " + strTable + " WHERE " + it.value().m_refField + "="
              + QVariant(id).toString());
 
+         //qDebug() << model.query().lastQuery() << endl;
+
      //if it does not have dates, keep going with a filter till it finds it...
      if (!it.value().m_bHasDates){
 
          for (int i=0; i < model.rowCount(); ++i)
          {
             if (!onCheckDependantDates(mapTables,curTable,
-                curStartDt,curEndDt,it.value().m_next,model.record(i).value("ID").toInt(),strError))
+                curStartDt,curEndDt,it.value().m_next,model.record(i).value("id").toInt(),strError))
                 return false;
          }
 
@@ -1848,19 +1855,19 @@ static bool onCheckDependantDates(const QMap<QString,sTable>& mapTables, const Q
          QDateTime startDate, endDate;
 
          for (int i=0; i < model.rowCount(); ++i)
-         {
-
-             if (!grabDateById(model.record(i).value("id_start_dt").toInt(),startDate) ||
-                 !grabDateById(model.record(i).value("id_end_dt").toInt(),endDate))
-             {
-                 strError=QObject::tr("Could not retrieve start/end date from table ") + strTable;
-                return false;
-             }
+         {             
+             startDate=QDateTime(model.record(i).value("start_dt").toDate(),it.value().m_bHasTimes?model.record(i).value("start_time").toTime():QTime(0,0,0,0),Qt::UTC);
+             endDate=QDateTime(model.record(i).value("end_dt").toDate(),it.value().m_bHasTimes?model.record(i).value("end_time").toTime():QTime(23,59,59,999),Qt::UTC);
 
              //n.b.: use .toTime_t() for comparison of uints!
-            if ( curStartDt.toTime_t() > startDate.toTime_t() || curEndDt.toTime_t() < endDate.toTime_t())
+             /*qDebug() << "target start date" << startDate.time() << "," << startDate.toTime_t() << endl;
+             qDebug() << "target end date" << endDate.time()  << "," << endDate.toTime_t() << endl;
+             qDebug() << "cur start date" << curStartDt.time() << "," << curStartDt.toTime_t() << endl;
+             qDebug() << "cur end date" << curEndDt.time() << "," << curEndDt.toTime_t() << endl;*/
+
+             if ( curStartDt.toTime_t() > startDate.toTime_t() || curEndDt.toTime_t() < endDate.toTime_t())
             {
-                 strError=startDate > curStartDt?
+                 strError=startDate.toTime_t() > curStartDt.toTime_t()?
                      QObject::tr("This start date invalidates the time interval on table ") + strTable:
                   QObject::tr("This end date invalidates the time interval on table ") + strTable;
                  return false;
@@ -2699,7 +2706,7 @@ static void endSession()
 
     delete table;
 }
-
+/*
 static bool identifyDate(const InfoDate& dateTime, QList<int>& ids, QString& strError)
 {
 
@@ -2730,7 +2737,7 @@ static bool identifyDate(const InfoDate& dateTime, QList<int>& ids, QString& str
 
     return true;
 }
-
+*/
 static bool getLastId(const QString strTable, int& id, QString& strError)
 {
     //! Get Last id

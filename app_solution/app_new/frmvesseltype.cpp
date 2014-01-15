@@ -61,8 +61,6 @@ void FrmVesselType::initMappers()
     nullDellegate=new NullRelationalDelegate(lOthers,lText);
     mapper1->setItemDelegate(nullDellegate);
 
-    qDebug() << tSVesselTypes->relationModel(2)->filter() << endl;
-
     cmbTypes->setModel(tSVesselTypes->relationModel(2));
     cmbTypes->setModelColumn(
         tSVesselTypes->relationModel(2)->fieldIndex("name"));

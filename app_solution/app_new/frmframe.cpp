@@ -54,9 +54,8 @@ FrmFrame::~FrmFrame()
 
 void FrmFrame::onFrameChange(int index)
 {
-    bool bLogbook,bError=true;
+    bool bLogbook;//,bError=true;
 
-    //int id= tFrameTime->relationModel(1)->index(cmbPrexistent->currentIndex(),0).data().toInt();
     int id= tFrameTime->relationModel(1)->index(index,0).data().toInt();
 
     QSqlQuery query;
@@ -66,7 +65,7 @@ void FrmFrame::onFrameChange(int index)
 
     if (!query.exec()){
         emit showError(query.lastError().text());
-        bError=true;
+        //bError=true;
     }
 
     query.first();
@@ -146,20 +145,15 @@ void FrmFrame::onEditLeave(const bool bFinished, const bool bDiscarded)
 
 bool FrmFrame::applyChanges()
 {
-    //TODO: REVIEW THIS (DATES)
-
     bool bError=true;
+    QString strError;
 
-//    QString strError;
-
-    //TODO: REVIEW THE DEPENDENT DATES
-    /*
-    if (!checkDependantDates("fr_time", customDtStart->dateTime(),
-        customDtEnd->dateTime(),"fr_time",m_sample->frameTimeId, strError))
+    if (!checkDependantDates("fr_time", QDateTime(customDtStart->date(),QTime(0,0,0),Qt::UTC),
+        QDateTime(customDtEnd->date(),QTime(23,59,59),Qt::UTC),"fr_time",m_sample->frameTimeId, strError))
     {
         emit showError(strError);
     }else{
-    */
+
 
             int cur= mapper->currentIndex();
 
@@ -168,7 +162,7 @@ bool FrmFrame::applyChanges()
                 mapper->setCurrentIndex(cur);
             }
 
-    //}
+    }
 
     if (!bError) emit editLeave(true,false);
     return !bError;

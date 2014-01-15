@@ -394,7 +394,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
              <date>
               <year>1969</year>
               <month>12</month>
-              <day>28</day>
+              <day>27</day>
              </date>
             </property>
             <property name="displayFormat">
@@ -410,8 +410,11 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
           </item>
           <item>
            <widget class="QTimeEdit" name="timeStart">
+            <property name="currentSection">
+             <enum>QDateTimeEdit::HourSection</enum>
+            </property>
             <property name="displayFormat">
-             <string>hh:mm AP</string>
+             <string>HH:mm:ss</string>
             </property>
             <property name="timeSpec">
              <enum>Qt::UTC</enum>
@@ -451,7 +454,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
              <date>
               <year>1969</year>
               <month>12</month>
-              <day>28</day>
+              <day>27</day>
              </date>
             </property>
             <property name="displayFormat">
@@ -468,7 +471,7 @@ font: 75 10pt &quot;Fixedsys&quot;;</string>
           <item>
            <widget class="QTimeEdit" name="timeEnd">
             <property name="displayFormat">
-             <string>hh:mm AP</string>
+             <string>HH:mm:ss</string>
             </property>
             <property name="timeSpec">
              <enum>Qt::UTC</enum>

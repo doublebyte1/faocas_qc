@@ -94,13 +94,13 @@ void FrmOperation::setPreviewQuery()
             "            (select start_time)=(select 'allballs'::time)"
             "    then 'missing' else  "
 
-            "    to_char(start_time, 'hh:mmAM') end \"start time\","
+            "    to_char(start_time, 'HH24:MI:SS') end \"start time\","
 
             "    case when"
             "            (select end_time)=(select 'allballs'::time)"
             "    then 'missing' else  "
 
-            "    to_char(end_time, 'hh:mmAM') end \"end time\""
+            "    to_char(end_time, 'HH24:MI:SS') end \"end time\""
 
             "     from         sampled_fishing_operations inner join"
             "                          ref_gears on sampled_fishing_operations.id_gear = ref_gears.id "

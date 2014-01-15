@@ -98,8 +98,8 @@ bool FrmMinorStrata::applyChanges()
     bool bError=true;
 
     QString strError;
-    if (!checkDependantDates("ref_minor_strata", QDateTime(customDtStart->date(),QTime(0,0,0),Qt::UTC),
-        QDateTime(customDtEnd->date(),QTime(23,59,59),Qt::UTC),"ref_minor_strata",m_sample->minorStrataId, strError))
+    if (!checkDependantDates("ref_minor_strata", QDateTime(customDtStart->date(),QTime(0,0,0,0),Qt::UTC),
+        QDateTime(customDtEnd->date(),QTime(23,59,59,999),Qt::UTC),"ref_minor_strata",m_sample->minorStrataId, strError))
     {
         emit showError(strError);
     }else{

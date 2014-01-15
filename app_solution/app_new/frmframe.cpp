@@ -148,8 +148,8 @@ bool FrmFrame::applyChanges()
     bool bError=true;
     QString strError;
 
-    if (!checkDependantDates("fr_time", QDateTime(customDtStart->date(),QTime(0,0,0),Qt::UTC),
-        QDateTime(customDtEnd->date(),QTime(23,59,59),Qt::UTC),"fr_time",m_sample->frameTimeId, strError))
+    if (!checkDependantDates("fr_time", QDateTime(customDtStart->date(),QTime(0,0,0,0),Qt::UTC),
+        QDateTime(customDtEnd->date(),QTime(23,59,59,999),Qt::UTC),"fr_time",m_sample->frameTimeId, strError))
     {
         emit showError(strError);
     }else{

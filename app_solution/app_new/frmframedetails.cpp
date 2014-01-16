@@ -67,7 +67,7 @@ void FrmFrameDetails::verify()
 {
     treeView->verifyChanges();
 
-    QMessageBox::warning(this, tr("MedFisis"),
+    QMessageBox::warning(this, tr("FaoCAS"),
                                 tr("Please verify reasons!"),
                                 QMessageBox::Ok);
 
@@ -344,9 +344,9 @@ bool FrmFrameDetails::setFrameDetails(const Mode mode, const Persistence persist
                 }
 
                 //Set src ID
-                query.prepare(tr("SELECT ref_source.name FROM fr_frame INNER JOIN ") +
-                              tr("ref_source ON fr_frame.id_source = ref_source.id ") +
-                              tr("WHERE     (fr_frame.id = ?)"));
+                query.prepare("SELECT ref_source.name FROM fr_frame INNER JOIN "
+                              "ref_source ON fr_frame.id_source = ref_source.id "
+                              "WHERE     (fr_frame.id = ?)");
                 query.addBindValue(sample->frameId);
                 if (!query.exec() || query.numRowsAffected()<1){
                     qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );

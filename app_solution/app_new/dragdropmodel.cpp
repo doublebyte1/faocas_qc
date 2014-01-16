@@ -44,7 +44,7 @@ bool DragDropModel::dropMimeData(const QMimeData *data,
         return true;
     }
 
-    if (!data->hasFormat(tr("application/tree"))){
+    if (!data->hasFormat("application/tree")){
         qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
         return false;
     }
@@ -146,7 +146,7 @@ QMimeData *DragDropModel::mimeData(const QModelIndexList &indexes) const
 QStringList DragDropModel::mimeTypes() const
 {
     QStringList types;
-    types << tr("application/tree");
+    types << "application/tree";
     return types;
 }
 
@@ -160,7 +160,7 @@ Qt::DropActions DragDropModel::supportedDropActions() const
 TreeMimeData::TreeMimeData(const ComplexItemList itemList):
                            m_itemList(itemList)
 {
-    myFormats << tr("application/tree");
+    myFormats << "application/tree";
 }
 
 QStringList TreeMimeData::formats() const

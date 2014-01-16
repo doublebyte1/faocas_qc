@@ -245,7 +245,7 @@ bool RuleChecker::parseRule(const QString strRule, QMultiMap<size_t, QMap<size_t
 bool RuleChecker::applyRule(const QString strRule,QSqlQuery& query, QVariant varPar)
 {
 
-    //qDebug() << strRule << endl;
+    qDebug() << strRule << endl;
 
     query.prepare(strRule);
     if (varPar.type()!=QVariant::Invalid) {

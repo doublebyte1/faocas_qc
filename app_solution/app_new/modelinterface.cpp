@@ -1235,7 +1235,7 @@ bool ModelInterface::readTempChangesVessel(const Sample* sample)
             "  )"
             "  and (ref_minor_strata.id_frame_time ="  + QVariant(sample->frameTimeId).toString() + ") and (sampled_cell.id<=" + QVariant(sample->cellId).toString() +")"
 
-            ;
+            ; //n.b. should the *and* be an *or*? instead of falling within the interval, overlapping the interval
             strUnit="id_cell";
     }else{
         strQuery=                
@@ -1387,6 +1387,8 @@ bool ModelInterface::search4Vessel(TreeItem* item,const int vesselId, const int 
 
 bool ModelInterface::moveVessel(const int to, TreeItem* item)
 {
+    /* Another way to do this (probably easier!) would be to search first outside the bin, and then just drop on the bin everything that is left*/
+
     QModelIndex root=treeModel->index(0,0,QModelIndex());
     if (!root.isValid()) return false;
 
@@ -1404,13 +1406,13 @@ bool ModelInterface::moveVessel(const int to, TreeItem* item)
     }
 
     for (int i=0; i < pBin->childCount(); ++i)
-    {
+    {                        
             QModelIndex gls=treeModel->index(i,0,bin);
             if (!gls.isValid()) return false;
             TreeItem *pGls = static_cast<TreeItem*>
                 (gls.internalPointer());
 
-            if (pGls->data(4)==to)
+            if (pGls->data(4)==to && pGls->data(2).toInt()==TreeModel::LS)//here we are targetting LS on the bin root!
             {
                 pGls->appendChild(item);
                 item->setParent(pGls);

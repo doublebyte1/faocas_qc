@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>726</width>
+    <width>755</width>
     <height>591</height>
    </rect>
   </property>
@@ -244,8 +244,8 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>37</width>
-         <height>17</height>
+         <width>40</width>
+         <height>20</height>
         </size>
        </property>
       </spacer>
@@ -276,7 +276,7 @@
         <string>Cancel changes and go back to previous form</string>
        </property>
        <property name="text">
-        <string>Cancel</string>
+        <string>Back</string>
        </property>
       </widget>
      </item>

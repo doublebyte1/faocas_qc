@@ -278,11 +278,11 @@ bool FrmFrameDetails::setFrameDetails(const Mode mode, const Persistence persist
     pushEdit->setVisible(persistence!=FrmFrameDetails::TEMPORARY);
     pushReset->setVisible(persistence!=FrmFrameDetails::TEMPORARY);
 
-    pushBack->setVisible(true);
+    pushBack->setVisible(true);//we put it visible and add to the layout later... pls review this
 
     bool invis=options & FrmFrameDetails::CACHE_CHANGES;
     pushApply->setVisible(mode!=FrmFrameDetails::VIEW || (persistence==FrmFrameDetails::TEMPORARY && !invis));
-
+    (persistence==FrmFrameDetails::TEMPORARY && invis)?pushBack->setText(tr("Back")):pushBack->setText(tr("Cancel"));
 
     if (!initModel(mode,sample,options)){
         qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
@@ -302,7 +302,7 @@ bool FrmFrameDetails::setFrameDetails(const Mode mode, const Persistence persist
 
         persistence==FrmFrameDetails::PERMANENT?setTreeReadOnly(true):setTreeReadOnly(false);
 
-        initMapper();//TODO: maybe tBhrow an error here later?
+        initMapper();//TODO: maybe throw an error here later?
 
         modelInterface->tRefFrame->setFilter("fr_frame.id=" + QVariant(sample->frameId).toString());
         modelInterface->tRefFrame->select();

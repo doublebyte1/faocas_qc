@@ -189,7 +189,7 @@ void FrmFrameDetails::back()
 {
     //emit hideFrameDetails(!m_submitted);
 
-    if (m_dirty){
+    if (m_dirty && pushApply->isVisible()){
 
         QMessageBox msgBox;
         msgBox.setIcon(QMessageBox::Warning);

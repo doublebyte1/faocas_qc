@@ -891,6 +891,7 @@ bool ModelInterface::writeTables()
     while (tRefFrame->canFetchMore())
          tRefFrame->fetchMore();
 
+    qDebug() << tRefFrame->filter() << endl;
 
     // and grab the id...
     QModelIndex idx=tRefFrame->index(
@@ -1254,7 +1255,6 @@ bool ModelInterface::readTempChangesVessel(const Sample* sample)
         strUnit="id_minor_strata";
     }
 
-    //qDebug() << strQuery << endl;
     query.prepare(strQuery);
     if (!query.exec()) return false;
 
@@ -1280,6 +1280,10 @@ bool ModelInterface::readTempChangesVessel(const Sample* sample)
             from=idx.data().toInt();//from
             idx=tChangesTempVessel->index(i,4);
             to=idx.data().toInt();//to
+
+            if (vesselId==11){
+                qDebug() << "stop!" << endl;
+            }
 
             if (!search4VesselParent(vesselId, from, to))
                 return false;
@@ -1313,23 +1317,24 @@ bool ModelInterface::search4VesselParent(const int vesselId, const int from, con
             TreeItem *pGls = static_cast<TreeItem*>
                 (gls.internalPointer());
 
-            if (pGls->data(2).toInt()==1 && pGls->data(4).toInt()==from){
-                return search4Vessel(pGls,vesselId,to);
-            }
+            if (pGls->data(2).toInt()==1){//GLS
 
-            //than dive into the ls level
-            for (int j=0; j < pGls->childCount(); ++j)
-            {
-                QModelIndex ls=treeModel->index(j,0,gls);
-                if (!ls.isValid()) return false;
+                //than dive into the ls level
+                for (int j=0; j < pGls->childCount(); ++j)
+                {
+                    QModelIndex ls=treeModel->index(j,0,gls);
+                    if (!ls.isValid()) return false;
+                        (ls.internalPointer());
+
+                    TreeItem *pLs = static_cast<TreeItem*>
                     (ls.internalPointer());
-
-                TreeItem *pLs = static_cast<TreeItem*>
-                (ls.internalPointer());
-                if (pLs->data(2).toInt()==1 && pLs->data(4).toInt()==from){
-                    return search4Vessel(pLs,vesselId,to);
+                    if (pLs->data(2).toInt()==2 && pLs->data(4).toInt()==from){
+                        return search4Vessel(pLs,vesselId,to);
+                    }
                 }
-            }
+             }else if (pGls->data(2).toInt()==2 && pGls->data(4).toInt()==from)//LS
+                return search4Vessel(pGls,vesselId,to);
+
     }
 
     //Now search the root
@@ -1381,8 +1386,17 @@ bool ModelInterface::search4Vessel(TreeItem* item,const int vesselId, const int 
             return true;
         }
     }
+    //vessel is not here! maybe it was already moved...
+    QSqlQuery query;
+    QString strQuery="select * from abstract_changes_temp_vessel where vesselid=:vesselid order by ID asc limit 1";
+    query.prepare(strQuery);
+    query.bindValue(":vesselid",vesselId);
+    query.setForwardOnly(true);
+    if (!query.exec() || query.size() != 1)
+        return false;
+    query.first();
 
-    return false;
+    return search4VesselParent(vesselId,query.value(3).toInt(),to);
 }
 
 bool ModelInterface::moveVessel(const int to, TreeItem* item)

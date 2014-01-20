@@ -30,7 +30,7 @@ bool AbstractRuleBinder::parseSample(const QString strRule, QMap<QString,QString
         int len=right-start;
         QString keyword=strRule.mid(start,len);
         if (m_sample==0) return false;// check, just in case...
-        if (keyword.compare(tr("frameId"))==0)
+        if (keyword.compare("frameId")==0)
             mapLookups.insert(keyword,QVariant(m_sample->frameId).toString());
         else if (keyword.compare(tr("frameTimeId"))==0)
             mapLookups.insert(keyword,QVariant(m_sample->frameTimeId).toString());

@@ -248,7 +248,6 @@ void FrmMinorStrata::createRecord()
 
     mapper1->toLast();
 
-    //TODO: put dates from the frame as default
     QModelIndex idx=tRefMinorStrata->index(tRefMinorStrata->rowCount()-1,1);
     tRefMinorStrata->setData(idx,m_sample->frameTimeId);//id_frame_time
 

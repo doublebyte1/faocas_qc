@@ -246,7 +246,7 @@ void FrmFrame::previewRow(QModelIndex index)
 
     QModelIndex idx=tableView->model()->index(index.row(),0);
     if (!updateFrameSample(idx)){
-        emit showError(tr("Could not update sample with values of this row!"));
+        emit showError(tr("Could not update sample with frametime values of this row!"));
         return;
     }
 
@@ -335,6 +335,8 @@ void FrmFrame::initFrModel()
 
 void FrmFrame::onHideFrameDetails(bool bSubmitted)
 {
+    if (!isVisible()) return; // we don't want this to be called from temporary frames
+
     if (bSubmitted){
         tFrameTime->relationModel(1)->select();
         cmbPrexistent->setCurrentIndex(tFrameTime->relationModel(1)->rowCount()-1);
@@ -494,7 +496,7 @@ bool FrmFrame::getNextLabel(QString& strLabel)
 
 void FrmFrame::adjustFrmSamplingMode()
 {
-    //set here if it is logbook or not
+    //set here if it is logbook or not        
     m_sample->frameId=
             cmbPrexistent->model()->index(cmbPrexistent->currentIndex(),
                                           0).data().toInt();

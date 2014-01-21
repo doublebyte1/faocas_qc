@@ -33,11 +33,11 @@ bool ModelInterface::buildSourceFilter(QString& strFilter)
     QSqlQuery query;
         query.prepare(
 
-    tr("SELECT     id, name") +
-    tr(" FROM         ref_source") +
-    tr(" WHERE     (name NOT IN") +
-    tr("                          (SELECT     internal_name") +
-    tr("                            FROM          gl_null_replacements))")
+    "SELECT     id, name"
+    " FROM         ref_source"
+    " WHERE     (name NOT IN"
+    "                          (SELECT     internal_name"
+    "                            FROM          gl_null_replacements))"
 
 );
     if (!query.exec()) return false;
@@ -62,14 +62,14 @@ void ModelInterface::initModels()
     tRefFrame->setTable(QSqlDatabase().driver()->escapeIdentifier("fr_frame",
         QSqlDriver::TableName));
     tRefFrame->setEditStrategy(QSqlTableModel::OnManualSubmit);
-    tRefFrame->sort(0,Qt::AscendingOrder);
 
     tRefFrame->setRelation(5, QSqlRelation("ref_source", "id", "name"));
 
-    filterTable(tRefFrame->relationModel(5));
-
     tRefFrame->setRelation(4, QSqlRelation("fr_frame", "id", "name"));
 
+    filterTable(tRefFrame->relationModel(5));
+
+    tRefFrame->sort(0,Qt::AscendingOrder);
     tRefFrame->select();
 
     vTables << tRefFrame;
@@ -111,7 +111,6 @@ void ModelInterface::initModels()
     initModel(tChangesTempVessel,"abstract_changes_temp_vessel");
     initModel(tChangesPermLS,"changes_perm_ls");
     initModel(tChangesPermGLS,"changes_perm_gls");
-
 }
 
 bool ModelInterface::filterTables()
@@ -123,14 +122,14 @@ bool ModelInterface::filterTables()
     return true;
 }
 
-bool ModelInterface::initModel(QSqlTableModel* model, const QString strTable)
+bool ModelInterface::initModel(QSqlTableModel* model, const QString strTable, const bool bFilter)
 {
     model->setTable(strTable);
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     model->sort(0,Qt::AscendingOrder);
     model->select();
 
-    vTables << model;
+    if (bFilter) vTables << model;
 
     return true;
 }
@@ -660,9 +659,9 @@ bool ModelInterface::getIdofReason(const QString strReason, int& id)
     QSqlQuery query;
 
     query.prepare(
-    tr("SELECT     id")+
-    tr(" FROM         ref_changes")+
-    tr(" WHERE     (name = :name)")
+    "SELECT     id"
+    " FROM         ref_changes"
+    " WHERE     (name = :name)"
     );
 
     if (strReason.isEmpty())
@@ -685,9 +684,9 @@ bool ModelInterface::getOutsideALS(int& id)
 {
     QSqlQuery query;
     query.prepare(
-    tr("SELECT     id")+
-    tr(" FROM         ref_abstract_landingsite")+
-    tr(" WHERE     (Name = :name)")
+    "SELECT     id"
+    " FROM         ref_abstract_landingsite"
+    " WHERE     (Name = :name)"
     );
 
     query.bindValue(0, qApp->translate("bin", strOutside));
@@ -707,9 +706,9 @@ bool ModelInterface::getIdofVessel(const TreeItem* item, int& id)
 
     QSqlQuery query;
     query.prepare(
-    tr("SELECT     vesselid")+
-    tr(" FROM         ref_vessels")+
-    tr(" WHERE     (vesselid = :id)")
+    "SELECT     vesselid"
+    " FROM         ref_vessels"
+    " WHERE     (vesselid = :id)"
     );
 
     query.bindValue(0, item->data(4));
@@ -723,19 +722,23 @@ bool ModelInterface::getIdofVessel(const TreeItem* item, int& id)
     return true;
 }
 
-bool ModelInterface::writeManyVessels(TreeItem* item, const int lsId, const int frameId)
+bool ModelInterface::writeManyVessels(TreeItem* item, const int lsId, const int frameId, const bool bBin)
 {
     QVector<int> vId;
     for (int i=0; i < item->childCount(); ++i){
 
-        if (!writeVessel(item->child(i),frameId,vId))
+        if (!writeVessel(item->child(i),frameId,vId,bBin))
             return false;
     }
 
-    return writeLS2Vessel(frameId,lsId,vId);
+    int lsBinId;//=34;
+    if (!getIdofBin("ref_abstract_landingsite",lsBinId))
+        return false;
+
+    return writeLS2Vessel(frameId,bBin?lsBinId:lsId,vId);
 }
 
-bool ModelInterface::writeVessel(TreeItem* item, const int frameId, QVector<int>& vId)
+bool ModelInterface::writeVessel(TreeItem* item, const int frameId, QVector<int>& vId, const bool bBin)
 {
     int vesselId;
     if (!getIdofVessel(item,vesselId))
@@ -748,25 +751,31 @@ bool ModelInterface::writeVessel(TreeItem* item, const int frameId, QVector<int>
     return true;
 }
 
-bool ModelInterface::writeManyLS(TreeItem* item, const int glsId, const int frameId)
+bool ModelInterface::writeManyLS(TreeItem* item, const int glsId, const int frameId, const bool bBin)
 {
     QVector<int> vId;
     for (int i=0; i < item->childCount(); ++i){
 
-        if (!writeLS(item->child(i),frameId,vId)) return false;
+        if (!writeLS(item->child(i),frameId,vId,bBin)) return false;
 
     }
 
-    return writeGLS2LS(frameId,glsId,vId);
+    int glsBinId;
+    if (!getIdofBin("ref_group_of_landingsites",glsBinId))
+        return false;
+
+    return writeGLS2LS(frameId,bBin?glsBinId:glsId,vId);
 }
 
-bool ModelInterface::writeLS(TreeItem* item, const int frameId, QVector<int>& vId)
+bool ModelInterface::writeLS(TreeItem* item, const int frameId, QVector<int>& vId, const bool bBin)
 {
     int lsId;
     if (!getIdofLS(item,lsId))
         return false;
+
     vId << lsId;
-    if (!writeManyVessels(item, lsId, frameId))
+
+    if (!writeManyVessels(item, lsId, frameId, bBin))
         return false;
 
     if (!genericInsertChanges(item,lsId,frameId,tChangesPermLS))
@@ -777,11 +786,12 @@ bool ModelInterface::writeLS(TreeItem* item, const int frameId, QVector<int>& vI
 
 bool ModelInterface::writeBin(TreeItem* item, const int id)
 {
+    //When writing the bin structure is "flattened out".
     for (int i=0; i < item->childCount(); ++i){
         if (static_cast<TreeModel::Level>(item->child(i)->data(2).toInt())==TreeModel::GLS){
 
             QVector<int> vId;
-            if (!writeGLS(item->child(i),id,vId))
+            if (!writeGLS(item->child(i),id,vId,true))
                 return false;
             if (!writeFr2GLS(id,vId)) return false;
 
@@ -791,7 +801,7 @@ bool ModelInterface::writeBin(TreeItem* item, const int id)
             if (!getIdofBin("ref_group_of_landingsites",glsBinId))
                 return false;
             QVector<int> vId;
-            if (!writeLS(item->child(i),id, vId))
+            if (!writeLS(item->child(i),id, vId, true))
                 return false;
             if (!writeGLS2LS(id,glsBinId,vId)) return false;
 
@@ -821,14 +831,14 @@ bool ModelInterface::writeManyGLS(TreeItem* item, const int id)
     return writeFr2GLS(id,vId);
 }
 
-bool ModelInterface::writeGLS(TreeItem* item, const int id, QVector<int>& vId)
+bool ModelInterface::writeGLS(TreeItem* item, const int id, QVector<int>& vId, const bool bBin)
 {
     int glsId;
     if (!getIdofGLS(item,glsId))
         return false;
     vId << glsId;
 
-    if (!writeManyLS(item, glsId, id))
+    if (!writeManyLS(item, glsId, id, bBin))
         return false;
 
     if (!genericInsertChanges(item,glsId,id,tChangesPermGLS))
@@ -891,8 +901,6 @@ bool ModelInterface::writeTables()
     while (tRefFrame->canFetchMore())
          tRefFrame->fetchMore();
 
-    qDebug() << tRefFrame->filter() << endl;
-
     // and grab the id...
     QModelIndex idx=tRefFrame->index(
         tRefFrame->rowCount()-1,0);
@@ -906,7 +914,7 @@ bool ModelInterface::writeTables()
     for (int i=0; i < root->childCount(); ++i){
         if (root->child(i)->data(0).toString().compare(
                 qApp->translate("bin", strInactive)
-                /*, Qt::CaseInsensitive*/)!=0)//does not compare
+                )!=0)//does not compare
         {
 
             int subFrameId;
@@ -928,7 +936,7 @@ void ModelInterface::removeFilters()
 {
     QVector<QSqlTableModel*>::iterator it;
     for (it = vTables.begin(); it != vTables.end(); ++it){
-         (*it)->setFilter(tr(""));
+         (*it)->setFilter("");
     }
 }
 
@@ -1281,10 +1289,6 @@ bool ModelInterface::readTempChangesVessel(const Sample* sample)
             idx=tChangesTempVessel->index(i,4);
             to=idx.data().toInt();//to
 
-            if (vesselId==11){
-                qDebug() << "stop!" << endl;
-            }
-
             if (!search4VesselParent(vesselId, from, to))
                 return false;
         }
@@ -1373,7 +1377,7 @@ bool ModelInterface::search4Vessel(TreeItem* item,const int vesselId, const int 
             QList<QVariant> lData;
             for (int j=0; j <= item->child(i)->columnCount();++j)
             {
-                if (j==7){
+                if (j==7 && item->child(i)->data(8)==false){
                     lData << tr(":/app_new/unmovable.png");
                 }else{
                     lData << item->child(i)->data(j);
@@ -1491,17 +1495,19 @@ bool ModelInterface::readRoot(const int subFrameId, QModelIndex& root, const boo
 
 bool ModelInterface::readGenericStructure(const int subFrameId, QModelIndex& root, const bool bBin, const QVector<int>& vVesselsBlackList)
 {
-    tLinkFr2GLS->setFilter(tr("id_sub_frame=") + QVariant(subFrameId).toString());
+//n.b.: we don't need to filter the tables for n/a values inside this function!
+
+    tLinkFr2GLS->setFilter(QString("id_sub_frame=") + QVariant(subFrameId).toString());
 
     if (tLinkFr2GLS->rowCount()<1) return true;//there is nothing on the bin/root
 
-    QString strFilter;
+    QString strFilter="";
     for (int i=0; i < tLinkFr2GLS->rowCount();++i)
     {
         if (i>0)
-            strFilter.append(tr(" OR "));
+            strFilter.append(" OR ");
 
-        strFilter.append(tr("ID=")+tLinkFr2GLS->index(i,2).data().toString());
+        strFilter.append(QString("ID=")+tLinkFr2GLS->index(i,2).data().toString());
     }
     tRefGLS->setFilter(strFilter);
 
@@ -1513,73 +1519,83 @@ bool ModelInterface::readGenericStructure(const int subFrameId, QModelIndex& roo
         QModelIndex idx=tRefGLS->index(i,0);
         if (!idx.isValid()) return false;
 
-        tLinkGLS2LS->setFilter(tr("id_sub_frame=") + QVariant(subFrameId).toString() +
-            tr(" AND ") + tr("id_gls=") + idx.data().toString());
+        tLinkGLS2LS->setFilter(QString("id_sub_frame=") + QVariant(subFrameId).toString() +
+            QString(" and id_gls=") + idx.data().toString());
 
         //read LS
         for (int j=0; j < tLinkGLS2LS->rowCount(); ++j)
         {
-            tRefLS->setFilter(tr("ID=") + tLinkGLS2LS->index(j,3).data().toString());
+            tRefLS->setFilter(QString("id=") + tLinkGLS2LS->index(j,3).data().toString());
             QModelIndex ls;
             if (!readOneLS(0,j,gls,bBin,ls)) return false;
 
             QModelIndex aIdx=tRefLS->index(0,0);
             if (!aIdx.isValid()) return false;
 
-            tLinkLS2Vessels->setFilter(tr("id_sub_frame=") + QVariant(subFrameId).toString() +
-                tr(" AND ") + tr("id_abstract_landingsite=") + aIdx.data().toString());
+            tLinkLS2Vessels->setFilter(QString("id_sub_frame=") + QVariant(subFrameId).toString() +
+                QString(" AND id_abstract_landingsite=") + aIdx.data().toString());
 
             //read Vessel
             for (int k=0; k < tLinkLS2Vessels->rowCount(); ++k)
             {
-                tRefVessels->setFilter(tr("VesselId=") + tLinkLS2Vessels->index(k,3).data().toString());
+                tRefVessels->setFilter(QString("vesselid=") + tLinkLS2Vessels->index(k,3).data().toString());
                 if (!readOneVS(0,k,bBin,ls,vVesselsBlackList)) return false;
             }
         }
     }
 
-    tRefGLS->setFilter("");
+    filterTable(tRefGLS);
     tLinkFr2GLS->setFilter("");
     tLinkGLS2LS->setFilter("");
-    tRefLS->setFilter("");
+    filterTable(tRefLS);
     tLinkLS2Vessels->setFilter("");
-    tRefVessels->setFilter("");
+    filterTable(tRefVessels);
 
     return true;
 }
 
 bool ModelInterface::readBin(const int subFrameId, QModelIndex& bin, const bool bBin, const QVector<int>& vVesselsBlackList)
 {
-    // Since the bin has a flat structure, we can only read the GLS from the hierarchical generic structure function
-    if (!readGenericStructure(subFrameId,bin,true,vVesselsBlackList)) return false;
+    //We are *only* supporting a flat sructure on the bin!
+    //n.b.: we don't need to filter the tables for n/a values inside this function!
 
     tLinkFr2GLS->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
+    tLinkGLS2LS->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
+    tLinkLS2Vessels->setFilter("id_sub_frame=" + QVariant(subFrameId).toString());
 
-    size_t naID;
-    if (!getKeywordID(tRefGLS->tableName(),"outside",naID)) return false;
+    QString strFilter="";
 
-    tLinkGLS2LS->setFilter("id_sub_frame=" + QVariant(subFrameId).toString() + " AND id_gls=" + QVariant(naID).toString());
+    //read  GLS
+    for (int i=0; i < tLinkFr2GLS->rowCount();++i)
+    {
+        if (i>0)
+            strFilter.append(" OR ");
 
-    if (!getKeywordID(tRefLS->tableName(),"outside",naID)) return false;
+        strFilter.append(QString("id=")+tLinkFr2GLS->index(i,2).data().toString());
+    }
+    tRefGLS->setFilter(strFilter);
 
-    tLinkLS2Vessels->setFilter("id_sub_frame=" + QVariant(subFrameId).toString() + " AND id_abstract_landingsite=" + QVariant(naID).toString());
+    for (int j=0; j < tLinkFr2GLS->rowCount(); ++j)
+    {
+        QModelIndex gls;
+        if (!readOneGLS(j,j,bin,bBin,gls))
+            return false;
+     }
 
-    QString strFilter;
-
-    //read LS
+    strFilter.clear();
+    //read  LS
     for (int i=0; i < tLinkGLS2LS->rowCount();++i)
     {
         if (i>0)
-            strFilter.append(tr(" OR "));
+            strFilter.append(" OR ");
 
-        strFilter.append(tr("id=")+tLinkGLS2LS->index(i,3).data().toString());
+        strFilter.append(QString("id=")+tLinkGLS2LS->index(i,3).data().toString());
     }
     tRefLS->setFilter(strFilter);
 
     for (int j=0; j < tLinkGLS2LS->rowCount(); ++j)
-    {
+    {                
         QModelIndex ls;
-
         if (!readOneLS(j,j,bin,bBin,ls))
             return false;
      }
@@ -1591,7 +1607,7 @@ bool ModelInterface::readBin(const int subFrameId, QModelIndex& bin, const bool 
         if (i>0)
             strFilter.append(tr(" OR "));
 
-        strFilter.append(tr("vesselid=")+tLinkLS2Vessels->index(i,3).data().toString());
+        strFilter.append(QString("vesselid=")+tLinkLS2Vessels->index(i,3).data().toString());
     }
     tRefVessels->setFilter(strFilter);
 
@@ -1600,9 +1616,9 @@ bool ModelInterface::readBin(const int subFrameId, QModelIndex& bin, const bool 
         if (!readOneVS(k,k,bBin,bin,vVesselsBlackList)) return false;
     }
 
-    tRefVessels->setFilter("");
-    tRefLS->setFilter("");
-
+    filterTable(tRefGLS);
+    filterTable(tRefVessels);
+    filterTable(tRefLS);
     tLinkFr2GLS->setFilter("");
     tLinkGLS2LS->setFilter("");
     tLinkLS2Vessels->setFilter("");

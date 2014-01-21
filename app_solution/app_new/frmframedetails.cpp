@@ -306,6 +306,7 @@ bool FrmFrameDetails::setFrameDetails(const Mode mode, const Persistence persist
 
         modelInterface->tRefFrame->setFilter("fr_frame.id=" + QVariant(sample->frameId).toString());
         modelInterface->tRefFrame->select();
+
         mapper->toLast();
 
     }else{
@@ -410,7 +411,7 @@ void FrmFrameDetails::initTree()
     treeView->setSortingEnabled(true);
 }
 
-bool FrmFrameDetails::initModel(const Mode mode, /*const int frameId*/const Sample* sample, const int options)
+bool FrmFrameDetails::initModel(const Mode mode, const Sample* sample, const int options)
 {
     if (model!=0) delete model;
     model = new DragDropModel(this);

@@ -73,15 +73,15 @@ private:
     bool                                   readGenericStructure(const int subFrameId, QModelIndex& root, const bool bBin, const QVector<int>& vVesselsBlackList);
     void                                   initModels();
     bool                                   initModel
-                                                (QSqlTableModel* model, const QString strTable);
+                                                (QSqlTableModel* model, const QString strTable, const bool bFilter=true);
     bool                                   writeTables();
 
-    bool                                   writeManyVessels(TreeItem* item, const int lsId, const int frameId);
-    bool                                   writeVessel(TreeItem* item, const int frameId, QVector<int>& vId);
-    bool                                   writeManyLS(TreeItem* item, const int glsId, const int frameId);
-    bool                                   writeLS(TreeItem* item, const int frameId, QVector<int>& vId);
+    bool                                   writeManyVessels(TreeItem* item, const int lsId, const int frameId, const bool bBin=false);
+    bool                                   writeVessel(TreeItem* item, const int frameId, QVector<int>& vId, const bool bBin=false);
+    bool                                   writeManyLS(TreeItem* item, const int glsId, const int frameId, const bool bBin=false);
+    bool                                   writeLS(TreeItem* item, const int frameId, QVector<int>& vId, const bool bBin=false);
     bool                                   writeManyGLS(TreeItem* item, const int id);
-    bool                                   writeGLS(TreeItem* item, const int id, QVector<int>& vId);
+    bool                                   writeGLS(TreeItem* item, const int id, QVector<int>& vId, const bool bBin=false);
     bool                                   writeBin(TreeItem* item, const int id);
     bool                                   writeFr2GLS(const int FrameId, const QVector<int>& vId);
     bool                                   writeGLS2LS(const int FrameId, const int GLSId, const QVector<int>& vId);

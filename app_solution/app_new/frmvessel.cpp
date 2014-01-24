@@ -274,7 +274,7 @@ bool FrmVessel::comitNonAbstractVessels(const bool bLogbook, int& id_Sampled_Cel
                        " (SELECT id FROM         sampled_cell_vessel_types"
                        " WHERE     (comments = 'n/a'))" );//n.b.: when there are no names, we rely on the comment..
 
-        if (!query.exec() || query.numRowsAffected()!=1){
+        if (!query.exec() || query.size()!=1){
             emit showError(tr("Could not create a non abstract record for this vessel (logbook)!"));
             return false;
         }
@@ -286,7 +286,7 @@ bool FrmVessel::comitNonAbstractVessels(const bool bLogbook, int& id_Sampled_Cel
                        "( SELECT ID FROM         ref_minor_strata"
                        " WHERE     (name = 'n/a') )" );
 
-        if (!query.exec() || query.numRowsAffected()!=1){
+        if (!query.exec() || query.size()!=1){
             emit showError(tr("Could not create a non abstract record for this vessel (sampled)!"));
             return false;
         }
@@ -352,7 +352,7 @@ bool FrmVessel::reallyApply()
                        " WHERE     (name = :name)");
         query.bindValue(0,qApp->translate("frame", (m_sample->bLogBook? strLogbook: strSampling) ));
 
-        if (!query.exec() || query.numRowsAffected()!=1){
+        if (!query.exec() || query.size()!=1){
             emit showError(tr("Could not obtain filter for Vessels!"));
             return false;
         }
@@ -538,7 +538,7 @@ void FrmVessel::filterModel4Combo()
         return;
     }
 
-    Q_ASSERT_X(query.numRowsAffected()>=1, "Vessels", QString(QString("Selection of a LS without vessels!") + m_sample->print()).toUtf8().constData());
+    Q_ASSERT_X(query.size()>=1, "Vessels", QString(QString("Selection of a LS without vessels!") + m_sample->print()).toUtf8().constData());
 
     QString strFilter("");
      while (query.next()) {

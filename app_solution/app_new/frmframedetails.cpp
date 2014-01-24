@@ -330,7 +330,7 @@ bool FrmFrameDetails::setFrameDetails(const Mode mode, const Persistence persist
                               "where     (fr_frame.id = ?)");
                 query.addBindValue(sample->frameId);
 
-                if (!query.exec() || query.numRowsAffected()<1){
+                if (!query.exec() || query.size()<1){
                     qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
                     if (query.lastError().type()!=QSqlError::NoError)
                         emit showError(query.lastError().text());
@@ -349,7 +349,7 @@ bool FrmFrameDetails::setFrameDetails(const Mode mode, const Persistence persist
                               "ref_source ON fr_frame.id_source = ref_source.id "
                               "WHERE     (fr_frame.id = ?)");
                 query.addBindValue(sample->frameId);
-                if (!query.exec() || query.numRowsAffected()<1){
+                if (!query.exec() || query.size()<1){
                     qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
                     if (query.lastError().type()!=QSqlError::NoError)
                         emit showError(query.lastError().text());

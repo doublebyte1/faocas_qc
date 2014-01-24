@@ -25,7 +25,7 @@ bool MultiModelI::checkDependants(const int fid, bool& hasDependants)
     QSqlQuery query;
     query.prepare( m_strSql );
     query.bindValue(0,fid);
-    if (!query.exec() || query.numRowsAffected()!=1) return false;
+    if (!query.exec() || query.size()!=1) return false;
     query.first();
     hasDependants=query.value(0).toInt()>0;
     return true;

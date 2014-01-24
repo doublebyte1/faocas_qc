@@ -463,7 +463,7 @@ bool FrmFrame::isLogBook(const int frameId, bool& bLogbook, QString& strError)
         emit showError(query.lastError().text());
         return false;
     }
-    if (query.numRowsAffected()<1){
+    if (query.size()<1){
         strError=tr("Could not determine the type of this frame!");
         return false;
     }

@@ -42,7 +42,7 @@ bool ModelInterface::buildSourceFilter(QString& strFilter)
 
 );
     if (!query.exec()) return false;
-    if (query.numRowsAffected()<1) return false;//It must *always* find an id
+    if (query.size()<1) return false;//It must *always* find an id
 
     int ct=0;
     while (query.next())
@@ -287,7 +287,7 @@ bool ModelInterface::getNonAbstractProperties(Sample* sample, int& id_source, in
                        " WHERE id_minor_strata=(SELECT id from ref_minor_strata"
                        " WHERE     (name = 'n/a') )" );
 
-        if (!query.exec() || query.numRowsAffected()!=1){
+        if (!query.exec() || query.size()!=1){
             return false;
         }
         query.first();
@@ -300,7 +300,7 @@ bool ModelInterface::getNonAbstractProperties(Sample* sample, int& id_source, in
         query.prepare(" SELECT id FROM         ref_minor_strata"
                       " WHERE     (name = 'n/a') " );
 
-        if (!query.exec() || query.numRowsAffected()!=1){
+        if (!query.exec() || query.size()!=1){
             return false;
         }
         query.first();
@@ -669,7 +669,7 @@ bool ModelInterface::getIdofSubFrameType(const QString strType, int& id)
     query.bindValue(0, strType);
 
     if (!query.exec()) return false;
-    if (query.numRowsAffected()<1) return false;//It must *always* find an id
+    if (query.size()<1) return false;//It must *always* find an id
 
     query.first();
     id=query.value(0).toInt();
@@ -692,7 +692,7 @@ bool ModelInterface::getIdofBin(const QString strTable, int& id)
     query.bindValue(0, qApp->translate("bin", strOutside));
 
     if (!query.exec()) return false;
-    if (query.numRowsAffected()<1) return false;//It must *always* find an id
+    if (query.size()<1) return false;//It must *always* find an id
 
     query.first();
     id=query.value(0).toInt();
@@ -718,7 +718,7 @@ bool ModelInterface::getIdofReason(const QString strReason, int& id)
     }
 
     if (!query.exec()) return false;
-    if (query.numRowsAffected()<1) return false;//It must *always* find an id
+    if (query.size()<1) return false;//It must *always* find an id
 
     query.first();
     id=query.value(0).toInt();
@@ -738,7 +738,7 @@ bool ModelInterface::getOutsideALS(int& id)
     query.bindValue(0, qApp->translate("bin", strOutside));
 
     if (!query.exec()) return false;
-    if (query.numRowsAffected()<1) return false;//It must *always* find the Vessel ID!
+    if (query.size()<1) return false;//It must *always* find the Vessel ID!
 
     query.first();
     id=query.value(0).toInt();
@@ -760,7 +760,7 @@ bool ModelInterface::getIdofVessel(const TreeItem* item, int& id)
     query.bindValue(0, item->data(4));
 
     if (!query.exec()) return false;
-    if (query.numRowsAffected()<1) return false;//It must *always* find the Vessel ID!
+    if (query.size()<1) return false;//It must *always* find the Vessel ID!
 
     query.first();
     id=query.value(0).toInt();

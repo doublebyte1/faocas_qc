@@ -489,7 +489,7 @@ void FrmTrip::filterModel4Combo()
         }
         query.bindValue(0,m_sample->cellId);
 
-        if (!query.exec() || query.numRowsAffected()!=1){
+        if (!query.exec() || query.size()!=1){
             emit showError(tr("Could not obtain filter for landing sites!"));
             return;
         }

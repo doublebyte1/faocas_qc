@@ -95,7 +95,7 @@ bool RuleChecker::buildHashes()
     query.setForwardOnly(true);
     if (!query.exec()) return false;
 
-    if (query.numRowsAffected()>0){//Maybe we don't have any active rules?
+    if (query.size()>0){//Maybe we don't have any active rules?
 
         while (query.next()){
             size_t field=query.value(query.record().indexOf(tr("field"))).toInt();
@@ -118,7 +118,7 @@ bool RuleChecker::buildHashes()
                 size_t id=query.value(query.record().indexOf(tr("id_rules"))).toInt();
                 triggerPtrQuery.bindValue(tr(":id_rules"), id);
                 triggerPtrQuery.setForwardOnly(true);
-                if (!triggerPtrQuery.exec()|| triggerPtrQuery.numRowsAffected()<1){
+                if (!triggerPtrQuery.exec()|| triggerPtrQuery.size()<1){
                     return false;
                 }
                 // Watch out because we can have more than one reference to rows in the other table!

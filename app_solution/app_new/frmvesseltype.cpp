@@ -246,7 +246,7 @@ void FrmVesselType::filterModel4Combo()
         return;
     }
 
-    Q_ASSERT_X(query.numRowsAffected()>=1, "Vessel Types", QString(QString("Selection of a LS without vessels!") + m_sample->print()).toUtf8().constData());
+    Q_ASSERT_X(query.size()>=1, "Vessel Types", QString(QString("Selection of a LS without vessels!") + m_sample->print()).toUtf8().constData());
     QString strFilter("");
      while (query.next()) {
         strFilter.append("id=" + query.value(0).toString());

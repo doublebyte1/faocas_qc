@@ -47,6 +47,7 @@ public:
     QSqlTableModel*                        tChangesTempVessel;
     QSqlTableModel*                        tChangesPermLS;
     QSqlTableModel*                        tChangesPermGLS;
+    QSqlTableModel*                        rRefTempFrame;
     TreeModel*                             treeModel;
 
     bool                                   writeModel();
@@ -104,7 +105,8 @@ private:
     bool                                   search4VesselParent(const int vesselId, const int from, const int to);
     bool                                   search4Vessel(TreeItem* item,const int vesselId, const int to);
     bool                                   moveVessel(const int to, TreeItem* item);
-    bool                                   writeTempChangesVessel(TreeItem* vs, Sample* sample,  bool &bOk);
+    bool                                   initTempFrame(Sample* sample, int& tempFrameId);
+    bool                                   writeTempChangesVessel(TreeItem* vs, Sample* sample, const int tempFrameId, bool &bOk, const bool bBin=false);
     bool                                   findOrigin(TreeItem* vs, int& lsId);
     bool                                   getOutsideALS(int& id);
     bool                                   getVesselsBlackList(const Sample* sample, QVector<int>& vVesselsBlackList);

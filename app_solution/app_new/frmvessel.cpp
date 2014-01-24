@@ -132,6 +132,8 @@ void FrmVessel::setPreviewQuery()
         id=m_sample->vesselTypeId;
     }
 
+    //qDebug() << strQuery << endl;
+
     QSqlQuery query;
     query.prepare( strQuery );
     query.bindValue(0,id);
@@ -467,107 +469,65 @@ void FrmVessel::filterModel4Combo()
     if (!m_sample->bLogBook){
 
         strQuery =
-                "select     ref_vessels.vesselid "
-                "         from         fr_als2vessel inner join"
-                "                              ref_vessels on fr_als2vessel.vesselid = ref_vessels.vesselid"
-                "         where     (fr_als2vessel.id_sub_frame ="
-                "                                  (select     id"
-                "                                    from          fr_sub_frame"
-                "                                    where      (type ="
-                "                                                               (select     id"
-                "                                                                 from          ref_frame"
-                "                                                                 where      (name = 'root'))) and (id_frame = " + QVariant(m_sample->frameId).toString() + " ))) and (fr_als2vessel.id_abstract_landingsite ="
-                "                                  (select     id_abstract_landingsite"
-                "                                    from          sampled_cell"
-                "                                    where     (id =  " + QVariant(m_sample->cellId).toString() + " ))) and (fr_als2vessel.vesselid not in"
-                "                                  (select     vesselid"
-                "                                    from          abstract_changes_temp_vessel"
-                "                                    where      (id_cell =  " + QVariant(m_sample->cellId).toString() + ") and (to_ls ="
-                "                                                               (select     id"
-                "                                                                 from          ref_abstract_landingsite"
-                "                                                                 where      (name = 'outside'))))) and "
-
-                        //filter by vessel types here
-                 "        ref_vessels.vesseltype=(select id_vessel_type "
-                 "        from         sampled_cell_vessel_types "
-                 "        where     (id = " + QVariant(m_sample->vesselTypeId).toString() + " ))"
-
-                 "        union"
-                 "        select     ref_vessels_1.vesselid"
-                 "        from         fr_als2vessel as fr_als2vessel_1 inner join"
-                 "                             ref_vessels as ref_vessels_1 on fr_als2vessel_1.vesselid = ref_vessels_1.vesselid"
-                 "        where     (ref_vessels_1.vesselid in"
-                 "                                 (select     vesselid"
-                 "                                   from          abstract_changes_temp_vessel as abstract_changes_temp_vessel_1"
-                 "                                   where      (id_cell =  " + QVariant(m_sample->cellId).toString() + ") and (to_ls ="
-                 "                                                              (select     id_abstract_landingsite"
-                 "                                                                from          sampled_cell as sampled_cell_1"
-                 "                                                                where      (id = " + QVariant(m_sample->cellId).toString() + ")))))"
-
+                "SELECT fr_als2vessel.vesselid"
+                " FROM   fr_als2vessel"
+                "       inner join ref_vessels"
+                "       ON fr_als2vessel.vesselid = ref_vessels.vesselid"
+                "      WHERE  ( fr_als2vessel.id_sub_frame = (SELECT id"
+                "                                       FROM   fr_sub_frame"
+                "                                       WHERE  fr_sub_frame.id_frame =" + QVariant(m_sample->frameId).toString() + " AND fr_sub_frame.description like 'root') )"
+                "                                              "
+                "       AND ( fr_als2vessel.id_abstract_landingsite = (SELECT"
+                "             id_abstract_landingsite FROM   sampled_cell WHERE  ( id =" + QVariant(m_sample->cellId).toString() + ")) )"
+                "       AND ref_vessels.vesseltype = (SELECT id_vessel_type FROM   sampled_cell_vessel_types  WHERE  ( id =" + QVariant(m_sample->vesselTypeId).toString() + " ))"
+                // removing vessels temporary deactivated ////////////
+                /*
+                " AND fr_als2vessel.vesselid NOT IN ("
+                "select t.vesselid from         "
+                " (select vesselid, max(id) as MaxID from abstract_changes_temp_vessel f where from_ls= (select sampled_cell.id_abstract_landingsite from sampled_cell where id=" + QVariant(m_sample->cellId).toString() + ") "
+                " group by vesselid) r inner join abstract_changes_temp_vessel t on t.vesselid=r.vesselid and t.id=r.MaxID  inner join ref_temp_frame f           "
+                " on  t.id_temp_frame=f.id  where f.id_cell=" + QVariant(m_sample->cellId).toString() +
+                ")"
+                // adding vessels temporary activated *FROM THE CHOSEN VESSEL TYPE* and LS////////////
+                " UNION "
+                " select distinct ref_vessels.vesselid from "
+                " (select vesselid, max(id) as MaxID  from abstract_changes_temp_vessel f"
+                "  where to_ls= (select sampled_cell.id_abstract_landingsite from sampled_cell where id=" + QVariant(m_sample->cellId).toString() +")  "
+                "  group by vesselid) r inner join abstract_changes_temp_vessel t on t.vesselid=r.vesselid and t.id=r.MaxID "
+                "   inner join ref_temp_frame f  on  t.id_temp_frame=f.id "
+                "   inner join ref_vessels  on t.vesselid=ref_vessels.vesselid "
+                "   where f.id_cell=81 "
+                "   AND ref_vessels.vesseltype IN (select sampled_cell_vessel_types.id_vessel_type from sampled_cell_vessel_types where    "
+                "                                                      sampled_cell_vessel_types.id=" + QVariant(m_sample->vesselTypeId).toString() + ")  "*/
             ;
 
     }else{
-        strQuery = // Vessels from this frame... ////////////////////////////////////////////////
-                "select   vesselid "
-                " from         fr_als2vessel"
-                " inner join fr_gls2als on fr_als2vessel.id_abstract_landingsite=fr_gls2als.id_abstract_landingsite"
-                " where     (fr_gls2als.id_sub_frame ="
-                "                          (select     id"
-                "                             from          fr_sub_frame"
-                "                             where      (type ="
-                "                                                       (select     id"
-                "                                                         from          ref_frame"
-                "                                                         where      (name = 'root'))) and (id_frame =  " + QVariant(m_sample->frameId).toString() + "   ))"
-                " )"
-                " and     (fr_als2vessel.id_sub_frame ="
-                "                          (select     id"
-                "                             from          fr_sub_frame"
-                "                             where      (type ="
-                "                                                       (select     id"
-                "                                                         from          ref_frame"
-                "                                                         where      (name = 'root'))) and (id_frame =  " + QVariant(m_sample->frameId).toString() + "  ))"
-                " )" // that were not temporarily moved to the bin... /////////////////////////////////////
-                " AND vesselid NOT IN "
-
-                " (select     distinct vesselid "
-                " from          abstract_changes_temp_vessel where abstract_changes_temp_vessel.id_minor_strata"
-                " IN"
-                " (select     ref_minor_strata.id"
-                " from         ref_minor_strata"
-                " where  "
-                " ( "
-                " ref_minor_strata.start_dt <= (select ref_minor_strata.end_dt from ref_minor_strata where id ="  + QVariant(m_sample->minorStrataId).toString() + ") "
-                "  and "
-                " ref_minor_strata.end_dt >= (select ref_minor_strata.start_dt from ref_minor_strata where id ="  + QVariant(m_sample->minorStrataId).toString()  + ") "
-                " ) "
-                " and "
-                " (ref_minor_strata.id_frame_time ="  + QVariant(m_sample->frameTimeId).toString() + ") and (ref_minor_strata.id <= " + QVariant(m_sample->minorStrataId).toString() + "))"
-                " AND "
-                " abstract_changes_temp_vessel.to_ls NOT IN ("
-                " select fr_gls2als.id_abstract_landingsite from fr_gls2als where fr_gls2als.id_sub_frame=("
-                " select id from fr_sub_frame where  (type = (select  id from ref_frame where (name = 'bin'))) and (id_frame =  "  + QVariant(m_sample->frameId).toString() + " ))"
-                " ))"
-                // ... *plus* vessels that were temporarily moved to this frame
-                " UNION "
-                " select     distinct vesselid "
-                " from          abstract_changes_temp_vessel where abstract_changes_temp_vessel.id_minor_strata"
-                " IN"
-                " (select     ref_minor_strata.id"
-                " from         ref_minor_strata"
-                " where  "
-                " ( "
-                " ref_minor_strata.start_dt <= (select ref_minor_strata.end_dt from ref_minor_strata where id ="  + QVariant(m_sample->minorStrataId).toString() + ") "
-                "  and "
-                " ref_minor_strata.end_dt >= (select ref_minor_strata.start_dt from ref_minor_strata where id ="  + QVariant(m_sample->minorStrataId).toString()  + ") "
-                " ) "
-                " and "
-                " (ref_minor_strata.id_frame_time ="  + QVariant(m_sample->frameTimeId).toString() + ") and (ref_minor_strata.id <= " + QVariant(m_sample->minorStrataId).toString() + "))"
-                " AND "
-                " abstract_changes_temp_vessel.to_ls IN ("
-                " select fr_gls2als.id_abstract_landingsite from fr_gls2als where fr_gls2als.id_sub_frame=("
-                " select id from fr_sub_frame where  (type = (select  id from ref_frame where (name = 'root'))) and (id_frame =  "  + QVariant(m_sample->frameId).toString() + " ))"
-                " )"
-
+        strQuery =
+                "SELECT vesselid"
+                " FROM   fr_als2vessel,"
+                "       fr_gls2als,"
+                "       fr_sub_frame"
+                "       where fr_als2vessel.id_abstract_landingsite=fr_gls2als.id_abstract_landingsite"
+                "       and fr_als2vessel.id_sub_frame=fr_gls2als.id_sub_frame"
+                "       and fr_als2vessel.id_sub_frame=fr_sub_frame.id"
+                "       and fr_sub_frame.id_frame=" + QVariant(m_sample->frameId).toString() +
+                "       and fr_gls2als.id_gls=(select ref_minor_strata.id_gls from ref_minor_strata where ref_minor_strata.id=" + QVariant(m_sample->minorStrataId).toString() +")"
+                /*
+                // removing vessels temporary deactivated ////////////
+                " and vesselid not in (select vesselid"
+                " FROM   abstract_changes_temp_vessel"
+                " WHERE  abstract_changes_temp_vessel.id_minor_strata=" + QVariant(m_sample->minorStrataId).toString() +
+                " AND abstract_changes_temp_vessel.to_ls ="
+                " (select     id from          ref_abstract_landingsite"
+                " where      (name = 'outside')))"
+                //adding vessels temporarily activated /////////////////////
+                " UNION"
+                " SELECT DISTINCT vesselid"
+                " FROM   abstract_changes_temp_vessel"
+                " WHERE  abstract_changes_temp_vessel.id_minor_strata=" + QVariant(m_sample->minorStrataId).toString() +
+                "       AND abstract_changes_temp_vessel.to_ls <> "
+                " (select     id from          ref_abstract_landingsite"
+                "				     where      (name = 'outside'))"*/
                 ;
     }
     qDebug() << strQuery << endl;
@@ -578,7 +538,7 @@ void FrmVessel::filterModel4Combo()
         return;
     }
 
-    Q_ASSERT_X(query.numRowsAffected()>=1, "Vessels", QString(QString("Selection of a GLS without vessels!") + m_sample->print()).toUtf8().constData());
+    Q_ASSERT_X(query.numRowsAffected()>=1, "Vessels", QString(QString("Selection of a LS without vessels!") + m_sample->print()).toUtf8().constData());
 
     QString strFilter("");
      while (query.next()) {

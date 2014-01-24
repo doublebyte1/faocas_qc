@@ -2804,6 +2804,5 @@ static bool getKeywordID(const QString strTable, const QString strKeyword, size_
     return true;
 }
 
-
 #endif
 

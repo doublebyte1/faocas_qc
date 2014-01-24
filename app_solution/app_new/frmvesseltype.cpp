@@ -189,64 +189,55 @@ void FrmVesselType::createRecord()
 
 void FrmVesselType::filterModel4Combo()
 {
-    QString strQuery(
-                "SELECT DISTINCT"
-                "  ref_vessel_types.id,"
-                "  ref_vessel_types.name"
-                " FROM "
-                "  public.fr_frame, "
-                "  public.fr_sub_frame,"
-                "  public.ref_frame, "
-                "  public.fr_f2gls, "
-                "  public.ref_group_of_landingsites,"
-                "  public.fr_gls2als,"
-                "  public.ref_abstract_landingsite,"
-                "  public.fr_als2vessel,"
-                "  public.ref_vessels,"
-                "  public.ref_vessel_types"
-                " WHERE "
-                "  fr_sub_frame.id_frame = fr_frame.id AND"
-                "  fr_sub_frame.type = ref_frame.id AND"
-                "  fr_f2gls.id_sub_frame = fr_sub_frame.id AND"
-                "  fr_f2gls.id_gls = ref_group_of_landingsites.id AND"
-                "  fr_gls2als.id_sub_frame = fr_sub_frame.id AND  "
-                "  fr_gls2als.id_gls = fr_f2gls.id_gls AND "
-                "  fr_gls2als.id_abstract_landingsite=ref_abstract_landingsite.id and"
-                "  fr_als2vessel.id_abstract_landingsite=fr_gls2als.id_abstract_landingsite AND"
-                "  fr_als2vessel.id_sub_frame=fr_sub_frame.id AND"
-                "  fr_als2vessel.vesselid=ref_vessels.vesselid AND"
-                "  ref_vessels.vesseltype=ref_vessel_types.id AND"
-                "  ref_abstract_landingsite.id=(SELECT sampled_cell.id_abstract_landingsite from sampled_cell WHERE sampled_cell.id=" + QVariant(m_sample->cellId).toString() + ") AND"
-                "  fr_frame.id = " + QVariant(m_sample->frameId).toString() + " AND "
-                "  ref_frame.name = 'root'"
+    QString strQuery=
+                "SELECT distinct"
+                " ref_vessel_types.id"
+                " FROM   "
+                "       fr_sub_frame,"
+                "       fr_als2vessel,"
+                "       ref_vessels,"
+                "       ref_vessel_types"
+                " WHERE  "
+                "       fr_als2vessel.id_sub_frame=fr_sub_frame.id"
+                "       AND fr_als2vessel.vesselid = ref_vessels.vesselid       "
+                "       AND ref_vessels.vesseltype = ref_vessel_types.id"
+                "       AND fr_als2vessel.id_abstract_landingsite = (SELECT"
+                "           sampled_cell.id_abstract_landingsite"
+                "                                          FROM   sampled_cell"
+                "                                          WHERE  sampled_cell.id ="+ QVariant(m_sample->cellId).toString() + ")"
+                "       AND fr_sub_frame.id_frame = " + QVariant(m_sample->frameId).toString() +
+                "       AND fr_sub_frame.description like 'root'  "
+            /*
+                // removing vessels temporary deactivated ////////////
+                " and fr_als2vessel.vesselid NOT IN ("
+                "select t.vesselid from "
+                " (select vesselid, max(id) as MaxID"
+                " from abstract_changes_temp_vessel f where from_ls="
+                " (select sampled_cell.id_abstract_landingsite from sampled_cell where id="+ QVariant(m_sample->cellId).toString() + ")  group by vesselid) r"
+                " inner join abstract_changes_temp_vessel t"
+                " on t.vesselid=r.vesselid and t.id=r.MaxID "
+                " inner join ref_temp_frame f "
+                " on  t.id_temp_frame=f.id"
+                " where f.id_cell="+ QVariant(m_sample->cellId).toString() +
+                " order by vesselid asc"
+                ")"
+                // adding vessels temporary deactivated ////////////
+                 " UNION "
+                " select distinct ref_vessels.vesseltype from "
+                " (select vesselid, max(id) as MaxID "
+                " from abstract_changes_temp_vessel f where to_ls="
+            " (select sampled_cell.id_abstract_landingsite from sampled_cell where id="+ QVariant(m_sample->cellId).toString() +")  group by vesselid) r"
+                " inner join abstract_changes_temp_vessel t"
+                " on t.vesselid=r.vesselid and t.id=r.MaxID "
+                " inner join ref_temp_frame f "
+                " on  t.id_temp_frame=f.id"
+                " inner join ref_vessels "
+                " on t.vesselid=ref_vessels.vesselid"
+                " where f.id_cell="+ QVariant(m_sample->cellId).toString()
+                //" order by ref_vessels.vesseltype asc"*/
+                ;
 
-
-/*
-        "select     ref_vessel_types.id"
-        " from         fr_als2vessel inner join"
-        "                      ref_vessels on fr_als2vessel.vesselid = ref_vessels.vesselid inner join"
-        "                      ref_vessel_types on ref_vessels.vesseltype = ref_vessel_types.id"
-        " where     (fr_als2vessel.id_sub_frame ="
-        "                          (select     id"
-        "                            from          fr_sub_frame"
-        "                            where      (type ="
-        "                                                       (select     id"
-        "                                                         from          ref_frame"
-        "                                                         where      (name = 'root'))) and (id_frame ="  + QVariant(m_sample->frameId).toString() + "))) and (fr_als2vessel.id_abstract_landingsite ="
-        "                          (select     id_abstract_landingsite"
-        "                            from          sampled_cell"
-        "                            where      (id ="  + QVariant(m_sample->cellId).toString() + "))) and (fr_als2vessel.vesselid not in"
-        "                          (select     vesselid"
-        "                            from          abstract_changes_temp_vessel"
-        "                            where      (id_cell ="  + QVariant(m_sample->cellId).toString() +" ) and (to_ls ="
-        "                                                       (select     id"
-        "                                                         from          ref_abstract_landingsite"
-        "                                                         where      (name = 'outside')))))"
-*/
-
-    );
-
-    //qDebug() << strQuery << endl;
+    qDebug() << strQuery << endl;
 
     QSqlQuery query;
     query.prepare(strQuery);

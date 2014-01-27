@@ -5,6 +5,7 @@ plugins/numbers/CMakeFiles/NumbersProperty.dir/moc_numbers.cxx.o: ../lib/propert
 plugins/numbers/CMakeFiles/NumbersProperty.dir/moc_numbers.cxx.o: ../lib/propertyvalidator.h
 plugins/numbers/CMakeFiles/NumbersProperty.dir/moc_numbers.cxx.o: plugins/numbers/../../../plugins/numbers/numbers.h
 plugins/numbers/CMakeFiles/NumbersProperty.dir/moc_numbers.cxx.o: plugins/numbers/moc_numbers.cxx
+plugins/numbers/CMakeFiles/NumbersProperty.dir/moc_numbers.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/numbers/CMakeFiles/NumbersProperty.dir/moc_numbers.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/numbers/CMakeFiles/NumbersProperty.dir/moc_numbers.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/numbers/CMakeFiles/NumbersProperty.dir/moc_numbers.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -70,6 +71,8 @@ plugins/numbers/CMakeFiles/NumbersProperty.dir/numbers.cpp.o: ../lib/propertyint
 plugins/numbers/CMakeFiles/NumbersProperty.dir/numbers.cpp.o: ../lib/propertyvalidator.h
 plugins/numbers/CMakeFiles/NumbersProperty.dir/numbers.cpp.o: ../plugins/numbers/numbers.cpp
 plugins/numbers/CMakeFiles/NumbersProperty.dir/numbers.cpp.o: ../plugins/numbers/numbers.h
+plugins/numbers/CMakeFiles/NumbersProperty.dir/numbers.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/numbers/CMakeFiles/NumbersProperty.dir/numbers.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/numbers/CMakeFiles/NumbersProperty.dir/numbers.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/numbers/CMakeFiles/NumbersProperty.dir/numbers.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/numbers/CMakeFiles/NumbersProperty.dir/numbers.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum

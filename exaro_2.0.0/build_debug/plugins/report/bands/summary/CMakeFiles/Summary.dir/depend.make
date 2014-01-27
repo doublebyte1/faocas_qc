@@ -6,6 +6,8 @@ plugins/report/bands/summary/CMakeFiles/Summary.dir/moc_summary.cxx.o: ../libs/r
 plugins/report/bands/summary/CMakeFiles/Summary.dir/moc_summary.cxx.o: ../libs/report/iteminterface.h
 plugins/report/bands/summary/CMakeFiles/Summary.dir/moc_summary.cxx.o: plugins/report/bands/summary/../../../../../plugins/report/bands/summary/summary.h
 plugins/report/bands/summary/CMakeFiles/Summary.dir/moc_summary.cxx.o: plugins/report/bands/summary/moc_summary.cxx
+plugins/report/bands/summary/CMakeFiles/Summary.dir/moc_summary.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/summary/CMakeFiles/Summary.dir/moc_summary.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/summary/CMakeFiles/Summary.dir/moc_summary.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/summary/CMakeFiles/Summary.dir/moc_summary.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/summary/CMakeFiles/Summary.dir/moc_summary.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -250,6 +252,8 @@ plugins/report/bands/summary/CMakeFiles/Summary.dir/summary.cpp.o: ../libs/repor
 plugins/report/bands/summary/CMakeFiles/Summary.dir/summary.cpp.o: ../libs/report/iteminterface.h
 plugins/report/bands/summary/CMakeFiles/Summary.dir/summary.cpp.o: ../plugins/report/bands/summary/summary.cpp
 plugins/report/bands/summary/CMakeFiles/Summary.dir/summary.cpp.o: ../plugins/report/bands/summary/summary.h
+plugins/report/bands/summary/CMakeFiles/Summary.dir/summary.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/summary/CMakeFiles/Summary.dir/summary.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/summary/CMakeFiles/Summary.dir/summary.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/summary/CMakeFiles/Summary.dir/summary.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/summary/CMakeFiles/Summary.dir/summary.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

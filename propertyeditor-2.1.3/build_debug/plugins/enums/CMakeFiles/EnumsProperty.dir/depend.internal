@@ -6,6 +6,8 @@ plugins/enums/CMakeFiles/EnumsProperty.dir/enums.cpp.o
  ../lib/propertyvalidator.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/enums/enums.cpp
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/enums/enums.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -230,6 +232,7 @@ plugins/enums/CMakeFiles/EnumsProperty.dir/moc_enums.cxx.o
  ../lib/propertyvalidator.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/enums/../../../plugins/enums/enums.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/enums/moc_enums.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject

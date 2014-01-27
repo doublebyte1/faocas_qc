@@ -7,6 +7,8 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/export/csvTxt/csvtxt.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/export/csvTxt/csvtxt.h
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/export/csvTxt/exportsettingsdialog.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -269,6 +271,8 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/export/csvTxt/exportsettingsdialog.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/export/csvTxt/exportsettingsdialog.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -318,6 +322,7 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -428,6 +433,8 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o
  ../libs/report/globals.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_release/plugins/report/export/csvTxt/../../../../../plugins/report/export/csvTxt/csvtxt.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_release/plugins/report/export/csvTxt/moc_csvtxt.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -474,6 +481,7 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -537,6 +545,8 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_release/plugins/report/export/csvTxt/../../../../../plugins/report/export/csvTxt/exportsettingsdialog.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_release/plugins/report/export/csvTxt/moc_exportsettingsdialog.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -586,6 +596,7 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

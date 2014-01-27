@@ -5,6 +5,8 @@ plugins/dateTime/CMakeFiles/DateTimeProperty.dir/datetime.cpp.o: ../lib/property
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/datetime.cpp.o: ../lib/propertyvalidator.h
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/datetime.cpp.o: ../plugins/dateTime/datetime.cpp
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/datetime.cpp.o: ../plugins/dateTime/datetime.h
+plugins/dateTime/CMakeFiles/DateTimeProperty.dir/datetime.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/dateTime/CMakeFiles/DateTimeProperty.dir/datetime.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/datetime.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/datetime.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/datetime.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -219,6 +221,7 @@ plugins/dateTime/CMakeFiles/DateTimeProperty.dir/moc_datetime.cxx.o: ../lib/prop
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/moc_datetime.cxx.o: ../lib/propertyvalidator.h
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/moc_datetime.cxx.o: plugins/dateTime/../../../plugins/dateTime/datetime.h
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/moc_datetime.cxx.o: plugins/dateTime/moc_datetime.cxx
+plugins/dateTime/CMakeFiles/DateTimeProperty.dir/moc_datetime.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/moc_datetime.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/moc_datetime.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/dateTime/CMakeFiles/DateTimeProperty.dir/moc_datetime.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject

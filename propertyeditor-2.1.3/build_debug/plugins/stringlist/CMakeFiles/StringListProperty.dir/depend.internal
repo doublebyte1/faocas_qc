@@ -6,6 +6,7 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlist.cxx.o
  ../lib/propertyvalidator.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/stringlist/../../../plugins/stringlist/stringlist.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/stringlist/moc_stringlist.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -69,6 +70,8 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlist.cxx.o
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/stringlist/../../../plugins/stringlist/stringlisteditor.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/stringlist/moc_stringlisteditor.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -118,6 +121,7 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -240,6 +244,8 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/stringlist/stringlist.cpp
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/stringlist/stringlist.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/stringlist/stringlisteditor.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -504,6 +510,8 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/stringlist/stringlisteditor.cpp
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/stringlist/stringlisteditor.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QTextStream
@@ -556,6 +564,7 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

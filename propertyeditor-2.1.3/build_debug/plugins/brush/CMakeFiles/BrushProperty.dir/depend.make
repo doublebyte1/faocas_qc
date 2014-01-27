@@ -5,6 +5,8 @@ plugins/brush/CMakeFiles/BrushProperty.dir/brush.cpp.o: ../lib/propertyinterface
 plugins/brush/CMakeFiles/BrushProperty.dir/brush.cpp.o: ../lib/propertyvalidator.h
 plugins/brush/CMakeFiles/BrushProperty.dir/brush.cpp.o: ../plugins/brush/brush.cpp
 plugins/brush/CMakeFiles/BrushProperty.dir/brush.cpp.o: ../plugins/brush/brush.h
+plugins/brush/CMakeFiles/BrushProperty.dir/brush.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/brush/CMakeFiles/BrushProperty.dir/brush.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/brush/CMakeFiles/BrushProperty.dir/brush.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/brush/CMakeFiles/BrushProperty.dir/brush.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/brush/CMakeFiles/BrushProperty.dir/brush.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -203,6 +205,8 @@ plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: ../lib/propertyinter
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: ../lib/propertyvalidator.h
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: plugins/brush/../../../plugins/brush/brush.h
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: plugins/brush/moc_brush.cxx
+plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -251,6 +255,7 @@ plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/brush/CMakeFiles/BrushProperty.dir/moc_brush.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

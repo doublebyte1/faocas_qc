@@ -5,6 +5,8 @@ plugins/bool/CMakeFiles/BoolProperty.dir/bool.cpp.o: ../lib/propertyinterface.h
 plugins/bool/CMakeFiles/BoolProperty.dir/bool.cpp.o: ../lib/propertyvalidator.h
 plugins/bool/CMakeFiles/BoolProperty.dir/bool.cpp.o: ../plugins/bool/bool.cpp
 plugins/bool/CMakeFiles/BoolProperty.dir/bool.cpp.o: ../plugins/bool/bool.h
+plugins/bool/CMakeFiles/BoolProperty.dir/bool.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/bool/CMakeFiles/BoolProperty.dir/bool.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/bool/CMakeFiles/BoolProperty.dir/bool.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/bool/CMakeFiles/BoolProperty.dir/bool.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/bool/CMakeFiles/BoolProperty.dir/bool.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -220,6 +222,7 @@ plugins/bool/CMakeFiles/BoolProperty.dir/moc_bool.cxx.o: ../lib/propertyinterfac
 plugins/bool/CMakeFiles/BoolProperty.dir/moc_bool.cxx.o: ../lib/propertyvalidator.h
 plugins/bool/CMakeFiles/BoolProperty.dir/moc_bool.cxx.o: plugins/bool/../../../plugins/bool/bool.h
 plugins/bool/CMakeFiles/BoolProperty.dir/moc_bool.cxx.o: plugins/bool/moc_bool.cxx
+plugins/bool/CMakeFiles/BoolProperty.dir/moc_bool.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/bool/CMakeFiles/BoolProperty.dir/moc_bool.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/bool/CMakeFiles/BoolProperty.dir/moc_bool.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/bool/CMakeFiles/BoolProperty.dir/moc_bool.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject

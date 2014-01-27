@@ -7,6 +7,8 @@ plugins/report/bands/overlay/CMakeFiles/Overlay.dir/moc_overlay.cxx.o
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_release/plugins/report/bands/overlay/../../../../../plugins/report/bands/overlay/overlay.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_release/plugins/report/bands/overlay/moc_overlay.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -246,6 +248,8 @@ plugins/report/bands/overlay/CMakeFiles/Overlay.dir/overlay.cpp.o
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/bands/overlay/overlay.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/bands/overlay/overlay.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

@@ -5,6 +5,7 @@ plugins/sizef/CMakeFiles/SizefProperty.dir/moc_sizef.cxx.o: ../lib/propertyinter
 plugins/sizef/CMakeFiles/SizefProperty.dir/moc_sizef.cxx.o: ../lib/propertyvalidator.h
 plugins/sizef/CMakeFiles/SizefProperty.dir/moc_sizef.cxx.o: plugins/sizef/../../../plugins/sizef/sizef.h
 plugins/sizef/CMakeFiles/SizefProperty.dir/moc_sizef.cxx.o: plugins/sizef/moc_sizef.cxx
+plugins/sizef/CMakeFiles/SizefProperty.dir/moc_sizef.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/sizef/CMakeFiles/SizefProperty.dir/moc_sizef.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/sizef/CMakeFiles/SizefProperty.dir/moc_sizef.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/sizef/CMakeFiles/SizefProperty.dir/moc_sizef.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -70,6 +71,8 @@ plugins/sizef/CMakeFiles/SizefProperty.dir/sizef.cpp.o: ../lib/propertyinterface
 plugins/sizef/CMakeFiles/SizefProperty.dir/sizef.cpp.o: ../lib/propertyvalidator.h
 plugins/sizef/CMakeFiles/SizefProperty.dir/sizef.cpp.o: ../plugins/sizef/sizef.cpp
 plugins/sizef/CMakeFiles/SizefProperty.dir/sizef.cpp.o: ../plugins/sizef/sizef.h
+plugins/sizef/CMakeFiles/SizefProperty.dir/sizef.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/sizef/CMakeFiles/SizefProperty.dir/sizef.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/sizef/CMakeFiles/SizefProperty.dir/sizef.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/sizef/CMakeFiles/SizefProperty.dir/sizef.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/sizef/CMakeFiles/SizefProperty.dir/sizef.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum

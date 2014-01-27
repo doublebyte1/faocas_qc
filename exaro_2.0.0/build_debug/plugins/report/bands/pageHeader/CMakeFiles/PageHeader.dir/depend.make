@@ -6,6 +6,8 @@ plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/moc_pageheader.cxx.o: 
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/moc_pageheader.cxx.o: ../libs/report/iteminterface.h
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/moc_pageheader.cxx.o: plugins/report/bands/pageHeader/../../../../../plugins/report/bands/pageHeader/pageheader.h
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/moc_pageheader.cxx.o: plugins/report/bands/pageHeader/moc_pageheader.cxx
+plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/moc_pageheader.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/moc_pageheader.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/moc_pageheader.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/moc_pageheader.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/moc_pageheader.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -245,6 +247,8 @@ plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/pageheader.cpp.o: ../l
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/pageheader.cpp.o: ../libs/report/iteminterface.h
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/pageheader.cpp.o: ../plugins/report/bands/pageHeader/pageheader.cpp
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/pageheader.cpp.o: ../plugins/report/bands/pageHeader/pageheader.h
+plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/pageheader.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/pageheader.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/pageheader.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/pageheader.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/pageHeader/CMakeFiles/PageHeader.dir/pageheader.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

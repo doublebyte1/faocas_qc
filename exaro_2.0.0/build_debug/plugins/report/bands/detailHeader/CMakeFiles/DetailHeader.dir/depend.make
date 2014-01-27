@@ -6,6 +6,8 @@ plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/detailheader.cpp.o
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/detailheader.cpp.o: ../libs/report/iteminterface.h
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/detailheader.cpp.o: ../plugins/report/bands/detailHeader/detailheader.cpp
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/detailheader.cpp.o: ../plugins/report/bands/detailHeader/detailheader.h
+plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/detailheader.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/detailheader.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/detailheader.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/detailheader.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/detailheader.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -245,6 +247,8 @@ plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/moc_detailheader.c
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/moc_detailheader.cxx.o: ../libs/report/iteminterface.h
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/moc_detailheader.cxx.o: plugins/report/bands/detailHeader/../../../../../plugins/report/bands/detailHeader/detailheader.h
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/moc_detailheader.cxx.o: plugins/report/bands/detailHeader/moc_detailheader.cxx
+plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/moc_detailheader.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/moc_detailheader.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/moc_detailheader.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/moc_detailheader.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/moc_detailheader.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

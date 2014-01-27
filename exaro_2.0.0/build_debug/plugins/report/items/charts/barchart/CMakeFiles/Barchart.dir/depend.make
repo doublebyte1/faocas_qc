@@ -6,6 +6,8 @@ plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/barchart.cpp.o: ../
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/barchart.cpp.o: ../plugins/report/items/charts/chartinterface/chartinterface.h
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/barchart.cpp.o: ../plugins/report/items/charts/barchart/barchart.cpp
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/barchart.cpp.o: ../plugins/report/items/charts/barchart/barchart.h
+plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/barchart.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/barchart.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/barchart.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/barchart.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/barchart.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -247,6 +249,8 @@ plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/moc_barchart.cxx.o:
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/moc_barchart.cxx.o: ../plugins/report/items/charts/chartinterface/chartinterface.h
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/moc_barchart.cxx.o: plugins/report/items/charts/barchart/../../../../../../plugins/report/items/charts/barchart/barchart.h
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/moc_barchart.cxx.o: plugins/report/items/charts/barchart/moc_barchart.cxx
+plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/moc_barchart.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/moc_barchart.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/moc_barchart.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/moc_barchart.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/charts/barchart/CMakeFiles/Barchart.dir/moc_barchart.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

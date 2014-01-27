@@ -6,6 +6,8 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o: ../libs/report/
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o: ../plugins/report/export/csvTxt/csvtxt.cpp
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o: ../plugins/report/export/csvTxt/csvtxt.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o: ../plugins/report/export/csvTxt/exportsettingsdialog.h
+plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -268,6 +270,8 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/csvtxt.cpp.o: plugins/report/
 
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: ../plugins/report/export/csvTxt/exportsettingsdialog.cpp
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: ../plugins/report/export/csvTxt/exportsettingsdialog.h
+plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -317,6 +321,7 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/exportsettingsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -427,6 +432,8 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: ../libs/rep
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: ../libs/report/globals.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: plugins/report/export/csvTxt/../../../../../plugins/report/export/csvTxt/csvtxt.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: plugins/report/export/csvTxt/moc_csvtxt.cxx
+plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -473,6 +480,7 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -536,6 +544,8 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_csvtxt.cxx.o: /usr/local/
 
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: plugins/report/export/csvTxt/../../../../../plugins/report/export/csvTxt/exportsettingsdialog.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: plugins/report/export/csvTxt/moc_exportsettingsdialog.cxx
+plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -585,6 +595,7 @@ plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/report/export/csvTxt/CMakeFiles/CsvTxt.dir/moc_exportsettingsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

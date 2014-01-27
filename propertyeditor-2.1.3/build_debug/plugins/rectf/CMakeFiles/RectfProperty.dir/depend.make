@@ -5,6 +5,7 @@ plugins/rectf/CMakeFiles/RectfProperty.dir/moc_rectf.cxx.o: ../lib/propertyinter
 plugins/rectf/CMakeFiles/RectfProperty.dir/moc_rectf.cxx.o: ../lib/propertyvalidator.h
 plugins/rectf/CMakeFiles/RectfProperty.dir/moc_rectf.cxx.o: plugins/rectf/../../../plugins/rectf/rectf.h
 plugins/rectf/CMakeFiles/RectfProperty.dir/moc_rectf.cxx.o: plugins/rectf/moc_rectf.cxx
+plugins/rectf/CMakeFiles/RectfProperty.dir/moc_rectf.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/rectf/CMakeFiles/RectfProperty.dir/moc_rectf.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/rectf/CMakeFiles/RectfProperty.dir/moc_rectf.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/rectf/CMakeFiles/RectfProperty.dir/moc_rectf.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -70,6 +71,8 @@ plugins/rectf/CMakeFiles/RectfProperty.dir/rectf.cpp.o: ../lib/propertyinterface
 plugins/rectf/CMakeFiles/RectfProperty.dir/rectf.cpp.o: ../lib/propertyvalidator.h
 plugins/rectf/CMakeFiles/RectfProperty.dir/rectf.cpp.o: ../plugins/rectf/rectf.cpp
 plugins/rectf/CMakeFiles/RectfProperty.dir/rectf.cpp.o: ../plugins/rectf/rectf.h
+plugins/rectf/CMakeFiles/RectfProperty.dir/rectf.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/rectf/CMakeFiles/RectfProperty.dir/rectf.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/rectf/CMakeFiles/RectfProperty.dir/rectf.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/rectf/CMakeFiles/RectfProperty.dir/rectf.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/rectf/CMakeFiles/RectfProperty.dir/rectf.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum

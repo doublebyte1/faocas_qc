@@ -6,6 +6,8 @@ plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/detailfooter.cpp.o
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/detailfooter.cpp.o: ../libs/report/iteminterface.h
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/detailfooter.cpp.o: ../plugins/report/bands/detailFooter/detailfooter.cpp
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/detailfooter.cpp.o: ../plugins/report/bands/detailFooter/detailfooter.h
+plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/detailfooter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/detailfooter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/detailfooter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/detailfooter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/detailfooter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -245,6 +247,8 @@ plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/moc_detailfooter.c
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/moc_detailfooter.cxx.o: ../libs/report/iteminterface.h
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/moc_detailfooter.cxx.o: plugins/report/bands/detailFooter/../../../../../plugins/report/bands/detailFooter/detailfooter.h
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/moc_detailfooter.cxx.o: plugins/report/bands/detailFooter/moc_detailfooter.cxx
+plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/moc_detailfooter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/moc_detailfooter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/moc_detailfooter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/moc_detailfooter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/moc_detailfooter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

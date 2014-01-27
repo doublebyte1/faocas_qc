@@ -6,6 +6,8 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o: ../lib/propertyvalidator
 plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o: ../plugins/flags/flags.cpp
 plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o: ../plugins/flags/flags.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o: ../plugins/flags/flagslist.h
+plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -256,6 +258,8 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o: plugins/flags/ui_flagsLi
 
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: ../plugins/flags/flagslist.cpp
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: ../plugins/flags/flagslist.h
+plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -305,6 +309,7 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -407,6 +412,7 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flags.cxx.o: ../lib/propertyinter
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flags.cxx.o: ../lib/propertyvalidator.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flags.cxx.o: plugins/flags/../../../plugins/flags/flags.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flags.cxx.o: plugins/flags/moc_flags.cxx
+plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flags.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flags.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flags.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flags.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -470,6 +476,8 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flags.cxx.o: /usr/local/Trolltech
 
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: plugins/flags/../../../plugins/flags/flagslist.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: plugins/flags/moc_flagslist.cxx
+plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -519,6 +527,7 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Troll
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

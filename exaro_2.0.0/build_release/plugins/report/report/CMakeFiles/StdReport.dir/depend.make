@@ -8,6 +8,8 @@ plugins/report/report/CMakeFiles/StdReport.dir/moc_report.cxx.o: ../libs/report/
 plugins/report/report/CMakeFiles/StdReport.dir/moc_report.cxx.o: ../libs/report/reportinterface.h
 plugins/report/report/CMakeFiles/StdReport.dir/moc_report.cxx.o: plugins/report/report/../../../../plugins/report/report/report.h
 plugins/report/report/CMakeFiles/StdReport.dir/moc_report.cxx.o: plugins/report/report/moc_report.cxx
+plugins/report/report/CMakeFiles/StdReport.dir/moc_report.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/report/CMakeFiles/StdReport.dir/moc_report.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/report/CMakeFiles/StdReport.dir/moc_report.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/report/CMakeFiles/StdReport.dir/moc_report.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 plugins/report/report/CMakeFiles/StdReport.dir/moc_report.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -269,6 +271,8 @@ plugins/report/report/CMakeFiles/StdReport.dir/report.cpp.o: ../libs/report/page
 plugins/report/report/CMakeFiles/StdReport.dir/report.cpp.o: ../libs/report/reportinterface.h
 plugins/report/report/CMakeFiles/StdReport.dir/report.cpp.o: ../plugins/report/report/report.cpp
 plugins/report/report/CMakeFiles/StdReport.dir/report.cpp.o: ../plugins/report/report/report.h
+plugins/report/report/CMakeFiles/StdReport.dir/report.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/report/CMakeFiles/StdReport.dir/report.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/report/CMakeFiles/StdReport.dir/report.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/report/CMakeFiles/StdReport.dir/report.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 plugins/report/report/CMakeFiles/StdReport.dir/report.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList

@@ -10,6 +10,8 @@ plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartda
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartdatacollector.cpp.o: ../plugins/report/items/charts/chartinterface/chartdatacollector.cpp
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartdatacollector.cpp.o: ../plugins/report/items/charts/chartinterface/chartdatacollector.h
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartdatacollector.cpp.o: ../plugins/report/items/charts/chartinterface/chartinterface.h
+plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartdatacollector.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartdatacollector.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartdatacollector.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartdatacollector.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartdatacollector.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -276,6 +278,8 @@ plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartin
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartinterface.cpp.o: ../plugins/report/items/charts/chartinterface/chartdatacollector.h
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartinterface.cpp.o: ../plugins/report/items/charts/chartinterface/chartinterface.cpp
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartinterface.cpp.o: ../plugins/report/items/charts/chartinterface/chartinterface.h
+plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -524,6 +528,8 @@ plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_cha
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartdatacollector.cxx.o: plugins/report/items/charts/chartinterface/../../../../../../plugins/report/items/charts/chartinterface/chartdatacollector.h
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartdatacollector.cxx.o: plugins/report/items/charts/chartinterface/../../../../../../plugins/report/items/charts/chartinterface/chartinterface.h
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartdatacollector.cxx.o: plugins/report/items/charts/chartinterface/moc_chartdatacollector.cxx
+plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartdatacollector.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartdatacollector.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartdatacollector.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartdatacollector.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartdatacollector.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -763,6 +769,8 @@ plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_cha
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartinterface.cxx.o: ../libs/report/iteminterface.h
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartinterface.cxx.o: plugins/report/items/charts/chartinterface/../../../../../../plugins/report/items/charts/chartinterface/chartinterface.h
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartinterface.cxx.o: plugins/report/items/charts/chartinterface/moc_chartinterface.cxx
+plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_chartinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

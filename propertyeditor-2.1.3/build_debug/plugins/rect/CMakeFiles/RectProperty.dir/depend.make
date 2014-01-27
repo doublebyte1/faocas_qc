@@ -5,6 +5,7 @@ plugins/rect/CMakeFiles/RectProperty.dir/moc_rect.cxx.o: ../lib/propertyinterfac
 plugins/rect/CMakeFiles/RectProperty.dir/moc_rect.cxx.o: ../lib/propertyvalidator.h
 plugins/rect/CMakeFiles/RectProperty.dir/moc_rect.cxx.o: plugins/rect/../../../plugins/rect/rect.h
 plugins/rect/CMakeFiles/RectProperty.dir/moc_rect.cxx.o: plugins/rect/moc_rect.cxx
+plugins/rect/CMakeFiles/RectProperty.dir/moc_rect.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/rect/CMakeFiles/RectProperty.dir/moc_rect.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/rect/CMakeFiles/RectProperty.dir/moc_rect.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/rect/CMakeFiles/RectProperty.dir/moc_rect.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -70,6 +71,8 @@ plugins/rect/CMakeFiles/RectProperty.dir/rect.cpp.o: ../lib/propertyinterface.h
 plugins/rect/CMakeFiles/RectProperty.dir/rect.cpp.o: ../lib/propertyvalidator.h
 plugins/rect/CMakeFiles/RectProperty.dir/rect.cpp.o: ../plugins/rect/rect.cpp
 plugins/rect/CMakeFiles/RectProperty.dir/rect.cpp.o: ../plugins/rect/rect.h
+plugins/rect/CMakeFiles/RectProperty.dir/rect.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/rect/CMakeFiles/RectProperty.dir/rect.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/rect/CMakeFiles/RectProperty.dir/rect.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/rect/CMakeFiles/RectProperty.dir/rect.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/rect/CMakeFiles/RectProperty.dir/rect.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum

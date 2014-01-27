@@ -5,6 +5,7 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmap.cxx.o: ../lib/propertyin
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmap.cxx.o: ../lib/propertyvalidator.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmap.cxx.o: plugins/pixmap/../../../plugins/pixmap/pixmap.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmap.cxx.o: plugins/pixmap/moc_pixmap.cxx
+plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmap.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmap.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmap.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmap.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -68,6 +69,8 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmap.cxx.o: /usr/local/Trollt
 
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: plugins/pixmap/../../../plugins/pixmap/pixmapdialog.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: plugins/pixmap/moc_pixmapdialog.cxx
+plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -117,6 +120,7 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -225,6 +229,8 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o: ../lib/propertyvalida
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o: ../plugins/pixmap/pixmap.cpp
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o: ../plugins/pixmap/pixmap.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o: ../plugins/pixmap/pixmapdialog.h
+plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -480,6 +486,8 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o: plugins/pixmap/ui_pix
 
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: ../plugins/pixmap/pixmapdialog.cpp
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: ../plugins/pixmap/pixmapdialog.h
+plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -531,6 +539,7 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trol
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

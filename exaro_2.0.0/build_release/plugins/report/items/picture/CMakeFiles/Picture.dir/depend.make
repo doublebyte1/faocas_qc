@@ -5,6 +5,8 @@ plugins/report/items/picture/CMakeFiles/Picture.dir/moc_picture.cxx.o: ../libs/r
 plugins/report/items/picture/CMakeFiles/Picture.dir/moc_picture.cxx.o: ../libs/report/iteminterface.h
 plugins/report/items/picture/CMakeFiles/Picture.dir/moc_picture.cxx.o: plugins/report/items/picture/../../../../../plugins/report/items/picture/picture.h
 plugins/report/items/picture/CMakeFiles/Picture.dir/moc_picture.cxx.o: plugins/report/items/picture/moc_picture.cxx
+plugins/report/items/picture/CMakeFiles/Picture.dir/moc_picture.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/picture/CMakeFiles/Picture.dir/moc_picture.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/picture/CMakeFiles/Picture.dir/moc_picture.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/picture/CMakeFiles/Picture.dir/moc_picture.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/picture/CMakeFiles/Picture.dir/moc_picture.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -243,6 +245,8 @@ plugins/report/items/picture/CMakeFiles/Picture.dir/picture.cpp.o: ../libs/repor
 plugins/report/items/picture/CMakeFiles/Picture.dir/picture.cpp.o: ../libs/report/iteminterface.h
 plugins/report/items/picture/CMakeFiles/Picture.dir/picture.cpp.o: ../plugins/report/items/picture/picture.cpp
 plugins/report/items/picture/CMakeFiles/Picture.dir/picture.cpp.o: ../plugins/report/items/picture/picture.h
+plugins/report/items/picture/CMakeFiles/Picture.dir/picture.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/picture/CMakeFiles/Picture.dir/picture.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/picture/CMakeFiles/Picture.dir/picture.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/picture/CMakeFiles/Picture.dir/picture.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/picture/CMakeFiles/Picture.dir/picture.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

@@ -107,7 +107,7 @@ private:
     bool                                   moveVessel(const int to, TreeItem* item);
     bool                                   initTempFrame(Sample* sample, int& tempFrameId);
     bool                                   writeTempChangesVessel(TreeItem* vs, Sample* sample, const int tempFrameId, bool &bOk, const bool bBin=false);
-    bool                                   findOrigin(TreeItem* vs, int& lsId);
+    bool                                   findOrigin(TreeItem* vs,  Sample* sample,  int& lsId);
     bool                                   getOutsideALS(int& id);
     bool                                   getVesselsBlackList(const Sample* sample, QVector<int>& vVesselsBlackList);
 

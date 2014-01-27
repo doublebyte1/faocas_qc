@@ -5,6 +5,8 @@ plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/moc_rectangle.cxx.o: ../
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/moc_rectangle.cxx.o: ../libs/report/iteminterface.h
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/moc_rectangle.cxx.o: plugins/report/items/rectangle/../../../../../plugins/report/items/rectangle/rectangle.h
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/moc_rectangle.cxx.o: plugins/report/items/rectangle/moc_rectangle.cxx
+plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/moc_rectangle.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/moc_rectangle.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/moc_rectangle.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/moc_rectangle.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/moc_rectangle.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -249,6 +251,8 @@ plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/rectangle.cpp.o: ../libs
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/rectangle.cpp.o: ../libs/report/iteminterface.h
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/rectangle.cpp.o: ../plugins/report/items/rectangle/rectangle.cpp
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/rectangle.cpp.o: ../plugins/report/items/rectangle/rectangle.h
+plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/rectangle.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/rectangle.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/rectangle.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/rectangle.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/rectangle.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

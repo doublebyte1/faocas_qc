@@ -3,6 +3,8 @@
 
 lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: lib/../../lib/propertydelegate.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: lib/moc_propertydelegate.cxx
+lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qabstractitemmodel.h
@@ -48,6 +50,7 @@ lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trollte
 lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -120,6 +123,8 @@ lib/CMakeFiles/PropertyEditor.dir/moc_propertydelegate.cxx.o: /usr/local/Trollte
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: lib/../../lib/propertyeditor.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: lib/../../lib/propertyvalidator.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: lib/moc_propertyeditor.cxx
+lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -166,6 +171,7 @@ lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -242,6 +248,7 @@ lib/CMakeFiles/PropertyEditor.dir/moc_propertyeditor.cxx.o: /usr/local/Trolltech
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyinterface.cxx.o: lib/../../lib/propertyinterface.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyinterface.cxx.o: lib/../../lib/propertyvalidator.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyinterface.cxx.o: lib/moc_propertyinterface.cxx
+lib/CMakeFiles/PropertyEditor.dir/moc_propertyinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -305,6 +312,7 @@ lib/CMakeFiles/PropertyEditor.dir/moc_propertyinterface.cxx.o: /usr/local/Trollt
 
 lib/CMakeFiles/PropertyEditor.dir/moc_propertymodel.cxx.o: lib/../../lib/propertymodel.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertymodel.cxx.o: lib/moc_propertymodel.cxx
+lib/CMakeFiles/PropertyEditor.dir/moc_propertymodel.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertymodel.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
 lib/CMakeFiles/PropertyEditor.dir/moc_propertymodel.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 lib/CMakeFiles/PropertyEditor.dir/moc_propertymodel.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointer
@@ -364,6 +372,7 @@ lib/CMakeFiles/PropertyEditor.dir/moc_propertymodel.cxx.o: /usr/local/Trolltech/
 
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyvalidator.cxx.o: lib/../../lib/propertyvalidator.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyvalidator.cxx.o: lib/moc_propertyvalidator.cxx
+lib/CMakeFiles/PropertyEditor.dir/moc_propertyvalidator.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyvalidator.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyvalidator.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qatomic.h
 lib/CMakeFiles/PropertyEditor.dir/moc_propertyvalidator.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qatomic_alpha.h
@@ -424,6 +433,8 @@ lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: ../lib/propertydelegat
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: ../lib/propertydelegate.h
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: ../lib/propertyinterface.h
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: ../lib/propertyvalidator.h
+lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -476,6 +487,7 @@ lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Q
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 lib/CMakeFiles/PropertyEditor.dir/propertydelegate.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -562,6 +574,8 @@ lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: ../lib/propertyeditor.h
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: ../lib/propertyinterface.h
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: ../lib/propertymodel.h
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: ../lib/propertyvalidator.h
+lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDebug
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDir
@@ -626,6 +640,7 @@ lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlibrary.h
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 lib/CMakeFiles/PropertyEditor.dir/propertyeditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -715,6 +730,8 @@ lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: ../lib/propertyinterf
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: ../lib/propertyinterface.h
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: ../lib/propertymodel.h
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: ../lib/propertyvalidator.h
+lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -768,6 +785,7 @@ lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 lib/CMakeFiles/PropertyEditor.dir/propertyinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -847,6 +865,7 @@ lib/CMakeFiles/PropertyEditor.dir/propertymodel.cpp.o: ../lib/propertyinterface.
 lib/CMakeFiles/PropertyEditor.dir/propertymodel.cpp.o: ../lib/propertymodel.cpp
 lib/CMakeFiles/PropertyEditor.dir/propertymodel.cpp.o: ../lib/propertymodel.h
 lib/CMakeFiles/PropertyEditor.dir/propertymodel.cpp.o: ../lib/propertyvalidator.h
+lib/CMakeFiles/PropertyEditor.dir/propertymodel.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 lib/CMakeFiles/PropertyEditor.dir/propertymodel.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
 lib/CMakeFiles/PropertyEditor.dir/propertymodel.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 lib/CMakeFiles/PropertyEditor.dir/propertymodel.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum

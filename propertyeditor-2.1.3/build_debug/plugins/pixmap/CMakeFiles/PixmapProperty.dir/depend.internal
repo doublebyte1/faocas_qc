@@ -6,6 +6,7 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmap.cxx.o
  ../lib/propertyvalidator.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/pixmap/../../../plugins/pixmap/pixmap.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/pixmap/moc_pixmap.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -69,6 +70,8 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmap.cxx.o
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/pixmap/../../../plugins/pixmap/pixmapdialog.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/pixmap/moc_pixmapdialog.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -118,6 +121,7 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/moc_pixmapdialog.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -226,6 +230,8 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/pixmap/pixmap.cpp
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/pixmap/pixmap.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/pixmap/pixmapdialog.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -481,6 +487,8 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmap.cpp.o
 plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/pixmap/pixmapdialog.cpp
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/pixmap/pixmapdialog.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -532,6 +540,7 @@ plugins/pixmap/CMakeFiles/PixmapProperty.dir/pixmapdialog.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

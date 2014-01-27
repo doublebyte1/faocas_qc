@@ -6,6 +6,8 @@ plugins/report/bands/title/CMakeFiles/Title.dir/moc_title.cxx.o: ../libs/report/
 plugins/report/bands/title/CMakeFiles/Title.dir/moc_title.cxx.o: ../libs/report/iteminterface.h
 plugins/report/bands/title/CMakeFiles/Title.dir/moc_title.cxx.o: plugins/report/bands/title/../../../../../plugins/report/bands/title/title.h
 plugins/report/bands/title/CMakeFiles/Title.dir/moc_title.cxx.o: plugins/report/bands/title/moc_title.cxx
+plugins/report/bands/title/CMakeFiles/Title.dir/moc_title.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/title/CMakeFiles/Title.dir/moc_title.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/title/CMakeFiles/Title.dir/moc_title.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/title/CMakeFiles/Title.dir/moc_title.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/title/CMakeFiles/Title.dir/moc_title.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -250,6 +252,8 @@ plugins/report/bands/title/CMakeFiles/Title.dir/title.cpp.o: ../libs/report/glob
 plugins/report/bands/title/CMakeFiles/Title.dir/title.cpp.o: ../libs/report/iteminterface.h
 plugins/report/bands/title/CMakeFiles/Title.dir/title.cpp.o: ../plugins/report/bands/title/title.cpp
 plugins/report/bands/title/CMakeFiles/Title.dir/title.cpp.o: ../plugins/report/bands/title/title.h
+plugins/report/bands/title/CMakeFiles/Title.dir/title.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/title/CMakeFiles/Title.dir/title.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/title/CMakeFiles/Title.dir/title.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/title/CMakeFiles/Title.dir/title.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/title/CMakeFiles/Title.dir/title.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

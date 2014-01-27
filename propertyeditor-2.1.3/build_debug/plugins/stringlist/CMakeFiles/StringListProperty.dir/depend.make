@@ -5,6 +5,7 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlist.cxx.o: ../li
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlist.cxx.o: ../lib/propertyvalidator.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlist.cxx.o: plugins/stringlist/../../../plugins/stringlist/stringlist.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlist.cxx.o: plugins/stringlist/moc_stringlist.cxx
+plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlist.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -68,6 +69,8 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlist.cxx.o: /usr/
 
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: plugins/stringlist/../../../plugins/stringlist/stringlisteditor.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: plugins/stringlist/moc_stringlisteditor.cxx
+plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -117,6 +120,7 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o:
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/moc_stringlisteditor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -239,6 +243,8 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o: ../lib/pr
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o: ../plugins/stringlist/stringlist.cpp
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o: ../plugins/stringlist/stringlist.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o: ../plugins/stringlist/stringlisteditor.h
+plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -503,6 +509,8 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlist.cpp.o: plugins/s
 
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: ../plugins/stringlist/stringlisteditor.cpp
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: ../plugins/stringlist/stringlisteditor.h
+plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QTextStream
@@ -555,6 +563,7 @@ plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /us
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/stringlist/CMakeFiles/StringListProperty.dir/stringlisteditor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

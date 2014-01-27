@@ -6,6 +6,8 @@ plugins/report/bands/overlay/CMakeFiles/Overlay.dir/moc_overlay.cxx.o: ../libs/r
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/moc_overlay.cxx.o: ../libs/report/iteminterface.h
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/moc_overlay.cxx.o: plugins/report/bands/overlay/../../../../../plugins/report/bands/overlay/overlay.h
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/moc_overlay.cxx.o: plugins/report/bands/overlay/moc_overlay.cxx
+plugins/report/bands/overlay/CMakeFiles/Overlay.dir/moc_overlay.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/overlay/CMakeFiles/Overlay.dir/moc_overlay.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/moc_overlay.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/moc_overlay.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/moc_overlay.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -245,6 +247,8 @@ plugins/report/bands/overlay/CMakeFiles/Overlay.dir/overlay.cpp.o: ../libs/repor
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/overlay.cpp.o: ../libs/report/iteminterface.h
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/overlay.cpp.o: ../plugins/report/bands/overlay/overlay.cpp
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/overlay.cpp.o: ../plugins/report/bands/overlay/overlay.h
+plugins/report/bands/overlay/CMakeFiles/Overlay.dir/overlay.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/overlay/CMakeFiles/Overlay.dir/overlay.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/overlay.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/overlay.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/overlay/CMakeFiles/Overlay.dir/overlay.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

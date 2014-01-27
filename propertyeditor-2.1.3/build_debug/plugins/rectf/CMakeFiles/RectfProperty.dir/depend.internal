@@ -6,6 +6,7 @@ plugins/rectf/CMakeFiles/RectfProperty.dir/moc_rectf.cxx.o
  ../lib/propertyvalidator.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/rectf/../../../plugins/rectf/rectf.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/rectf/moc_rectf.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -71,6 +72,8 @@ plugins/rectf/CMakeFiles/RectfProperty.dir/rectf.cpp.o
  ../lib/propertyvalidator.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/rectf/rectf.cpp
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/rectf/rectf.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum

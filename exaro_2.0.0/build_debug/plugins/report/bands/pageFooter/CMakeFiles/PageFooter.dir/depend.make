@@ -6,6 +6,8 @@ plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/moc_pagefooter.cxx.o: 
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/moc_pagefooter.cxx.o: ../libs/report/iteminterface.h
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/moc_pagefooter.cxx.o: plugins/report/bands/pageFooter/../../../../../plugins/report/bands/pageFooter/pagefooter.h
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/moc_pagefooter.cxx.o: plugins/report/bands/pageFooter/moc_pagefooter.cxx
+plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/moc_pagefooter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/moc_pagefooter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/moc_pagefooter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/moc_pagefooter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/moc_pagefooter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -245,6 +247,8 @@ plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/pagefooter.cpp.o: ../l
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/pagefooter.cpp.o: ../libs/report/iteminterface.h
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/pagefooter.cpp.o: ../plugins/report/bands/pageFooter/pagefooter.cpp
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/pagefooter.cpp.o: ../plugins/report/bands/pageFooter/pagefooter.h
+plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/pagefooter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/pagefooter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/pagefooter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/pagefooter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/pageFooter/CMakeFiles/PageFooter.dir/pagefooter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

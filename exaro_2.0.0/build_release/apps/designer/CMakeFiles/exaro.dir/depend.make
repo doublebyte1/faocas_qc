@@ -3,6 +3,8 @@
 
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: ../apps/designer/aboutdialog.cpp
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: ../apps/designer/aboutdialog.h
+apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -52,6 +54,7 @@ apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -180,6 +183,8 @@ apps/designer/CMakeFiles/exaro.dir/command.cpp.o: ../apps/designer/designerquery
 apps/designer/CMakeFiles/exaro.dir/command.cpp.o: ../apps/designer/designeruiwidget.h
 apps/designer/CMakeFiles/exaro.dir/command.cpp.o: ../apps/designer/mainwindow.h
 apps/designer/CMakeFiles/exaro.dir/command.cpp.o: ../apps/designer/objectmodel.h
+apps/designer/CMakeFiles/exaro.dir/command.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/command.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/command.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
 apps/designer/CMakeFiles/exaro.dir/command.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/command.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
@@ -489,6 +494,8 @@ apps/designer/CMakeFiles/exaro.dir/designerpage.cpp.o: ../libs/report/globals.h
 apps/designer/CMakeFiles/exaro.dir/designerpage.cpp.o: ../libs/report/iteminterface.h
 apps/designer/CMakeFiles/exaro.dir/designerpage.cpp.o: ../apps/designer/designerpage.cpp
 apps/designer/CMakeFiles/exaro.dir/designerpage.cpp.o: ../apps/designer/designerpage.h
+apps/designer/CMakeFiles/exaro.dir/designerpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/designerpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/designerpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/designerpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 apps/designer/CMakeFiles/exaro.dir/designerpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -736,6 +743,8 @@ apps/designer/CMakeFiles/exaro.dir/designerpage.cpp.o: /usr/local/Trolltech/Qt-4
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: ../apps/designer/designerquerywidget.cpp
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: ../apps/designer/designerquerywidget.h
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: ../apps/designer/queryeditdialog.h
+apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -785,6 +794,7 @@ apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trollte
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -907,6 +917,8 @@ apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o: apps/designer/ui_d
 
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: ../apps/designer/designeruitype.cpp
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: ../apps/designer/designeruitype.h
+apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -956,6 +968,7 @@ apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -1056,6 +1069,8 @@ apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o: apps/designer/ui_design
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: ../apps/designer/designeruitype.h
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: ../apps/designer/designeruiwidget.cpp
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: ../apps/designer/designeruiwidget.h
+apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QBuffer
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDebug
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDir
@@ -1117,6 +1132,7 @@ apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -1242,6 +1258,8 @@ apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o: apps/designer/ui_desi
 
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: ../apps/designer/exaroapplication.cpp
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: ../apps/designer/exaroapplication.h
+apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -1291,6 +1309,7 @@ apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -1408,6 +1427,8 @@ apps/designer/CMakeFiles/exaro.dir/fieldswizardpage.cpp.o: ../libs/report/report
 apps/designer/CMakeFiles/exaro.dir/fieldswizardpage.cpp.o: ../libs/report/reportinterface.h
 apps/designer/CMakeFiles/exaro.dir/fieldswizardpage.cpp.o: ../apps/designer/fieldswizardpage.cpp
 apps/designer/CMakeFiles/exaro.dir/fieldswizardpage.cpp.o: ../apps/designer/fieldswizardpage.h
+apps/designer/CMakeFiles/exaro.dir/fieldswizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/fieldswizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/fieldswizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/fieldswizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/fieldswizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -1723,6 +1744,8 @@ apps/designer/CMakeFiles/exaro.dir/groupwizardpage.cpp.o: ../libs/report/reporte
 apps/designer/CMakeFiles/exaro.dir/groupwizardpage.cpp.o: ../libs/report/reportinterface.h
 apps/designer/CMakeFiles/exaro.dir/groupwizardpage.cpp.o: ../apps/designer/groupwizardpage.cpp
 apps/designer/CMakeFiles/exaro.dir/groupwizardpage.cpp.o: ../apps/designer/groupwizardpage.h
+apps/designer/CMakeFiles/exaro.dir/groupwizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/groupwizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/groupwizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/groupwizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/groupwizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -2046,6 +2069,8 @@ apps/designer/CMakeFiles/exaro.dir/main.cpp.o: ../apps/designer/main.cpp
 apps/designer/CMakeFiles/exaro.dir/main.cpp.o: ../apps/designer/mainwindow.h
 apps/designer/CMakeFiles/exaro.dir/main.cpp.o: ../apps/designer/objectmodel.h
 apps/designer/CMakeFiles/exaro.dir/main.cpp.o: ../apps/designer/x86_64-signal.h
+apps/designer/CMakeFiles/exaro.dir/main.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/main.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/main.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
 apps/designer/CMakeFiles/exaro.dir/main.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/main.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDir
@@ -2370,6 +2395,8 @@ apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o: ../apps/designer/optionsdia
 apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o: ../apps/designer/reportwizard.h
 apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o: ../apps/designer/scripteditdialog.h
 apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o: ../apps/designer/sqldatabasedialog.h
+apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
 apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDateTime
@@ -2733,6 +2760,8 @@ apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o: apps/designer/ui_sqldatabas
 
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: apps/designer/../../../apps/designer/aboutdialog.h
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: apps/designer/moc_aboutdialog.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -2782,6 +2811,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Q
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -2900,6 +2930,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o: ../libs/report/global
 apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o: ../libs/report/iteminterface.h
 apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o: apps/designer/../../../apps/designer/designerpage.h
 apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o: apps/designer/moc_designerpage.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -3139,6 +3171,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o: /usr/local/Trolltech/
 
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: apps/designer/../../../apps/designer/designerquerywidget.h
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: apps/designer/moc_designerquerywidget.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -3188,6 +3222,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Tro
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -3287,6 +3322,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o: apps/designer/
 
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: apps/designer/../../../apps/designer/designeruitype.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: apps/designer/moc_designeruitype.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -3336,6 +3373,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltec
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -3435,6 +3473,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o: apps/designer/ui_de
 
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: apps/designer/../../../apps/designer/designeruiwidget.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: apps/designer/moc_designeruiwidget.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -3484,6 +3524,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trollt
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -3583,6 +3624,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o: apps/designer/ui_
 
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: apps/designer/../../../apps/designer/exaroapplication.h
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: apps/designer/moc_exaroapplication.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -3630,6 +3673,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trollt
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -3697,6 +3741,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_fieldswizardpage.cxx.o: ../libs/report/re
 apps/designer/CMakeFiles/exaro.dir/moc_fieldswizardpage.cxx.o: ../libs/report/reportinterface.h
 apps/designer/CMakeFiles/exaro.dir/moc_fieldswizardpage.cxx.o: apps/designer/../../../apps/designer/fieldswizardpage.h
 apps/designer/CMakeFiles/exaro.dir/moc_fieldswizardpage.cxx.o: apps/designer/moc_fieldswizardpage.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_fieldswizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_fieldswizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_fieldswizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/moc_fieldswizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/moc_fieldswizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -3999,6 +4045,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_groupwizardpage.cxx.o: ../libs/report/rep
 apps/designer/CMakeFiles/exaro.dir/moc_groupwizardpage.cxx.o: ../libs/report/reportinterface.h
 apps/designer/CMakeFiles/exaro.dir/moc_groupwizardpage.cxx.o: apps/designer/../../../apps/designer/groupwizardpage.h
 apps/designer/CMakeFiles/exaro.dir/moc_groupwizardpage.cxx.o: apps/designer/moc_groupwizardpage.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_groupwizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_groupwizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_groupwizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/moc_groupwizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/moc_groupwizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -4306,6 +4354,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_mainwindow.cxx.o: apps/designer/../../../
 apps/designer/CMakeFiles/exaro.dir/moc_mainwindow.cxx.o: apps/designer/../../../apps/designer/mainwindow.h
 apps/designer/CMakeFiles/exaro.dir/moc_mainwindow.cxx.o: apps/designer/../../../apps/designer/objectmodel.h
 apps/designer/CMakeFiles/exaro.dir/moc_mainwindow.cxx.o: apps/designer/moc_mainwindow.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_mainwindow.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_mainwindow.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_mainwindow.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
 apps/designer/CMakeFiles/exaro.dir/moc_mainwindow.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/moc_mainwindow.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
@@ -4610,6 +4660,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_mainwindow.cxx.o: apps/designer/ui_mainwi
 apps/designer/CMakeFiles/exaro.dir/moc_namevalidator.cxx.o: /home/joana/git/faocas_qc/exaro-package/propertyeditor/release/include/propertyvalidator.h
 apps/designer/CMakeFiles/exaro.dir/moc_namevalidator.cxx.o: apps/designer/../../../apps/designer/namevalidator.h
 apps/designer/CMakeFiles/exaro.dir/moc_namevalidator.cxx.o: apps/designer/moc_namevalidator.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_namevalidator.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 apps/designer/CMakeFiles/exaro.dir/moc_namevalidator.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
 apps/designer/CMakeFiles/exaro.dir/moc_namevalidator.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qatomic.h
 apps/designer/CMakeFiles/exaro.dir/moc_namevalidator.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qatomic_alpha.h
@@ -4668,6 +4719,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_namevalidator.cxx.o: /usr/local/Trolltech
 
 apps/designer/CMakeFiles/exaro.dir/moc_objectmodel.cxx.o: apps/designer/../../../apps/designer/objectmodel.h
 apps/designer/CMakeFiles/exaro.dir/moc_objectmodel.cxx.o: apps/designer/moc_objectmodel.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_objectmodel.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 apps/designer/CMakeFiles/exaro.dir/moc_objectmodel.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
 apps/designer/CMakeFiles/exaro.dir/moc_objectmodel.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qabstractitemmodel.h
 apps/designer/CMakeFiles/exaro.dir/moc_objectmodel.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -4724,6 +4776,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_objectmodel.cxx.o: /usr/local/Trolltech/Q
 
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: apps/designer/../../../apps/designer/optionsdialog.h
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: apps/designer/moc_optionsdialog.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -4773,6 +4827,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -4892,6 +4947,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o: ../libs/report/repo
 apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o: ../libs/report/reportinterface.h
 apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o: apps/designer/../../../apps/designer/pagewizardpage.h
 apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o: apps/designer/moc_pagewizardpage.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -5184,6 +5241,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o: apps/designer/ui_pa
 
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: apps/designer/../../../apps/designer/queryeditdialog.h
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: apps/designer/moc_queryeditdialog.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -5228,6 +5287,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trollte
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -5322,6 +5382,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_querywizardpage.cxx.o: ../libs/report/rep
 apps/designer/CMakeFiles/exaro.dir/moc_querywizardpage.cxx.o: ../libs/report/reportinterface.h
 apps/designer/CMakeFiles/exaro.dir/moc_querywizardpage.cxx.o: apps/designer/../../../apps/designer/querywizardpage.h
 apps/designer/CMakeFiles/exaro.dir/moc_querywizardpage.cxx.o: apps/designer/moc_querywizardpage.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_querywizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_querywizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_querywizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/moc_querywizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/moc_querywizardpage.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -5615,6 +5677,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o: ../libs/report/report
 apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o: ../libs/report/reportinterface.h
 apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o: apps/designer/../../../apps/designer/reportwizard.h
 apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o: apps/designer/moc_reportwizard.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -5874,6 +5938,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o: /usr/local/Trolltech/
 
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: apps/designer/../../../apps/designer/scripteditdialog.h
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: apps/designer/moc_scripteditdialog.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -5918,6 +5984,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trollt
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -6006,6 +6073,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o: /usr/local/Trollt
 
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: apps/designer/../../../apps/designer/scriptsyntaxhighlighter.h
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: apps/designer/moc_scriptsyntaxhighlighter.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -6049,6 +6118,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmetatype.h
@@ -6098,6 +6168,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o: /usr/local
 
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: apps/designer/../../../apps/designer/sqldatabasedialog.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: apps/designer/moc_sqldatabasedialog.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -6147,6 +6219,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Troll
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -6258,6 +6331,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o: apps/designer/ui
 
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: apps/designer/../../../apps/designer/sqlsyntaxhighlighter.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: apps/designer/moc_sqlsyntaxhighlighter.cxx
+apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -6301,6 +6376,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Tr
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmetatype.h
@@ -6351,6 +6427,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o: /usr/local/Tr
 apps/designer/CMakeFiles/exaro.dir/namevalidator.cpp.o: /home/joana/git/faocas_qc/exaro-package/propertyeditor/release/include/propertyvalidator.h
 apps/designer/CMakeFiles/exaro.dir/namevalidator.cpp.o: ../apps/designer/namevalidator.cpp
 apps/designer/CMakeFiles/exaro.dir/namevalidator.cpp.o: ../apps/designer/namevalidator.h
+apps/designer/CMakeFiles/exaro.dir/namevalidator.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 apps/designer/CMakeFiles/exaro.dir/namevalidator.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
 apps/designer/CMakeFiles/exaro.dir/namevalidator.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qatomic.h
 apps/designer/CMakeFiles/exaro.dir/namevalidator.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qatomic_alpha.h
@@ -6409,6 +6486,7 @@ apps/designer/CMakeFiles/exaro.dir/namevalidator.cpp.o: /usr/local/Trolltech/Qt-
 
 apps/designer/CMakeFiles/exaro.dir/objectmodel.cpp.o: ../apps/designer/objectmodel.cpp
 apps/designer/CMakeFiles/exaro.dir/objectmodel.cpp.o: ../apps/designer/objectmodel.h
+apps/designer/CMakeFiles/exaro.dir/objectmodel.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 apps/designer/CMakeFiles/exaro.dir/objectmodel.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
 apps/designer/CMakeFiles/exaro.dir/objectmodel.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qabstractitemmodel.h
 apps/designer/CMakeFiles/exaro.dir/objectmodel.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -6465,6 +6543,8 @@ apps/designer/CMakeFiles/exaro.dir/objectmodel.cpp.o: /usr/local/Trolltech/Qt-4.
 
 apps/designer/CMakeFiles/exaro.dir/optionsdialog.cpp.o: ../apps/designer/optionsdialog.cpp
 apps/designer/CMakeFiles/exaro.dir/optionsdialog.cpp.o: ../apps/designer/optionsdialog.h
+apps/designer/CMakeFiles/exaro.dir/optionsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/optionsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/optionsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/optionsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 apps/designer/CMakeFiles/exaro.dir/optionsdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -6907,6 +6987,8 @@ apps/designer/CMakeFiles/exaro.dir/pagewizardpage.cpp.o: ../libs/report/reporten
 apps/designer/CMakeFiles/exaro.dir/pagewizardpage.cpp.o: ../libs/report/reportinterface.h
 apps/designer/CMakeFiles/exaro.dir/pagewizardpage.cpp.o: ../apps/designer/pagewizardpage.cpp
 apps/designer/CMakeFiles/exaro.dir/pagewizardpage.cpp.o: ../apps/designer/pagewizardpage.h
+apps/designer/CMakeFiles/exaro.dir/pagewizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/pagewizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/pagewizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/pagewizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/pagewizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -7207,6 +7289,8 @@ apps/designer/CMakeFiles/exaro.dir/qrc_report.cxx.o: /usr/local/Trolltech/Qt-4.8
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: ../apps/designer/queryeditdialog.cpp
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: ../apps/designer/queryeditdialog.h
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: ../apps/designer/sqlsyntaxhighlighter.h
+apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qabstractitemmodel.h
@@ -7252,6 +7336,7 @@ apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Q
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -7377,6 +7462,8 @@ apps/designer/CMakeFiles/exaro.dir/querywizardpage.cpp.o: ../apps/designer/query
 apps/designer/CMakeFiles/exaro.dir/querywizardpage.cpp.o: ../apps/designer/querywizardpage.cpp
 apps/designer/CMakeFiles/exaro.dir/querywizardpage.cpp.o: ../apps/designer/querywizardpage.h
 apps/designer/CMakeFiles/exaro.dir/querywizardpage.cpp.o: ../apps/designer/sqldatabasedialog.h
+apps/designer/CMakeFiles/exaro.dir/querywizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/querywizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/querywizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/querywizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/querywizardpage.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -7705,6 +7792,8 @@ apps/designer/CMakeFiles/exaro.dir/reportwizard.cpp.o: ../apps/designer/pagewiza
 apps/designer/CMakeFiles/exaro.dir/reportwizard.cpp.o: ../apps/designer/querywizardpage.h
 apps/designer/CMakeFiles/exaro.dir/reportwizard.cpp.o: ../apps/designer/reportwizard.cpp
 apps/designer/CMakeFiles/exaro.dir/reportwizard.cpp.o: ../apps/designer/reportwizard.h
+apps/designer/CMakeFiles/exaro.dir/reportwizard.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/reportwizard.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/reportwizard.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/CMakeFiles/exaro.dir/reportwizard.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/reportwizard.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -8010,6 +8099,8 @@ apps/designer/CMakeFiles/exaro.dir/reportwizard.cpp.o: apps/designer/ui_querywiz
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: ../apps/designer/scripteditdialog.cpp
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: ../apps/designer/scripteditdialog.h
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: ../apps/designer/scriptsyntaxhighlighter.h
+apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -8054,6 +8145,7 @@ apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -8154,6 +8246,8 @@ apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o: /usr/local/Trolltech/
 
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: ../apps/designer/scriptsyntaxhighlighter.cpp
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: ../apps/designer/scriptsyntaxhighlighter.h
+apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -8199,6 +8293,7 @@ apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Tro
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmetatype.h
@@ -8248,6 +8343,8 @@ apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o: /usr/local/Tro
 
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: ../apps/designer/sqldatabasedialog.cpp
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: ../apps/designer/sqldatabasedialog.h
+apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDir
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -8301,6 +8398,7 @@ apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -8425,6 +8523,8 @@ apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o: apps/designer/ui_sql
 
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: ../apps/designer/sqlsyntaxhighlighter.cpp
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: ../apps/designer/sqlsyntaxhighlighter.h
+apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -8470,6 +8570,7 @@ apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trollt
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmetatype.h

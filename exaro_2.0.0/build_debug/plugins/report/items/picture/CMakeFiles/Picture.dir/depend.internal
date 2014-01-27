@@ -6,6 +6,8 @@ plugins/report/items/picture/CMakeFiles/Picture.dir/moc_picture.cxx.o
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/items/picture/../../../../../plugins/report/items/picture/picture.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/items/picture/moc_picture.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -244,6 +246,8 @@ plugins/report/items/picture/CMakeFiles/Picture.dir/picture.cpp.o
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/items/picture/picture.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/items/picture/picture.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

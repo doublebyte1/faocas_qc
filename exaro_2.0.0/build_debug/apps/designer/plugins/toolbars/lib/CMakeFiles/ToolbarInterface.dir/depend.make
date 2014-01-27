@@ -3,6 +3,8 @@
 
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: apps/designer/plugins/toolbars/lib/../../../../../../apps/designer/plugins/toolbars/lib/toolbarinterface.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: apps/designer/plugins/toolbars/lib/moc_toolbarinterface.cxx
+apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -47,6 +49,7 @@ apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarin
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -105,6 +108,8 @@ apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarin
 
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: ../apps/designer/plugins/toolbars/lib/toolbarinterface.cpp
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: ../apps/designer/plugins/toolbars/lib/toolbarinterface.h
+apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -149,6 +154,7 @@ apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterf
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h

@@ -3,6 +3,8 @@
 
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/fonttoolbar.cpp.o: ../apps/designer/plugins/toolbars/font/fonttoolbar.cpp
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/fonttoolbar.cpp.o: ../apps/designer/plugins/toolbars/font/fonttoolbar.h
+apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/fonttoolbar.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/fonttoolbar.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/fonttoolbar.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/fonttoolbar.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/fonttoolbar.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -231,6 +233,8 @@ apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/fonttoolbar.cpp.o
 
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: apps/designer/plugins/toolbars/font/../../../../../../apps/designer/plugins/toolbars/font/fonttoolbar.h
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: apps/designer/plugins/toolbars/font/moc_fonttoolbar.cxx
+apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qabstractitemmodel.h
@@ -276,6 +280,7 @@ apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.c
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

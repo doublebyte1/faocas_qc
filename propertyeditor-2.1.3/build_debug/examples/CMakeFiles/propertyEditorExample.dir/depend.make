@@ -4,6 +4,8 @@
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: ../lib/propertyeditor.h
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: ../lib/propertyvalidator.h
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: ../examples/example.cpp
+examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDebug
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -56,6 +58,7 @@ examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltec
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 examples/CMakeFiles/propertyEditorExample.dir/example.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

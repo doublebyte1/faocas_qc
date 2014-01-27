@@ -7,6 +7,8 @@ plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/detailheader.cpp.o
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/bands/detailHeader/detailheader.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/bands/detailHeader/detailheader.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -246,6 +248,8 @@ plugins/report/bands/detailHeader/CMakeFiles/DetailHeader.dir/moc_detailheader.c
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/bands/detailHeader/../../../../../plugins/report/bands/detailHeader/detailheader.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/bands/detailHeader/moc_detailheader.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

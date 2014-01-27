@@ -9,6 +9,8 @@ plugins/report/items/formula/CMakeFiles/Formula.dir/formula.cpp.o: ../libs/repor
 plugins/report/items/formula/CMakeFiles/Formula.dir/formula.cpp.o: ../libs/report/sqlquery.h
 plugins/report/items/formula/CMakeFiles/Formula.dir/formula.cpp.o: ../plugins/report/items/formula/formula.cpp
 plugins/report/items/formula/CMakeFiles/Formula.dir/formula.cpp.o: ../plugins/report/items/formula/formula.h
+plugins/report/items/formula/CMakeFiles/Formula.dir/formula.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/formula/CMakeFiles/Formula.dir/formula.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/formula/CMakeFiles/Formula.dir/formula.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/formula/CMakeFiles/Formula.dir/formula.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 plugins/report/items/formula/CMakeFiles/Formula.dir/formula.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -269,6 +271,8 @@ plugins/report/items/formula/CMakeFiles/Formula.dir/moc_formula.cxx.o: ../libs/r
 plugins/report/items/formula/CMakeFiles/Formula.dir/moc_formula.cxx.o: ../libs/report/iteminterface.h
 plugins/report/items/formula/CMakeFiles/Formula.dir/moc_formula.cxx.o: plugins/report/items/formula/../../../../../plugins/report/items/formula/formula.h
 plugins/report/items/formula/CMakeFiles/Formula.dir/moc_formula.cxx.o: plugins/report/items/formula/moc_formula.cxx
+plugins/report/items/formula/CMakeFiles/Formula.dir/moc_formula.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/formula/CMakeFiles/Formula.dir/moc_formula.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/formula/CMakeFiles/Formula.dir/moc_formula.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/formula/CMakeFiles/Formula.dir/moc_formula.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/formula/CMakeFiles/Formula.dir/moc_formula.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

@@ -5,6 +5,8 @@ plugins/report/export/html/CMakeFiles/Html.dir/html.cpp.o: ../libs/report/export
 plugins/report/export/html/CMakeFiles/Html.dir/html.cpp.o: ../libs/report/globals.h
 plugins/report/export/html/CMakeFiles/Html.dir/html.cpp.o: ../plugins/report/export/html/html.cpp
 plugins/report/export/html/CMakeFiles/Html.dir/html.cpp.o: ../plugins/report/export/html/html.h
+plugins/report/export/html/CMakeFiles/Html.dir/html.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/export/html/CMakeFiles/Html.dir/html.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/export/html/CMakeFiles/Html.dir/html.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/export/html/CMakeFiles/Html.dir/html.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/export/html/CMakeFiles/Html.dir/html.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -220,6 +222,7 @@ plugins/report/export/html/CMakeFiles/Html.dir/moc_html.cxx.o: ../libs/report/ex
 plugins/report/export/html/CMakeFiles/Html.dir/moc_html.cxx.o: ../libs/report/globals.h
 plugins/report/export/html/CMakeFiles/Html.dir/moc_html.cxx.o: plugins/report/export/html/../../../../../plugins/report/export/html/html.h
 plugins/report/export/html/CMakeFiles/Html.dir/moc_html.cxx.o: plugins/report/export/html/moc_html.cxx
+plugins/report/export/html/CMakeFiles/Html.dir/moc_html.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/report/export/html/CMakeFiles/Html.dir/moc_html.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/export/html/CMakeFiles/Html.dir/moc_html.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/report/export/html/CMakeFiles/Html.dir/moc_html.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF

@@ -6,6 +6,8 @@ plugins/report/items/arc/CMakeFiles/Arc.dir/arc.cpp.o: ../libs/report/globals.h
 plugins/report/items/arc/CMakeFiles/Arc.dir/arc.cpp.o: ../libs/report/iteminterface.h
 plugins/report/items/arc/CMakeFiles/Arc.dir/arc.cpp.o: ../plugins/report/items/arc/arc.cpp
 plugins/report/items/arc/CMakeFiles/Arc.dir/arc.cpp.o: ../plugins/report/items/arc/arc.h
+plugins/report/items/arc/CMakeFiles/Arc.dir/arc.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/arc/CMakeFiles/Arc.dir/arc.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/arc/CMakeFiles/Arc.dir/arc.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/arc/CMakeFiles/Arc.dir/arc.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/arc/CMakeFiles/Arc.dir/arc.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -244,6 +246,8 @@ plugins/report/items/arc/CMakeFiles/Arc.dir/moc_arc.cxx.o: ../libs/report/global
 plugins/report/items/arc/CMakeFiles/Arc.dir/moc_arc.cxx.o: ../libs/report/iteminterface.h
 plugins/report/items/arc/CMakeFiles/Arc.dir/moc_arc.cxx.o: plugins/report/items/arc/../../../../../plugins/report/items/arc/arc.h
 plugins/report/items/arc/CMakeFiles/Arc.dir/moc_arc.cxx.o: plugins/report/items/arc/moc_arc.cxx
+plugins/report/items/arc/CMakeFiles/Arc.dir/moc_arc.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/arc/CMakeFiles/Arc.dir/moc_arc.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/arc/CMakeFiles/Arc.dir/moc_arc.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/arc/CMakeFiles/Arc.dir/moc_arc.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/arc/CMakeFiles/Arc.dir/moc_arc.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

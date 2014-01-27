@@ -6,6 +6,8 @@ plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/moc_piechart.cxx.o:
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/moc_piechart.cxx.o: ../plugins/report/items/charts/chartinterface/chartinterface.h
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/moc_piechart.cxx.o: plugins/report/items/charts/piechart/../../../../../../plugins/report/items/charts/piechart/piechart.h
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/moc_piechart.cxx.o: plugins/report/items/charts/piechart/moc_piechart.cxx
+plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/moc_piechart.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/moc_piechart.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/moc_piechart.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/moc_piechart.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/moc_piechart.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -246,6 +248,8 @@ plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/piechart.cpp.o: ../
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/piechart.cpp.o: ../plugins/report/items/charts/chartinterface/chartinterface.h
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/piechart.cpp.o: ../plugins/report/items/charts/piechart/piechart.cpp
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/piechart.cpp.o: ../plugins/report/items/charts/piechart/piechart.h
+plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/piechart.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/piechart.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/piechart.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/piechart.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/charts/piechart/CMakeFiles/Piechart.dir/piechart.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

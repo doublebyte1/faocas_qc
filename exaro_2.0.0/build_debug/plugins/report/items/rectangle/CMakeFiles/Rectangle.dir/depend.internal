@@ -6,6 +6,8 @@ plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/moc_rectangle.cxx.o
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/items/rectangle/../../../../../plugins/report/items/rectangle/rectangle.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/items/rectangle/moc_rectangle.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -250,6 +252,8 @@ plugins/report/items/rectangle/CMakeFiles/Rectangle.dir/rectangle.cpp.o
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/items/rectangle/rectangle.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/items/rectangle/rectangle.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

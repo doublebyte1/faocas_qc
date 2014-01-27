@@ -120,7 +120,7 @@ void conf_app::initModels()
     roleModel->sort(0,Qt::AscendingOrder);
     roleModel->select();
 }
-
+/*
 void conf_app::doBackup()
 {
     if (!m_bConnected){
@@ -170,7 +170,7 @@ void conf_app::doBackup()
         qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
     }
 }
-
+*/
 QString conf_app::getOutputName(const QString strExt)
 {
     QString str;
@@ -425,7 +425,7 @@ void conf_app::processFinished()
      }
      statusShow(tr("Temporary script file sucessfully removed!"));
 }
-
+/*
 void conf_app::doRestore()
 {
     if (m_bConnected){
@@ -484,7 +484,7 @@ void conf_app::doRestore()
     } else
         qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
 }
-
+*/
 bool conf_app::runScript(const QString strScript, QStringList& args)
 {
         QFile file(QDir::tempPath() + QDir::separator() + "MyScript.sql");
@@ -576,7 +576,7 @@ bool conf_app::writeDiff(const QString strFileName, const int lu, const QString 
 
     return true;
 }
-
+/*
 bool conf_app::startPatchSession(const QString strDateUTC, const QString strDateLocal,
                         const int dateType, const QString strCityName, const QString strMacAddress, const QString strUser)
 {
@@ -587,8 +587,8 @@ bool conf_app::startPatchSession(const QString strDateUTC, const QString strDate
 
     return startSession(strUser, strCityName, strMacAddress, baseDateID,
         QString("This record was generated during a patch session!"));
-}
-
+}*/
+/*
 void conf_app::doPatch()
 {
     int lu_master;//we want to store this variable for the master
@@ -620,8 +620,8 @@ void conf_app::doPatch()
     }
 
     doDump(lastUpdate,strMacAddress);
-}
-
+}*/
+/*
 bool conf_app::doApply(int& lu_master, QString& strMacAddress, bool& bApplied)
 {
     bApplied=false;
@@ -701,9 +701,9 @@ bool conf_app::doApply(int& lu_master, QString& strMacAddress, bool& bApplied)
 
     //qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
     //return false;
-    return true;
-}
-
+   /* return true;
+}*/
+/*
 bool conf_app::insertDate(const InfoDate date, int& id)
 {
     QSqlTableModel* tModel = new QSqlTableModel;
@@ -747,7 +747,8 @@ bool conf_app::insertDate(const InfoDate date, int& id)
     delete tModel; tModel=0;
     return bOk;
 }
-
+*/
+/*
 bool conf_app::insertNewRecord(const listInfoChanges& lChanges)
 {
     bool bOk=true;
@@ -809,7 +810,8 @@ bool conf_app::insertNewRecord(const listInfoChanges& lChanges)
     delete tModel; tModel=0;
     return bOk;
 }
-
+*/
+/*
 bool conf_app::packRecord(const QList<QVariant>& mapReferences, listInfoChanges& lChanges, int& i, listInfoChanges& aRecord, bool& bBreak, QString& strError)
 {
     bBreak=false;
@@ -848,7 +850,8 @@ bool conf_app::packRecord(const QList<QVariant>& mapReferences, listInfoChanges&
 
     return true;
 }
-
+*/
+/*
 bool conf_app::identifyRecord(const listInfoChanges& packRecord, int& outID)
 {
     QString curTable=packRecord.at(0).m_strTable;
@@ -943,7 +946,8 @@ bool conf_app::identifyRecord(const listInfoChanges& packRecord, int& outID)
 
     return true;
 }
-
+*/
+/*
 bool conf_app::removeRecord(const listInfoChanges& packRecord)
 {
     int outID;
@@ -977,8 +981,8 @@ bool conf_app::removeRecord(const listInfoChanges& packRecord)
     }
 
     return true;
-}
-
+}*/
+/*
 bool conf_app::modRecord(InfoChanges& chRec, const int id)
 {
     QString strType;
@@ -1036,7 +1040,7 @@ bool conf_app::modRecord(InfoChanges& chRec, const int id)
          return false;
      }
     return true;
-}
+}*/
 /*
 bool conf_app::identifyRecordByDate(const listInfoChanges& aRecord,
                          const listInfoChanges& dtRecs, const listInfoChanges& iDt,
@@ -1204,6 +1208,7 @@ bool conf_app::modDateRecord(const listInfoChanges& aRecord, const listInfoChang
      return true;
 }
 */
+/*
 bool conf_app::applyChangesfromPatch(const QList<QVariant>& mapReferences, listInfoChanges& lChanges, const int lu_master, int& cnew, int& cmod, int& cdel, QString& strError)
 {
     for (int i=0; i < lChanges.count(); ++i)
@@ -1300,8 +1305,8 @@ bool conf_app::applyChangesfromPatch(const QList<QVariant>& mapReferences, listI
 
     return true;
 }
-
-
+*/
+/*
 bool conf_app::readChangesfromPatch(const QString strContent, QString& strDateUTC, QString& strDateLocal,
                         int& dateType, QString& strCityName, QString& strMacAddress, QString& strUser, int& lu_master, listInfoChanges& lChanges, 
                         QList<QVariant>& mapReferences, QString& strError)
@@ -1356,7 +1361,8 @@ bool conf_app::readChangesfromPatch(const QString strContent, QString& strDateUT
 
     return true;
 }
-
+*/
+/*
 bool conf_app::findJSONReference(const QList<QVariant>& mapReferences, const int ID, QVariantMap& map,
                              QString& strTable, QString& strError)
 {
@@ -1378,8 +1384,8 @@ QVariantMap nestedMap;
         return false;
     }
     return true;
-}
-
+}*/
+/*
 bool conf_app::findDBReference(const QList<QVariant>& mapReferences, const QString strTable, QVariantMap map, QVariant& outID, QString& strError)
 {
     map.remove("ID");
@@ -1452,7 +1458,8 @@ bool conf_app::findDBReference(const QList<QVariant>& mapReferences, const QStri
 
     return true;
 }
-
+*/
+/*
 bool conf_app::identifyReference(const QList<QVariant>& mapReferences, const QString strRef, QVariant& outV, QString& strError)
 {
     QVariantMap map;
@@ -1466,7 +1473,7 @@ bool conf_app::identifyReference(const QList<QVariant>& mapReferences, const QSt
 
     return true;
 }
-
+*/
 bool conf_app::readFile(const QString strFileName, QString& outStr)
 {
      QFile file(strFileName);
@@ -1492,7 +1499,7 @@ void conf_app::initUI()
 
      connect(actionShow_startup_message, SIGNAL(triggered(bool)),this,
         SLOT(onShowStartupMsg(bool) ),Qt::UniqueConnection);
-
+/*
      connect(actionCreate_backup, SIGNAL(triggered()),this,
         SLOT(doBackup() ),Qt::UniqueConnection);
 
@@ -1500,7 +1507,7 @@ void conf_app::initUI()
         SLOT(doRestore() ),Qt::UniqueConnection);
 
      connect(actionPatch, SIGNAL(triggered()),this,
-        SLOT(doPatch() ),Qt::UniqueConnection);
+        SLOT(doPatch() ),Qt::UniqueConnection);*/
 
     if (QSqlDatabase::drivers().isEmpty())
     QMessageBox::information(this, tr("No database drivers found"),
@@ -2086,7 +2093,7 @@ bool conf_app::genericCreateRecord(QSqlTableModel* aModel,QPushButton* aPushEdit
 
     return insertRecordIntoModel(aModel);
 }
-
+/*
 void conf_app::createRoleRecord()
 {
     createRecord(roleModel,mapperRoles,groupRoleDetail,roleButtonBox,pushEditRole,pushRemoveRole);
@@ -2102,7 +2109,8 @@ void conf_app::createRoleRecord()
         }
     }
 }
-
+*/
+/*
 void conf_app::createUserRecord()
 {
     createRecord(userModel,mapperUsers,groupUsersDetail,userButtonBox,pushEditUser,pushRemoveUser);
@@ -2114,7 +2122,8 @@ void conf_app::createUserRecord()
     lineUserPassword_2->clear();
     textUserDesc->clear();
 }
-
+*/
+/*
 void conf_app::createRecord(QSqlTableModel* aModel,QDataWidgetMapper* aMapper, QGroupBox* aGroupDetails,
                             QDialogButtonBox* aButtonBox,QPushButton* aPushEdit,QPushButton* aPushRemove)
 {
@@ -2128,7 +2137,7 @@ void conf_app::createRecord(QSqlTableModel* aModel,QDataWidgetMapper* aMapper, Q
 
     UI4NewRecord(aGroupDetails,aButtonBox);//init UI
 }
-
+*/
 void conf_app::UI4NewRecord(QGroupBox* aGroupDetails,QDialogButtonBox* aButtonBox)
 {
     aGroupDetails->setVisible(true);

@@ -10,6 +10,8 @@ plugins/report/items/formula/CMakeFiles/Formula.dir/formula.cpp.o
  ../libs/report/sqlquery.h
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/items/formula/formula.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/items/formula/formula.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -270,6 +272,8 @@ plugins/report/items/formula/CMakeFiles/Formula.dir/moc_formula.cxx.o
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/items/formula/../../../../../plugins/report/items/formula/formula.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/items/formula/moc_formula.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

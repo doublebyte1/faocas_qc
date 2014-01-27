@@ -7,6 +7,8 @@ plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/detailfooter.cpp.o
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/bands/detailFooter/detailfooter.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/bands/detailFooter/detailfooter.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -246,6 +248,8 @@ plugins/report/bands/detailFooter/CMakeFiles/DetailFooter.dir/moc_detailfooter.c
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/bands/detailFooter/../../../../../plugins/report/bands/detailFooter/detailfooter.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/bands/detailFooter/moc_detailfooter.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

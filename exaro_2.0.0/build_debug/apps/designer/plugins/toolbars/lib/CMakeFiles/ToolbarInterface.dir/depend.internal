@@ -4,6 +4,8 @@
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarinterface.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/plugins/toolbars/lib/../../../../../../apps/designer/plugins/toolbars/lib/toolbarinterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/plugins/toolbars/lib/moc_toolbarinterface.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -48,6 +50,7 @@ apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarin
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -106,6 +109,8 @@ apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/moc_toolbarin
 apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterface.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/plugins/toolbars/lib/toolbarinterface.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/plugins/toolbars/lib/toolbarinterface.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -150,6 +155,7 @@ apps/designer/plugins/toolbars/lib/CMakeFiles/ToolbarInterface.dir/toolbarinterf
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h

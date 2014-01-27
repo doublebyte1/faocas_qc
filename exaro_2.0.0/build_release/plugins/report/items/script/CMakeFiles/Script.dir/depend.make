@@ -5,6 +5,8 @@ plugins/report/items/script/CMakeFiles/Script.dir/moc_script.cxx.o: ../libs/repo
 plugins/report/items/script/CMakeFiles/Script.dir/moc_script.cxx.o: ../libs/report/iteminterface.h
 plugins/report/items/script/CMakeFiles/Script.dir/moc_script.cxx.o: plugins/report/items/script/../../../../../plugins/report/items/script/script.h
 plugins/report/items/script/CMakeFiles/Script.dir/moc_script.cxx.o: plugins/report/items/script/moc_script.cxx
+plugins/report/items/script/CMakeFiles/Script.dir/moc_script.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/script/CMakeFiles/Script.dir/moc_script.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/script/CMakeFiles/Script.dir/moc_script.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/script/CMakeFiles/Script.dir/moc_script.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/script/CMakeFiles/Script.dir/moc_script.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -248,6 +250,8 @@ plugins/report/items/script/CMakeFiles/Script.dir/script.cpp.o: ../libs/report/g
 plugins/report/items/script/CMakeFiles/Script.dir/script.cpp.o: ../libs/report/iteminterface.h
 plugins/report/items/script/CMakeFiles/Script.dir/script.cpp.o: ../plugins/report/items/script/script.cpp
 plugins/report/items/script/CMakeFiles/Script.dir/script.cpp.o: ../plugins/report/items/script/script.h
+plugins/report/items/script/CMakeFiles/Script.dir/script.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/script/CMakeFiles/Script.dir/script.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/script/CMakeFiles/Script.dir/script.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/script/CMakeFiles/Script.dir/script.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/script/CMakeFiles/Script.dir/script.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

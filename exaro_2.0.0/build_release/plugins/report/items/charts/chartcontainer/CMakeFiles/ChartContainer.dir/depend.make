@@ -8,6 +8,8 @@ plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/chartco
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/chartcontainer.cpp.o: ../plugins/report/items/charts/chartinterface/chartinterface.h
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/chartcontainer.cpp.o: ../plugins/report/items/charts/chartcontainer/chartcontainer.cpp
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/chartcontainer.cpp.o: ../plugins/report/items/charts/chartcontainer/chartcontainer.h
+plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/chartcontainer.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/chartcontainer.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/chartcontainer.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/chartcontainer.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/chartcontainer.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -249,6 +251,8 @@ plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/moc_cha
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/moc_chartcontainer.cxx.o: ../plugins/report/items/charts/chartinterface/chartinterface.h
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/moc_chartcontainer.cxx.o: plugins/report/items/charts/chartcontainer/../../../../../../plugins/report/items/charts/chartcontainer/chartcontainer.h
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/moc_chartcontainer.cxx.o: plugins/report/items/charts/chartcontainer/moc_chartcontainer.cxx
+plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/moc_chartcontainer.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/moc_chartcontainer.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/moc_chartcontainer.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/moc_chartcontainer.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/charts/chartcontainer/CMakeFiles/ChartContainer.dir/moc_chartcontainer.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

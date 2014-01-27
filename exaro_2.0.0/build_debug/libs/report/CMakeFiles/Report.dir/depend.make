@@ -6,6 +6,8 @@ libs/report/CMakeFiles/Report.dir/bandinterface.cpp.o: ../libs/report/bandinterf
 libs/report/CMakeFiles/Report.dir/bandinterface.cpp.o: ../libs/report/globals.h
 libs/report/CMakeFiles/Report.dir/bandinterface.cpp.o: ../libs/report/iteminterface.h
 libs/report/CMakeFiles/Report.dir/bandinterface.cpp.o: ../libs/report/pageinterface.h
+libs/report/CMakeFiles/Report.dir/bandinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/bandinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/bandinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 libs/report/CMakeFiles/Report.dir/bandinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 libs/report/CMakeFiles/Report.dir/bandinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -251,6 +253,8 @@ libs/report/CMakeFiles/Report.dir/document.cpp.o: ../libs/report/document.cpp
 libs/report/CMakeFiles/Report.dir/document.cpp.o: ../libs/report/document.h
 libs/report/CMakeFiles/Report.dir/document.cpp.o: ../libs/report/page.h
 libs/report/CMakeFiles/Report.dir/document.cpp.o: ../libs/report/paintdevice.h
+libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QBuffer
 libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QIODevice
 libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPair
@@ -297,6 +301,7 @@ libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/
 libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qnamespace.h
@@ -348,6 +353,7 @@ libs/report/CMakeFiles/Report.dir/document.cpp.o: /usr/local/Trolltech/Qt-4.8.6/
 libs/report/CMakeFiles/Report.dir/exportinterface.cpp.o: ../libs/report/exportinterface.cpp
 libs/report/CMakeFiles/Report.dir/exportinterface.cpp.o: ../libs/report/exportinterface.h
 libs/report/CMakeFiles/Report.dir/exportinterface.cpp.o: ../libs/report/globals.h
+libs/report/CMakeFiles/Report.dir/exportinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 libs/report/CMakeFiles/Report.dir/exportinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 libs/report/CMakeFiles/Report.dir/exportinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 libs/report/CMakeFiles/Report.dir/exportinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -425,6 +431,8 @@ libs/report/CMakeFiles/Report.dir/exportinterface.cpp.o: /usr/local/Trolltech/Qt
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: ../libs/report/fakepaintdevice.cpp
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: ../libs/report/fakepaintdevice.h
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: ../libs/report/fakepaintengine.h
+libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -468,6 +476,7 @@ libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -522,6 +531,8 @@ libs/report/CMakeFiles/Report.dir/fakepaintdevice.cpp.o: /usr/local/Trolltech/Qt
 
 libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: ../libs/report/fakepaintengine.cpp
 libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: ../libs/report/fakepaintengine.h
+libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -564,6 +575,7 @@ libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt
 libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -612,6 +624,8 @@ libs/report/CMakeFiles/Report.dir/fakepaintengine.cpp.o: /usr/local/Trolltech/Qt
 
 libs/report/CMakeFiles/Report.dir/globals.cpp.o: ../libs/report/globals.cpp
 libs/report/CMakeFiles/Report.dir/globals.cpp.o: ../libs/report/globals.h
+libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QBuffer
 libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDateTime
@@ -667,6 +681,7 @@ libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/i
 libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 libs/report/CMakeFiles/Report.dir/globals.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -729,6 +744,8 @@ libs/report/CMakeFiles/Report.dir/iteminterface.cpp.o: ../libs/report/iteminterf
 libs/report/CMakeFiles/Report.dir/iteminterface.cpp.o: ../libs/report/pageinterface.h
 libs/report/CMakeFiles/Report.dir/iteminterface.cpp.o: ../libs/report/reportinterface.h
 libs/report/CMakeFiles/Report.dir/iteminterface.cpp.o: ../libs/report/sqlquery.h
+libs/report/CMakeFiles/Report.dir/iteminterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/iteminterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/iteminterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 libs/report/CMakeFiles/Report.dir/iteminterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 libs/report/CMakeFiles/Report.dir/iteminterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -995,6 +1012,8 @@ libs/report/CMakeFiles/Report.dir/moc_bandinterface.cxx.o: libs/report/../../../
 libs/report/CMakeFiles/Report.dir/moc_bandinterface.cxx.o: libs/report/../../../libs/report/globals.h
 libs/report/CMakeFiles/Report.dir/moc_bandinterface.cxx.o: libs/report/../../../libs/report/iteminterface.h
 libs/report/CMakeFiles/Report.dir/moc_bandinterface.cxx.o: libs/report/moc_bandinterface.cxx
+libs/report/CMakeFiles/Report.dir/moc_bandinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/moc_bandinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/moc_bandinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 libs/report/CMakeFiles/Report.dir/moc_bandinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 libs/report/CMakeFiles/Report.dir/moc_bandinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -1232,6 +1251,7 @@ libs/report/CMakeFiles/Report.dir/moc_bandinterface.cxx.o: /usr/local/Trolltech/
 libs/report/CMakeFiles/Report.dir/moc_exportinterface.cxx.o: libs/report/../../../libs/report/exportinterface.h
 libs/report/CMakeFiles/Report.dir/moc_exportinterface.cxx.o: libs/report/../../../libs/report/globals.h
 libs/report/CMakeFiles/Report.dir/moc_exportinterface.cxx.o: libs/report/moc_exportinterface.cxx
+libs/report/CMakeFiles/Report.dir/moc_exportinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 libs/report/CMakeFiles/Report.dir/moc_exportinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 libs/report/CMakeFiles/Report.dir/moc_exportinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 libs/report/CMakeFiles/Report.dir/moc_exportinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -1310,6 +1330,8 @@ libs/report/CMakeFiles/Report.dir/moc_iteminterface.cxx.o: ../libs/report/itemin
 libs/report/CMakeFiles/Report.dir/moc_iteminterface.cxx.o: libs/report/../../../libs/report/globals.h
 libs/report/CMakeFiles/Report.dir/moc_iteminterface.cxx.o: libs/report/../../../libs/report/iteminterface.h
 libs/report/CMakeFiles/Report.dir/moc_iteminterface.cxx.o: libs/report/moc_iteminterface.cxx
+libs/report/CMakeFiles/Report.dir/moc_iteminterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/moc_iteminterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/moc_iteminterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 libs/report/CMakeFiles/Report.dir/moc_iteminterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 libs/report/CMakeFiles/Report.dir/moc_iteminterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -1548,6 +1570,8 @@ libs/report/CMakeFiles/Report.dir/moc_pageinterface.cxx.o: libs/report/../../../
 libs/report/CMakeFiles/Report.dir/moc_pageinterface.cxx.o: libs/report/../../../libs/report/iteminterface.h
 libs/report/CMakeFiles/Report.dir/moc_pageinterface.cxx.o: libs/report/../../../libs/report/pageinterface.h
 libs/report/CMakeFiles/Report.dir/moc_pageinterface.cxx.o: libs/report/moc_pageinterface.cxx
+libs/report/CMakeFiles/Report.dir/moc_pageinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/moc_pageinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/moc_pageinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 libs/report/CMakeFiles/Report.dir/moc_pageinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 libs/report/CMakeFiles/Report.dir/moc_pageinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -1793,6 +1817,8 @@ libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: libs/report/../../../
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: libs/report/../../../libs/report/globals.h
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: libs/report/../../../libs/report/previewdialog.h
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: libs/report/moc_previewdialog.cxx
+libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QIODevice
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -1840,6 +1866,7 @@ libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -1910,6 +1937,8 @@ libs/report/CMakeFiles/Report.dir/moc_previewdialog.cxx.o: /usr/local/Trolltech/
 
 libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: libs/report/../../../libs/report/previewwidget.h
 libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: libs/report/moc_previewwidget.cxx
+libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -1954,6 +1983,7 @@ libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/
 libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 libs/report/CMakeFiles/Report.dir/moc_previewwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -2025,6 +2055,8 @@ libs/report/CMakeFiles/Report.dir/moc_reportengine.cxx.o: libs/report/../../../l
 libs/report/CMakeFiles/Report.dir/moc_reportengine.cxx.o: libs/report/../../../libs/report/reportengine.h
 libs/report/CMakeFiles/Report.dir/moc_reportengine.cxx.o: libs/report/../../../libs/report/reportinterface.h
 libs/report/CMakeFiles/Report.dir/moc_reportengine.cxx.o: libs/report/moc_reportengine.cxx
+libs/report/CMakeFiles/Report.dir/moc_reportengine.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/moc_reportengine.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/moc_reportengine.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 libs/report/CMakeFiles/Report.dir/moc_reportengine.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 libs/report/CMakeFiles/Report.dir/moc_reportengine.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -2285,6 +2317,8 @@ libs/report/CMakeFiles/Report.dir/moc_reportinterface.cxx.o: libs/report/../../.
 libs/report/CMakeFiles/Report.dir/moc_reportinterface.cxx.o: libs/report/../../../libs/report/pageinterface.h
 libs/report/CMakeFiles/Report.dir/moc_reportinterface.cxx.o: libs/report/../../../libs/report/reportinterface.h
 libs/report/CMakeFiles/Report.dir/moc_reportinterface.cxx.o: libs/report/moc_reportinterface.cxx
+libs/report/CMakeFiles/Report.dir/moc_reportinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/moc_reportinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/moc_reportinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 libs/report/CMakeFiles/Report.dir/moc_reportinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
 libs/report/CMakeFiles/Report.dir/moc_reportinterface.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -2541,6 +2575,8 @@ libs/report/CMakeFiles/Report.dir/moc_reportinterface.cxx.o: /usr/local/Trolltec
 
 libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: libs/report/../../../libs/report/searchwidget.h
 libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: libs/report/moc_searchwidget.cxx
+libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -2585,6 +2621,7 @@ libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Q
 libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -2650,6 +2687,7 @@ libs/report/CMakeFiles/Report.dir/moc_searchwidget.cxx.o: /usr/local/Trolltech/Q
 
 libs/report/CMakeFiles/Report.dir/moc_sqlquery.cxx.o: libs/report/../../../libs/report/sqlquery.h
 libs/report/CMakeFiles/Report.dir/moc_sqlquery.cxx.o: libs/report/moc_sqlquery.cxx
+libs/report/CMakeFiles/Report.dir/moc_sqlquery.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 libs/report/CMakeFiles/Report.dir/moc_sqlquery.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 libs/report/CMakeFiles/Report.dir/moc_sqlquery.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
 libs/report/CMakeFiles/Report.dir/moc_sqlquery.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -2715,6 +2753,8 @@ libs/report/CMakeFiles/Report.dir/page.cpp.o: ../libs/report/globals.h
 libs/report/CMakeFiles/Report.dir/page.cpp.o: ../libs/report/page.cpp
 libs/report/CMakeFiles/Report.dir/page.cpp.o: ../libs/report/page.h
 libs/report/CMakeFiles/Report.dir/page.cpp.o: ../libs/report/paintdevice.h
+libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QBuffer
 libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDebug
 libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QIODevice
@@ -2765,6 +2805,7 @@ libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/incl
 libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 libs/report/CMakeFiles/Report.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -2835,6 +2876,8 @@ libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: ../libs/report/page.h
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: ../libs/report/pagegraphicsitem.cpp
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: ../libs/report/pagegraphicsitem.h
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: ../libs/report/paintdevice.h
+libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QBuffer
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QIODevice
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -2883,6 +2926,7 @@ libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Q
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 libs/report/CMakeFiles/Report.dir/pagegraphicsitem.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -2975,6 +3019,8 @@ libs/report/CMakeFiles/Report.dir/pageinterface.cpp.o: ../libs/report/globals.h
 libs/report/CMakeFiles/Report.dir/pageinterface.cpp.o: ../libs/report/iteminterface.h
 libs/report/CMakeFiles/Report.dir/pageinterface.cpp.o: ../libs/report/pageinterface.cpp
 libs/report/CMakeFiles/Report.dir/pageinterface.cpp.o: ../libs/report/pageinterface.h
+libs/report/CMakeFiles/Report.dir/pageinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/pageinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/pageinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 libs/report/CMakeFiles/Report.dir/pageinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 libs/report/CMakeFiles/Report.dir/pageinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -3231,6 +3277,8 @@ libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: ../libs/report/globals.h
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: ../libs/report/paintdevice.cpp
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: ../libs/report/paintdevice.h
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: ../libs/report/paintengine.h
+libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QBuffer
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -3277,6 +3325,7 @@ libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 libs/report/CMakeFiles/Report.dir/paintdevice.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -3338,6 +3387,8 @@ libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: ../libs/report/globals.h
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: ../libs/report/paintdevice.h
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: ../libs/report/paintengine.cpp
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: ../libs/report/paintengine.h
+libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QBuffer
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QCoreApplication
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
@@ -3398,6 +3449,7 @@ libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlibrary.h
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 libs/report/CMakeFiles/Report.dir/paintengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -3467,6 +3519,8 @@ libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: ../libs/report/previewdia
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: ../libs/report/previewdialog.h
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: ../libs/report/previewwidget.h
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: ../libs/report/searchwidget.h
+libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QBuffer
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDebug
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDir
@@ -3529,6 +3583,7 @@ libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlibrary.h
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -3673,6 +3728,8 @@ libs/report/CMakeFiles/Report.dir/previewdialog.cpp.o: /usr/local/Trolltech/Qt-4
 
 libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: ../libs/report/previewwidget.cpp
 libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: ../libs/report/previewwidget.h
+libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QSettings
@@ -3718,6 +3775,7 @@ libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4
 libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 libs/report/CMakeFiles/Report.dir/previewwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -3797,6 +3855,8 @@ libs/report/CMakeFiles/Report.dir/reportengine.cpp.o: ../libs/report/pageinterfa
 libs/report/CMakeFiles/Report.dir/reportengine.cpp.o: ../libs/report/reportengine.cpp
 libs/report/CMakeFiles/Report.dir/reportengine.cpp.o: ../libs/report/reportengine.h
 libs/report/CMakeFiles/Report.dir/reportengine.cpp.o: ../libs/report/reportinterface.h
+libs/report/CMakeFiles/Report.dir/reportengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/reportengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/reportengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QBuffer
 libs/report/CMakeFiles/Report.dir/reportengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QCoreApplication
 libs/report/CMakeFiles/Report.dir/reportengine.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
@@ -4070,6 +4130,8 @@ libs/report/CMakeFiles/Report.dir/reportinterface.cpp.o: ../libs/report/previewd
 libs/report/CMakeFiles/Report.dir/reportinterface.cpp.o: ../libs/report/reportinterface.cpp
 libs/report/CMakeFiles/Report.dir/reportinterface.cpp.o: ../libs/report/reportinterface.h
 libs/report/CMakeFiles/Report.dir/reportinterface.cpp.o: ../libs/report/sqlquery.h
+libs/report/CMakeFiles/Report.dir/reportinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/reportinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/reportinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QBuffer
 libs/report/CMakeFiles/Report.dir/reportinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QCoreApplication
 libs/report/CMakeFiles/Report.dir/reportinterface.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
@@ -4352,6 +4414,8 @@ libs/report/CMakeFiles/Report.dir/reportinterface.cpp.o: /usr/local/Trolltech/Qt
 
 libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: ../libs/report/searchwidget.cpp
 libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: ../libs/report/searchwidget.h
+libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -4399,6 +4463,7 @@ libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.
 libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -4473,6 +4538,7 @@ libs/report/CMakeFiles/Report.dir/searchwidget.cpp.o: /usr/local/Trolltech/Qt-4.
 
 libs/report/CMakeFiles/Report.dir/sqlquery.cpp.o: ../libs/report/sqlquery.cpp
 libs/report/CMakeFiles/Report.dir/sqlquery.cpp.o: ../libs/report/sqlquery.h
+libs/report/CMakeFiles/Report.dir/sqlquery.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 libs/report/CMakeFiles/Report.dir/sqlquery.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 libs/report/CMakeFiles/Report.dir/sqlquery.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
 libs/report/CMakeFiles/Report.dir/sqlquery.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h

@@ -5,6 +5,8 @@ plugins/report/items/text/CMakeFiles/Text.dir/moc_text.cxx.o: ../libs/report/glo
 plugins/report/items/text/CMakeFiles/Text.dir/moc_text.cxx.o: ../libs/report/iteminterface.h
 plugins/report/items/text/CMakeFiles/Text.dir/moc_text.cxx.o: plugins/report/items/text/../../../../../plugins/report/items/text/text.h
 plugins/report/items/text/CMakeFiles/Text.dir/moc_text.cxx.o: plugins/report/items/text/moc_text.cxx
+plugins/report/items/text/CMakeFiles/Text.dir/moc_text.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/text/CMakeFiles/Text.dir/moc_text.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/text/CMakeFiles/Text.dir/moc_text.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/text/CMakeFiles/Text.dir/moc_text.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/text/CMakeFiles/Text.dir/moc_text.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -248,6 +250,8 @@ plugins/report/items/text/CMakeFiles/Text.dir/text.cpp.o: ../libs/report/globals
 plugins/report/items/text/CMakeFiles/Text.dir/text.cpp.o: ../libs/report/iteminterface.h
 plugins/report/items/text/CMakeFiles/Text.dir/text.cpp.o: ../plugins/report/items/text/text.cpp
 plugins/report/items/text/CMakeFiles/Text.dir/text.cpp.o: ../plugins/report/items/text/text.h
+plugins/report/items/text/CMakeFiles/Text.dir/text.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/text/CMakeFiles/Text.dir/text.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/text/CMakeFiles/Text.dir/text.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/text/CMakeFiles/Text.dir/text.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/text/CMakeFiles/Text.dir/text.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

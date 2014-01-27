@@ -11,6 +11,8 @@ plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartda
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/items/charts/chartinterface/chartdatacollector.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/items/charts/chartinterface/chartdatacollector.h
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/items/charts/chartinterface/chartinterface.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -277,6 +279,8 @@ plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/chartin
  ../plugins/report/items/charts/chartinterface/chartdatacollector.h
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/items/charts/chartinterface/chartinterface.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/plugins/report/items/charts/chartinterface/chartinterface.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -525,6 +529,8 @@ plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_cha
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/items/charts/chartinterface/../../../../../../plugins/report/items/charts/chartinterface/chartdatacollector.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/items/charts/chartinterface/../../../../../../plugins/report/items/charts/chartinterface/chartinterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/items/charts/chartinterface/moc_chartdatacollector.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -764,6 +770,8 @@ plugins/report/items/charts/chartinterface/CMakeFiles/ChartInterface.dir/moc_cha
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/items/charts/chartinterface/../../../../../../plugins/report/items/charts/chartinterface/chartinterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/plugins/report/items/charts/chartinterface/moc_chartinterface.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

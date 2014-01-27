@@ -207,40 +207,26 @@ void FrmVesselType::filterModel4Combo()
                 "                                          WHERE  sampled_cell.id ="+ QVariant(m_sample->cellId).toString() + ")"
                 "       AND fr_sub_frame.id_frame = " + QVariant(m_sample->frameId).toString() +
                 "       AND fr_sub_frame.description like 'root'  "
-            /*
                 // removing vessels temporary deactivated ////////////
                 " and fr_als2vessel.vesselid NOT IN ("
-                "select t.vesselid from "
-                " (select vesselid, max(id) as MaxID"
-                " from abstract_changes_temp_vessel f where from_ls="
-                " (select sampled_cell.id_abstract_landingsite from sampled_cell where id="+ QVariant(m_sample->cellId).toString() + ")  group by vesselid) r"
-                " inner join abstract_changes_temp_vessel t"
-                " on t.vesselid=r.vesselid and t.id=r.MaxID "
-                " inner join ref_temp_frame f "
-                " on  t.id_temp_frame=f.id"
-                " where f.id_cell="+ QVariant(m_sample->cellId).toString() +
-                " order by vesselid asc"
+                "select vesselid from abstract_changes_temp_vessel where id_temp_frame=(select id from ref_temp_frame where id_cell="+ QVariant(m_sample->cellId).toString() + ")"
+                 " and from_ls = (select id_abstract_landingsite from sampled_cell where id="+ QVariant(m_sample->cellId).toString() + ")"
                 ")"
                 // adding vessels temporary deactivated ////////////
                  " UNION "
-                " select distinct ref_vessels.vesseltype from "
-                " (select vesselid, max(id) as MaxID "
-                " from abstract_changes_temp_vessel f where to_ls="
-            " (select sampled_cell.id_abstract_landingsite from sampled_cell where id="+ QVariant(m_sample->cellId).toString() +")  group by vesselid) r"
-                " inner join abstract_changes_temp_vessel t"
-                " on t.vesselid=r.vesselid and t.id=r.MaxID "
-                " inner join ref_temp_frame f "
-                " on  t.id_temp_frame=f.id"
-                " inner join ref_vessels "
-                " on t.vesselid=ref_vessels.vesselid"
-                " where f.id_cell="+ QVariant(m_sample->cellId).toString()
-                //" order by ref_vessels.vesseltype asc"*/
+                "select distinct ref_vessels.vesseltype from"
+                " ref_vessels inner join"
+                " abstract_changes_temp_vessel on abstract_changes_temp_vessel.vesselid=ref_vessels.vesselid"
+                " where abstract_changes_temp_vessel.id_temp_frame=(select id from ref_temp_frame where id_cell="+ QVariant(m_sample->cellId).toString() + ")"
+                " and to_ls = (select id_abstract_landingsite from sampled_cell where id="+ QVariant(m_sample->cellId).toString() + ")"
                 ;
 
     qDebug() << strQuery << endl;
 
     QSqlQuery query;
     query.prepare(strQuery);
+
+    query.setForwardOnly(true);
     if (!query.exec()){
         emit showError(tr("Could not obtain filter for vessel types!"));
         return;

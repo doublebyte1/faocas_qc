@@ -5,6 +5,7 @@ plugins/size/CMakeFiles/SizeProperty.dir/moc_size.cxx.o: ../lib/propertyinterfac
 plugins/size/CMakeFiles/SizeProperty.dir/moc_size.cxx.o: ../lib/propertyvalidator.h
 plugins/size/CMakeFiles/SizeProperty.dir/moc_size.cxx.o: plugins/size/../../../plugins/size/size.h
 plugins/size/CMakeFiles/SizeProperty.dir/moc_size.cxx.o: plugins/size/moc_size.cxx
+plugins/size/CMakeFiles/SizeProperty.dir/moc_size.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/size/CMakeFiles/SizeProperty.dir/moc_size.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/size/CMakeFiles/SizeProperty.dir/moc_size.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/size/CMakeFiles/SizeProperty.dir/moc_size.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -70,6 +71,8 @@ plugins/size/CMakeFiles/SizeProperty.dir/size.cpp.o: ../lib/propertyinterface.h
 plugins/size/CMakeFiles/SizeProperty.dir/size.cpp.o: ../lib/propertyvalidator.h
 plugins/size/CMakeFiles/SizeProperty.dir/size.cpp.o: ../plugins/size/size.cpp
 plugins/size/CMakeFiles/SizeProperty.dir/size.cpp.o: ../plugins/size/size.h
+plugins/size/CMakeFiles/SizeProperty.dir/size.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/size/CMakeFiles/SizeProperty.dir/size.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/size/CMakeFiles/SizeProperty.dir/size.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/size/CMakeFiles/SizeProperty.dir/size.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/size/CMakeFiles/SizeProperty.dir/size.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum

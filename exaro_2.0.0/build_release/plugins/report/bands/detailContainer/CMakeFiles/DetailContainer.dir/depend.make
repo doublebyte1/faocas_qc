@@ -6,6 +6,8 @@ plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/detailcontai
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/detailcontainer.cpp.o: ../libs/report/iteminterface.h
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/detailcontainer.cpp.o: ../plugins/report/bands/detailContainer/detailcontainer.cpp
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/detailcontainer.cpp.o: ../plugins/report/bands/detailContainer/detailcontainer.h
+plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/detailcontainer.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/detailcontainer.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/detailcontainer.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/detailcontainer.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/detailcontainer.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -245,6 +247,8 @@ plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/moc_detailco
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/moc_detailcontainer.cxx.o: ../libs/report/iteminterface.h
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/moc_detailcontainer.cxx.o: plugins/report/bands/detailContainer/../../../../../plugins/report/bands/detailContainer/detailcontainer.h
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/moc_detailcontainer.cxx.o: plugins/report/bands/detailContainer/moc_detailcontainer.cxx
+plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/moc_detailcontainer.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/moc_detailcontainer.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/moc_detailcontainer.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/moc_detailcontainer.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/bands/detailContainer/CMakeFiles/DetailContainer.dir/moc_detailcontainer.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

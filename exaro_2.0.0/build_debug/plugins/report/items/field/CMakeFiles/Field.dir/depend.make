@@ -5,6 +5,8 @@ plugins/report/items/field/CMakeFiles/Field.dir/field.cpp.o: ../libs/report/glob
 plugins/report/items/field/CMakeFiles/Field.dir/field.cpp.o: ../libs/report/iteminterface.h
 plugins/report/items/field/CMakeFiles/Field.dir/field.cpp.o: ../plugins/report/items/field/field.cpp
 plugins/report/items/field/CMakeFiles/Field.dir/field.cpp.o: ../plugins/report/items/field/field.h
+plugins/report/items/field/CMakeFiles/Field.dir/field.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/field/CMakeFiles/Field.dir/field.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/field/CMakeFiles/Field.dir/field.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/field/CMakeFiles/Field.dir/field.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/field/CMakeFiles/Field.dir/field.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -243,6 +245,8 @@ plugins/report/items/field/CMakeFiles/Field.dir/moc_field.cxx.o: ../libs/report/
 plugins/report/items/field/CMakeFiles/Field.dir/moc_field.cxx.o: ../libs/report/iteminterface.h
 plugins/report/items/field/CMakeFiles/Field.dir/moc_field.cxx.o: plugins/report/items/field/../../../../../plugins/report/items/field/field.h
 plugins/report/items/field/CMakeFiles/Field.dir/moc_field.cxx.o: plugins/report/items/field/moc_field.cxx
+plugins/report/items/field/CMakeFiles/Field.dir/moc_field.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/field/CMakeFiles/Field.dir/moc_field.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/field/CMakeFiles/Field.dir/moc_field.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/field/CMakeFiles/Field.dir/moc_field.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/field/CMakeFiles/Field.dir/moc_field.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

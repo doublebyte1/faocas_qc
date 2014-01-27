@@ -6,6 +6,8 @@ plugins/report/items/charts/legend/CMakeFiles/Legend.dir/legend.cpp.o: ../libs/r
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/legend.cpp.o: ../plugins/report/items/charts/chartinterface/chartinterface.h
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/legend.cpp.o: ../plugins/report/items/charts/legend/legend.cpp
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/legend.cpp.o: ../plugins/report/items/charts/legend/legend.h
+plugins/report/items/charts/legend/CMakeFiles/Legend.dir/legend.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/legend/CMakeFiles/Legend.dir/legend.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/legend.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/legend.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/legend.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -246,6 +248,8 @@ plugins/report/items/charts/legend/CMakeFiles/Legend.dir/moc_legend.cxx.o: ../li
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/moc_legend.cxx.o: ../plugins/report/items/charts/chartinterface/chartinterface.h
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/moc_legend.cxx.o: plugins/report/items/charts/legend/../../../../../../plugins/report/items/charts/legend/legend.h
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/moc_legend.cxx.o: plugins/report/items/charts/legend/moc_legend.cxx
+plugins/report/items/charts/legend/CMakeFiles/Legend.dir/moc_legend.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/charts/legend/CMakeFiles/Legend.dir/moc_legend.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/moc_legend.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/moc_legend.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/charts/legend/CMakeFiles/Legend.dir/moc_legend.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

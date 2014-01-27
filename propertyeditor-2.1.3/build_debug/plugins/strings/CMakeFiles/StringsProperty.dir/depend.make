@@ -5,6 +5,7 @@ plugins/strings/CMakeFiles/StringsProperty.dir/moc_strings.cxx.o: ../lib/propert
 plugins/strings/CMakeFiles/StringsProperty.dir/moc_strings.cxx.o: ../lib/propertyvalidator.h
 plugins/strings/CMakeFiles/StringsProperty.dir/moc_strings.cxx.o: plugins/strings/../../../plugins/strings/strings.h
 plugins/strings/CMakeFiles/StringsProperty.dir/moc_strings.cxx.o: plugins/strings/moc_strings.cxx
+plugins/strings/CMakeFiles/StringsProperty.dir/moc_strings.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/strings/CMakeFiles/StringsProperty.dir/moc_strings.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/strings/CMakeFiles/StringsProperty.dir/moc_strings.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/strings/CMakeFiles/StringsProperty.dir/moc_strings.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -70,6 +71,8 @@ plugins/strings/CMakeFiles/StringsProperty.dir/strings.cpp.o: ../lib/propertyint
 plugins/strings/CMakeFiles/StringsProperty.dir/strings.cpp.o: ../lib/propertyvalidator.h
 plugins/strings/CMakeFiles/StringsProperty.dir/strings.cpp.o: ../plugins/strings/strings.cpp
 plugins/strings/CMakeFiles/StringsProperty.dir/strings.cpp.o: ../plugins/strings/strings.h
+plugins/strings/CMakeFiles/StringsProperty.dir/strings.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/strings/CMakeFiles/StringsProperty.dir/strings.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/strings/CMakeFiles/StringsProperty.dir/strings.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/strings/CMakeFiles/StringsProperty.dir/strings.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/strings/CMakeFiles/StringsProperty.dir/strings.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum

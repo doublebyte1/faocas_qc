@@ -3,6 +3,8 @@
 
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: ../plugins/color/changecolor.cpp
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: ../plugins/color/changecolor.h
+plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -47,6 +49,7 @@ plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trollte
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -113,6 +116,8 @@ plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o: ../lib/propertyvalidator
 plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o: ../plugins/color/changecolor.h
 plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o: ../plugins/color/color.cpp
 plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o: ../plugins/color/color.h
+plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -326,6 +331,8 @@ plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o: /usr/local/Trolltech/Qt-
 
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: plugins/color/../../../plugins/color/changecolor.h
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: plugins/color/moc_changecolor.cxx
+plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -370,6 +377,7 @@ plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Tro
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -432,6 +440,7 @@ plugins/color/CMakeFiles/ColorProperty.dir/moc_color.cxx.o: ../lib/propertyinter
 plugins/color/CMakeFiles/ColorProperty.dir/moc_color.cxx.o: ../lib/propertyvalidator.h
 plugins/color/CMakeFiles/ColorProperty.dir/moc_color.cxx.o: plugins/color/../../../plugins/color/color.h
 plugins/color/CMakeFiles/ColorProperty.dir/moc_color.cxx.o: plugins/color/moc_color.cxx
+plugins/color/CMakeFiles/ColorProperty.dir/moc_color.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/color/CMakeFiles/ColorProperty.dir/moc_color.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/color/CMakeFiles/ColorProperty.dir/moc_color.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/color/CMakeFiles/ColorProperty.dir/moc_color.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject

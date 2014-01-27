@@ -4,6 +4,8 @@
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: ../plugins/metricfont/changefont.cpp
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: ../plugins/metricfont/changefont.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: ../plugins/metricfont/metricfontdialog.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -53,6 +55,7 @@ plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trol
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/changefont.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -179,6 +182,8 @@ plugins/metricfont/CMakeFiles/FontProperty.dir/font.cpp.o: ../lib/propertyvalida
 plugins/metricfont/CMakeFiles/FontProperty.dir/font.cpp.o: ../plugins/metricfont/changefont.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/font.cpp.o: ../plugins/metricfont/font.cpp
 plugins/metricfont/CMakeFiles/FontProperty.dir/font.cpp.o: ../plugins/metricfont/font.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/font.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/font.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/font.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/metricfont/CMakeFiles/FontProperty.dir/font.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/metricfont/CMakeFiles/FontProperty.dir/font.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -392,6 +397,8 @@ plugins/metricfont/CMakeFiles/FontProperty.dir/font.cpp.o: /usr/local/Trolltech/
 
 plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: ../plugins/metricfont/metricfontdialog.cpp
 plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: ../plugins/metricfont/metricfontdialog.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -441,6 +448,7 @@ plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/loca
 plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -567,6 +575,8 @@ plugins/metricfont/CMakeFiles/FontProperty.dir/metricfontdialog.cpp.o: plugins/m
 
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: plugins/metricfont/../../../plugins/metricfont/changefont.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: plugins/metricfont/moc_changefont.cxx
+plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -611,6 +621,7 @@ plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_changefont.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -673,6 +684,7 @@ plugins/metricfont/CMakeFiles/FontProperty.dir/moc_font.cxx.o: ../lib/propertyin
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_font.cxx.o: ../lib/propertyvalidator.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_font.cxx.o: plugins/metricfont/../../../plugins/metricfont/font.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_font.cxx.o: plugins/metricfont/moc_font.cxx
+plugins/metricfont/CMakeFiles/FontProperty.dir/moc_font.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_font.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_font.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_font.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -736,6 +748,8 @@ plugins/metricfont/CMakeFiles/FontProperty.dir/moc_font.cxx.o: /usr/local/Trollt
 
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: plugins/metricfont/../../../plugins/metricfont/metricfontdialog.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: plugins/metricfont/moc_metricfontdialog.cxx
+plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -785,6 +799,7 @@ plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/metricfont/CMakeFiles/FontProperty.dir/moc_metricfontdialog.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

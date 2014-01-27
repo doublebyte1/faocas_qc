@@ -5,6 +5,7 @@ plugins/report/export/ods/CMakeFiles/Ods.dir/moc_ods.cxx.o: ../libs/report/expor
 plugins/report/export/ods/CMakeFiles/Ods.dir/moc_ods.cxx.o: ../libs/report/globals.h
 plugins/report/export/ods/CMakeFiles/Ods.dir/moc_ods.cxx.o: plugins/report/export/ods/../../../../../plugins/report/export/ods/ods.h
 plugins/report/export/ods/CMakeFiles/Ods.dir/moc_ods.cxx.o: plugins/report/export/ods/moc_ods.cxx
+plugins/report/export/ods/CMakeFiles/Ods.dir/moc_ods.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/report/export/ods/CMakeFiles/Ods.dir/moc_ods.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/export/ods/CMakeFiles/Ods.dir/moc_ods.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 plugins/report/export/ods/CMakeFiles/Ods.dir/moc_ods.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -83,6 +84,8 @@ plugins/report/export/ods/CMakeFiles/Ods.dir/ods.cpp.o: ../libs/report/exportint
 plugins/report/export/ods/CMakeFiles/Ods.dir/ods.cpp.o: ../libs/report/globals.h
 plugins/report/export/ods/CMakeFiles/Ods.dir/ods.cpp.o: ../plugins/report/export/ods/ods.cpp
 plugins/report/export/ods/CMakeFiles/Ods.dir/ods.cpp.o: ../plugins/report/export/ods/ods.h
+plugins/report/export/ods/CMakeFiles/Ods.dir/ods.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/export/ods/CMakeFiles/Ods.dir/ods.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/export/ods/CMakeFiles/Ods.dir/ods.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/export/ods/CMakeFiles/Ods.dir/ods.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/export/ods/CMakeFiles/Ods.dir/ods.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

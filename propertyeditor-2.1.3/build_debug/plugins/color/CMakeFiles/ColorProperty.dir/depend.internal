@@ -4,6 +4,8 @@
 plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/color/changecolor.cpp
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/color/changecolor.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -48,6 +50,7 @@ plugins/color/CMakeFiles/ColorProperty.dir/changecolor.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -114,6 +117,8 @@ plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/color/changecolor.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/color/color.cpp
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/color/color.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -327,6 +332,8 @@ plugins/color/CMakeFiles/ColorProperty.dir/color.cpp.o
 plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/color/../../../plugins/color/changecolor.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/color/moc_changecolor.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -371,6 +378,7 @@ plugins/color/CMakeFiles/ColorProperty.dir/moc_changecolor.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -433,6 +441,7 @@ plugins/color/CMakeFiles/ColorProperty.dir/moc_color.cxx.o
  ../lib/propertyvalidator.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/color/../../../plugins/color/color.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/color/moc_color.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject

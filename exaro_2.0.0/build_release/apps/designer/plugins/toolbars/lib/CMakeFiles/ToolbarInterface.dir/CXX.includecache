@@ -22,6 +22,24 @@ QToolBar
 ../../../../../../apps/designer/plugins/toolbars/lib/toolbarinterface.h
 /home/joana/git/faocas_qc/exaro_2.0.0/build_release/apps/designer/plugins/toolbars/lib/../../../../../../apps/designer/plugins/toolbars/lib/toolbarinterface.h
 
+/usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+QtCore/qbytearray.h
+-
+
+/usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
+QtCore/qalgorithms.h
+-
+QtCore/qdatastream.h
+-
+QtCore/qlinkedlist.h
+-
+QtCore/qlist.h
+-
+iterator
+-
+list
+-
+
 /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
 qpoint.h
 /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qpoint.h
@@ -286,6 +304,16 @@ new
 
 /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
 QtCore/qpoint.h
+-
+
+/usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
+QtCore/qiterator.h
+-
+QtCore/qatomic.h
+-
+iterator
+-
+list
 -
 
 /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h

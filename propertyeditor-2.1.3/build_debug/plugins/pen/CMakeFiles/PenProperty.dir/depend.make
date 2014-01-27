@@ -5,6 +5,8 @@ plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: ../lib/propertyinterface.h
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: ../lib/propertyvalidator.h
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: plugins/pen/../../../plugins/pen/pen.h
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: plugins/pen/moc_pen.cxx
+plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -53,6 +55,7 @@ plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
 plugins/pen/CMakeFiles/PenProperty.dir/moc_pen.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -100,6 +103,8 @@ plugins/pen/CMakeFiles/PenProperty.dir/pen.cpp.o: ../lib/propertyinterface.h
 plugins/pen/CMakeFiles/PenProperty.dir/pen.cpp.o: ../lib/propertyvalidator.h
 plugins/pen/CMakeFiles/PenProperty.dir/pen.cpp.o: ../plugins/pen/pen.cpp
 plugins/pen/CMakeFiles/PenProperty.dir/pen.cpp.o: ../plugins/pen/pen.h
+plugins/pen/CMakeFiles/PenProperty.dir/pen.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/pen/CMakeFiles/PenProperty.dir/pen.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/pen/CMakeFiles/PenProperty.dir/pen.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/pen/CMakeFiles/PenProperty.dir/pen.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/pen/CMakeFiles/PenProperty.dir/pen.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum

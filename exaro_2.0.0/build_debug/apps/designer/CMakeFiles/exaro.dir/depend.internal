@@ -4,6 +4,8 @@
 apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/aboutdialog.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/aboutdialog.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -53,6 +55,7 @@ apps/designer/CMakeFiles/exaro.dir/aboutdialog.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -181,6 +184,8 @@ apps/designer/CMakeFiles/exaro.dir/command.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/designeruiwidget.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/mainwindow.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/objectmodel.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
@@ -490,6 +495,8 @@ apps/designer/CMakeFiles/exaro.dir/designerpage.cpp.o
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/designerpage.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/designerpage.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -737,6 +744,8 @@ apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/designerquerywidget.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/designerquerywidget.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/queryeditdialog.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -786,6 +795,7 @@ apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -908,6 +918,8 @@ apps/designer/CMakeFiles/exaro.dir/designerquerywidget.cpp.o
 apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/designeruitype.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/designeruitype.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -957,6 +969,7 @@ apps/designer/CMakeFiles/exaro.dir/designeruitype.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -1057,6 +1070,8 @@ apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/designeruitype.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/designeruiwidget.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/designeruiwidget.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QBuffer
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDebug
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDir
@@ -1118,6 +1133,7 @@ apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -1243,6 +1259,8 @@ apps/designer/CMakeFiles/exaro.dir/designeruiwidget.cpp.o
 apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/exaroapplication.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/exaroapplication.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -1292,6 +1310,7 @@ apps/designer/CMakeFiles/exaro.dir/exaroapplication.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -1409,6 +1428,8 @@ apps/designer/CMakeFiles/exaro.dir/fieldswizardpage.cpp.o
  ../libs/report/reportinterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/fieldswizardpage.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/fieldswizardpage.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -1724,6 +1745,8 @@ apps/designer/CMakeFiles/exaro.dir/groupwizardpage.cpp.o
  ../libs/report/reportinterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/groupwizardpage.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/groupwizardpage.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -2047,6 +2070,8 @@ apps/designer/CMakeFiles/exaro.dir/main.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/mainwindow.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/objectmodel.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/x86_64-signal.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDir
@@ -2371,6 +2396,8 @@ apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/reportwizard.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/scripteditdialog.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/sqldatabasedialog.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDateTime
@@ -2734,6 +2761,8 @@ apps/designer/CMakeFiles/exaro.dir/mainwindow.cpp.o
 apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/aboutdialog.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_aboutdialog.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -2783,6 +2812,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_aboutdialog.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -2901,6 +2931,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o
  ../libs/report/iteminterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/designerpage.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_designerpage.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -3140,6 +3172,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_designerpage.cxx.o
 apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/designerquerywidget.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_designerquerywidget.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -3189,6 +3223,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -3288,6 +3323,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_designerquerywidget.cxx.o
 apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/designeruitype.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_designeruitype.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -3337,6 +3374,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -3436,6 +3474,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_designeruitype.cxx.o
 apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/designeruiwidget.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_designeruiwidget.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -3485,6 +3525,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -3584,6 +3625,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_designeruiwidget.cxx.o
 apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/exaroapplication.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_exaroapplication.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -3631,6 +3674,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_exaroapplication.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -3698,6 +3742,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_fieldswizardpage.cxx.o
  ../libs/report/reportinterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/fieldswizardpage.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_fieldswizardpage.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -4000,6 +4046,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_groupwizardpage.cxx.o
  ../libs/report/reportinterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/groupwizardpage.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_groupwizardpage.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -4307,6 +4355,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_mainwindow.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/mainwindow.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/objectmodel.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_mainwindow.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
@@ -4611,6 +4661,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_namevalidator.cxx.o
  /home/joana/git/faocas_qc/exaro-package/propertyeditor/debug/include/propertyvalidator.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/namevalidator.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_namevalidator.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qatomic.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qatomic_alpha.h
@@ -4669,6 +4720,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_namevalidator.cxx.o
 apps/designer/CMakeFiles/exaro.dir/moc_objectmodel.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/objectmodel.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_objectmodel.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qabstractitemmodel.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -4725,6 +4777,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_objectmodel.cxx.o
 apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/optionsdialog.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_optionsdialog.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -4774,6 +4828,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_optionsdialog.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -4893,6 +4948,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o
  ../libs/report/reportinterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/pagewizardpage.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_pagewizardpage.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -5185,6 +5242,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_pagewizardpage.cxx.o
 apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/queryeditdialog.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_queryeditdialog.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -5229,6 +5288,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_queryeditdialog.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -5323,6 +5383,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_querywizardpage.cxx.o
  ../libs/report/reportinterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/querywizardpage.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_querywizardpage.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -5616,6 +5678,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o
  ../libs/report/reportinterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/reportwizard.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_reportwizard.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -5875,6 +5939,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_reportwizard.cxx.o
 apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/scripteditdialog.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_scripteditdialog.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -5919,6 +5985,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -6007,6 +6074,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_scripteditdialog.cxx.o
 apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/scriptsyntaxhighlighter.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_scriptsyntaxhighlighter.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -6050,6 +6119,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmetatype.h
@@ -6099,6 +6169,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_scriptsyntaxhighlighter.cxx.o
 apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/sqldatabasedialog.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_sqldatabasedialog.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -6148,6 +6220,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -6259,6 +6332,8 @@ apps/designer/CMakeFiles/exaro.dir/moc_sqldatabasedialog.cxx.o
 apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/../../../apps/designer/sqlsyntaxhighlighter.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/moc_sqlsyntaxhighlighter.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -6302,6 +6377,7 @@ apps/designer/CMakeFiles/exaro.dir/moc_sqlsyntaxhighlighter.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmetatype.h
@@ -6352,6 +6428,7 @@ apps/designer/CMakeFiles/exaro.dir/namevalidator.cpp.o
  /home/joana/git/faocas_qc/exaro-package/propertyeditor/debug/include/propertyvalidator.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/namevalidator.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/namevalidator.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qatomic.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qatomic_alpha.h
@@ -6410,6 +6487,7 @@ apps/designer/CMakeFiles/exaro.dir/namevalidator.cpp.o
 apps/designer/CMakeFiles/exaro.dir/objectmodel.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/objectmodel.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/objectmodel.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QAbstractItemModel
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qabstractitemmodel.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -6466,6 +6544,8 @@ apps/designer/CMakeFiles/exaro.dir/objectmodel.cpp.o
 apps/designer/CMakeFiles/exaro.dir/optionsdialog.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/optionsdialog.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/optionsdialog.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -6908,6 +6988,8 @@ apps/designer/CMakeFiles/exaro.dir/pagewizardpage.cpp.o
  ../libs/report/reportinterface.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/pagewizardpage.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/pagewizardpage.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -7208,6 +7290,8 @@ apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/queryeditdialog.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/queryeditdialog.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/sqlsyntaxhighlighter.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qabstractitemmodel.h
@@ -7253,6 +7337,7 @@ apps/designer/CMakeFiles/exaro.dir/queryeditdialog.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -7378,6 +7463,8 @@ apps/designer/CMakeFiles/exaro.dir/querywizardpage.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/querywizardpage.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/querywizardpage.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/sqldatabasedialog.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -7706,6 +7793,8 @@ apps/designer/CMakeFiles/exaro.dir/reportwizard.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/querywizardpage.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/reportwizard.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/reportwizard.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
@@ -8011,6 +8100,8 @@ apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/scripteditdialog.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/scripteditdialog.h
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/scriptsyntaxhighlighter.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qalgorithms.h
@@ -8055,6 +8146,7 @@ apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmargins.h
@@ -8155,6 +8247,8 @@ apps/designer/CMakeFiles/exaro.dir/scripteditdialog.cpp.o
 apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/scriptsyntaxhighlighter.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/scriptsyntaxhighlighter.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -8200,6 +8294,7 @@ apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmetatype.h
@@ -8249,6 +8344,8 @@ apps/designer/CMakeFiles/exaro.dir/scriptsyntaxhighlighter.cpp.o
 apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/sqldatabasedialog.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/sqldatabasedialog.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDir
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -8302,6 +8399,7 @@ apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -8426,6 +8524,8 @@ apps/designer/CMakeFiles/exaro.dir/sqldatabasedialog.cpp.o
 apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/sqlsyntaxhighlighter.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/sqlsyntaxhighlighter.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QFile
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -8471,6 +8571,7 @@ apps/designer/CMakeFiles/exaro.dir/sqlsyntaxhighlighter.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmetatype.h

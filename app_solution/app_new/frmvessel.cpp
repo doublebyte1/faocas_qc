@@ -481,24 +481,18 @@ void FrmVessel::filterModel4Combo()
                 "             id_abstract_landingsite FROM   sampled_cell WHERE  ( id =" + QVariant(m_sample->cellId).toString() + ")) )"
                 "       AND ref_vessels.vesseltype = (SELECT id_vessel_type FROM   sampled_cell_vessel_types  WHERE  ( id =" + QVariant(m_sample->vesselTypeId).toString() + " ))"
                 // removing vessels temporary deactivated ////////////
-                /*
                 " AND fr_als2vessel.vesselid NOT IN ("
-                "select t.vesselid from         "
-                " (select vesselid, max(id) as MaxID from abstract_changes_temp_vessel f where from_ls= (select sampled_cell.id_abstract_landingsite from sampled_cell where id=" + QVariant(m_sample->cellId).toString() + ") "
-                " group by vesselid) r inner join abstract_changes_temp_vessel t on t.vesselid=r.vesselid and t.id=r.MaxID  inner join ref_temp_frame f           "
-                " on  t.id_temp_frame=f.id  where f.id_cell=" + QVariant(m_sample->cellId).toString() +
+                "select vesselid from abstract_changes_temp_vessel where id_temp_frame=(select id from ref_temp_frame where id_cell="+ QVariant(m_sample->cellId).toString() + ")"
+                 "and from_ls = (select id_abstract_landingsite from sampled_cell where id="+ QVariant(m_sample->cellId).toString() + ")"
                 ")"
                 // adding vessels temporary activated *FROM THE CHOSEN VESSEL TYPE* and LS////////////
                 " UNION "
-                " select distinct ref_vessels.vesselid from "
-                " (select vesselid, max(id) as MaxID  from abstract_changes_temp_vessel f"
-                "  where to_ls= (select sampled_cell.id_abstract_landingsite from sampled_cell where id=" + QVariant(m_sample->cellId).toString() +")  "
-                "  group by vesselid) r inner join abstract_changes_temp_vessel t on t.vesselid=r.vesselid and t.id=r.MaxID "
-                "   inner join ref_temp_frame f  on  t.id_temp_frame=f.id "
-                "   inner join ref_vessels  on t.vesselid=ref_vessels.vesselid "
-                "   where f.id_cell=81 "
-                "   AND ref_vessels.vesseltype IN (select sampled_cell_vessel_types.id_vessel_type from sampled_cell_vessel_types where    "
-                "                                                      sampled_cell_vessel_types.id=" + QVariant(m_sample->vesselTypeId).toString() + ")  "*/
+                " select distinct abstract_changes_temp_vessel.vesselid from "
+                " abstract_changes_temp_vessel inner join ref_vessels ON"
+                " abstract_changes_temp_vessel.vesselid=ref_vessels.vesselid"
+                " where to_ls = (select id_abstract_landingsite from sampled_cell where id=" + QVariant(m_sample->cellId).toString() +")"
+                " AND ref_vessels.vesseltype =(select sampled_cell_vessel_types.id_vessel_type from sampled_cell_vessel_types where"
+                                                                                      " sampled_cell_vessel_types.id="+ QVariant(m_sample->vesselTypeId).toString() + ")"
             ;
 
     }else{
@@ -512,27 +506,29 @@ void FrmVessel::filterModel4Combo()
                 "       and fr_als2vessel.id_sub_frame=fr_sub_frame.id"
                 "       and fr_sub_frame.id_frame=" + QVariant(m_sample->frameId).toString() +
                 "       and fr_gls2als.id_gls=(select ref_minor_strata.id_gls from ref_minor_strata where ref_minor_strata.id=" + QVariant(m_sample->minorStrataId).toString() +")"
-                /*
                 // removing vessels temporary deactivated ////////////
-                " and vesselid not in (select vesselid"
-                " FROM   abstract_changes_temp_vessel"
-                " WHERE  abstract_changes_temp_vessel.id_minor_strata=" + QVariant(m_sample->minorStrataId).toString() +
-                " AND abstract_changes_temp_vessel.to_ls ="
-                " (select     id from          ref_abstract_landingsite"
-                " where      (name = 'outside')))"
+                " and vesselid not in ("
+                " select abstract_changes_temp_vessel.vesselid from abstract_changes_temp_vessel inner join"
+                " ref_temp_frame on abstract_changes_temp_vessel.id_temp_frame=ref_temp_frame.id"
+                " where ref_temp_frame.id_minor_strata="+ QVariant(m_sample->minorStrataId).toString() +" and abstract_changes_temp_vessel.from_ls in("
+                    "select distinct fr_gls2als.id_abstract_landingsite from  fr_gls2als where fr_gls2als.id_sub_frame IN "
+                    "(select id from fr_sub_frame where id_frame=" + QVariant(m_sample->frameId).toString() +")"
+                ")"
+                ")"
                 //adding vessels temporarily activated /////////////////////
-                " UNION"
-                " SELECT DISTINCT vesselid"
-                " FROM   abstract_changes_temp_vessel"
-                " WHERE  abstract_changes_temp_vessel.id_minor_strata=" + QVariant(m_sample->minorStrataId).toString() +
-                "       AND abstract_changes_temp_vessel.to_ls <> "
-                " (select     id from          ref_abstract_landingsite"
-                "				     where      (name = 'outside'))"*/
+                " UNION"                
+                " select abstract_changes_temp_vessel.vesselid from abstract_changes_temp_vessel inner join ref_temp_frame on "
+                " abstract_changes_temp_vessel.id_temp_frame=ref_temp_frame.id where ref_temp_frame.id_minor_strata=" + QVariant(m_sample->minorStrataId).toString() + " and"
+                " abstract_changes_temp_vessel.to_ls in ("
+                        "select distinct fr_gls2als.id_abstract_landingsite from  fr_gls2als where fr_gls2als.id_sub_frame IN "
+                        "(select id from fr_sub_frame where id_frame=" + QVariant(m_sample->frameId).toString() +")"
+                ")"
                 ;
     }
     qDebug() << strQuery << endl;
 
     query.prepare(strQuery);
+    query.setForwardOnly(true);
     if (!query.exec()){
         emit showError(tr("Could not obtain filter for Vessels!"));
         return;

@@ -6,6 +6,8 @@ plugins/report/page/CMakeFiles/Page.dir/moc_page.cxx.o: ../libs/report/iteminter
 plugins/report/page/CMakeFiles/Page.dir/moc_page.cxx.o: ../libs/report/pageinterface.h
 plugins/report/page/CMakeFiles/Page.dir/moc_page.cxx.o: plugins/report/page/../../../../plugins/report/page/page.h
 plugins/report/page/CMakeFiles/Page.dir/moc_page.cxx.o: plugins/report/page/moc_page.cxx
+plugins/report/page/CMakeFiles/Page.dir/moc_page.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/page/CMakeFiles/Page.dir/moc_page.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/page/CMakeFiles/Page.dir/moc_page.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/page/CMakeFiles/Page.dir/moc_page.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/report/page/CMakeFiles/Page.dir/moc_page.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -253,6 +255,8 @@ plugins/report/page/CMakeFiles/Page.dir/page.cpp.o: ../libs/report/iteminterface
 plugins/report/page/CMakeFiles/Page.dir/page.cpp.o: ../libs/report/pageinterface.h
 plugins/report/page/CMakeFiles/Page.dir/page.cpp.o: ../plugins/report/page/page.cpp
 plugins/report/page/CMakeFiles/Page.dir/page.cpp.o: ../plugins/report/page/page.h
+plugins/report/page/CMakeFiles/Page.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/page/CMakeFiles/Page.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/page/CMakeFiles/Page.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/page/CMakeFiles/Page.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/report/page/CMakeFiles/Page.dir/page.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject

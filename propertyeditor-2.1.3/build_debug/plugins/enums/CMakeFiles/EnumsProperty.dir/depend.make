@@ -5,6 +5,8 @@ plugins/enums/CMakeFiles/EnumsProperty.dir/enums.cpp.o: ../lib/propertyinterface
 plugins/enums/CMakeFiles/EnumsProperty.dir/enums.cpp.o: ../lib/propertyvalidator.h
 plugins/enums/CMakeFiles/EnumsProperty.dir/enums.cpp.o: ../plugins/enums/enums.cpp
 plugins/enums/CMakeFiles/EnumsProperty.dir/enums.cpp.o: ../plugins/enums/enums.h
+plugins/enums/CMakeFiles/EnumsProperty.dir/enums.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/enums/CMakeFiles/EnumsProperty.dir/enums.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/enums/CMakeFiles/EnumsProperty.dir/enums.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/enums/CMakeFiles/EnumsProperty.dir/enums.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/enums/CMakeFiles/EnumsProperty.dir/enums.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -229,6 +231,7 @@ plugins/enums/CMakeFiles/EnumsProperty.dir/moc_enums.cxx.o: ../lib/propertyinter
 plugins/enums/CMakeFiles/EnumsProperty.dir/moc_enums.cxx.o: ../lib/propertyvalidator.h
 plugins/enums/CMakeFiles/EnumsProperty.dir/moc_enums.cxx.o: plugins/enums/../../../plugins/enums/enums.h
 plugins/enums/CMakeFiles/EnumsProperty.dir/moc_enums.cxx.o: plugins/enums/moc_enums.cxx
+plugins/enums/CMakeFiles/EnumsProperty.dir/moc_enums.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/enums/CMakeFiles/EnumsProperty.dir/moc_enums.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/enums/CMakeFiles/EnumsProperty.dir/moc_enums.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/enums/CMakeFiles/EnumsProperty.dir/moc_enums.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject

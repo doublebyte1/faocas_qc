@@ -4,6 +4,8 @@
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/fonttoolbar.cpp.o
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/plugins/toolbars/font/fonttoolbar.cpp
  /home/joana/git/faocas_qc/exaro_2.0.0/apps/designer/plugins/toolbars/font/fonttoolbar.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
@@ -232,6 +234,8 @@ apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/fonttoolbar.cpp.o
 apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.cxx.o
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/plugins/toolbars/font/../../../../../../apps/designer/plugins/toolbars/font/fonttoolbar.h
  /home/joana/git/faocas_qc/exaro_2.0.0/build_debug/apps/designer/plugins/toolbars/font/moc_fonttoolbar.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qabstractitemmodel.h
@@ -277,6 +281,7 @@ apps/designer/plugins/toolbars/font/CMakeFiles/Fonttoolbar.dir/moc_fonttoolbar.c
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

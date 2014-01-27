@@ -6,6 +6,8 @@ plugins/report/items/chord/CMakeFiles/Chord.dir/chord.cpp.o: ../libs/report/glob
 plugins/report/items/chord/CMakeFiles/Chord.dir/chord.cpp.o: ../libs/report/iteminterface.h
 plugins/report/items/chord/CMakeFiles/Chord.dir/chord.cpp.o: ../plugins/report/items/chord/chord.cpp
 plugins/report/items/chord/CMakeFiles/Chord.dir/chord.cpp.o: ../plugins/report/items/chord/chord.h
+plugins/report/items/chord/CMakeFiles/Chord.dir/chord.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/chord/CMakeFiles/Chord.dir/chord.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/chord/CMakeFiles/Chord.dir/chord.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/chord/CMakeFiles/Chord.dir/chord.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/chord/CMakeFiles/Chord.dir/chord.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
@@ -244,6 +246,8 @@ plugins/report/items/chord/CMakeFiles/Chord.dir/moc_chord.cxx.o: ../libs/report/
 plugins/report/items/chord/CMakeFiles/Chord.dir/moc_chord.cxx.o: ../libs/report/iteminterface.h
 plugins/report/items/chord/CMakeFiles/Chord.dir/moc_chord.cxx.o: plugins/report/items/chord/../../../../../plugins/report/items/chord/chord.h
 plugins/report/items/chord/CMakeFiles/Chord.dir/moc_chord.cxx.o: plugins/report/items/chord/moc_chord.cxx
+plugins/report/items/chord/CMakeFiles/Chord.dir/moc_chord.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/report/items/chord/CMakeFiles/Chord.dir/moc_chord.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/report/items/chord/CMakeFiles/Chord.dir/moc_chord.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/report/items/chord/CMakeFiles/Chord.dir/moc_chord.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
 plugins/report/items/chord/CMakeFiles/Chord.dir/moc_chord.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint

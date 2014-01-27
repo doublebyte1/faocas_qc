@@ -7,6 +7,8 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/flags/flags.cpp
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/flags/flags.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/flags/flagslist.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum
@@ -257,6 +259,8 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/flags.cpp.o
 plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/flags/flagslist.cpp
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/flags/flagslist.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -306,6 +310,7 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/flagslist.cpp.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h
@@ -408,6 +413,7 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flags.cxx.o
  ../lib/propertyvalidator.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/flags/../../../plugins/flags/flags.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/flags/moc_flags.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -471,6 +477,8 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flags.cxx.o
 plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/flags/../../../plugins/flags/flagslist.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/flags/moc_flagslist.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPoint
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QPointF
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QVariant
@@ -520,6 +528,7 @@ plugins/flags/CMakeFiles/FlagsProperty.dir/moc_flagslist.cxx.o
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiodevice.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qiterator.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qline.h
+ /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlinkedlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qlocale.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/qmap.h

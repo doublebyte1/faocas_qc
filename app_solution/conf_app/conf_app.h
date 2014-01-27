@@ -150,7 +150,7 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         database connection!
          \sa doRestore()
         */
-        void                    doBackup();
+        //void                    doBackup();
         //! Do Restore
         /*!
         This slot performs the restore of the database from a file; we need exclusive access to the db
@@ -161,7 +161,7 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         when we no longer need it.
          \sa doBackup()
         */
-        void                    doRestore();
+        //void                    doRestore();
         //! Do Dump
         /*!
         This slot writes a database patch (.diff), based on the log table "info_changes"; 
@@ -175,8 +175,8 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
          \sa doDump()
         */
         //bool                    continueDump(const int lu, const QString strMacAddress);
-        void                    doPatch();
-        bool                    doApply(int& lu_master, QString& strMacAddress, bool& bApplied);
+        //void                    doPatch();
+        //bool                    doApply(int& lu_master, QString& strMacAddress, bool& bApplied);
         //! Read Process Error
         /*!
         This slot connects to the readyReadStandardError() signal of the process launched with sqlcmd;
@@ -236,7 +236,7 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
          \sa createRoleRecord(), createRecord(QSqlTableModel* aModel,QDataWidgetMapper* aMapper, 
                 QGroupBox* aGroupDetails,QDialogButtonBox* aButtonBox, QPushButton* aPushEdit,QPushButton* aPushRemove)
         */
-        void                    createUserRecord();
+        //void                    createUserRecord();
         //! Create Record (Role)
         /*!
         This is the entry point for the generic createRecord, on the context of the role tab. It does not have any arguments
@@ -246,7 +246,7 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
          \sa createUserRecord(), createRecord(QSqlTableModel* aModel,QDataWidgetMapper* aMapper, 
                 QGroupBox* aGroupDetails,QDialogButtonBox* aButtonBox, QPushButton* aPushEdit,QPushButton* aPushRemove)
         */
-        void                    createRoleRecord();
+        //void                    createRoleRecord();
         //! Apply Model
         /*!
         This slot is a response to the submit signal and it introduces the validation layer, 
@@ -619,8 +619,9 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         \sa genericCreateRecord(QSqlTableModel* aModel,QPushButton* aPushEdit,
                                                 QPushButton* aPushRemove)
 */
+        /*
         void                              createRecord(QSqlTableModel* aModel,QDataWidgetMapper* aMapper, 
-                                                QGroupBox* aGroupDetails,QDialogButtonBox* aButtonBox, QPushButton* aPushEdit,QPushButton* aPushRemove);
+                                                QGroupBox* aGroupDetails,QDialogButtonBox* aButtonBox, QPushButton* aPushEdit,QPushButton* aPushRemove);*/
         //! Adjust Enables
         /*!
         This convenience functions, disables the pushEdit and pushRemove buttons on the managing tab. 
@@ -651,27 +652,29 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         void                              previewRecord(const QModelIndex index,QDataWidgetMapper* aMapper,QPushButton* aPushNew,
                                             QPushButton* aPushEdit, QPushButton* aPushRemove,QGroupBox* aGroupDetails,QDialogButtonBox* aButtonBox,QSqlTableModel* aModel,
                                             QSqlQueryModel* viewModel, const QString strQuery, QTableView* aTable);
-        bool                              readFile(const QString strFileName, QString& outStr);
+        bool                              readFile(const QString strFileName, QString& outStr);/*
         bool                              readChangesfromPatch(const QString strContent, QString& strDateUTC, QString& strDateLocal,
                                                     int& dateType, QString& strCityName, QString& strMacAddress, QString& strUser, int& lu_master, listInfoChanges& lChanges, 
                                                     QList<QVariant>& mapReferences, QString& strError);
         bool                              applyChangesfromPatch(const QList<QVariant>& mapReferences, listInfoChanges& lChanges, const int lu_master,
                                                                     int& cnew, int& cmod, int& cdel, QString& strError);
         bool                              insertNewRecord(const listInfoChanges& lChanges);
-        bool                              insertDate(const InfoDate date, int& id);
+        //bool                              insertDate(const InfoDate date, int& id);
         bool                              packRecord(const QList<QVariant>& mapReferences, listInfoChanges& lChanges, int& i, 
                                             listInfoChanges& aRecord, bool& bBreak, QString& strError);
         bool                              removeRecord(const listInfoChanges& packRecord);
-        bool                              modRecord(InfoChanges& chRec, const int id);
+        //bool                              modRecord(InfoChanges& chRec, const int id);
         bool                              identifyRecord(const listInfoChanges& packRecord, int& outID);
+        /*
         bool                              startPatchSession(const QString strDateUTC, const QString strDateLocal,
                                                                 const int dateType, const QString strCityName, const QString strMacAddress, const QString strUser);
+
         bool                              identifyReference(const QList<QVariant>& mapReferences, const QString strRef,
                                                               QVariant& outV, QString& strError);
         bool                               findJSONReference(const QList<QVariant>& mapReferences, const int ID, 
                                                     QVariantMap& map, QString& strTable, QString& strError);
         bool                               findDBReference(const QList<QVariant>& mapReferences,const QString strTable, QVariantMap map,
-                                                    QVariant& outID, QString& strError);
+                                                    QVariant& outID, QString& strError);*/
 
         bool                              m_bConnected;//!< Boolean flag to indicate the connection status
         QSqlQueryModel                    *cityModel;//!< Pointer to the city database model (table "Ref_Location")

@@ -6,6 +6,7 @@ plugins/time/CMakeFiles/TimeProperty.dir/moc_timeprop.cxx.o
  ../lib/propertyvalidator.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/time/../../../plugins/time/timeprop.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/build_debug/plugins/time/moc_timeprop.cxx
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -71,6 +72,8 @@ plugins/time/CMakeFiles/TimeProperty.dir/timeprop.cpp.o
  ../lib/propertyvalidator.h
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/time/timeprop.cpp
  /home/joana/git/faocas_qc/propertyeditor-2.1.3/plugins/time/timeprop.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+ /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
  /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum

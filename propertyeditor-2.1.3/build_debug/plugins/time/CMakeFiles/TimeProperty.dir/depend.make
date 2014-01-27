@@ -5,6 +5,7 @@ plugins/time/CMakeFiles/TimeProperty.dir/moc_timeprop.cxx.o: ../lib/propertyinte
 plugins/time/CMakeFiles/TimeProperty.dir/moc_timeprop.cxx.o: ../lib/propertyvalidator.h
 plugins/time/CMakeFiles/TimeProperty.dir/moc_timeprop.cxx.o: plugins/time/../../../plugins/time/timeprop.h
 plugins/time/CMakeFiles/TimeProperty.dir/moc_timeprop.cxx.o: plugins/time/moc_timeprop.cxx
+plugins/time/CMakeFiles/TimeProperty.dir/moc_timeprop.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
 plugins/time/CMakeFiles/TimeProperty.dir/moc_timeprop.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/time/CMakeFiles/TimeProperty.dir/moc_timeprop.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QModelIndex
 plugins/time/CMakeFiles/TimeProperty.dir/moc_timeprop.cxx.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QObject
@@ -70,6 +71,8 @@ plugins/time/CMakeFiles/TimeProperty.dir/timeprop.cpp.o: ../lib/propertyinterfac
 plugins/time/CMakeFiles/TimeProperty.dir/timeprop.cpp.o: ../lib/propertyvalidator.h
 plugins/time/CMakeFiles/TimeProperty.dir/timeprop.cpp.o: ../plugins/time/timeprop.cpp
 plugins/time/CMakeFiles/TimeProperty.dir/timeprop.cpp.o: ../plugins/time/timeprop.h
+plugins/time/CMakeFiles/TimeProperty.dir/timeprop.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3cstring.h
+plugins/time/CMakeFiles/TimeProperty.dir/timeprop.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/Qt3Support/q3valuelist.h
 plugins/time/CMakeFiles/TimeProperty.dir/timeprop.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QDate
 plugins/time/CMakeFiles/TimeProperty.dir/timeprop.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QList
 plugins/time/CMakeFiles/TimeProperty.dir/timeprop.cpp.o: /usr/local/Trolltech/Qt-4.8.6/include/QtCore/QMetaEnum

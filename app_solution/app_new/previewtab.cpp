@@ -18,7 +18,7 @@ GenericTab(index,inRoleDef,inSample,inStrTitle,ruleCheckerPtr,parent,flags){
     mapTablesL.insert("fr_time",sTable(qApp->translate("null_replacements", strNa),"ref_minor_strata",true,false));
     mapTablesL.insert("ref_minor_strata",sTable("id_frame_time","sampled_strata_vessels",true,false));
     mapTablesL.insert("sampled_strata_vessels",sTable("id_minor_strata","abstract_sampled_vessels",false,false));
-    mapTablesL.insert("abstract_sampled_Vessels",sTable("id_sampled_strata_vessels","sampled_fishing_trips",false,false));
+    mapTablesL.insert("abstract_sampled_vessels",sTable("id_sampled_strata_vessels","sampled_fishing_trips",false,false));
     mapTablesL.insert("sampled_fishing_trips",sTable("id_abstract_sampled_vessels","sampled_fishing_operations",true,true));
     mapTablesL.insert("sampled_fishing_operations",sTable("id_fishing_trip",qApp->translate("null_replacements", strNa),true,true));
 

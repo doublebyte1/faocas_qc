@@ -405,6 +405,7 @@ bool FrmCell::applyChanges()
     {
         emit showError(strError);
     }else{
+
         int cur= mapper1->currentIndex();
         bError=!submitMapperAndModel(mapper1);
         if (!bError){

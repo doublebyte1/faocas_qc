@@ -1114,12 +1114,12 @@ bool ModelInterface::readModel(const Sample* sample, const int options)
     //TODO: if tmp, initialize query to have the vessel list: pass the list to the vessels -> if they re in, they re unmovable
     //TODO: reactivate black list
 
-    QVector<int> vVesselsBlackList;/*
+    QVector<int> vVesselsBlackList;
     if (options & FrmFrameDetails::READ_TMP)
     {
         if (!getVesselsBlackList(sample,vVesselsBlackList))
             return false;
-    }*/
+    }
     //TODO: pass this to the vessels
 
     //Read all the reference tables and put them on the bin
@@ -1161,47 +1161,17 @@ bool ModelInterface::getVesselsBlackList(const Sample* sample, QVector<int>& vVe
 
     if (!sample->bLogBook){
         strQuery=
-                "select    abstract_sampled_vessels.vesselid, sampled_cell_vessel_types.id_cell"
-        "	  from         sampled_cell_vessel_types inner join"
-        "			      sampled_cell_vessels on sampled_cell_vessel_types.id = sampled_cell_vessels.id_cell_vessel_types inner join"
-        "			      abstract_sampled_vessels on sampled_cell_vessels.id = abstract_sampled_vessels.id_sampled_cell_vessels"
-
-                " where sampled_cell_vessel_types.id_cell in "
-                "("
-                "	select     "
-                "	  sampled_cell.id from       "
-                "	  sampled_cell inner join     "
-                "	  ref_minor_strata on sampled_cell.id_minor_strata = ref_minor_strata.id where"
-                "	  ("
-                "		  sampled_cell.start_dt <= (select sampled_cell.end_dt from sampled_cell where sampled_cell.id=" + QVariant(sample->cellId).toString() + ")"
-                "		  and"
-                "		sampled_cell.end_dt >=(select sampled_cell.start_dt from sampled_cell where sampled_cell.id=" + QVariant(sample->cellId).toString() + ")"
-                "	)"
-                "	and (ref_minor_strata.id_frame_time ="  + QVariant(sample->frameTimeId).toString() + " and (sampled_cell.id<>" + QVariant(sample->cellId).toString() + ") )	"
-                ") "
+                "select    abstract_sampled_vessels.vesselid"
+        "	  from         abstract_sampled_vessels inner join sampled_cell_vessels on abstract_sampled_vessels.id_sampled_cell_vessels=sampled_cell_vessels.id "
+        "			       inner join sampled_cell_vessel_types on sampled_cell_vessels.id_cell_vessel_types=sampled_cell_vessel_types.id "
+                " where sampled_cell_vessel_types.id_cell=" + QVariant(sample->cellId).toString()
                 ;
     }else{
         strQuery=
-                "select     abstract_sampled_vessels.vesselid, sampled_strata_vessels.id_minor_strata "
+                "select     abstract_sampled_vessels.vesselid"
                  " from         abstract_sampled_vessels inner join "
                  "                     sampled_strata_vessels on abstract_sampled_vessels.id_sampled_strata_vessels = sampled_strata_vessels.id"
-                 "           where sampled_strata_vessels.id_minor_strata in "
-                 "("
-                 " select     ref_minor_strata.id"
-                 " from         ref_minor_strata"
-                 " where  "
-
-                        "  ("
-                        "	  ref_minor_strata.start_dt <= (select ref_minor_strata.end_dt from ref_minor_strata where ref_minor_strata.id=" + QVariant(sample->minorStrataId).toString() + ")"
-                        "	  and"
-                        "	  ref_minor_strata.end_dt >=(select ref_minor_strata.end_dt from ref_minor_strata where ref_minor_strata.id=" + QVariant(sample->minorStrataId).toString() + ")"
-
-                "   )"
-              " and "
-
-                 " (ref_minor_strata.id_frame_time ="  + QVariant(sample->frameTimeId).toString() + " and (ref_minor_strata.id <> " + QVariant(sample->minorStrataId).toString() + "))"
-
-            ")"
+                 "           where sampled_strata_vessels.id_minor_strata=" + QVariant(sample->minorStrataId).toString()
              ;
 
     }

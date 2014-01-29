@@ -212,7 +212,7 @@ void FrmVesselType::filterModel4Combo()
                 "select vesselid from abstract_changes_temp_vessel where id_temp_frame=(select id from ref_temp_frame where id_cell="+ QVariant(m_sample->cellId).toString() + ")"
                  " and from_ls = (select id_abstract_landingsite from sampled_cell where id="+ QVariant(m_sample->cellId).toString() + ")"
                 ")"
-                // adding vessels temporary deactivated ////////////
+                // adding vessels temporary activated ////////////
                  " UNION "
                 "select distinct ref_vessels.vesseltype from"
                 " ref_vessels inner join"

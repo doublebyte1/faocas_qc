@@ -7,12 +7,6 @@
 
 using namespace QtJson;
 
-//We need to mantain these names in order to mantain compatibility with the historical backups
-//static const QString strLogicalFile="albania_dat";
-//static const QString strLogFile="albania_log";
-//static const QString strDatabasePath="C:\\medfisis_dat\\";
-static const QString strSqlClient="sqlcmd";
-
 static const QString strViewUsers=
     "SELECT     ui_user.id, ui_user.username AS Name, ui_role.name AS Role"
     " FROM         ui_user INNER JOIN"
@@ -22,6 +16,9 @@ static const QString strViewRole=
 "SELECT     id, name AS Name, description AS Description"
 " FROM         ui_role WHERE name <> 'n/a'"
 ;
+
+static const QString strBackupTool="pg_dump";
+static const QString strRestoreTool="pg_restore";
 
 conf_app::conf_app(QWidget *parent, Qt::WFlags flags)
     : QMainWindow(parent, flags)
@@ -120,242 +117,25 @@ void conf_app::initModels()
     roleModel->sort(0,Qt::AscendingOrder);
     roleModel->select();
 }
-/*
-void conf_app::doBackup()
-{
-    if (!m_bConnected){
-
-             QMessageBox::warning(this, tr("Backup Process"),
-             tr("You must be connected to the database to perform the 'Backup'!")
-             +tr("\n Please connect and try again!"));
-             return;
-    }
-
-    QString fileName = QFileDialog::getSaveFileName(this,
-     tr("Export backup to file"), getOutputName("bak"), tr("Backup Files (*.bak)"));
-
-    if (!fileName.isEmpty()){
-
-    qApp->setOverrideCursor( QCursor(Qt::BusyCursor ) );
-    statusShow(tr("Wait..."));
-
-        QSettings settings("Medstat", "App");
-        if (!settings.contains("database")){
-
-            QMessageBox::critical(this, tr("Backup database"),
-                                    tr("Can not read database name! Are we connected?"));
-            return;
-
-        }
-        QString strDatabase=settings.value("database").toString();
-
-        QSqlQuery query;
-        QString strQuery="BACKUP DATABASE " + strDatabase + " TO DISK = '"
-            + fileName +"'";
-        query.prepare(strQuery);
-
-        if (!query.exec()){
-            QString strError;
-            if (QSqlDatabase::database().lastError().type()!=QSqlError::NoError)
-                strError=QSqlDatabase::database().lastError().text();
-            else
-                strError=tr("Could not backup database!");
-
-            QMessageBox msgBox(QMessageBox::Critical,tr("Database Error"),strError,QMessageBox::Ok,0);
-            msgBox.exec();
-
-        }else{
-            statusShow(tr("Database successfully backed up to ") + fileName);
-        }
-        qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-    }
-}
-*/
-QString conf_app::getOutputName(const QString strExt)
-{
-    QString str;
-    //TODO: Change this to read data directory
-    //str=QDir::currentPath() + QDir::separator();
-    QSettings settings("Medstat", "App");
-    if (!settings.contains("database")){
-
-        QMessageBox::critical(this, tr("Output database"),
-                                tr("Can not read database name! Are we connected?"));
-        return str;
-
-    }
-    str+=settings.value("database").toString();
-    str+="_";
-    str+=QDateTime::currentDateTime().toString("yyyymmddhhmmss");
-    str+="."+strExt;
-    return str;
-}
 
 void conf_app::readProcessError()
 {
-    QMessageBox::critical(this, tr("Restore Process"),
-                            myProcess->readAllStandardError().data());
+    /*QMessageBox::critical(this, tr("Backup/Restore Process"),
+                            myProcess->readAllStandardError().data());*/
+    //qDebug() << myProcess->readAllStandardError().data() << endl;
 }
 
 void conf_app::readProcessOutput()
 {
-    if (m_bShowSqlMessages){
-        QMessageBox::information(this, tr("Restore Process"),
-                                myProcess->readAllStandardOutput().data());
-    }else{
-        emit statusShow(myProcess->readAllStandardOutput().data());
-    }
+    m_buffer.append( myProcess->readAllStandardOutput());
+    emit statusShow("Writing data..");
+
 }
 
-void conf_app::parseParams()
+QString conf_app::getDefaultOutputName()
 {
-    QString str=QString(myProcess->readAllStandardOutput().data());
-    if (str.contains(".mdf")){
-
-        //removing the first bit...
-        int idx=str.lastIndexOf("-");
-        str=str.right(str.length()-(idx+1));
-        str=str.simplified();
-
-        QStringList strSplit=str.split(" ");
-
-        if (strSplit.size() < 4){
-
-            QMessageBox::critical(this, tr("Restore Process"),
-             tr("Could not parse database parameters!"));
-            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-            return;
-        }
-        m_databaseLogicalName=strSplit[0];
-        m_databasePath=strSplit[2];
-        m_logLogicalName=strSplit[11];
-        m_logPath=strSplit[13];
-
-        if (m_bShowSqlMessages){
-
-            QMessageBox::information(this, tr("Restore Process"),
-                tr("Logical database name: ") + m_databaseLogicalName + "\n" +
-                tr("Logical log name: ") + m_logLogicalName + "\n" +
-                tr("Database physical path: ") + m_databasePath + "\n" +
-                tr("Log physical path: ") + m_logPath + "\n"
-                );
-
-        }else{
-            emit statusShow(
-            tr("Logical database name: ") + m_databaseLogicalName + "\n" +
-            tr("Logical log name: ") + m_logLogicalName + "\n" +
-            tr("Database physical path: ") + m_databasePath + "\n" +
-            tr("Log physical path: ") + m_logPath + "\n");
-        }
-
-    }
-}
-
-void conf_app::showSqlMessages(const bool bShow){
-
-    m_bShowSqlMessages=bShow;
-    QSettings settings("Medstat", "App");
-    settings.setValue("showSqlMsg", QVariant(bShow).toString());
-}
-
-void conf_app::finishedCheckingBackupFile()
-{
-    processFinished();
-
-    QStringList args;
-
-    QSettings settings("Medstat", "App");
-    if(!settings.contains("database")){
-
-        QMessageBox::critical(this, tr("Restore Process"),
-        tr("Could not find database name on the registry!\n")+
-        tr("Please establish the complete connection string prior running setup!"));
-        return;
-
-    }
-
-    QString strScript=
-    "RESTORE DATABASE [" + settings.value("database").toString() +"] FROM DISK = '"
-    + m_strBackupName + "' WITH FILE = 1," +
-    " MOVE '" + m_databaseLogicalName +"' TO '" + m_databasePath + "'," +
-    " MOVE '" + m_logLogicalName +"' TO '" + m_logPath + "'," +
-    " NOUNLOAD, STATS = 10"; 
-
-    if (!runScript(strScript,args)){
-         QMessageBox::critical(this, tr("App"),
-             tr("Could not create file: ") + QDir::tempPath() + QDir::separator() + "MyScript.sql");
-    }
-
-    //dont forget to reset the process!
-    createProcess();
-
-     connect(myProcess, SIGNAL(readyReadStandardOutput()),this,
-        SLOT(readProcessOutput() ),Qt::UniqueConnection);
-
-     connect(myProcess, SIGNAL(readyReadStandardError()),this,
-        SLOT(readProcessError() ),Qt::UniqueConnection);
-
-     connect(myProcess, SIGNAL(finished(int,QProcess::ExitStatus)),this,
-        SLOT(finishedRestore() ),Qt::UniqueConnection);
-
-    QString app(strSqlClient);
-     myProcess->start(app, args);
-     if (!myProcess->waitForStarted()) {
-         QMessageBox::critical(this, tr("App"),
-             tr("Could not start Sql Server from %1.").arg(app));
-         return;
-     }
-}
-
-void conf_app::parseBackupFileInfo()
-{
-    QString str=QString(myProcess->readAllStandardOutput().data());
-
-    //removing the first bit...
-    int idx=str.lastIndexOf("---");
-    str=str.right(str.length()-(idx+1));
-    str=str.simplified();
-
-    QStringList strSplit=str.split(" ");
-
-    //first exist point
-    if (strSplit.size() < 25){
-
-        QMessageBox::critical(this, tr("Restore Process"),
-         tr("Could not parse database parameters!\n Restore cancelled!"));
-        qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-        return;
-    }
-
-    //second exit point
-    if (m_databaseLogicalName!=strSplit[1] || m_logLogicalName !=strSplit[21]){
-
-        QMessageBox::warning(this, tr("Restore Process"),
-        tr("Logical database name on this backup: ") + strSplit[1] + "\n" +
-        tr("Logical log name on this backup: ") + strSplit[21] + "\n" +
-        tr("Attention: The logical name on this backup differs from the database name!\n"));
-
-        //qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-        //return;
-
-    }
-
-    if (m_bShowSqlMessages){
-
-        QMessageBox::information(this, tr("Restore Process"),
-            tr("Logical database name on this backup: ") + strSplit[1] + "\n" +
-            tr("Logical log name on this backup: ") + strSplit[21] + "\n" +
-            tr("Match with database logical Names: ok \n")
-            );
-
-    }else{
-            emit statusShow(
-                tr("Logical database name on this backup: ") + strSplit[1] + "\n" +
-                tr("Logical log name on this backup: ") + strSplit[21] + "\n" +
-                tr("Match with database logical Names: ok \n")
-            );
-
-    }
+    QString strDtFormat="yyyyMMddThhmm";
+    return (QObject::tr("backup_") + QDateTime::currentDateTime().toString(strDtFormat));
 }
 
 void conf_app::createProcess()
@@ -367,76 +147,165 @@ void conf_app::createProcess()
     myProcess=new QProcess();
 }
 
-void conf_app::finishedRestore()
+void conf_app::finishedDump( int exitCode, QProcess::ExitStatus exitStatus )
 {
-    processFinished();
-    emit statusShow(tr("Restore finished!"));
-     qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+    myProcess->close();
 
-}
-
-void conf_app::finishedReadingNames()
-{
-    processFinished();
-
-    QStringList args;
-
-    QString strScript=
-    "RESTORE FILELISTONLY"
-    " FROM DISK = '" + m_strBackupName + "'"
-    " WITH FILE=1"; 
-
-    if (!runScript(strScript,args)){
-         QMessageBox::critical(this, tr("App"),
-             tr("Could not create file: ") + QDir::tempPath() + QDir::separator() + "MyScript.sql");
-         qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-         return;
+    QFile file(m_fileName);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)){
+        QMessageBox::critical(this, tr("Backup Process"),
+                                tr("Could not open file") + m_fileName + tr(" for writing!"));
+        return;
     }
 
-    //dont forget to reset the process!
-    createProcess();
+    file.write(m_buffer);
+    file.close();
 
-     connect(myProcess, SIGNAL(finished(int,QProcess::ExitStatus)),this,
-        SLOT(finishedCheckingBackupFile() ),Qt::UniqueConnection);
+    m_buffer.clear();
 
-     connect(myProcess, SIGNAL(readyReadStandardOutput()),this,
-        SLOT(parseBackupFileInfo() ),Qt::UniqueConnection);
+    if (!exitCode){
+        QMessageBox::information(this, tr("Backup Process"),
+                                 tr("Backup finished with exit code ") + QVariant(exitCode).toString() + "; "
+                                 +"the process exited normally."
+                                 );
+    } else{
+        QMessageBox::critical(this, tr("Backup Process"),
+                                 tr("Backup finished with exit code ") + QVariant(exitCode).toString() + "; "
+                                 +"the process crashed."
+                                 );
 
-    QString app(strSqlClient);
-     myProcess->start(app, args);
-     if (!myProcess->waitForStarted()) {
-         QMessageBox::critical(this, tr("App"),
-             tr("Could not start Sql Server from %1.").arg(app));
-        qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-         return;
-     }
+    }
+
+    emit statusShow(tr("Backup finished with exit code ") + QVariant(exitCode).toString() + "; "
+                     +(exitStatus==QProcess::NormalExit?"the process exited normally.":"the process crashed.")
+                     );
+
+    qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
 
 }
 
-void conf_app::processFinished()
+void conf_app::finishedRestore( int exitCode, QProcess::ExitStatus exitStatus )
 {
-     if (QFile(QDir::tempPath() + QDir::separator() + "MyScript.sql").exists()){
-         if(!QFile::remove(QDir::tempPath() + QDir::separator() + "MyScript.sql")){
+    //qDebug() << m_buffer.data() << endl;
 
-             QMessageBox::warning(this, tr("Restore Process"),
-             tr("Could not remove temporary script file!"));
-            return;
-         }
-     }
-     statusShow(tr("Temporary script file sucessfully removed!"));
+    myProcess->close();
+
+    m_buffer.clear();
+
+    if (!exitCode){
+        QMessageBox::information(this, tr("Restore Process"),
+                                 tr("Restore finished with exit code ") + QVariant(exitCode).toString() + ";"
+                                 +" the process exited normally."
+                                 );
+    }else{
+        QMessageBox::critical(this, tr("Restore Process"),
+                                 tr("Restore finished with exit code ") + QVariant(exitCode).toString() + "; "
+                                 +"the process crashed."
+                                 );
+    }
+
+    emit statusShow(tr("Restore finished with exit code ") + QVariant(exitCode).toString() + "; "
+                    +(exitStatus==QProcess::NormalExit?"the process exited normally.":"the process crashed.")
+                                                 );
+
+
+    qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
 }
-/*
+
+void conf_app::doBackup()
+{
+    QString fileName = QFileDialog::getSaveFileName(this,
+                                                    tr("Export backup to file"), getDefaultOutputName(), "Custom (*.tar)");
+
+    if (!fileName.isEmpty()){
+
+    qApp->setOverrideCursor( QCursor(Qt::BusyCursor ) );
+    statusShow(tr("Wait..."));
+
+        m_fileName=fileName;
+
+        QSettings settings("FaoCAS", "App");
+        if (!settings.contains("database")){
+
+            QMessageBox::critical(this, tr("Backup Process"),
+                                    tr("Could not read database name! Did you already initialized a connection?"));
+            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+            return;
+
+        }
+        else if (!settings.contains("username")){
+
+            QMessageBox::critical(this, tr("Backup Process"),
+                                    tr("Could not read DB username! Did you already initialized a connection?"));
+            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+            return;
+
+        }
+        else if(!settings.contains("host")){
+            QMessageBox::critical(this, tr("Backup Process"),
+                                    tr("Could not read DB host! Did you already initialized a connection?"));
+            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+            return;
+        }
+        else if(!settings.contains("port")){
+            QMessageBox::critical(this, tr("Backup Process"),
+                                    tr("Could not read host port! Did you already initialized a connection?"));
+            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+            return;
+        }
+
+        QStringList arguments;
+        arguments << "-Fc" << "-U" << settings.value("username").toString() << "-h" << settings.value("host").toString()
+                  << "-p" << settings.value("port").toString()
+                  << settings.value("database").toString();
+
+        createProcess();
+
+         connect(myProcess, SIGNAL(readyReadStandardOutput()),this,
+            SLOT(readProcessOutput() ),Qt::UniqueConnection);
+
+         connect(myProcess, SIGNAL(readyReadStandardError()),this,
+            SLOT(readProcessError() ),Qt::UniqueConnection);
+
+         connect(myProcess, SIGNAL(finished(int,QProcess::ExitStatus)),this,
+            SLOT(finishedDump( int, QProcess::ExitStatus ) ),Qt::UniqueConnection);
+
+       if (!m_buffer.isEmpty()) m_buffer.clear();
+
+       QString app(strBackupTool);
+
+       myProcess->start(app,arguments);
+      if (!myProcess->waitForStarted()) {
+          QMessageBox::critical(this, tr("App"),
+              tr("Could not start ") + strBackupTool);
+          qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+          return;
+      }
+
+    }
+}
+
 void conf_app::doRestore()
 {
-    if (m_bConnected){
+    QMessageBox msgBox;
+    msgBox.setText(tr("You are restoring a backup."));
+    msgBox.setInformativeText(tr("Are you sure that you want to replace your current database?"));
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::No);
+    int ret = msgBox.exec();
 
-             QMessageBox::warning(this, tr("Restore Process"),
-             tr("You must be disconnected from the database to perform the 'Restore'!")
-             +tr("\n Please disconnect and try again!"));
-             return;
-    }
+     switch (ret) {
+       case QMessageBox::Yes:
+         break;
+       case QMessageBox::No:
+            return;
+            break;
+       default:
+           // should never be reached
+           break;
+     }
 
-    QSettings settings("Medstat", "App");
+    QSettings settings("FaoCAS", "App");
     if(!settings.contains("host")){
 
              QMessageBox::warning(this, tr("Restore Process"),
@@ -445,1069 +314,98 @@ void conf_app::doRestore()
              return;
     }
 
-    qApp->setOverrideCursor( QCursor(Qt::BusyCursor ) );
-    statusShow(tr("Wait..."));
+    m_fileName = QFileDialog::getOpenFileName(this,
+     tr("Restore Backup"), tr(""), tr("Custom Backup (*.tar)"));
 
-    QString app(strSqlClient);
-    createProcess();
+    if (!m_fileName.isEmpty()){
 
-    m_strBackupName = QFileDialog::getOpenFileName(this,
-     tr("Read Backup"), tr(""), tr("Backup Files (*.bak)"));
-
-    if (!m_strBackupName.isEmpty()){
-
-         connect(myProcess, SIGNAL(finished(int,QProcess::ExitStatus)),this,
-            SLOT(finishedReadingNames() ),Qt::UniqueConnection);
-
-         connect(myProcess, SIGNAL(readyReadStandardOutput()),this,
-            SLOT(parseParams() ),Qt::UniqueConnection);
-
-        QStringList args;
-        QString strScript=
-        "USE FAOCASDATA \n"
-        "GO \n"
-        "EXEC sp_helpfile \n"
-        "GO \n";
-
-        if (!runScript(strScript,args)){
-             QMessageBox::critical(this, tr("App"),
-                 tr("Could not create file: ") + QDir::tempPath() + QDir::separator() + "MyScript.sql");
-             qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-            return;
-        }
-         myProcess->start(app, args);
-         if (!myProcess->waitForStarted()) {
-             QMessageBox::critical(this, tr("App"),
-                 tr("Could not start Sql Server from %1.").arg(app));
-             return;
-         }
-    } else
-        qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-}
-*/
-bool conf_app::runScript(const QString strScript, QStringList& args)
-{
-        QFile file(QDir::tempPath() + QDir::separator() + "MyScript.sql");
-        if (!file.open(QIODevice::WriteOnly | QIODevice::Text)){
-             return false;
-        }
-        QSettings settings("Medstat", "App");
-
-        QTextStream out(&file);
-        out << strScript;
-
-        file.close(); 
-
-        //replace the slashes for windows
-        QString strTemp=QDir::tempPath() + QDir::separator() + "MyScript.sql";
-#if defined(WIN32)
-        strTemp.replace("/", "\\");
-#endif
-        args << QLatin1String("-S")
-         << settings.value("host").toString()
-         << QLatin1String("-i")
-         << strTemp;
-
-        return true;
-}
-
-bool conf_app::doDump(const int lu, const QString strMacAddress)
-{
-    if (!m_bConnected){
-
-             QMessageBox::warning(this, tr("Patch Process"),
-             tr("You must be connected to the database to perform the 'Dump'!")
-             +tr("\n Please connect and try again!"));
-             return false;
-    }
-
-    QString fileName = QFileDialog::getSaveFileName(this,
-     tr("Dump patch to file"), getOutputName("diff"), tr("Patch Files (*.diff)"));
-
-    if (!fileName.isEmpty()){
         qApp->setOverrideCursor( QCursor(Qt::BusyCursor ) );
         statusShow(tr("Wait..."));
 
-        qApp->processEvents();
 
-        QString strError;
-        if (!writeDiff(fileName,lu, strMacAddress, strError)){
-            if (strError.isEmpty()) strError=tr("Could not write patch file!");
-            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-            QMessageBox msgBox(QMessageBox::Critical,tr("Dumping Error"),
-                strError,QMessageBox::Ok,0);
-            msgBox.exec();
-            statusShow(tr(""));
-            return false;
-        }
+            QSettings settings("FaoCAS", "App");
+            if (!settings.contains("database")){
 
-        statusShow(tr("Patch saved on ") + fileName);
-        qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-    }
-    return true;
-}
-
-bool conf_app::writeDiff(const QString strFileName, const int lu, const QString strMacAddress, QString& strError)
-{
-    QString strJSON;
-
-    int add=0,del=0,mod=0;
-    if (!getLastChanges(lu,strJSON,strMacAddress,(m_dbmode==MASTER),add,del,mod,strError)) return false;
-
-    QFile file(strFileName);
-
-    /*open a file */
-    if (!file.open(QIODevice::WriteOnly))
-    {
-        /* show error message if not able to open file */
-        QMessageBox::warning(0, tr("Read only"), tr("The file is in read only mode"));
-        return false;
-    }
-    else{
-         QTextStream out(&file);
-         out << strJSON;
-         file.close();
-    }
-
-    QMessageBox::information(this, tr("Patch Process"),
-                             tr("Patch successfully created.\n") +
-                             QString("There were %1 inserts, %2 removals and %3 modifications!").arg(add)
-                             .arg(del).arg(mod));
-
-    return true;
-}
-/*
-bool conf_app::startPatchSession(const QString strDateUTC, const QString strDateLocal,
-                        const int dateType, const QString strCityName, const QString strMacAddress, const QString strUser)
-{
-//TODO: replace city name, by pair: (country,city)
-    int newDate;
-    if (!insertDate(InfoDate(strDateUTC,strDateLocal,dateType),newDate)) return false;
-    QVariant baseDateID=QVariant(newDate);
-
-    return startSession(strUser, strCityName, strMacAddress, baseDateID,
-        QString("This record was generated during a patch session!"));
-}*/
-/*
-void conf_app::doPatch()
-{
-    int lu_master;//we want to store this variable for the master
-    QString strClientMac;//we want to store this variable for the master
-    bool bApplied;
-    if (!doApply(lu_master,strClientMac,bApplied)){
-        return;
-    }else if (!bApplied && m_dbmode==MASTER){
-            QMessageBox::critical(this, tr("Patch Process"),
-             tr("You must apply a patch before requesting a diff!"));
-            return;
-    }
-
-    //For the client, the last update is on info_client; for the master, it is the value we read
-    //on the patch (this is why the patch is compulsory)
-    int lastUpdate;
-    QString strMacAddress;
-    if (m_dbmode==CLIENT){
-        QString strError;
-        if (!getLastUpdate(lastUpdate,strError)){
-            QMessageBox::critical(this, tr("Patch Process"),
-             strError);
-            return;
-        }
-        strMacAddress=getMacAddress();
-    }else {
-        lastUpdate=lu_master;
-        strMacAddress=strClientMac;
-    }
-
-    doDump(lastUpdate,strMacAddress);
-}*/
-/*
-bool conf_app::doApply(int& lu_master, QString& strMacAddress, bool& bApplied)
-{
-    bApplied=false;
-
-    if (!m_bConnected){
-
-             QMessageBox::warning(this, tr("Patch Process"),
-             tr("You must be connected to the database to apply the 'Patch'!")
-             +tr("\n Please connect and try again!"));
-             return false;
-    }
-    QString fileName = QFileDialog::getOpenFileName(this,
-     tr("Open patch file"), "", tr("Patch Files (*.diff)"));
-
-    if (!fileName.isEmpty()){
-        qApp->setOverrideCursor( QCursor(Qt::BusyCursor ) );
-
-        qApp->processEvents();
-        QString strContent;
-        if (!readFile(fileName,strContent)){
+                QMessageBox::critical(this, tr("Backup Process"),
+                                        tr("Could not read database name! Did you already initialized a connection?"));
                 qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-                 QMessageBox::warning(this, tr("Patch Process"),
-                 tr("Could not read patch file!")
-                 +tr("\n Are you sure this is a valid file?"));
-                 return false;
-        }else{
-            listInfoChanges lChanges;
-            QString strDateUTC, strDateLocal, strCityName, strUser, strError="";
-            int dateType;
-            QList<QVariant> mapReferences;
-            if (!readChangesfromPatch(strContent,strDateUTC,strDateLocal,dateType,
-                strCityName,strMacAddress,strUser,lu_master,lChanges,mapReferences,strError)){
+                return;
+
+            }
+            else if (!settings.contains("username")){
+
+                QMessageBox::critical(this, tr("Backup Process"),
+                                        tr("Could not read DB username! Did you already initialized a connection?"));
                 qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-                QMessageBox::critical(this, tr("Patch Process"),
-                    (strError.isEmpty()?tr("Could not read any changes in this file!!"):strError));
-                 return false;
-            }
-            //3 - backup db (establish rollback mechanism)
-            //4 - prompt the user with changes
+                return;
 
-            if (!startPatchSession(strDateUTC,strDateLocal,dateType,strCityName,strMacAddress,strUser)){
+            }
+            else if(!settings.contains("host")){
+                QMessageBox::critical(this, tr("Backup Process"),
+                                        tr("Could not read DB host! Did you already initialized a connection?"));
                 qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-                QMessageBox::critical(this, tr("Patch Process"),
-                 tr("Could not start a mini session!!"));
-                 return false;
+                return;
             }
-
-            int ctNew=0;
-            int ctMod=0;
-            int ctDel=0;
-            strError="";
-            if (!applyChangesfromPatch(mapReferences,lChanges,lu_master,ctNew,ctMod,ctDel,strError))
-            {
+            else if(!settings.contains("port")){
+                QMessageBox::critical(this, tr("Backup Process"),
+                                        tr("Could not read host port! Did you already initialized a connection?"));
                 qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-                 QMessageBox::warning(this, tr("Patch Process"),
-                     (strError.isEmpty()?tr("Could not apply this patch!"):strError));
-                 return false;
-            }
-            endSession();
-
-            //5 - apply patches sequentially (establish rollback mechanism)
-            //FK?
-
-            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-            QMessageBox::information(this, tr("Patch Process"),
-                                     tr("Patch successfully applied.\n") +
-                                     QString("There were %1 inserts, %2 removals and %3 modifications!").arg(ctNew)
-                                     .arg(ctDel).arg(ctMod));
-
-        }//read file
-        bApplied=true;
-        //return true;
-    }/*else if(m_dbmode==CLIENT){
-        qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-        return true;
-    }*/
-
-    //qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-    //return false;
-   /* return true;
-}*/
-/*
-bool conf_app::insertDate(const InfoDate date, int& id)
-{
-    QSqlTableModel* tModel = new QSqlTableModel;
-    tModel->setTable(QSqlDatabase().driver()->escapeIdentifier("GL_DATES",
-    QSqlDriver::TableName));
-    tModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
-    tModel->select();
-
-    if (!insertRecordIntoModel(tModel)){
-        delete tModel; tModel=0;
-        return false;
-    }
-    QModelIndex idx=tModel->index(tModel->rowCount()-1,tModel->record().indexOf("Date_UTC"));
-    if (!idx.isValid()){delete tModel; tModel=0; return false;}
-    QDateTime dt=QDateTime::fromString(date.m_strUTC,strDateFormat);
-    if (!dt.isValid()){delete tModel; tModel=0; return false;}
-    tModel->setData(idx, dt);
-
-    idx=tModel->index(tModel->rowCount()-1,tModel->record().indexOf("Date_Local"));
-    if (!idx.isValid()){delete tModel; tModel=0; return false;}
-    dt=QDateTime::fromString(date.m_strLocal,strDateFormat);
-    if (!dt.isValid()){delete tModel; tModel=0; return false;}
-    tModel->setData(idx, dt);
-
-    idx=tModel->index(tModel->rowCount()-1,tModel->record().indexOf("Date_Type"));
-    if (!idx.isValid()){delete tModel; tModel=0; return false;}
-    tModel->setData(idx, date.m_type);
-
-    bool bOk=tModel->submitAll();
-
-    if (bOk){
-
-        while(tModel->canFetchMore())
-            tModel->fetchMore();
-
-        idx=tModel->index(tModel->rowCount()-1,tModel->record().indexOf("ID"));
-        if (!idx.isValid()){delete tModel; tModel=0; return false;}
-        id=idx.data().toInt();
-    }
-
-    delete tModel; tModel=0;
-    return bOk;
-}
-*/
-/*
-bool conf_app::insertNewRecord(const listInfoChanges& lChanges)
-{
-    bool bOk=true;
-
-    QSqlTableModel* tModel = new QSqlTableModel;
-    tModel->setTable(QSqlDatabase().driver()->escapeIdentifier(lChanges.at(0).m_strTable,
-    QSqlDriver::TableName));
-    tModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
-    tModel->select();
-
-    if (!insertRecordIntoModel(tModel)) return false;
-
-    for (int i=0; i < lChanges.size(); ++i){
-
-        QString strField=lChanges.at(i).m_strField;
-        strField=strField.remove("[");
-        strField=strField.remove("]");
-
-        QModelIndex idx=tModel->index(tModel->rowCount()-1,tModel->record().indexOf(strField));
-        if (!idx.isValid()) return false;
-
-        bool bIsDate=false;
-        int newDate=-1;
-        if (lChanges.at(i).m_varNew.type()==QVariant::Map){
-
-            QVariantMap nestedDate=lChanges.at(i).m_varNew.toMap();
-            QVariantMap nestedDate2=nestedDate["date"].toMap();
-            QString strDateUTC=nestedDate2["date_utc"].toString();
-            QString strDateLocal=nestedDate2["date_local"].toString();
-            int dateType=nestedDate2["date_type"].toInt();
-
-            if (!insertDate(InfoDate(strDateUTC,strDateLocal,dateType),newDate)){
-
-                QMessageBox msgBox(QMessageBox::Critical,tr("Patch Error"),
-                    tr("Could not insert date in the database!"),QMessageBox::Ok,0);
-                msgBox.exec();
-                return false;
-            }
-            bIsDate=true;
-        }
-
-        tModel->setData(idx, bIsDate?newDate:lChanges.at(i).m_varNew);
-    }
-    bOk=tModel->submitAll();
-
-    if (!bOk){
-        QString strError;
-        if (tModel->lastError().type() != QSqlError::NoError)
-            strError=tModel->lastError().text();
-        else
-            strError=tr("Could not insert record in the database!");
-
-            QMessageBox msgBox(QMessageBox::Critical,tr("Patch Error"),
-                strError,QMessageBox::Ok,0);
-            msgBox.exec();
-    }
-
-    //a bit of house-keeping...
-    delete tModel; tModel=0;
-    return bOk;
-}
-*/
-/*
-bool conf_app::packRecord(const QList<QVariant>& mapReferences, listInfoChanges& lChanges, int& i, listInfoChanges& aRecord, bool& bBreak, QString& strError)
-{
-    bBreak=false;
-    QString curTable=lChanges.at(i).m_strTable;
-    QSqlTableModel *aTable=new QSqlTableModel ();
-    aTable->setTable(curTable);
-    int start=i;
-
-    while (i < lChanges.count()
-        && i < (start + aTable->record().count()-1)){
-
-        //Identify references here
-        QVariant vFrom, vTo;
-        if (lChanges.at(i).m_varOld.toString().contains("Ref:",Qt::CaseInsensitive)){
-            if (!identifyReference(mapReferences,lChanges.at(i).m_varOld.toString(),
-                vFrom,strError)) return false;
-            lChanges[i].m_varOld=vFrom;
-        }
-
-        if (lChanges.at(i).m_varNew.toString().contains("Ref:",Qt::CaseInsensitive)){
-            if (!identifyReference(mapReferences,lChanges.at(i).m_varNew.toString(),
-                vTo,strError)) return false;
-            lChanges[i].m_varNew=vTo;
-        }
-
-        aRecord.push_back(lChanges.at(i));
-        ++i;
-        if (i==start + aTable->record().count()-1){
-            i--;
-            break;
-        }
-    }
-
-
-    delete aTable; aTable=0;
-
-    return true;
-}
-*/
-/*
-bool conf_app::identifyRecord(const listInfoChanges& packRecord, int& outID)
-{
-    QString curTable=packRecord.at(0).m_strTable;
-
-    bool bIsDateTime=false;
-    QString strQuery;
-
-    //TODO: get ID name?
-
-    QString strFirst=QString("select ") + curTable + QString(".ID FROM ")+curTable;
-    for (int i=0; i < packRecord.count(); ++i){
-        if (i>0) strQuery+= QString(" AND ");
-
-        QString strField=packRecord.at(i).m_strField;
-        strField=strField.remove("[");
-        strField=strField.remove("]");
-
-        QString strType;
-        if (!getFieldType(packRecord.at(i).m_strTable,strField,strType)){
-
-            QMessageBox msgBox(QMessageBox::Critical,tr("Patch Error"),
-                "Could not get field type!",QMessageBox::Ok,0);
-            msgBox.exec();
-
-            return false;
-        }
-
-        if (!isDateTime(curTable,strField,bIsDateTime)){
-
-            QMessageBox msgBox(QMessageBox::Critical,tr("Patch Error"),
-                "Could not determine if this field is datetime!",QMessageBox::Ok,0);
-            msgBox.exec();
-            return false;
-        }
-
-        if (bIsDateTime){
-
-            if (packRecord.at(i).m_varOld.type()!=QVariant::Map) return false;
-            QVariantMap nestedDate=packRecord.at(i).m_varOld.toMap();
-            QVariantMap nestedDate2=nestedDate["date"].toMap();
-            QString strDateUTC=nestedDate2["date_utc"].toString();
-            QString strDateLocal=nestedDate2["date_local"].toString();
-            int dateType=nestedDate2["date_type"].toInt();
-
-            //Dates are in ISO86, but to make sure they dont *include* the ms, we have to trim it to 
-            // the left 19 characters
-            strQuery+=
-     " LEFT(CONVERT(varchar, (dt" + QVariant(i).toString() + ".Date_UTC), 126),19)='"
-                + strDateUTC + "'";
-
-            strQuery+=
-     " AND LEFT(CONVERT(varchar, (dt" + QVariant(i).toString() + ".Date_Local), 126),19)='"
-                + strDateLocal + "'";
-
-            strQuery+=" AND dt" + QVariant(i).toString() + QString(".date_type=") + QVariant(dateType).toString();
-            strFirst.append(QString(" INNER JOIN GL_DATES AS dt") + QVariant(i).toString()
-                + QString(" ON ") + curTable + "." + strField + QString("=dt")+ QVariant(i).toString()
-                +QString(".ID"));
-
-        }else if (strType.contains("CHAR",Qt::CaseInsensitive)){
-            strQuery+= curTable + "." + strField + QString("=");
-            strQuery+= "'" + packRecord.at(i).m_varOld.toString() + "'";
-        }else{
-            strQuery+= curTable + "." + strField + QString("=");
-            strQuery+= packRecord.at(i).m_varOld.toString();
-        }
-    }
-
-    strQuery.prepend(strFirst + QString(" WHERE "));
-
-    qDebug() << strQuery << endl;
-
-    QString strError;
-    QSqlQuery query;
-    query.prepare(strQuery);
-    query.setForwardOnly(true);
-     if (!query.exec() || query.numRowsAffected() < 1){
-         if (query.lastError().type() != QSqlError::NoError)
-             strError=query.lastError().text();
-         else
-             strError=QObject::tr("Could not identify a unique record! Please check if you have duplicates");
-
-            QMessageBox msgBox(QMessageBox::Critical,tr("Patch Error"),
-                strError,QMessageBox::Ok,0);
-            msgBox.exec();
-
-         return false;
-        }
-
-     query.first();
-     outID=query.value(0).toInt();
-
-    return true;
-}
-*/
-/*
-bool conf_app::removeRecord(const listInfoChanges& packRecord)
-{
-    int outID;
-
-    if (!identifyRecord(packRecord,outID)){
-        qDebug() << "Could not identify record!" << endl;
-        return false;
-    }
-
-    QString strError;
-    QSqlQuery query;
-    QString curTable=packRecord.at(0).m_strTable;
-
-    QString strQuery=QString("delete from ") + curTable + QString(" WHERE ID=:id");
-
-    //if (query.isActive()) query.finish();
-    query.prepare(strQuery);
-    query.bindValue(":id",outID);
-    query.setForwardOnly(true);
-    if (!query.exec() || query.numRowsAffected() != 1){
-         if (query.lastError().type() != QSqlError::NoError)
-             strError=query.lastError().text();
-         else
-             strError=QObject::tr("Could not remove record to remove!");
-
-            QMessageBox msgBox(QMessageBox::Critical,tr("Patch Error"),
-                strError,QMessageBox::Ok,0);
-            msgBox.exec();
-
-         return false;
-    }
-
-    return true;
-}*/
-/*
-bool conf_app::modRecord(InfoChanges& chRec, const int id)
-{
-    QString strType;
-    QString strField=chRec.m_strField;
-    strField=strField.remove("[");
-    strField=strField.remove("]");
-
-    //check the field type, to see if we need to append quotes
-    if (!getFieldType(chRec.m_strTable,strField,strType)){
-        qDebug() << "Could not determine field type!" << endl;
-        return false;
-    }
-
-    //check if its datetime
-    bool bIsDateTime;
-    if (!isDateTime(chRec.m_strTable,strField,bIsDateTime)){
-        QMessageBox msgBox(QMessageBox::Critical,tr("Patch Error"),
-        "Could not determine if this field is datetime!",QMessageBox::Ok,0);
-        msgBox.exec();
-        return false;
-    } 
-    if (bIsDateTime){
-        //serialize date
-        QString strDateUTC,strDateLocal;
-        int dateType;
-        if (!serializeDateTime(chRec.m_varNew.toMap(),strDateUTC,strDateLocal,dateType)){
-            QMessageBox msgBox(QMessageBox::Critical,tr("Patch Error"),
-            "Could not serialize datetime!",QMessageBox::Ok,0);
-            msgBox.exec();
-            return false;
-        }
-
-        //insert new date and put the id inside the new variable
-        int newDate;
-        if (!insertDate(InfoDate(strDateUTC,strDateLocal,dateType),newDate)) return false;
-        chRec.m_varNew=newDate;
-    }
-
-    QString strQuery= "UPDATE " + chRec.m_strTable + " SET "
-         + chRec.m_strField + 
-         (strType.contains("CHAR",Qt::CaseInsensitive)? "='"
-         :"=") + chRec.m_varNew.toString() + 
-         (strType.contains("CHAR",Qt::CaseInsensitive)? "' WHERE ID=":
-         " WHERE ID=")
-         + QVariant(id).toString();
-
-    QSqlQuery query;
-    query.prepare(strQuery);
-    query.setForwardOnly(true);
-     if (!query.exec() || query.numRowsAffected() < 1){
-         if (query.lastError().type() != QSqlError::NoError)
-             qDebug() << query.lastError().text() << endl;
-         else
-             qDebug() << QObject::tr("Could not update record!") << endl;
-         return false;
-     }
-    return true;
-}*/
-/*
-bool conf_app::identifyRecordByDate(const listInfoChanges& aRecord,
-                         const listInfoChanges& dtRecs, const listInfoChanges& iDt,
-                         listInfoChanges& lcopy, int & outID, QString& modField, bool& bFound)
-{
-    bool bIsEqual;
-    for (int j=0; j < dtRecs.size(); ++j){
-
-        if (dtRecs.at(j).m_varNew.type()!=QVariant::Map) return false;
-        QVariantMap nestedDate=dtRecs.at(j).m_varNew.toMap();
-        QVariantMap nestedDate2=nestedDate["date"].toMap();
-
-        bIsEqual=true;
-        int k;
-        for (k=0; k < iDt.count(); ++k){
-
-            QString strField=iDt.at(k).m_strField;
-            strField=strField.remove("[");
-            strField=strField.remove("]");
-
-            QString strVal=nestedDate2[strField.toLower()].toString();
-            if (strVal.isEmpty()) return false;
-
-            if (iDt.at(k).m_varNew.toString().compare(strVal)!=0){
-                bIsEqual=false;
-                break;
-            }
-        }//for k
-        if (bIsEqual){
-            int y;
-            for (y=0; y < aRecord.size(); ++y){
-                if (aRecord.at(y).m_strField.compare(dtRecs.at(j).m_strField)==0)
-                {
-                    //qDebug() << aRecord.at(y).m_strField << endl;
-                    break;
-                }
-            }
-            lcopy=listInfoChanges(aRecord);
-            lcopy.removeAt(y);
-            QVariantMap nestedMap, nestedMap2;
-
-            for (int z=0; z < iDt.size(); ++z){
-
-                QString strField=iDt.at(z).m_strField;
-                strField=strField.remove("[");
-                strField=strField.remove("]");
-                strField=strField.toLower();
-
-                nestedMap2[strField]=iDt.at(z).m_varOld;
-                if (iDt.at(z).m_varOld.toString().compare(
-                    iDt.at(z).m_varNew.toString())!=0)
-                    modField=iDt.at(z).m_strField;
+                return;
             }
 
-            nestedMap["date"]=nestedMap2;
 
-            lcopy.push_back(InfoChanges(aRecord.at(y).m_id,
-                aRecord.at(y).m_strTable,aRecord.at(y).m_strField,
-                nestedMap,aRecord.at(y).m_varNew));
+            QStringList arguments;
+            arguments << "-U" << settings.value("username").toString() << "-h" << settings.value("host").toString()
+                      << "-p" << settings.value("port").toString() << "--dbname"
+                      << "faocasdata_test" /*TODO: CHANGE DIS LATER! settings.value("database").toString()*/ << "--role" << "postgres" << "--no-password" << "--clean"
+                         << "--verbose" << m_fileName;
 
-            if (identifyRecord(lcopy,outID)){
-                bFound=true;
-                break;
-            }
-        }
-    }//for j
+            createProcess();
 
-    return true;
-}
+             connect(myProcess, SIGNAL(readyReadStandardOutput()),this,
+                SLOT(readProcessOutput() ),Qt::UniqueConnection);
 
-bool conf_app::findDateID(const QString strTable, const QString strField, const int inID, int &outID)
-{
-    QString strQuery="SELECT " + strField + 
-        " FROM " + strTable + " WHERE ID=" + QVariant(inID).toString();
+             connect(myProcess, SIGNAL(readyReadStandardError()),this,
+                SLOT(readProcessError() ),Qt::UniqueConnection);
 
-    QSqlQuery query;
-    query.prepare(strQuery);
-    query.setForwardOnly(true);
-     if (!query.exec() || query.numRowsAffected() < 1){
-         if (query.lastError().type() != QSqlError::NoError)
-             qDebug() << query.lastError().text() << endl;
-         else
-             qDebug() << QObject::tr("Could not retrieve datetime id!") << endl;
-         return false;
-     }
-     query.first();
-     outID=query.value(0).toInt();
+             connect(myProcess, SIGNAL(finished(int,QProcess::ExitStatus)),this,
+                SLOT(finishedRestore(int,QProcess::ExitStatus) ),Qt::UniqueConnection);
 
-     return true;
-}
+           if (!m_buffer.isEmpty()) m_buffer.clear();
 
-/*
-bool conf_app::modDateRecord(const listInfoChanges& aRecord, const listInfoChanges& iDt)
-{
-    listInfoChanges dtRecs;
-    QString curTable=aRecord.at(0).m_strTable;
+           QString app(strRestoreTool);
 
-    //Identify all the datetime records on this table
-    for (int j=0; j < aRecord.size(); j++){
-        bool bIsDateTime;
+           myProcess->start(app,arguments);
+          if (!myProcess->waitForStarted()) {
+              QMessageBox::critical(this, tr("App"),
+                  tr("Could not start ") + strRestoreTool);
+              qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+              return;
+          }
 
-        QString strField=aRecord.at(j).m_strField;
-        strField=strField.remove("[");
-        strField=strField.remove("]");
 
-        if (!isDateTime(curTable,strField,bIsDateTime)){
-            QMessageBox msgBox(QMessageBox::Critical,tr("Patch Error"),
-            "Could not determine if this field is datetime!",QMessageBox::Ok,0);
-            msgBox.exec();
-            return false;
-        } 
-        if (bIsDateTime) dtRecs.push_back(aRecord.at(j));
-    }
+      }
 
-    //The structure of the patch is DateTime record (GL_Dates) precedeed by a table, means
-    // that we have a table with a datetime record that changed.
-    //We have to identify at least one record!
-    if (dtRecs.size() < 1){
-        qDebug() <<
-            "This table was identified as having one datetime record, but we cant find any!" << endl;
-        return false;
-    }
-
-    int outID;
-    bool bFound;
-    listInfoChanges lcopy;
-    QString modField;
-
-    //Here is the challenge: identify which one of the date-fields had the date changed;
-    //For that, we try replacing the changed date in all the date fields, till we identify
-    //a unique record.
-    if (!identifyRecordByDate(aRecord,dtRecs,iDt,lcopy,outID,modField,bFound)){
-        qDebug() << "Could not identify date record!" << endl;
-        return false;
-    }
-
-    if (!bFound){
-        qDebug() << "Could not find any date record matching this field!" << endl;
-        return false;
-    }
-
-    //Find FK reference for this field on GL_Dates
-    int dtID;
-    if (!findDateID(lcopy.at(0).m_strTable, lcopy.at(lcopy.size()-1).m_strField, outID,dtID))
-    {
-        qDebug() << "Could not find the matching date for this reference!" << endl;
-        return false;
-    }
-
-     QString strDateUTC, strDateLocal;
-     int dateType;
-     if (lcopy.at(lcopy.size()-1).m_varNew.type()!=
-         QVariant::Map)
-         return false;
-
-     if (!serializeDateTime(lcopy.at(lcopy.size()-1).m_varNew.toMap(),
-         strDateUTC,strDateLocal,dateType)){
-        return false;
-     }
-
-     //Finally amend this date
-     if (!amendDate(dtID,modField,strDateLocal))
-         return false;
-
-     return true;
-}
-*/
-/*
-bool conf_app::applyChangesfromPatch(const QList<QVariant>& mapReferences, listInfoChanges& lChanges, const int lu_master, int& cnew, int& cmod, int& cdel, QString& strError)
-{
-    for (int i=0; i < lChanges.count(); ++i)
-    {
-            if (lChanges.at(i).m_varNew.toString().compare(strNoValue)==0){//REM
-
-                listInfoChanges aRecord;
-                bool bBreak;
-                if (!packRecord(mapReferences,lChanges,i,aRecord,bBreak,strError)){
-                    strError=tr("Could not distinguish record!");
-                    return false;
-                }
-
-                if (aRecord.size()>0){
-
-                        if (!removeRecord(aRecord)){
-                            strError=tr("Could not remove record from the database!");
-                            return false;
-                        }
-                        cdel++;
-                }else return false;
-
-                if (bBreak) break;
-
-            }else if (lChanges.at(i).m_varNew.toString().compare(strNoValue)!=0 &&
-                lChanges.at(i).m_varOld.toString().compare(strNoValue)!=0){//EDIT
-
-                    //If it is a date, extracts the date records and goes further
-//                    bool bIsDate=false;
-                    listInfoChanges iDt;
-
-                    //packs the following records
-                    listInfoChanges aRecord;
-                    bool bBreak;
-                    if (!packRecord(mapReferences,lChanges,i,aRecord,bBreak,strError)){
-                        strError=tr("Could not distinguish record!");
-                        return false;
-                    }
-
-                    InfoChanges ch;
-                    for (int z=0; z < aRecord.size(); ++z){
-                        if (aRecord.at(z).m_varOld!=aRecord.at(z).m_varNew){
-                            ch=InfoChanges(aRecord.at(z));
-                            break;
-                        }
-                    }
-
-                    int outID;
-                    if (!identifyRecord(aRecord, outID)){
-                        strError="Could not identify this record!";
-                        return false;
-                    }
-
-                    if (!modRecord(ch,outID)){
-                        strError="Could not modify record!";
-                        return false;
-                    }
-                    cmod++;
-
-
-            }else if (lChanges.at(i).m_varOld.toString().compare(strNoValue)==0){//INSERT
-
-                listInfoChanges aRecord;
-                bool bBreak;
-                if (!packRecord(mapReferences,lChanges,i,aRecord,bBreak,strError)){
-                    //strError=tr("Could not distinguish record!");
-                    return false;
-                }
-
-                if (aRecord.size()>0){
-
-                    if (!insertNewRecord(aRecord)){
-                        strError=tr("Could not insert record in the database!");
-                        return false;
-                    }
-                    cnew++;
-                }else return false;
-
-                if (bBreak) break;
-
-            }else
-                return false;
-
-    }//for
-
-    //Writing the ID of the last update (master and client)
-    if (m_dbmode==CLIENT){
-        QString strError="";
-        if (!insertLastMasterUpdate(lu_master,strError)){
-            if (strError.isEmpty()) strError=tr("Could not write ID of last local Update !");
-            return false;
-        }
-    }
-
-    return true;
-}
-*/
-/*
-bool conf_app::readChangesfromPatch(const QString strContent, QString& strDateUTC, QString& strDateLocal,
-                        int& dateType, QString& strCityName, QString& strMacAddress, QString& strUser, int& lu_master, listInfoChanges& lChanges, 
-                        QList<QVariant>& mapReferences, QString& strError)
-{
-    bool ok;
-    QVariantMap result = Json::parse(strContent, ok).toMap();
-
-    if(!ok){
-        strError=tr("Could not parse JSON content!")
-        +tr("\n Are you sure the syntax is valid?");
-
-        return false;
-    }
-
-    QString strMode= result["mode"].toString();
-
-    if (m_dbmode==MASTER && strMode.compare(strMasterName, Qt::CaseInsensitive)==0){
-            strError=tr("Master databases can only be updated by clients!");
-        return false;
-    }else if (m_dbmode==CLIENT && strMode.compare(strClientName, Qt::CaseInsensitive)==0){
-            strError=tr("Client databases can only be updated by the master!");
-        return false;
-    } else if (m_dbmode==INVALID) return false; // it should never come here
-
-    QVariantMap nestedMap1 = result["session"].toMap();
-    QVariantMap nestedMap3 = nestedMap1["base_date"].toMap();
-
-    strDateUTC=nestedMap3["date_utc"].toString();
-    strDateLocal=nestedMap3["date_local"].toString();
-    dateType=nestedMap3["date_type"].toInt();
-    strCityName=nestedMap1["city_name"].toString();
-    strMacAddress=nestedMap1["mac_address"].toString();
-    strUser=nestedMap1["user"].toString();
-
-    lu_master=result["lu_master"].toInt();
-
-    mapReferences=result["FK"].toList();
-
-    foreach(QVariant change, result["change"].toList()) {
-
-        QVariantMap nestedMap = change.toMap();
-        QVariantMap nestedMap2 = nestedMap["values"].toMap();
-
-        QVariant vFrom=nestedMap2["from"];
-
-        QVariant vTo=nestedMap2["to"];
-
-        InfoChanges ichanges(nestedMap["id"].toInt(),nestedMap["table"].toString(),
-            nestedMap["column"].toString(), vFrom, vTo);
-        lChanges.push_back(ichanges);
-    }
-
-    return true;
-}
-*/
-/*
-bool conf_app::findJSONReference(const QList<QVariant>& mapReferences, const int ID, QVariantMap& map,
-                             QString& strTable, QString& strError)
-{
-QVariantMap nestedMap;
-
-    foreach(QVariant fk, mapReferences) {
-        nestedMap = fk.toMap();
-        if (nestedMap["id"].toInt()==ID){
-            map=nestedMap["record"].toMap();
-            strTable=nestedMap["table"].toString();
-            //break;
-        }
-        if (nestedMap["id"].toInt()==ID)
-            break;
-    }
-
-    if (map.isEmpty()|| strTable.isEmpty()){
-        strError=QObject::tr("Could not find this reference on the FK section!");
-        return false;
-    }
-    return true;
-}*/
-/*
-bool conf_app::findDBReference(const QList<QVariant>& mapReferences, const QString strTable, QVariantMap map, QVariant& outID, QString& strError)
-{
-    map.remove("ID");
-
-    QString strQuery="SELECT ID FROM [";
-    strQuery+=strTable;
-    strQuery+="] WHERE ";
-
-    QVariantMap::const_iterator i;
-     for (i = map.constBegin(); i != map.constEnd(); ++i){
-        if (i!=map.constBegin()) strQuery +=" AND ";
-
-        bool bHasQuotes=false;
-
-        //TODO: test if the type is coming ok
-        QSqlRecord rec;
-        if (!getTypeInfo(strTable,i.key(),rec)) return false;
-
-        if (rec.field(0).value()=="nvarchar") bHasQuotes=true;
-
-        QString strValue=i.value().toString();
-        if (i.value().toString().contains("Ref:",Qt::CaseInsensitive)){
-            QVariant outV;
-            if (!identifyReference(mapReferences,i.value().toString(),outV,strError)) return false;
-            strValue=outV.toString();
-        }
-        if (!i.value().toMap().isEmpty() && i.value().toMap()["date"].isValid()){
-            QList<int> ids;
-            if (!identifyDate(InfoDate(i.value().toMap()["date"].toMap()["date_utc"].toString(),
-                i.value().toMap()["date"].toMap()["date_local"].toString(),
-                i.value().toMap()["date"].toMap()["date_type"].toInt()),ids,strError))
-                    return false;
-
-            strQuery+=" (";
-            for (int j=0; j < ids.size(); ++j){
-                if (j>0) strQuery+=" OR ";
-                strQuery+=i.key();
-                strQuery+="=";
-                strQuery+=QVariant(ids.at(j)).toString();
-            }
-            strQuery+=" )";
-        }else{
-            strQuery+=i.key();
-            strQuery+=QString("=")+(bHasQuotes?QString("'"):QString(""))+strValue
-                +(bHasQuotes?QString("'"):QString(""));
-        }
-     }
-
-     qDebug() << strQuery << endl;
-
-    QSqlQuery query;
-    query.prepare(strQuery);
-    query.setForwardOnly(true);
-     if (!query.exec() || query.numRowsAffected() < 1){
-         if (query.lastError().type() != QSqlError::NoError)
-             strError=query.lastError().text();
-         else
-             strError=QObject::tr("Could not identify any record in the DB!");
-         return false;
-        }
-
-    //TODO: what about if there is more than one record?
-     if (query.numRowsAffected() > 1){
-        qDebug() << "Warning: identifed more than one record in the DB!" << endl;
-        //qDebug() << strQuery << endl;
-     }
-
-    query.first();
-    outID=query.value(0);
-
-    return true;
-}
-*/
-/*
-bool conf_app::identifyReference(const QList<QVariant>& mapReferences, const QString strRef, QVariant& outV, QString& strError)
-{
-    QVariantMap map;
-    QString strID=strRef.right(strRef.length()-strRef.lastIndexOf(":")-1);
-    QString strTable;
-
-    if (!findJSONReference(mapReferences,strID.toInt(),map,strTable,strError))
-        return false;
-    if (!findDBReference(mapReferences,strTable,map,outV,strError))
-        return false;
-
-    return true;
-}
-*/
-bool conf_app::readFile(const QString strFileName, QString& outStr)
-{
-     QFile file(strFileName);
-     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-         return false;
-
-     QByteArray ba=file.readAll();
-     outStr=QString::fromUtf8(ba);
-
-    return true;
 }
 
 void conf_app::initUI()
 {
     this->setWindowTitle(qApp->applicationName() + qApp->applicationVersion());
 
-    toolbar->addAction(this->actionExit);
     toolbar->addAction(this->actionCreate_backup);
     toolbar->addAction(this->actionRestore_backup);
-    toolbar->addAction(this->actionPatch);
+    toolbar->addAction(this->actionExit);
     toolbar->setFloatable(true);
     toolbar->setMovable(true);
 
      connect(actionShow_startup_message, SIGNAL(triggered(bool)),this,
         SLOT(onShowStartupMsg(bool) ),Qt::UniqueConnection);
-/*
+
      connect(actionCreate_backup, SIGNAL(triggered()),this,
         SLOT(doBackup() ),Qt::UniqueConnection);
 
      connect(actionRestore_backup, SIGNAL(triggered()),this,
         SLOT(doRestore() ),Qt::UniqueConnection);
-
-     connect(actionPatch, SIGNAL(triggered()),this,
-        SLOT(doPatch() ),Qt::UniqueConnection);*/
 
     if (QSqlDatabase::drivers().isEmpty())
     QMessageBox::information(this, tr("No database drivers found"),
@@ -1614,7 +512,7 @@ void conf_app::onShowStartupMsgI(bool bNoShow)
 
 void conf_app::onShowStartupMsg(const bool bShow)
 {
-    QSettings settings("Medstat", "App");
+    QSettings settings("FaoCAS", "App");
     settings.setValue("showStartupMsg", QVariant(bShow).toString());
 }
 
@@ -1624,8 +522,8 @@ void conf_app::enableConnectionCtrls(const bool bEnable)
     lineDatabase->setEnabled(bEnable);
     lineUsername->setEnabled(bEnable);
     linePassword->setEnabled(bEnable);
-    //lineAlias->setEnabled(bEnable);
     cmbDriver->setEnabled(bEnable);
+    spinPort->setEnabled(bEnable);
 }
 
 void conf_app::onConnectionChange()
@@ -1633,7 +531,7 @@ void conf_app::onConnectionChange()
     pushConnect->setEnabled(!m_bConnected);
     pushDisconnect->setEnabled(m_bConnected);
     groupSettings->setEnabled(m_bConnected);
-    groupTables->setEnabled(m_bConnected);
+    groupTables->setEnabled(m_bConnected);    
     enableConnectionCtrls(!m_bConnected);
 
 }
@@ -1698,7 +596,7 @@ void conf_app::connectDB()
 
     m_bConnected=createConnection(lineHost->text(),lineDatabase->text(),
         lineUsername->text(),linePassword->text(),
-        /*lineAlias->text(),*/cmbDriver->currentText());
+        cmbDriver->currentText(),spinPort->value());
 
     qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
 
@@ -1780,7 +678,7 @@ void conf_app::connectDB()
 
 void conf_app::saveSettings(const int section)
 {
-    QSettings settings("Medstat", "App");
+    QSettings settings("FaoCAS", "App");
 
     if (section==0){
 
@@ -1789,6 +687,7 @@ void conf_app::saveSettings(const int section)
         settings.setValue("username", lineUsername->text());
         settings.setValue("password", linePassword->text());
         settings.setValue("driver", cmbDriver->currentText());
+        settings.setValue("port", spinPort->value());
 
     } else if (section==1){
 
@@ -1801,18 +700,20 @@ void conf_app::saveSettings(const int section)
 void conf_app::loadSettings(const int section)
 {
 
-    QSettings settings("Medstat", "App");
+    QSettings settings("FaoCAS", "App");
 
     if (section==0){
 
         //Settings for the DB credentials
-        lineHost->setText(settings.contains("host")?settings.value("host").toString():".\\FAOCAS");
-        lineDatabase->setText(settings.contains("database")?settings.value("database").toString():"FAOCASDATA");
-        lineUsername->setText(settings.contains("username")?settings.value("username").toString():"dev");
-        linePassword->setText(settings.contains("password")?settings.value("password").toString():"Test123");
+        lineHost->setText(settings.contains("host")?settings.value("host").toString():"localhost");
+        spinPort->setValue(settings.contains("port")?settings.value("port").toInt():5432);
+        lineDatabase->setText(settings.contains("database")?settings.value("database").toString():"faocasdata");
+        lineUsername->setText(settings.contains("username")?settings.value("username").toString():"postgres");
+        linePassword->setText(settings.contains("password")?settings.value("password").toString():"test123");
+
         cmbDriver->setCurrentIndex(
                 cmbDriver->findText(settings.contains("driver")?
-                settings.value("driver").toString():"QODBC3"));
+                settings.value("driver").toString():"QPSQL7"));
 
     } else if (section==1){
 
@@ -2093,7 +994,7 @@ bool conf_app::genericCreateRecord(QSqlTableModel* aModel,QPushButton* aPushEdit
 
     return insertRecordIntoModel(aModel);
 }
-/*
+
 void conf_app::createRoleRecord()
 {
     createRecord(roleModel,mapperRoles,groupRoleDetail,roleButtonBox,pushEditRole,pushRemoveRole);
@@ -2109,8 +1010,7 @@ void conf_app::createRoleRecord()
         }
     }
 }
-*/
-/*
+
 void conf_app::createUserRecord()
 {
     createRecord(userModel,mapperUsers,groupUsersDetail,userButtonBox,pushEditUser,pushRemoveUser);
@@ -2122,8 +1022,7 @@ void conf_app::createUserRecord()
     lineUserPassword_2->clear();
     textUserDesc->clear();
 }
-*/
-/*
+
 void conf_app::createRecord(QSqlTableModel* aModel,QDataWidgetMapper* aMapper, QGroupBox* aGroupDetails,
                             QDialogButtonBox* aButtonBox,QPushButton* aPushEdit,QPushButton* aPushRemove)
 {
@@ -2137,7 +1036,7 @@ void conf_app::createRecord(QSqlTableModel* aModel,QDataWidgetMapper* aMapper, Q
 
     UI4NewRecord(aGroupDetails,aButtonBox);//init UI
 }
-*/
+
 void conf_app::UI4NewRecord(QGroupBox* aGroupDetails,QDialogButtonBox* aButtonBox)
 {
     aGroupDetails->setVisible(true);
@@ -2641,7 +1540,7 @@ void conf_app::resizeEvent ( QResizeEvent * event )
 
 bool queryShowStartupMsg()
 {
-    QSettings settings("Medstat", "App");
+    QSettings settings("FaoCAS", "App");
     if (!settings.contains("showStartupMsg"))
         return true;
 
@@ -2650,7 +1549,7 @@ bool queryShowStartupMsg()
 
 bool queryShowSqlMsg()
 {
-    QSettings settings("Medstat", "App");
+    QSettings settings("FaoCAS", "App");
     if (!settings.contains("showSqlMsg"))
         return true;
 

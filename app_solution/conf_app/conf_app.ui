@@ -39,92 +39,135 @@
          <x>0</x>
          <y>0</y>
          <width>595</width>
-         <height>331</height>
+         <height>336</height>
         </rect>
        </property>
        <attribute name="label">
         <string>Connection Properties</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="lbHost">
-          <property name="text">
-           <string>Host</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-          <property name="buddy">
-           <cstring>lineHost</cstring>
-          </property>
-         </widget>
+       <layout class="QVBoxLayout" name="verticalLayout_13">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_11">
+          <item>
+           <widget class="QLabel" name="lbHost">
+            <property name="text">
+             <string>Host</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="buddy">
+             <cstring>lineHost</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineHost"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>Port</string>
+            </property>
+            <property name="buddy">
+             <cstring>spinPort</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="spinPort">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximum">
+             <number>65535</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="lineHost"/>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_12">
+          <item>
+           <widget class="QLabel" name="lbDataSource">
+            <property name="text">
+             <string>Database</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="buddy">
+             <cstring>lineDatabase</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineDatabase"/>
+          </item>
+         </layout>
         </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="lbDataSource">
-          <property name="text">
-           <string>Database</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-          <property name="buddy">
-           <cstring>lineDatabase</cstring>
-          </property>
-         </widget>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_13">
+          <item>
+           <widget class="QLabel" name="lbUsername">
+            <property name="text">
+             <string>Username</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+            <property name="buddy">
+             <cstring>lineUsername</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineUsername"/>
+          </item>
+         </layout>
         </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="lineDatabase"/>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_14">
+          <item>
+           <widget class="QLabel" name="lbPassword">
+            <property name="text">
+             <string>Password</string>
+            </property>
+            <property name="buddy">
+             <cstring>linePassword</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="linePassword">
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="lbUsername">
-          <property name="text">
-           <string>Username</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-          <property name="buddy">
-           <cstring>lineUsername</cstring>
-          </property>
-         </widget>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_15">
+          <item>
+           <widget class="QLabel" name="lbDriver">
+            <property name="text">
+             <string>Driver</string>
+            </property>
+            <property name="buddy">
+             <cstring>cmbDriver</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="cmbDriver"/>
+          </item>
+         </layout>
         </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="lineUsername"/>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="lbPassword">
-          <property name="text">
-           <string>Password</string>
-          </property>
-          <property name="buddy">
-           <cstring>linePassword</cstring>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLineEdit" name="linePassword">
-          <property name="echoMode">
-           <enum>QLineEdit::Password</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="lbDriver">
-          <property name="text">
-           <string>Driver</string>
-          </property>
-          <property name="buddy">
-           <cstring>cmbDriver</cstring>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QComboBox" name="cmbDriver"/>
-        </item>
-        <item row="5" column="1">
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QPushButton" name="pushConnect">
@@ -160,8 +203,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>595</width>
-         <height>331</height>
+         <width>153</width>
+         <height>108</height>
         </rect>
        </property>
        <attribute name="label">
@@ -242,8 +285,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>595</width>
-         <height>331</height>
+         <width>186</width>
+         <height>159</height>
         </rect>
        </property>
        <attribute name="label">
@@ -405,8 +448,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>595</width>
-         <height>331</height>
+         <width>366</width>
+         <height>280</height>
         </rect>
        </property>
        <attribute name="label">
@@ -699,8 +742,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>595</width>
-         <height>331</height>
+         <width>365</width>
+         <height>290</height>
         </rect>
        </property>
        <attribute name="label">
@@ -939,20 +982,13 @@
      <x>0</x>
      <y>0</y>
      <width>613</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuTools">
     <property name="title">
      <string>Tools</string>
     </property>
-    <widget class="QMenu" name="menuOptions">
-     <property name="title">
-      <string>Options</string>
-     </property>
-     <addaction name="actionShow_startup_message"/>
-     <addaction name="actionShow_SQL_message"/>
-    </widget>
     <widget class="QMenu" name="menuBackups">
      <property name="title">
       <string>Backups</string>
@@ -960,15 +996,14 @@
      <addaction name="actionCreate_backup"/>
      <addaction name="actionRestore_backup"/>
     </widget>
-    <widget class="QMenu" name="menuPatches">
+    <widget class="QMenu" name="menuOptions">
      <property name="title">
-      <string>Patches</string>
+      <string>Options</string>
      </property>
-     <addaction name="actionPatch"/>
+     <addaction name="actionShow_startup_message"/>
     </widget>
     <addaction name="menuOptions"/>
     <addaction name="menuBackups"/>
-    <addaction name="menuPatches"/>
    </widget>
    <addaction name="menuTools"/>
   </widget>
@@ -1108,7 +1143,6 @@
  </tabstops>
  <resources>
   <include location="conf_app.qrc"/>
-  <include location="../app_new/app_new.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -1116,22 +1150,6 @@
    <signal>triggered()</signal>
    <receiver>conf_appClass</receiver>
    <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>256</x>
-     <y>199</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionShow_SQL_message</sender>
-   <signal>triggered(bool)</signal>
-   <receiver>conf_appClass</receiver>
-   <slot>showSqlMessages(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>

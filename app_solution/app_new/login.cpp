@@ -55,7 +55,7 @@ void Login::initCmbUsers()
     cmbUser->setModel(userModel);
     cmbUser->setModelColumn(0);
 
-    QSettings settings(tr("Medstat"), tr("App"));
+    QSettings settings("FaoCAS", "App");
     if (settings.contains("AppUser")){
         int cur=cmbUser->findText(settings.value("AppUser").toString(),Qt::MatchExactly);
         if (cur==-1){
@@ -97,7 +97,7 @@ void Login::validate()
                 update();
 
                 //Store session data, username and passwd
-                QSettings settings(tr("Medstat"), tr("App"));
+                QSettings settings("FaoCAS", "App");
                 settings.setValue("AppUser", cmbUser->currentText());
 
                 if (!setRoleDef(&query)){
@@ -201,7 +201,7 @@ void Login::showEvent ( QShowEvent * event )
  bool Login::readSettings(QString& strHost, QString& strDatabase, QString& strUsername, 
      QString& strPassword, QString& strDriver)
  {
-    QSettings settings(tr("Medstat"), tr("App"));
+    QSettings settings("FaoCAS", "App");
 
     /*!
     //Settings for the App credentials

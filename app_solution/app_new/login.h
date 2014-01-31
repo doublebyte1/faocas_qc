@@ -211,7 +211,7 @@ class Login : public QWidget, public Ui::frmLogin
         \sa disconnectDB()
         */
         bool                               connectDB(const QString strHost,const QString strDatabase,
-        const QString                      strUsername,const QString strPassword, const QString strDriver);
+        const QString                      strUsername,const QString strPassword, const QString strDriver, const int port);
 
     private slots:
             //! Final Touches
@@ -256,7 +256,7 @@ class Login : public QWidget, public Ui::frmLogin
             strUsername,const QString strPassword,const QString strAlias, const QString strDriver)
             */
             bool                            readSettings(QString& strHost, QString& strDatabase, QString& strUsername, 
-                                                QString& strPassword, QString& strDriver);
+                                                QString& strPassword, QString& strDriver,int& port);
             //! Show Event
             /*!
             Reimplemented from the base class.

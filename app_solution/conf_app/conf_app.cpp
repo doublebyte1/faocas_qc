@@ -120,9 +120,7 @@ void conf_app::initModels()
 
 void conf_app::readProcessError()
 {
-    /*QMessageBox::critical(this, tr("Backup/Restore Process"),
-                            myProcess->readAllStandardError().data());*/
-    //qDebug() << myProcess->readAllStandardError().data() << endl;
+    m_strOutputError.append(myProcess->readAllStandardError().data());
 }
 
 void conf_app::readProcessOutput()
@@ -151,10 +149,10 @@ void conf_app::finishedDump( int exitCode, QProcess::ExitStatus exitStatus )
 {
     myProcess->close();
 
-    QFile file(m_fileName);
+    QFile file(m_backupFileName);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)){
         QMessageBox::critical(this, tr("Backup Process"),
-                                tr("Could not open file") + m_fileName + tr(" for writing!"));
+                                tr("Could not open file") + m_backupFileName + tr(" for writing!"));
         return;
     }
 
@@ -163,34 +161,35 @@ void conf_app::finishedDump( int exitCode, QProcess::ExitStatus exitStatus )
 
     m_buffer.clear();
 
-    if (!exitCode){
-        QMessageBox::information(this, tr("Backup Process"),
-                                 tr("Backup finished with exit code ") + QVariant(exitCode).toString() + "; "
-                                 +"the process exited normally."
-                                 );
-    } else{
-        QMessageBox::critical(this, tr("Backup Process"),
-                                 tr("Backup finished with exit code ") + QVariant(exitCode).toString() + "; "
-                                 +"the process crashed."
-                                 );
-
-    }
-
     emit statusShow(tr("Backup finished with exit code ") + QVariant(exitCode).toString() + "; "
                      +(exitStatus==QProcess::NormalExit?"the process exited normally.":"the process crashed.")
                      );
 
-    qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+    if (!m_restoreMode){
+        if (!exitCode){
+            QMessageBox::information(this, tr("Backup Process"),
+                                     tr("Backup finished with exit code ") + QVariant(exitCode).toString() + "; "
+                                     +"the process exited normally."
+                                     );
+        } else{
+
+            qDebug() << m_strOutputError << endl;
+
+            QMessageBox::critical(this, tr("Backup Process"),
+                                     tr("Backup finished with exit code ") + QVariant(exitCode).toString() + "; "
+                                     +"the process crashed."
+                                     );
+
+        }
+        qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+    }else
+        emit backupOk(!exitCode);
 
 }
 
 void conf_app::finishedRestore( int exitCode, QProcess::ExitStatus exitStatus )
 {
-    //qDebug() << m_buffer.data() << endl;
-
     myProcess->close();
-
-    m_buffer.clear();
 
     if (!exitCode){
         QMessageBox::information(this, tr("Restore Process"),
@@ -212,17 +211,58 @@ void conf_app::finishedRestore( int exitCode, QProcess::ExitStatus exitStatus )
     qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
 }
 
+void conf_app::startRestore(const bool backupOk)
+{
+    if (!backupOk){
+        QMessageBox::critical(this, tr("Backup Process"),
+                                 tr("Something went wrong with the safety backup, and we cannot proceed with the restore! process")
+                                 );
+
+    }else{
+            qApp->setOverrideCursor( QCursor(Qt::BusyCursor ) );
+            statusShow(tr("Wait..."));
+
+            QSettings settings("FaoCAS", "App");
+            QStringList arguments;
+            arguments << "-U" << settings.value("username").toString() << "-h" << settings.value("host").toString()
+                    << "-p" << settings.value("port").toString() << "--dbname"
+                    << "faocasdata_test" /*TODO: CHANGE DIS LATER! settings.value("database").toString()*/ << "--role" << "postgres" << "--no-password" << "--clean"
+                       << "--verbose" << m_restoreFileName;
+
+            createProcess();
+
+            connect(myProcess, SIGNAL(readyReadStandardError()),this,
+              SLOT(readProcessError() ),Qt::UniqueConnection);
+
+            connect(myProcess, SIGNAL(finished(int,QProcess::ExitStatus)),this,
+              SLOT(finishedRestore(int,QProcess::ExitStatus) ),Qt::UniqueConnection);
+
+            if (!m_strOutputError.isEmpty()) m_strOutputError.clear();
+
+            QString app(strRestoreTool);
+
+            myProcess->start(app,arguments);
+            if (!myProcess->waitForStarted()) {
+            QMessageBox::critical(this, tr("App"),
+                tr("Could not start ") + strRestoreTool);
+            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+            return;
+            }
+    }
+}
+
 void conf_app::doBackup()
 {
+    m_restoreMode=false;
+
     QString fileName = QFileDialog::getSaveFileName(this,
                                                     tr("Export backup to file"), getDefaultOutputName(), "Custom (*.tar)");
-
     if (!fileName.isEmpty()){
 
     qApp->setOverrideCursor( QCursor(Qt::BusyCursor ) );
     statusShow(tr("Wait..."));
 
-        m_fileName=fileName;
+        m_backupFileName=fileName;
 
         QSettings settings("FaoCAS", "App");
         if (!settings.contains("database")){
@@ -271,6 +311,7 @@ void conf_app::doBackup()
             SLOT(finishedDump( int, QProcess::ExitStatus ) ),Qt::UniqueConnection);
 
        if (!m_buffer.isEmpty()) m_buffer.clear();
+       if (!m_strOutputError.isEmpty()) m_strOutputError.clear();
 
        QString app(strBackupTool);
 
@@ -287,6 +328,8 @@ void conf_app::doBackup()
 
 void conf_app::doRestore()
 {
+    m_restoreMode=true;
+
     QMessageBox msgBox;
     msgBox.setText(tr("You are restoring a backup."));
     msgBox.setInformativeText(tr("Are you sure that you want to replace your current database?"));
@@ -314,75 +357,82 @@ void conf_app::doRestore()
              return;
     }
 
-    m_fileName = QFileDialog::getOpenFileName(this,
+    QString filename = QFileDialog::getOpenFileName(this,
      tr("Restore Backup"), tr(""), tr("Custom Backup (*.tar)"));
 
-    if (!m_fileName.isEmpty()){
+    if (!filename.isEmpty()){
 
         qApp->setOverrideCursor( QCursor(Qt::BusyCursor ) );
         statusShow(tr("Wait..."));
 
+        m_restoreFileName=filename;
 
-            QSettings settings("FaoCAS", "App");
-            if (!settings.contains("database")){
+        //first we create an automatic safety backup (without asking);
+        QString strPath=QFileInfo(filename).absolutePath();
 
-                QMessageBox::critical(this, tr("Backup Process"),
-                                        tr("Could not read database name! Did you already initialized a connection?"));
-                qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-                return;
+        m_backupFileName=strPath + "/automatic_" + getDefaultOutputName() + ".tar";
 
-            }
-            else if (!settings.contains("username")){
+        QSettings settings("FaoCAS", "App");
+        if (!settings.contains("database")){
 
-                QMessageBox::critical(this, tr("Backup Process"),
-                                        tr("Could not read DB username! Did you already initialized a connection?"));
-                qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-                return;
+            QMessageBox::critical(this, tr("Backup Process"),
+                                    tr("Could not read database name! Did you already initialized a connection?"));
+            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+            return;
 
-            }
-            else if(!settings.contains("host")){
-                QMessageBox::critical(this, tr("Backup Process"),
-                                        tr("Could not read DB host! Did you already initialized a connection?"));
-                qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-                return;
-            }
-            else if(!settings.contains("port")){
-                QMessageBox::critical(this, tr("Backup Process"),
-                                        tr("Could not read host port! Did you already initialized a connection?"));
-                qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-                return;
-            }
+        }
+        else if (!settings.contains("username")){
 
+            QMessageBox::critical(this, tr("Backup Process"),
+                                    tr("Could not read DB username! Did you already initialized a connection?"));
+            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+            return;
 
-            QStringList arguments;
-            arguments << "-U" << settings.value("username").toString() << "-h" << settings.value("host").toString()
-                      << "-p" << settings.value("port").toString() << "--dbname"
-                      << "faocasdata_test" /*TODO: CHANGE DIS LATER! settings.value("database").toString()*/ << "--role" << "postgres" << "--no-password" << "--clean"
-                         << "--verbose" << m_fileName;
+        }
+        else if(!settings.contains("host")){
+            QMessageBox::critical(this, tr("Backup Process"),
+                                    tr("Could not read DB host! Did you already initialized a connection?"));
+            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+            return;
+        }
+        else if(!settings.contains("port")){
+            QMessageBox::critical(this, tr("Backup Process"),
+                                    tr("Could not read host port! Did you already initialized a connection?"));
+            qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+            return;
+        }
 
-            createProcess();
+        QStringList arguments;
+        arguments << "-Fc" << "-U" << settings.value("username").toString() << "-h" << settings.value("host").toString()
+                  << "-p" << settings.value("port").toString()
+                  << settings.value("database").toString();
 
-             connect(myProcess, SIGNAL(readyReadStandardOutput()),this,
-                SLOT(readProcessOutput() ),Qt::UniqueConnection);
+        createProcess();
 
-             connect(myProcess, SIGNAL(readyReadStandardError()),this,
-                SLOT(readProcessError() ),Qt::UniqueConnection);
+         connect(myProcess, SIGNAL(readyReadStandardOutput()),this,
+            SLOT(readProcessOutput() ),Qt::UniqueConnection);
 
-             connect(myProcess, SIGNAL(finished(int,QProcess::ExitStatus)),this,
-                SLOT(finishedRestore(int,QProcess::ExitStatus) ),Qt::UniqueConnection);
+         connect(myProcess, SIGNAL(readyReadStandardError()),this,
+            SLOT(readProcessError() ),Qt::UniqueConnection);
 
-           if (!m_buffer.isEmpty()) m_buffer.clear();
+         connect(myProcess, SIGNAL(finished(int,QProcess::ExitStatus)),this,
+            SLOT(finishedDump( int, QProcess::ExitStatus ) ),Qt::UniqueConnection);
 
-           QString app(strRestoreTool);
+         connect(this, SIGNAL(backupOk(const bool)),this,
+            SLOT(startRestore( const bool) ),Qt::UniqueConnection);
 
-           myProcess->start(app,arguments);
-          if (!myProcess->waitForStarted()) {
-              QMessageBox::critical(this, tr("App"),
-                  tr("Could not start ") + strRestoreTool);
-              qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
-              return;
-          }
+        if (!m_buffer.isEmpty()) m_buffer.clear();
+        if (!m_strOutputError.isEmpty()) m_strOutputError.clear();
 
+        QString app(strBackupTool);
+
+        myProcess->start(app,arguments);
+        if (!myProcess->waitForStarted()) {
+          QMessageBox::critical(this, tr("App"),
+              tr("Could not start ") + strBackupTool);
+          qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
+          return;
+        }
 
       }
 

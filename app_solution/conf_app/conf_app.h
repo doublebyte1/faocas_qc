@@ -55,6 +55,8 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
                                    QPushButton* aPushRemove,QGroupBox* aGroupDetails,QDataWidgetMapper* aMapper,QSqlTableModel* aModel,
                                    QDialogButtonBox* aButtonBox,QSqlQueryModel* viewModel,
                                    const QString strQuery, QTableView* aTable,const bool bDiscarded=false);/**< signal emitted after finishing the editing process*/
+        void                    backupOk(const bool bOk);
+
     private slots:
         //! Show Table
         /*!
@@ -334,6 +336,7 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         void                    readProcessOutput();
         void                    finishedDump( int exitCode, QProcess::ExitStatus exitStatus );
         void                    finishedRestore( int exitCode, QProcess::ExitStatus exitStatus );
+        void                    startRestore(const bool backupOk);
 
     private:
         //! Init UI
@@ -616,6 +619,7 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
                                             QSqlQueryModel* viewModel, const QString strQuery, QTableView* aTable);
         bool                              readFile(const QString strFileName, QString& outStr);
         QString                           getDefaultOutputName();
+        void                              backup();
 
         bool                              m_bConnected;//!< Boolean flag to indicate the connection status
         QSqlQueryModel                    *cityModel;//!< Pointer to the city database model (table "Ref_Location")
@@ -635,7 +639,10 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         NullRelationalDelegate*            nullDelegateRoles;
         QModelIndex                        m_lastIndex;//!< variable that stores the last clicked index
         QByteArray                         m_buffer;
-        QString                            m_fileName;
+        QString                            m_backupFileName;
+        QString                            m_restoreFileName;
+        QString                            m_strOutputError;
+        bool                               m_restoreMode;
 };
 
 #endif // CONF_APP_H

@@ -22,10 +22,6 @@ m_roleDef(roleDef),QMainWindow(parent, flags){
     toolbar=0;
     ruleCheckerPtr=0;
     pFrmReports=0;
-    pFrmImport=0;
-    pFrmExport=0;
-    pFrmRegions=0;
-    pFrmImportRegions=0;
     process=0;
     curHelpId="";
     handler=0;
@@ -42,10 +38,6 @@ MainFrm::~MainFrm()
     vTabs.clear();
 
     if (pFrmReports!=0) delete pFrmReports;
-    if (pFrmRegions!=0) delete pFrmRegions;
-    if (pFrmImportRegions!=0) delete pFrmImportRegions;
-    if (pFrmImport!=0) delete pFrmImport;
-    if (pFrmExport!=0) delete pFrmExport;
     if (pFrmFrame!=0) delete pFrmFrame;
     if (pFrmMinorStrata!=0) delete pFrmMinorStrata;
     if (pFrmFrameDetails!=0) delete pFrmFrameDetails;
@@ -170,14 +162,14 @@ void MainFrm::initUi()
 
     pFrmReports=new FrmReports();
     initSecondaryFrm(pFrmReports);
-    pFrmImport=new FrmImport();
+    /*pFrmImport=new FrmImport();
     initSecondaryFrm(pFrmImport);
     pFrmExport=new FrmExport();
     initSecondaryFrm(pFrmExport);
     pFrmRegions=new FrmRegions();
     initSecondaryFrm(pFrmRegions);
     pFrmImportRegions=new FrmImportRegions();
-    initSecondaryFrm(pFrmImportRegions);
+    initSecondaryFrm(pFrmImportRegions);*/
 
     applyReportAdminPermissions();
 }
@@ -338,10 +330,6 @@ void MainFrm::loadSecondaryFrm()
     if (frm==0) return;
 
     if (frm==actionReports)loadSecondaryFrm(pFrmReports);
-    else if (frm==actionImport)loadSecondaryFrm(pFrmImport);
-    else if (frm==actionExport)loadSecondaryFrm(pFrmExport);
-    else if (frm==actionRegions)loadSecondaryFrm(pFrmRegions);
-    else if (frm==actionGeneralize_Regions)loadSecondaryFrm(pFrmImportRegions);
 }
 
 void MainFrm::loadSecondaryFrm(SecondaryFrm* frm)

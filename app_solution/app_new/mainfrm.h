@@ -15,10 +15,6 @@
 #include "frmcatch.h"
 #include "frmprjpage.h"
 #include "frmreports.h"
-#include "frmimport.h"
-#include "frmexport.h"
-#include "frmregions.h"
-#include "frmimportregions.h"
 
   #if defined(WIN32) && defined(_DEBUG)
      #define DEBUG_NEW new( _NORMAL_BLOCK, __FILE__, __LINE__ )
@@ -168,10 +164,6 @@ class MainFrm : public QMainWindow, public Ui::MainWindow
         FrmCatch                *pFrmCatch;
         FrmPrjPage              *pFrmPrjPage;
         FrmReports              *pFrmReports;
-        FrmImport               *pFrmImport;
-        FrmExport               *pFrmExport;
-        FrmRegions              *pFrmRegions;
-        FrmImportRegions        *pFrmImportRegions;
         QVector<PreviewTab*>    vTabs;//!< container for storing pointers to the tabs;
         QVector<SecondaryFrm*>  vSecondaryFrms;//!< container for storing pointers to the secondary forms;
         QList<MsgBoxPtr>        m_listMsgBoxes;//!< container for storing pointers to the messageboxes;

@@ -42,9 +42,9 @@ FrmOperation::~FrmOperation()
 
 void FrmOperation::initHelpIds()
 {
-    m_widgetInfo.insert(tableView,"Medfisis::characterise_fishing_operation");
-    m_widgetInfo.insert(groupDetails,"Medfisis::Sub-form_Fishing_OperationDetails");
-    m_widgetInfo.insert(listCategories,"Medfisis::commercial_category");
+    m_widgetInfo.insert(tableView,"FaoCAS::characterise_fishing_operation");
+    m_widgetInfo.insert(groupDetails,"FaoCAS::Sub-form_Fishing_OperationDetails");
+    m_widgetInfo.insert(listCategories,"FaoCAS::commercial_category");
 }
 
 void FrmOperation::onItemSelection()

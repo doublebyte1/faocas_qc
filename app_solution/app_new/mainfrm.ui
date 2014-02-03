@@ -327,7 +327,7 @@
      <normaloff>:/app_new/ktip.png</normaloff>:/app_new/ktip.png</iconset>
    </property>
    <property name="text">
-    <string>Medfisis Help</string>
+    <string>FaoCAS Help</string>
    </property>
    <property name="statusTip">
     <string>Help Browser</string>

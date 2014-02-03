@@ -33,9 +33,9 @@ FrmVesselType::~FrmVesselType()
 
 void FrmVesselType::initHelpIds()
 {
-    m_widgetInfo.insert(tableView,"Medfisis::Identify_the_Vessel_Type");
-    m_widgetInfo.insert(groupDetails,"Medfisis::Sub-form_Vessel_TypeDetails");
-    m_widgetInfo.insert(cmbTypes,"Medfisis::vessel_type");
+    m_widgetInfo.insert(tableView,"FaoCAS::Identify_the_Vessel_Type");
+    m_widgetInfo.insert(groupDetails,"FaoCAS::Sub-form_Vessel_TypeDetails");
+    m_widgetInfo.insert(cmbTypes,"FaoCAS::vessel_type");
 }
 
 void FrmVesselType::onItemSelection()

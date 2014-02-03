@@ -42,15 +42,15 @@ FrmMinorStrata::~FrmMinorStrata()
 
 void FrmMinorStrata::initHelpIds()
 {
-    m_widgetInfo.insert(tableView,"Medfisis::Define_minor_strata");
-    m_widgetInfo.insert(groupDetails,"Medfisis::Sub-form_Minor_StrataDetails");
-    m_widgetInfo.insert(groupActivity,"Medfisis::activity_status");
-    m_widgetInfo.insert(radioActive,"Medfisis::activity_status");
-    m_widgetInfo.insert(radioInactive,"Medfisis::activity_status");
-    m_widgetInfo.insert(cmbReasons,"Medfisis::activity_status");
-    m_widgetInfo.insert(cmbGLS,"Medfisis::group_of_landing_sites");
-    m_widgetInfo.insert(customDtStart,"Medfisis::time_validity");
-    m_widgetInfo.insert(customDtEnd,"Medfisis::time_validity");
+    m_widgetInfo.insert(tableView,"FaoCAS::Define_minor_strata");
+    m_widgetInfo.insert(groupDetails,"FaoCAS::Sub-form_Minor_StrataDetails");
+    m_widgetInfo.insert(groupActivity,"FaoCAS::activity_status");
+    m_widgetInfo.insert(radioActive,"FaoCAS::activity_status");
+    m_widgetInfo.insert(radioInactive,"FaoCAS::activity_status");
+    m_widgetInfo.insert(cmbReasons,"FaoCAS::activity_status");
+    m_widgetInfo.insert(cmbGLS,"FaoCAS::group_of_landing_sites");
+    m_widgetInfo.insert(customDtStart,"FaoCAS::time_validity");
+    m_widgetInfo.insert(customDtEnd,"FaoCAS::time_validity");
 }
 
 void FrmMinorStrata::onHideFrameDetails()

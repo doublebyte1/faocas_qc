@@ -49,10 +49,10 @@ FrmTrip::~FrmTrip()
 
 void FrmTrip::initHelpIds()
 {
-    m_widgetInfo.insert(tableView,"Medfisis::Enter_the_Fishing_Trip");
-    m_widgetInfo.insert(groupDetails,"Medfisis::Sub-form_Fishing_TripDetails");
-    m_widgetInfo.insert(spinProf,"Medfisis::professional_fishermen");
-    m_widgetInfo.insert(spinPart,"Medfisis::part-time_fishermen");
+    m_widgetInfo.insert(tableView,"FaoCAS::Enter_the_Fishing_Trip");
+    m_widgetInfo.insert(groupDetails,"FaoCAS::Sub-form_Fishing_TripDetails");
+    m_widgetInfo.insert(spinProf,"FaoCAS::professional_fishermen");
+    m_widgetInfo.insert(spinPart,"FaoCAS::part-time_fishermen");
 }
 
 void FrmTrip::onItemSelection()

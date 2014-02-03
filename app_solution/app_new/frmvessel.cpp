@@ -42,10 +42,10 @@ FrmVessel::~FrmVessel()
 
 void FrmVessel::initHelpIds()
 {
-    m_widgetInfo.insert(cmbVessel,"Medfisis::Identify_the_Vessel");
-    m_widgetInfo.insert(groupDetails,"Medfisis::Sub-form_VesselDetails");
-    m_widgetInfo.insert(cmbOrigin,"Medfisis::sample_origin");
-    m_widgetInfo.insert(cmbStatus,"Medfisis::sample_status");
+    m_widgetInfo.insert(cmbVessel,"FaoCAS::Identify_the_Vessel");
+    m_widgetInfo.insert(groupDetails,"FaoCAS::Sub-form_VesselDetails");
+    m_widgetInfo.insert(cmbOrigin,"FaoCAS::sample_origin");
+    m_widgetInfo.insert(cmbStatus,"FaoCAS::sample_status");
 }
 
 void FrmVessel::onItemSelection()

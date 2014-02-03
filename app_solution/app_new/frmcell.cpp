@@ -39,8 +39,8 @@ FrmCell::~FrmCell()
 
 void FrmCell::initHelpIds()
 {
-    m_widgetInfo.insert(tableView,"Medfisis::define_cell_level");
-    //m_widgetInfo.insert(groupDetails,"Medfisis::Sub-form_CellDetails");
+    m_widgetInfo.insert(tableView,"FaoCAS::define_cell_level");
+    //m_widgetInfo.insert(groupDetails,"FaoCAS::Sub-form_CellDetails");
 }
 
 void FrmCell::onItemSelection()

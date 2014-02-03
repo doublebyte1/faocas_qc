@@ -33,11 +33,11 @@ FrmCatch::~FrmCatch()
 
 void FrmCatch::initHelpIds()
 {
-    m_widgetInfo.insert(tableView,"Medfisis::Enter_the_Catch_Data");
-    m_widgetInfo.insert(groupDetails,"Medfisis::Sub-form_CatchDetails");
-    m_widgetInfo.insert(groupCatch,"Medfisis::Sub-form_CatchTotals");
-    m_widgetInfo.insert(catchInputCtrl,"Medfisis::Sub-form_CatchTotals");
-    m_widgetInfo.insert(groupGear,"Medfisis::Sub-form_CatchSample ");
+    m_widgetInfo.insert(tableView,"FaoCAS::Enter_the_Catch_Data");
+    m_widgetInfo.insert(groupDetails,"FaoCAS::Sub-form_CatchDetails");
+    m_widgetInfo.insert(groupCatch,"FaoCAS::Sub-form_CatchTotals");
+    m_widgetInfo.insert(catchInputCtrl,"FaoCAS::Sub-form_CatchTotals");
+    m_widgetInfo.insert(groupGear,"FaoCAS::Sub-form_CatchSample ");
 }
 
 void FrmCatch::onItemSelection()

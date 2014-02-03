@@ -76,15 +76,15 @@ void FrmFrame::onFrameChange(int index)
 
 void FrmFrame::initHelpIds()
 {
-    m_widgetInfo.insert(cmbPrexistent,"Medfisis::pre-existent_frame");
-    m_widgetInfo.insert(groupPhysical,"Medfisis::geographical_frame");
-    m_widgetInfo.insert(groupTime,"Medfisis::time_validity");
-    m_widgetInfo.insert(customDtStart,"Medfisis::time_validity");
-    m_widgetInfo.insert(customDtEnd,"Medfisis::time_validity");
-    m_widgetInfo.insert(groupProcess,"Medfisis::Define_the_sampling_process");
-    m_widgetInfo.insert(toolProcess,"Medfisis::Define_the_sampling_process");
+    m_widgetInfo.insert(cmbPrexistent,"FaoCAS::pre-existent_frame");
+    m_widgetInfo.insert(groupPhysical,"FaoCAS::geographical_frame");
+    m_widgetInfo.insert(groupTime,"FaoCAS::time_validity");
+    m_widgetInfo.insert(customDtStart,"FaoCAS::time_validity");
+    m_widgetInfo.insert(customDtEnd,"FaoCAS::time_validity");
+    m_widgetInfo.insert(groupProcess,"FaoCAS::Define_the_sampling_process");
+    m_widgetInfo.insert(toolProcess,"FaoCAS::Define_the_sampling_process");
 
-    //m_widgetInfo.insert(pushNew,"Medfisis::create_new_record");
+    //m_widgetInfo.insert(pushNew,"FaoCAS::create_new_record");
 }
 
 void FrmFrame::setPreviewQuery()

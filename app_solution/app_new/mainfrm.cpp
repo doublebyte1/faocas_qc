@@ -378,7 +378,7 @@ void MainFrm::closeFile()
         closeSecondaryFrm(pFrmReports);
 
     if ( tabWidget->count() <1 ){
-        QMessageBox::information(this, tr("Medfisis"),
+        QMessageBox::information(this, tr("FaoCAS"),
                                         tr("There is nothing to close."),
                                         QMessageBox::Ok);
          return;
@@ -461,7 +461,7 @@ void MainFrm::loadFile()
 void MainFrm::writeFile()
 {
     if ( tabWidget->count() <1 || sSample->frameId==-1 || sSample->frameTimeId==-1){
-        QMessageBox::information(this, tr("Medfisis"),
+        QMessageBox::information(this, tr("FaoCAS"),
                                         tr("There is nothing to save."),
                                         QMessageBox::Ok);
          return;

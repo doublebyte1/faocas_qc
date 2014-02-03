@@ -24,6 +24,9 @@ class FrmPrjPage : public QWidget, Ui::frmprjpage
     public:
         FrmPrjPage(QWidget *parent = 0, Qt::WFlags flags = 0);
         ~FrmPrjPage();
+
+    private slots:
+        void handleSslErrors(QNetworkReply* reply, const QList<QSslError> &errors);
 };
 
 #endif //FRMPRJPAGE_H

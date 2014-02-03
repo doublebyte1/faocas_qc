@@ -536,20 +536,28 @@ void MainFrm::callAssistant()
         delete process; process=0;
     }
      process = new QProcess(this);
-     QString app = QDir::currentPath()
-         + QLatin1String("/assistant");
+
+     //Builds filename from search path; app *SHOULD BE* on the path!
+
+     QFile helpFile("help:mycollection.qhc");
+     if (!helpFile.exists()){
+             QMessageBox::critical(this, tr("Help"),
+                                   tr("Missing Help File!"));
+             return;
+    }
+
+    QString strHelpFilePath(QFileInfo(helpFile).absoluteFilePath());
+    qDebug() << "help is located here: " << strHelpFilePath << endl;
 
     QStringList args;
     args << QLatin1String("-collectionFile")
-
-        << QDir::toNativeSeparators(QDir::currentPath()) + QDir::separator() + tr("Help") + QDir::separator()
-    + QLatin1String("mycollection.qhc")
+         << strHelpFilePath
     << QLatin1String("-enableRemoteControl");
 
-     process->start(app, args);
+     process->start(QLatin1String("assistant"), args);
      if (!process->waitForStarted()) {
          QMessageBox::critical(this, tr("Remote Control"),
-             tr("Could not start Qt Assistant from %1.").arg(app));
+                               tr("Could not start Qt Assistant from %1.").arg("assistant"));
          return;
      }
 

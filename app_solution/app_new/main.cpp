@@ -30,6 +30,12 @@ int main(int argc, char *argv[])
     a.setStyleSheet(qss.readAll());
     qss.close();
 
+    //Building search path for help files (current dir + project's build)
+    QDir::addSearchPath("help", QDir::currentPath());
+    QProcessEnvironment env(QProcessEnvironment::systemEnvironment());
+    QString projdir = QDir(env.value("PROJDIR")).absolutePath(); // returns empty string for unset
+    QDir::addSearchPath("help", projdir + "/app_solution/app_new/Help");
+
     //qDebug() << QStyleFactory::keys() << endl;
 
     //QApplication::setStyle("Cleanlooks");

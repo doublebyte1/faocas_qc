@@ -2431,7 +2431,7 @@ static bool classifyChanges(const listInfoChanges changeList, int& add, int& del
     delete aTable; aTable=0;
     return true;
 }
-
+/*
 static bool getLastChanges(const int ID, QString& strJSON, const QString strMacAddress,
                            const bool bIsMaster, int&add, int &del, int& mod, QString& strError)
 {
@@ -2529,7 +2529,7 @@ static bool getLastChanges(const int ID, QString& strJSON, const QString strMacA
     strJSON=QString::fromUtf8(data.constData());
 
      return true;
-}
+}*/
 
 static bool insertRecordIntoModel(QSqlTableModel* m)
 {

@@ -177,7 +177,7 @@ void conf_app::finishedDump( int exitCode, QProcess::ExitStatus exitStatus )
 
             QMessageBox::critical(this, tr("Backup Process"),
                                      tr("Backup finished with exit code ") + QVariant(exitCode).toString() + "; "
-                                     +"the process crashed."
+                                     +"the process crashed:" + m_strOutputError
                                      );
 
         }
@@ -197,9 +197,11 @@ void conf_app::finishedRestore( int exitCode, QProcess::ExitStatus exitStatus )
                                  +" the process exited normally."
                                  );
     }else{
+       qDebug() << m_strOutputError << endl;
+
         QMessageBox::critical(this, tr("Restore Process"),
                                  tr("Restore finished with exit code ") + QVariant(exitCode).toString() + "; "
-                                 +"the process crashed."
+                                 +"the process crashed: " + m_strOutputError
                                  );
     }
 
@@ -226,7 +228,7 @@ void conf_app::startRestore(const bool backupOk)
             QStringList arguments;
             arguments << "-U" << settings.value("username").toString() << "-h" << settings.value("host").toString()
                     << "-p" << settings.value("port").toString() << "--dbname"
-                    << "faocasdata_test" /*TODO: CHANGE DIS LATER! settings.value("database").toString()*/ << "--role" << "postgres" << "--no-password" << "--clean"
+                    << settings.value("database").toString() << "--role" << "postgres" << "--no-password" << "--clean"
                        << "--verbose" << m_restoreFileName;
 
             createProcess();

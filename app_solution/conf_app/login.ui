@@ -29,8 +29,8 @@
    <string>Login</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../app_new/app_new.qrc">
-    <normaloff>:/app_new/medfisis.ico</normaloff>:/app_new/medfisis.ico</iconset>
+   <iconset resource="conf_app.qrc">
+    <normaloff>:/conf_app/conf_app.ico</normaloff>:/conf_app/conf_app.ico</iconset>
   </property>
   <property name="toolTip">
    <string>Login Dialog</string>
@@ -111,7 +111,6 @@
   </layout>
  </widget>
  <resources>
-  <include location="../app_new/app_new.qrc"/>
   <include location="conf_app.qrc"/>
  </resources>
  <connections>

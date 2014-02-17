@@ -337,6 +337,7 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         void                    finishedDump( int exitCode, QProcess::ExitStatus exitStatus );
         void                    finishedRestore( int exitCode, QProcess::ExitStatus exitStatus );
         void                    startRestore(const bool backupOk);
+        bool                    removeDatabaseUser(const QString strUser);
 
     private:
         //! Init UI
@@ -620,6 +621,8 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         bool                              readFile(const QString strFileName, QString& outStr);
         QString                           getDefaultOutputName();
         void                              backup();
+        bool                              reAddDatabaseUser(const QSqlTableModel* aModel);
+        bool                              addDatabaseUser(const QString strUser, const QString strPasswd);
 
         bool                              m_bConnected;//!< Boolean flag to indicate the connection status
         QSqlQueryModel                    *cityModel;//!< Pointer to the city database model (table "Ref_Location")
@@ -643,6 +646,7 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         QString                            m_restoreFileName;
         QString                            m_strOutputError;
         bool                               m_restoreMode;
+        QString                            m_previousUser;
 };
 
 #endif // CONF_APP_H

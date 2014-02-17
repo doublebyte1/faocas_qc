@@ -40,6 +40,7 @@ conf_app::conf_app(QWidget *parent, Qt::WFlags flags)
     nullDelegateRoles=0;
     m_lastIndex=QModelIndex();
     m_dbmode=INVALID;
+    m_previousUser="";
 
     initUI();
 }
@@ -1073,6 +1074,8 @@ void conf_app::createUserRecord()
     lineUserPassword->clear();
     lineUserPassword_2->clear();
     textUserDesc->clear();
+
+    m_previousUser="";
 }
 
 void conf_app::createRecord(QSqlTableModel* aModel,QDataWidgetMapper* aMapper, QGroupBox* aGroupDetails,
@@ -1129,13 +1132,48 @@ bool conf_app::onButtonClick(QAbstractButton* button,QDialogButtonBox* aButtonBo
     else return false;
 }
 
+bool conf_app::addDatabaseUser(const QString strUser, const QString strPasswd)
+{
+    //We call an sp to do this
+    QSqlQuery query;
+    query.prepare("select add_user(?,?)");
+    query.bindValue(0, strUser);
+    query.bindValue(1, strPasswd);
+
+    if (!query.exec()){
+        qDebug() << query.lastError().text() << endl;
+        return false;
+    }
+
+    return true;
+}
+
+bool conf_app::reAddDatabaseUser(const QSqlTableModel* aModel)
+{
+    if (aModel!=userModel) return false;
+
+    QString strUser=lineUser->text();
+    QString strPasswd=lineUserPassword->text();
+
+    //first remove user
+    if (!removeDatabaseUser(m_previousUser)) return false;
+    //than add it
+    if (!addDatabaseUser(strUser, strPasswd)) return false;
+
+    return true;
+
+}
+
 bool conf_app::ApplyModel(QDataWidgetMapper* aMapper, QDialogButtonBox* aButtonBox, QGroupBox* aGroupDetails,
                               QSqlQueryModel* viewModel, const QString strQuery, QPushButton* aPushEdit,
                               QPushButton* aPushNew, QPushButton* aPushRemove, QSqlTableModel* aModel,QTableView* aTable)
 {
-    if (validate(aModel))
-        return reallyApplyModel(aMapper,aButtonBox,aGroupDetails,viewModel,strQuery,aPushEdit,aPushNew,aPushRemove,aModel,aTable);
-    else{
+    if (validate(aModel)){
+            //we remove and add the user here
+            if (aModel==userModel)
+                if (!reAddDatabaseUser(aModel)) return false;
+            return reallyApplyModel(aMapper,aButtonBox,aGroupDetails,viewModel,strQuery,aPushEdit,aPushNew,aPushRemove,aModel,aTable);
+    }else{
         return false;
     }
 
@@ -1384,6 +1422,8 @@ bool conf_app::abstractPreviewRow(QModelIndex index,QPushButton* aPushNew,QPushB
 
 bool conf_app::editUser(bool on)
 {
+    if (on) m_previousUser=lineUser->text();
+
     return editRecord(on,userModel,pushEditUser,pushNewUser,pushRemoveUser,groupUsersDetail,
         userButtonBox,mapperUsers,viewUsers,strViewUsers,tableUsers);
 }
@@ -1453,13 +1493,29 @@ bool conf_app::editRecord(const bool on,QSqlTableModel* aModel,QPushButton* aPus
 
 void conf_app::removeUser()
 {
-    removeRecord(tableUsers,userModel,groupUsersDetail,viewUsers,QString(strViewUsers),3);
+    removeRecord(tableUsers,userModel,groupUsersDetail,viewUsers,QString(strViewUsers),3);    
 }
 
 void conf_app::removeRole()
 {
     removeRecord(tableRoles,roleModel,groupRoleDetail,viewRoles,QString(strViewRole),0);
 }
+
+bool conf_app::removeDatabaseUser(const QString strUser)
+{
+    //We call an sp to do this
+    QSqlQuery query;
+    query.prepare("select remove_user(?)");
+    query.bindValue(0, strUser);
+
+    if (!query.exec()){
+        qDebug() << query.lastError().text() << endl;
+        return false;
+    }
+
+    return true;
+}
+
 
 void conf_app::removeRecord(QTableView* aTable, QSqlTableModel* aModel, QGroupBox* aGroupDetails,
                             QSqlQueryModel* viewModel, const QString strQuery, const int col)
@@ -1495,6 +1551,12 @@ void conf_app::removeRecord(QTableView* aTable, QSqlTableModel* aModel, QGroupBo
 
      switch (ret) {
        case QMessageBox::Yes:
+            //Try to remove database user first
+         if (aTable->objectName()=="tableUsers" && ! removeDatabaseUser(idName.data().toString())){
+                QMessageBox::critical(this, tr("Remove Error"),
+                                        tr("Could not remove database record! Aborting..."));
+                return;
+            }
 
             if ( !aModel->removeRow(idx.row()) ){
 
@@ -1519,7 +1581,7 @@ void conf_app::removeRecord(QTableView* aTable, QSqlTableModel* aModel, QGroupBo
                 else{
                     statusShow(tr("Record successfully removed from the database!"));
                     setPreviewQuery(viewModel,strQuery);
-                    aGroupDetails->hide();
+                    aGroupDetails->hide();                    
                 }
             }
 

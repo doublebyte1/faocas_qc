@@ -44,13 +44,14 @@ void Login::updateTooltip(QString user){
     cmbUser->setToolTip(cmbUser->model()->index(cmbUser->currentIndex(),1).data().toString());
 }
 
-void Login::initCmbUsers()
+bool Login::initCmbUsers()
 {
     userModel=new QSqlQueryModel();
     userModel->setQuery("SELECT username, description from ui_user");
     if (userModel->rowCount()<1){
         emit showError(tr("There are no users defined in the database! The app is unusable!"));
-        exit(0);//severe!
+        //exit(0);//severe!
+        return false;
     }
     cmbUser->setModel(userModel);
     cmbUser->setModelColumn(0);
@@ -60,10 +61,13 @@ void Login::initCmbUsers()
         int cur=cmbUser->findText(settings.value("AppUser").toString(),Qt::MatchExactly);
         if (cur==-1){
             emit showError(tr("Wrong user stored on the registry! How is this possible?"));
-            exit(0);
+            //exit(0);
+            return false;
         }
         cmbUser->setCurrentIndex(cur);
     }
+
+    return true;
 }
 
 void Login::validate()
@@ -88,59 +92,90 @@ void Login::validate()
 
             QMessageBox::critical( this, tr("Authentication Error"),
             tr("Username/Password Not Found!"));
+
+            //exit(0);
+        }else{
+
+        if (!setRoleDef(&query)){
+            emit showError(tr("Could not retrieve the role of this user on the database!"));
+            exit(0);
         }
-        else{
-            /*!
-            Proceed to Login: but set the role first!
-            */
-                hide();
-                update();
 
-                //Store session data, username and passwd
-                QSettings settings("FaoCAS", "App");
-                settings.setValue("AppUser", cmbUser->currentText());
+        query.clear();
 
-                if (!setRoleDef(&query)){
-                    emit showError(tr("Could not retrieve the role of this user on the database!"));
-                    exit(0);
-                }
+        /*!
+        We silently disconnect from the database, and setup a new connection "behind the scenes"
+        */
+        QString strHost, strDatabase, strUsername, strPassword, strDriver;
+        int port;
+        if (!readSettings(strHost,strDatabase,strUsername,strPassword,strDriver,port))
+        {
+                QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),
+                    tr("You must run the configurator prior to run this application!") +
+                    tr("\n Make sure you filled the connection settings *and* the global settings!"),QMessageBox::Ok,0);
+                msgBox.exec();
+                exit(0);
+        }
+        if (!disconnectDB()){
+            emit showError(tr("Could not disconnect database!"));
+            exit(0);
+        }
 
-                if (mainFrmPtr==0) {
+        if (!connectDB(strHost,strDatabase,cmbUser->currentText(),linePasswd->text(),strDriver,port)){
+            QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),
+                tr("Could not match the user credentials with the DB credentials!"),QMessageBox::Ok,0);
+            msgBox.exec();
+            exit(0);
+        }
+
+        /*!
+        Proceed to Login: but set the role first!
+        */
+        hide();
+        update();
+
+        //Store session data, username and passwd
+        QSettings settings("FaoCAS", "App");
+        settings.setValue("AppUser", cmbUser->currentText());
+
+        if (mainFrmPtr==0) {
 
 
-                    mainFrmPtr=new MainFrm(m_roleDef);
+            mainFrmPtr=new MainFrm(m_roleDef);
 
-                    connect(this, SIGNAL(showError(QString,bool)), mainFrmPtr,
-                        SLOT(displayError(QString,bool)));
+            connect(this, SIGNAL(showError(QString,bool)), mainFrmPtr,
+                SLOT(displayError(QString,bool)));
 
-                    connect(this, SIGNAL(showStatus(QString)), mainFrmPtr,
-                        SLOT(statusShow(QString)));
+            connect(this, SIGNAL(showStatus(QString)), mainFrmPtr,
+                SLOT(statusShow(QString)));
 
-                }
+        }
 
-                //TODO: FIX DATES AND SESSION
-                /*
-                //base date
-                if (!insertBaseDate()) return;
+        //TODO: FIX DATES AND SESSION
+        /*
+        //base date
+        if (!insertBaseDate()) return;
 
-                 QVariant basedateID;
-                 QString strError;
-                 if (!getIDfromLastInsertedDate(basedateID,strError)){
-                    QMessageBox::critical(0, QObject::tr("Session Error"), strError);
-                    return;
-                 }
+         QVariant basedateID;
+         QString strError;
+         if (!getIDfromLastInsertedDate(basedateID,strError)){
+            QMessageBox::critical(0, QObject::tr("Session Error"), strError);
+            return;
+         }
 
-                if (!startSession(cmbUser->currentText(),settings.value("city").toString(),
-                    getMacAddress(),basedateID,
-                    QString("This is an automated generated session record: pls do not attempt to edit it!"))){
-                    emit showError(tr("Could not initialize session data!"));
-                }
+        if (!startSession(cmbUser->currentText(),settings.value("city").toString(),
+            getMacAddress(),basedateID,
+            QString("This is an automated generated session record: pls do not attempt to edit it!"))){
+            emit showError(tr("Could not initialize session data!"));
+        }
 */
-                mainFrmPtr->show();
-                mainFrmPtr->repaint();
-                //This is assynchronous, so no point in checking for return value now...
-                mainFrmPtr->initRules();
-            }
+        mainFrmPtr->show();
+        mainFrmPtr->repaint();
+        //This is assynchronous, so no point in checking for return value now...
+        mainFrmPtr->initRules();
+
+        }
+
 }
 
 bool Login::setRoleDef(QSqlQuery* query)
@@ -196,7 +231,6 @@ void Login::showEvent ( QShowEvent * event )
     }
     //if everything went ok, lets read the users from the db!
     initCmbUsers();
-
 }
 
  bool Login::readSettings(QString& strHost, QString& strDatabase, QString& strUsername, 
@@ -240,6 +274,18 @@ void Login::showEvent ( QShowEvent * event )
 
             return false;
        }
+    return true;
+ }
+
+ bool Login::disconnectDB()
+{
+     // For the default connection
+     QString connName;
+     {
+       QSqlDatabase db = QSqlDatabase::database();
+       connName = db.connectionName();
+     }
+     QSqlDatabase::removeDatabase(connName);
     return true;
  }
 

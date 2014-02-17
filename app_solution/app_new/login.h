@@ -211,7 +211,8 @@ class Login : public QWidget, public Ui::frmLogin
         \sa disconnectDB()
         */
         bool                               connectDB(const QString strHost,const QString strDatabase,
-        const QString                      strUsername,const QString strPassword, const QString strDriver, const int port);
+            const QString                      strUsername,const QString strPassword, const QString strDriver, const int port);
+        bool                               disconnectDB();
 
     private slots:
             //! Final Touches
@@ -240,7 +241,7 @@ class Login : public QWidget, public Ui::frmLogin
             //! Init combo users
             /*! This function initializes the combobox with a list of usernames
             */
-            void                            initCmbUsers();
+            bool                            initCmbUsers();
             //! Read Settings
             /*!
             This function reads the connection settings from the registry, and stores the inside the argument variables.

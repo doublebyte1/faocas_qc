@@ -103,16 +103,16 @@ void conf_app::initModels()
      countryModel = new QSqlQueryModel;
 
     userModel = new QSqlRelationalTableModel;
-    userModel->setTable(QSqlDatabase().driver()->escapeIdentifier("UI_User",
+    userModel->setTable(QSqlDatabase().driver()->escapeIdentifier("ui_user",
     QSqlDriver::TableName));
-    userModel->setRelation(2, QSqlRelation("UI_Role", "id", "name"));
+    userModel->setRelation(1, QSqlRelation("ui_role", "id", "name"));
     userModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
     userModel->sort(0,Qt::AscendingOrder);
-    filterTable(userModel->relationModel(2));//removing the n/a*/
+    filterTable(userModel->relationModel(1));//removing the n/a*/
     userModel->select();
 
     roleModel = new QSqlTableModel;
-    roleModel->setTable(QSqlDatabase().driver()->escapeIdentifier("UI_Role",
+    roleModel->setTable(QSqlDatabase().driver()->escapeIdentifier("ui_role",
     QSqlDriver::TableName));
     roleModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
     roleModel->sort(0,Qt::AscendingOrder);
@@ -999,8 +999,8 @@ bool conf_app::initRoles()
 bool conf_app::initUsers()
 {
     viewUsers = new QSqlQueryModel;
-    viewUsers->setHeaderData(1, Qt::Horizontal, tr("Name"));
-    viewUsers->setHeaderData(2, Qt::Horizontal, tr("Role"));
+    viewUsers->setHeaderData(0, Qt::Horizontal, "name");
+    viewUsers->setHeaderData(1, Qt::Horizontal, "role");
 
     setPreviewQuery(viewUsers,QString(strViewUsers));
 
@@ -1012,20 +1012,20 @@ bool conf_app::initUsers()
     mapperUsers->setModel(userModel);
     mapperUsers->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
 
-    comboRole->setModel(userModel->relationModel(2));
-    comboRole->setModelColumn(userModel->relationModel(2)->fieldIndex("Name"));
+    comboRole->setModel(userModel->relationModel(1));
+    comboRole->setModelColumn(userModel->relationModel(1)->fieldIndex("name"));
 
     mapperUsers->addMapping(lineUser, userModel->fieldIndex("username"));
-    mapperUsers->addMapping(lineUserPassword, 1);//the other line password is dummy!
-    mapperUsers->addMapping(lineUserPassword_2, 1);//the other line password is dummy!
-    mapperUsers->addMapping(comboRole, 2);
-    mapperUsers->addMapping(textUserDesc, 4);
+    mapperUsers->addMapping(lineUserPassword, 4);//the other line password is dummy!
+    mapperUsers->addMapping(lineUserPassword_2, 4);//the other line password is dummy!
+    mapperUsers->addMapping(comboRole, 1);
+    mapperUsers->addMapping(textUserDesc, 3);
 
     if (nullDelegateUsers!=0) delete nullDelegateUsers;
     QList<int> lCmb;
-    lCmb << 0 << 1 << 2;
+    lCmb << 0 << 1 << 4;
     QList<int> lText;
-    lText << 4;
+    lText << 3;
     nullDelegateUsers=new NullRelationalDelegate(lCmb,lText);
     mapperUsers->setItemDelegate(nullDelegateUsers);
 

@@ -2804,5 +2804,23 @@ static bool getKeywordID(const QString strTable, const QString strKeyword, size_
     return true;
 }
 
+
+bool setAppSetting()
+{
+    QString appName=QApplication::applicationName() + QApplication::applicationVersion();
+
+    //We call an sp to do this
+    QSqlQuery query;
+    query.prepare("select set_app_name(?)");
+    query.bindValue(0, appName);
+
+    if (!query.exec()){
+        qDebug() << query.lastError().text() << endl;
+        return false;
+    }
+
+    return true;
+}
+
 #endif
 

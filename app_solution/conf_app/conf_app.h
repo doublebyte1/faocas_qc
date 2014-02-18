@@ -8,7 +8,7 @@
 #include "booleantable.h"
 #include "genericsortproxymodel.h"
 //#include "frmlu.h"
-#include "sql.h"
+//#include "sql.h"
 
 #if defined(WIN32) && defined(_DEBUG)
  #define DEBUG_NEW new( _NORMAL_BLOCK, __FILE__, __LINE__ )

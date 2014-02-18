@@ -655,36 +655,12 @@ void conf_app::connectDB()
 
     if (m_bConnected){
 
-        //QSqlDatabase::database().setDatabaseName(lineDatabase->text());
-
-        //Checks the type of the database (master/client)
-        bool bIsMaster;
-        if (!isMaster(bIsMaster)){
-            QMessageBox msgBox(QMessageBox::Critical,tr("Database Error"),
-                tr("Could not search for master information! Database may be corrupted"),QMessageBox::Ok,0);
-            msgBox.exec();
-            exit(0);
-        }
-        m_dbmode=(bIsMaster?MASTER:CLIENT);
-        
-        if (m_dbmode==MASTER){
-            toolbar->setStyleSheet("background-color: rgb(255, 0, 0);");
-            setWindowTitle(qApp->applicationName() + qApp->applicationVersion()
-                + " (" + strMasterName + ")");
-
-        }else if (m_dbmode==CLIENT){
-            toolbar->setStyleSheet("");
-            setWindowTitle(qApp->applicationName() + qApp->applicationVersion()
-                + " (" + strClientName + ")");
-
-        }else{
-            QMessageBox msgBox(QMessageBox::Critical,tr("App Error"),
-                tr("Could not assign master/client mode to the application!"),QMessageBox::Ok,0);
-            msgBox.exec();
-            exit(0);
-        }
-
         saveSettings(0);
+        if (!setAppSetting()){
+            QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),tr("Could no set the application setting in the DB"),QMessageBox::Ok,0);
+            msgBox.exec();
+        }
+
         if (!fillLocations()){
             QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),
                 tr("Could not read locations from the database!"),QMessageBox::Ok,0);
@@ -716,7 +692,7 @@ void conf_app::connectDB()
         else
             strError=tr("Could not connect to the database!");
 
-        QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),strError,QMessageBox::Ok,0);
+        QMessageBox msgBox(QMessageBox::Warning,tr("Connection Error"),strError,QMessageBox::Ok,0);
         msgBox.exec();
 
         QSqlDatabase::removeDatabase("qt_sql_default_connection");
@@ -728,6 +704,7 @@ void conf_app::connectDB()
     groupUsers->setEnabled(m_bConnected);
     groupRole->setEnabled(m_bConnected);
 }
+
 
 void conf_app::saveSettings(const int section)
 {

@@ -143,10 +143,10 @@ typedef QList<InfoChanges>                      listInfoChanges;
 typedef shared_ptr<NodeRef>                     nodeRefPtr;//!< typedef for a smart pointer containing a Node Reference Structure
 typedef QHash<int,nodeRefPtr>                   HashNodeRef;//!< typedef for mapping Node References (key=level,value=NodeRef(table,field)
 
-static bool buildFKRec(const listInfoChanges& listChanges, const QString strTable, const int ID, QVariantMap& map, QList<QVariant>& mapFK,
+inline bool buildFKRec(const listInfoChanges& listChanges, const QString strTable, const int ID, QVariantMap& map, QList<QVariant>& mapFK,
                        QString& strError);
 
-static bool getImportedName(const QString inName, QString& outName, bool& bExists)
+inline bool getImportedName(const QString inName, QString& outName, bool& bExists)
 {
     //! Get Imported Table Name
     /*!
@@ -181,7 +181,7 @@ static bool getImportedName(const QString inName, QString& outName, bool& bExist
     return true;
 }
 
-static bool escapeSqlString(QString& inStr)
+inline bool escapeSqlString(QString& inStr)
 {
     //! Escape SQL string
     /*!
@@ -198,7 +198,7 @@ static bool escapeSqlString(QString& inStr)
     return true;
 }
 
-static bool castBoolean(const QString inBool, QString& outBool)
+inline bool castBoolean(const QString inBool, QString& outBool)
 {
     //! Cast Boolean to Bit
     /*!
@@ -220,7 +220,7 @@ static bool castBoolean(const QString inBool, QString& outBool)
     return true;
 }
 
-static bool castDate(QString inDate, QString& outDate)
+inline bool castDate(QString inDate, QString& outDate)
 {
     //! Truncate datetimeoffset
     /*!
@@ -245,7 +245,7 @@ static bool castDate(QString inDate, QString& outDate)
     return true;
 }
 
-static bool getTypeInfo(const QString strTableName, const QString strFieldName, QSqlRecord& rec)
+inline bool getTypeInfo(const QString strTableName, const QString strFieldName, QSqlRecord& rec)
 {
     QSqlQuery query;
     QString strQuery(QString("SELECT data_type 'datatype', numeric_precision, numeric_scale FROM information_schema.columns WHERE") +
@@ -261,7 +261,7 @@ static bool getTypeInfo(const QString strTableName, const QString strFieldName, 
     return true;
 }
 
-static bool getFieldPrecision(const QString strTableName, const QString strFieldName, QString& strPrecision, QString& strScale)
+inline bool getFieldPrecision(const QString strTableName, const QString strFieldName, QString& strPrecision, QString& strScale)
 {
     QSqlRecord rec;
     if (!getTypeInfo(strTableName,strFieldName,rec)) return false;
@@ -270,7 +270,7 @@ static bool getFieldPrecision(const QString strTableName, const QString strField
     return true;
 }
 
-static bool getFieldType(const QString strTableName, const QString strFieldName, QString& strType)
+inline bool getFieldType(const QString strTableName, const QString strFieldName, QString& strType)
 {
     //! Get Field Type
     /*!
@@ -287,7 +287,7 @@ static bool getFieldType(const QString strTableName, const QString strFieldName,
     return true;
 }
 
-static bool dropConstraint(const QString strConstraint, const QString strTable)
+inline bool dropConstraint(const QString strConstraint, const QString strTable)
 {
     //! Drop Constraint
     /*!
@@ -306,7 +306,7 @@ static bool dropConstraint(const QString strConstraint, const QString strTable)
     return query.exec();
 }
 
-static bool nullifyField(const QString strTable, const QString strField, const QString strType, bool bNullify=false)
+inline bool nullifyField(const QString strTable, const QString strField, const QString strType, bool bNullify=false)
 {
     //! Set Field to Null (or not)
     /*!
@@ -328,7 +328,7 @@ static bool nullifyField(const QString strTable, const QString strField, const Q
     return query.exec();
 }
 
-static bool fixStringMaximumLength(const QString strIn, QString &strOut, const bool bRead, const bool bRestrict=true)
+inline bool fixStringMaximumLength(const QString strIn, QString &strOut, const bool bRead, const bool bRestrict=true)
 {
     //! Fix the maximum length of a string
     /*!
@@ -354,7 +354,7 @@ static bool fixStringMaximumLength(const QString strIn, QString &strOut, const b
     return true;
 }
 
-static bool dropTableIfExists(const QString strTableName)
+inline bool dropTableIfExists(const QString strTableName)
 {
     //! Drop Table if Exists
     /*!
@@ -374,7 +374,7 @@ static bool dropTableIfExists(const QString strTableName)
     return query.exec();
 }
 
-static bool getObjectID4Table(int& outId, const QString strField, const QString strTable)
+inline bool getObjectID4Table(int& outId, const QString strField, const QString strTable)
 {
     QString strQuery=
 QString("SELECT obj.[name], col.[name], col.[colstat], col.* FROM [syscolumns] col JOIN [sysobjects] obj") +
@@ -393,7 +393,7 @@ QString(" AND (obj.[name]=:table AND col.[name]=:field) ORDER BY obj.[name] ")
     return true;
 }
 
-static bool getObjects(QSqlQuery& query, const QString strTable=QString())
+inline bool getObjects(QSqlQuery& query, const QString strTable=QString())
 {
     //! Get Object Ids
     /*!
@@ -422,7 +422,7 @@ static bool getObjects(QSqlQuery& query, const QString strTable=QString())
     return (strTable.isEmpty()?query.size()>0:true);
 }
 
-static bool getAutoIncrementInfo(const int objectID, QSqlQuery& query)
+inline bool getAutoIncrementInfo(const int objectID, QSqlQuery& query)
 {
     //! Get Seed and Increment Step
     /*!
@@ -444,7 +444,7 @@ static bool getAutoIncrementInfo(const int objectID, QSqlQuery& query)
     return query.exec();
 }
 
-static bool getIsNullableAndDefault(const QString strTable, const QString strField,
+inline bool getIsNullableAndDefault(const QString strTable, const QString strField,
                                     QSqlQuery& query)
 {
     //! Get Info about Column
@@ -470,7 +470,7 @@ static bool getIsNullableAndDefault(const QString strTable, const QString strFie
     return query.exec();
 }
 
-static bool tableHasIdentity(const QString strTableName, bool& bIdentity)
+inline bool tableHasIdentity(const QString strTableName, bool& bIdentity)
 {
     //! Identify Identity Column
     /*!
@@ -491,7 +491,7 @@ static bool tableHasIdentity(const QString strTableName, bool& bIdentity)
     return true;
 }
 
-static bool identityName(const QString strTableName, QString& strField)
+inline bool identityName(const QString strTableName, QString& strField)
 {
     //! Identify Identity Column
     /*!
@@ -515,7 +515,7 @@ static bool identityName(const QString strTableName, QString& strField)
     return true;
 }
 
-static bool disableAllConstraints4Table(const QString strTableName, bool bNoCheck){
+inline bool disableAllConstraints4Table(const QString strTableName, bool bNoCheck){
     QSqlQuery query;
     QString strQuery;
     if (bNoCheck){
@@ -532,7 +532,7 @@ static bool disableAllConstraints4Table(const QString strTableName, bool bNoChec
 
 }
 
-static bool disableAllTriggers4Table(const QString strTableName, bool bDisable)
+inline bool disableAllTriggers4Table(const QString strTableName, bool bDisable)
 {
     QSqlQuery query;
     QString strQuery;
@@ -550,7 +550,7 @@ static bool disableAllTriggers4Table(const QString strTableName, bool bDisable)
 
 }
 
-static bool clearDBTable(const QString strTableName, bool bReseed=true)
+inline bool clearDBTable(const QString strTableName, bool bReseed=true)
 {
     //! Delete Rows from Table
     /*!
@@ -629,12 +629,12 @@ static bool clearDBTable(const QString strTableName, bool bReseed=true)
     return bOk;
 }
 
-static QString selectAllRecordsFromTable(const QString strTable)
+inline QString selectAllRecordsFromTable(const QString strTable)
 {
     return QString("SELECT * FROM ") + strTable;
 }
 
-static QString identifyConstraint()
+inline QString identifyConstraint()
 {
     //! identify Constraints
     /*!
@@ -647,7 +647,7 @@ static QString identifyConstraint()
 
 }
 
-static QString selectPKConstraints(const QString strTable=QString())
+inline QString selectPKConstraints(const QString strTable=QString())
 {
     //! Select PK Constraints
     /*!
@@ -665,7 +665,7 @@ static QString selectPKConstraints(const QString strTable=QString())
     );
 }
 
-static QString selectFKConstraints(const QString strTable=QString(), bool bFK=true)
+inline QString selectFKConstraints(const QString strTable=QString(), bool bFK=true)
 {
     //! Select Constraints
     /*!
@@ -686,14 +686,14 @@ static QString selectFKConstraints(const QString strTable=QString(), bool bFK=tr
         );
 }
 
-static QString selectAllConstraints()
+inline QString selectAllConstraints()
 {
         return QString(
     "SELECT OBJECT_NAME(object_id) AS NameofConstraint, SCHEMA_NAME(schema_id) AS SchemaName, OBJECT_NAME(parent_object_id) AS TableName, type_desc AS ConstraintType FROM sys.objects WHERE (type_desc LIKE '%CONSTRAINT')"
     );
 }
 
-static bool createFKConstraint(const MapFK mapFK)
+inline bool createFKConstraint(const MapFK mapFK)
 {
     QSqlQuery query;
     QString strSql;
@@ -731,7 +731,7 @@ static bool createFKConstraint(const MapFK mapFK)
      return true;
 }
 
-static bool storeFKConstraints(const QString strTableName, const bool bFK, MapFK& mapFK)
+inline bool storeFKConstraints(const QString strTableName, const bool bFK, MapFK& mapFK)
 {
     //TODO: add a description here later!
 
@@ -758,7 +758,7 @@ static bool storeFKConstraints(const QString strTableName, const bool bFK, MapFK
     return true;
 }
 
-static bool dropFKConstraints(const QString strTableName, const bool bFK)
+inline bool dropFKConstraints(const QString strTableName, const bool bFK)
 {
     //TODO: add a description here later!
 
@@ -783,7 +783,7 @@ static bool dropFKConstraints(const QString strTableName, const bool bFK)
     return true;
 }
 
-static bool verifyConstraintName(const QString inStr, QString& outStr)
+inline bool verifyConstraintName(const QString inStr, QString& outStr)
 {
     //! Amend Constraint Name
     /*!
@@ -819,7 +819,7 @@ static bool verifyConstraintName(const QString inStr, QString& outStr)
     return true;
 }
 
-static bool getSchemaType(const QVariant type, const QMap<QString,QString>& mapQt2Xs, QString& strType)
+inline bool getSchemaType(const QVariant type, const QMap<QString,QString>& mapQt2Xs, QString& strType)
 {
     //! Return schema type from a Qt Type
     /*!
@@ -839,7 +839,7 @@ static bool getSchemaType(const QVariant type, const QMap<QString,QString>& mapQ
     return !strType.isEmpty() && !strType.isNull();//second check point
 }
 
-static QString listCASImportTables(const QString strTable=QString())
+inline QString listCASImportTables(const QString strTable=QString())
 {
     //! List CAS Tables
     /*!
@@ -854,7 +854,7 @@ static QString listCASImportTables(const QString strTable=QString())
         +strTable + QString("'"));
 }
 
-static bool getNullForType(const QString strType, const QString strInternalName, QString& outStrNull)
+inline bool getNullForType(const QString strType, const QString strInternalName, QString& outStrNull)
 {
     //! Get Nulls Replacement
     /*!
@@ -911,7 +911,7 @@ static bool getNullForType(const QString strType, const QString strInternalName,
     return true;
 }
 
-static bool replaceNulls(const QString strTable, const QString strField, const QString strType, const QString strInternalName)
+inline bool replaceNulls(const QString strTable, const QString strField, const QString strType, const QString strInternalName)
 {
     //! Replace Nulls
     /*!
@@ -941,7 +941,7 @@ static bool replaceNulls(const QString strTable, const QString strField, const Q
     return true;
 }
 
-static bool getFields(const QString strTable, QMap<QString,QString>& mapTypes, QMap<QString,int>& mapSizes)
+inline bool getFields(const QString strTable, QMap<QString,QString>& mapTypes, QMap<QString,int>& mapSizes)
 {
     //TODO: Describe this!
 
@@ -959,7 +959,7 @@ static bool getFields(const QString strTable, QMap<QString,QString>& mapTypes, Q
     return true;
 }
 
-static bool getImportedFieldsDescription(const QString strTable, QMap<QString,QString>& mapTypes, QMap<QString,int>& mapSizes)
+inline bool getImportedFieldsDescription(const QString strTable, QMap<QString,QString>& mapTypes, QMap<QString,int>& mapSizes)
 {
     //TODO: Describe this!
     QSqlQuery query;
@@ -976,7 +976,7 @@ static bool getImportedFieldsDescription(const QString strTable, QMap<QString,QS
     return true;
 }
 
-static QString alterNull(const QString strTable, const QString strField,
+inline QString alterNull(const QString strTable, const QString strField,
                          const QString strType, bool bNull=true){
 
     return QString("ALTER TABLE ") + strTable + QString(" ALTER COLUMN ") + strField +
@@ -984,7 +984,7 @@ static QString alterNull(const QString strTable, const QString strField,
         strType + (!bNull? " NOT ":QString(" ")) + QString("NULL");
 }
 
-static bool prepareAdjacencyTable(HashNodeRef& mapTablesFields)
+inline bool prepareAdjacencyTable(HashNodeRef& mapTablesFields)
 {
     //Supported table structure to import: ID (nvarchar) field, Name, NameENG, Description
 
@@ -1176,13 +1176,13 @@ static bool prepareAdjacencyTable(HashNodeRef& mapTablesFields)
     return true;
 }
 
-static bool convert2List(HashNodeRef mapTablesFields)
+inline bool convert2List(HashNodeRef mapTablesFields)
 {
     if (!prepareAdjacencyTable(mapTablesFields)) return false;
     return true;
 }
 
-static bool updateDepth(const int id)
+inline bool updateDepth(const int id)
 {
     //! Update Depth
     /*!
@@ -1216,7 +1216,7 @@ static bool updateDepth(const int id)
     return query.numRowsAffected()==1;
 }
 
-static bool list2Nested()
+inline bool list2Nested()
 {
     if (!disableAllTriggers4Table("Fr_Tree",true)) return false;
 
@@ -1237,7 +1237,7 @@ static bool list2Nested()
     return true;
 }
 
-static bool getFieldDescriptionFromDB(const QString strTable, const QString strField, QSqlQuery& query)
+inline bool getFieldDescriptionFromDB(const QString strTable, const QString strField, QSqlQuery& query)
 {
     //! Get Field Description
     /*!
@@ -1259,7 +1259,7 @@ static bool getFieldDescriptionFromDB(const QString strTable, const QString strF
     return query.size()==1;
 }
 
-static bool findNullReplacementFields(const QString strTable,
+inline bool findNullReplacementFields(const QString strTable,
                         QHash<QString,QString>& nullValues)
 {
     //TODO: add description
@@ -1279,7 +1279,7 @@ static bool findNullReplacementFields(const QString strTable,
     return true;
 }
 
-static bool selectValue(const QString strFieldOut, const QString strTable, const QHash<QString,QString>& mapFieldValue,
+inline bool selectValue(const QString strFieldOut, const QString strTable, const QHash<QString,QString>& mapFieldValue,
                         QSqlRecord& rec, bool bAppendQuotes=true){
     //! Select Value
     /*!
@@ -1320,7 +1320,7 @@ static bool selectValue(const QString strFieldOut, const QString strTable, const
     return false;
 }
 
-static bool convert2PK(const QString strTable)
+inline bool convert2PK(const QString strTable)
 {
     //! Convert to Primary Key
     /*!
@@ -1345,7 +1345,7 @@ static bool convert2PK(const QString strTable)
     return false;
 }
 
-static bool renameColumn(const QString strTable, const QString strField, const QString strNewName)
+inline bool renameColumn(const QString strTable, const QString strField, const QString strNewName)
 {
     QString strQuery=QString("EXEC sp_rename '") + strTable + QString(".") + strField +
         QString("', '") + strNewName + QString("', 'COLUMN'");
@@ -1359,14 +1359,14 @@ static bool renameColumn(const QString strTable, const QString strField, const Q
     return true;
 }
 
-static QString getDefaultCstrt(const QString strTable, const QString strField)
+inline QString getDefaultCstrt(const QString strTable, const QString strField)
 {
     return 
         QString("select t.name, c.name, d.name as constraint_name, d.definition from sys.tables t join sys.default_constraints d on d.parent_object_id = t.object_id join sys.columns c on c.object_id = t.object_id and c.column_id = d.parent_column_id where t.name = '") 
         + strTable + QString("' and c.name = '") + strField + QString("'");
 }
 
-static bool dropColumn(const QString strTable, const QString strField)
+inline bool dropColumn(const QString strTable, const QString strField)
 {
     QString strQuery=QString("ALTER TABLE ") + strTable + QString(" DROP COLUMN ") + strField;
     QSqlQuery query;
@@ -1379,7 +1379,7 @@ static bool dropColumn(const QString strTable, const QString strField)
     return true;
 }
 
-static bool renameTable(const QString oldTableName, const QString newTableName)
+inline bool renameTable(const QString oldTableName, const QString newTableName)
 {
     QString strQuery=QString("EXEC sp_rename '") + oldTableName + QString("', '") + newTableName
         + QString("'");
@@ -1393,7 +1393,7 @@ static bool renameTable(const QString oldTableName, const QString newTableName)
     return true;
 }
 
-static bool copyTable(const QString strTableFrom, const QString strTableTo, bool bExists)
+inline bool copyTable(const QString strTableFrom, const QString strTableTo, bool bExists)
 {
     QString strQuery;
     if (!bExists){
@@ -1437,7 +1437,7 @@ static bool copyTable(const QString strTableFrom, const QString strTableTo, bool
     return true;
 }
 
-static bool generateTMPTableName(const QString instrTableName, QString& outStrTableName, bool bVerify=false)
+inline bool generateTMPTableName(const QString instrTableName, QString& outStrTableName, bool bVerify=false)
 {
     QSqlQuery query;
     outStrTableName=TMPCHAR + instrTableName;
@@ -1454,7 +1454,7 @@ static bool generateTMPTableName(const QString instrTableName, QString& outStrTa
     return true;
 }
 
-static bool fixQueryValue(const QString strType, QString& strVal)
+inline bool fixQueryValue(const QString strType, QString& strVal)
 {
     if ( strType=="nvarchar" || strType=="varchar" || strType=="char"
         || strType=="nchar"){
@@ -1481,7 +1481,7 @@ static bool fixQueryValue(const QString strType, QString& strVal)
     return true;
 }
 
-static bool getMappedTMPName(const QString inStrName, const QMap<QString,QString>& mapTMPNames, QString& outStrName)
+inline bool getMappedTMPName(const QString inStrName, const QMap<QString,QString>& mapTMPNames, QString& outStrName)
 {
     QMap<QString,QString>::const_iterator it=mapTMPNames.find(inStrName);
     if (it==mapTMPNames.end()) return false;
@@ -1490,7 +1490,7 @@ static bool getMappedTMPName(const QString inStrName, const QMap<QString,QString
     return true;
 }
 
-static bool getNullReplacements(QStringList& list){
+inline bool getNullReplacements(QStringList& list){
 
     QString strQuery="Select internal_name from GL_Null_Replacements WHERE internal_name <> 'misc'";
     QSqlQuery query;
@@ -1507,7 +1507,7 @@ static bool getNullReplacements(QStringList& list){
     return true;
 }
 
-static bool GetCurentLocation(int& locationID)
+inline bool GetCurentLocation(int& locationID)
 {
     QString strQuery=
         "Select ID FROM Location WHERE IsCurrent=1";
@@ -1527,7 +1527,7 @@ static bool GetCurentLocation(int& locationID)
     return true;
 }
 
-static bool getIdForValue(const QString strTable, const QString strIdField,
+inline bool getIdForValue(const QString strTable, const QString strIdField,
                                     const QString strPar, QString& strId)
 {//!< This is a convenience function to retrieve the id of a given value!
 
@@ -1547,21 +1547,21 @@ static bool getIdForValue(const QString strTable, const QString strIdField,
     return true;
 }
 
-static QString countOcurrenciesForThisPort()
+inline QString countOcurrenciesForThisPort()
 {
     return QString(
     "SELECT count(Ref_PSU.Name) FROM CAS_Activity INNER JOIN Ref_PSU ON id_psu=ID WHERE Ref_PSU.Name=:par"
     );
 }
 
-static QString checkActiveFromLastRecord()
+inline QString checkActiveFromLastRecord()
 {
     return QString(
 "SELECT Top(1) ActiveVessels,TempRemoved FROM CAS_Activity INNER JOIN Ref_PSU ON id_psu=ID WHERE Ref_PSU.Name=:par ORDER by id_activity DESC"
     );
 }
 
-static QString checkIfPortHasVessels1(const QString strPsu)//OBSOLETE
+inline QString checkIfPortHasVessels1(const QString strPsu)//OBSOLETE
 {
     //N.b.: *the use of this function was descontinued, because we want to use binded queries instead!!!*
 
@@ -1596,7 +1596,7 @@ static QString checkIfPortHasVessels1(const QString strPsu)//OBSOLETE
     return str;
 }
 
-static QString checkIfPortHasVessels2()
+inline QString checkIfPortHasVessels2()
 {
     //! Check if Port has Vessels -- second test
     /* This function was designed find out if there are any vessels registered for this port;
@@ -1609,7 +1609,7 @@ static QString checkIfPortHasVessels2()
 );
 }
 
-static bool getYearLimits(int& start, int&end)
+inline bool getYearLimits(int& start, int&end)
 {
     //We retrieve the last inserted limits that are active (in case there are more than 1)!
     QSqlQuery query;
@@ -1628,7 +1628,7 @@ static bool getYearLimits(int& start, int&end)
     return true;
 }
 
-static bool getLastIdActivity(QString& strId)
+inline bool getLastIdActivity(QString& strId)
 {
     //! Get Last id_activity
     /* This function find the last id_activity/last record on CAS_activity;
@@ -1651,7 +1651,7 @@ static bool getLastIdActivity(QString& strId)
     return true;
 }
 
-static bool getLastRecordFromTable(const QString strId, const QString strTable, QSqlRecord & rec)
+inline bool getLastRecordFromTable(const QString strId, const QString strTable, QSqlRecord & rec)
 {
     //! Get Last record of a Given Table
     /* This function finds the last record of a given table, given an order ID (to apply the ORDER BY to)
@@ -1678,7 +1678,7 @@ static bool getLastRecordFromTable(const QString strId, const QString strTable, 
     return true;
 }
 
-static bool getNaRuleID(size_t& id)
+inline bool getNaRuleID(size_t& id)
 {
     //! Get the ID of the 'n/a' rule
     /* This is a convenience function to grabb the ID of the rule that contains 'n/a';
@@ -1703,7 +1703,7 @@ static bool getNaRuleID(size_t& id)
     return true;
 }
 
-static QString selectPortsFromDifferentPsu(const QString idPsu)
+inline QString selectPortsFromDifferentPsu(const QString idPsu)
 {
     //! Select Ports from a different psu
     /* This is a query to look for ports that belong do a different Psu, and
@@ -1727,7 +1727,7 @@ static QString selectPortsFromDifferentPsu(const QString idPsu)
     return strQuery;
 }
 
-static QString viewVesselsFromAnotherPort(const QString idPsu)
+inline QString viewVesselsFromAnotherPort(const QString idPsu)
 {
     //! Select Other Ports
     /* This is a query to look for other ports that belong to the same Psu, and
@@ -1752,7 +1752,7 @@ static QString viewVesselsFromAnotherPort(const QString idPsu)
         ;
 }
 
-static QString updateMonthlyFrameWithAddedVessel()
+inline QString updateMonthlyFrameWithAddedVessel()
 {
     //! Add New Vessel to the Monthly Frame
     /* This is a query to update the monthly frame with a new vessel;
@@ -1775,14 +1775,14 @@ static QString updateMonthlyFrameWithAddedVessel()
 
 }
 
-static QString rebuildIndexesSql()
+inline QString rebuildIndexesSql()
 {
     return
         "EXEC sp_MSforeachtable @command1=\"print '?' DBCC DBREINDEX ('?', ' ', 80)\""
         ;
 }
 /*
-static bool grabDateById(const int inId, QDateTime& outDate)
+inline bool grabDateById(const int inId, QDateTime& outDate)
 {
     //! Grab date by id
     /*!
@@ -1805,7 +1805,7 @@ static bool grabDateById(const int inId, QDateTime& outDate)
 
 
 
-static bool onCheckDependantDates(const QMap<QString,sTable>& mapTables, const QString curTable, const QDateTime& curStartDt, const QDateTime& curEndDt
+inline bool onCheckDependantDates(const QMap<QString,sTable>& mapTables, const QString curTable, const QDateTime& curStartDt, const QDateTime& curEndDt
                                    ,QString strTable, int id, QString& strError)
 {
     //! On Check Dependant dates
@@ -1882,7 +1882,7 @@ static bool onCheckDependantDates(const QMap<QString,sTable>& mapTables, const Q
      return true;
 }
 
-static bool getIDfromLastInsertedTable(const QString strTable, QVariant& outID,QString& strError)
+inline bool getIDfromLastInsertedTable(const QString strTable, QVariant& outID,QString& strError)
 {
     QSqlQuery query;
     query.prepare("select top(1) ID from " + strTable + " order by ID Desc");
@@ -1899,12 +1899,12 @@ static bool getIDfromLastInsertedTable(const QString strTable, QVariant& outID,Q
      return true;
 }
 
-static bool getIDfromLastInsertedDate(QVariant& outID,QString& strError)
+inline bool getIDfromLastInsertedDate(QVariant& outID,QString& strError)
 {
     return getIDfromLastInsertedTable("GL_DATES",outID, strError);
 }
 
-static bool getNADate(QVariant& outID,QString& strError)
+inline bool getNADate(QVariant& outID,QString& strError)
 {
     QSqlQuery query;
     query.prepare("select ID from GL_DATES WHERE (Date_Type=(SELECT ID from Ref_DateTime_Type WHERE Name='n/a'))");
@@ -1921,7 +1921,7 @@ static bool getNADate(QVariant& outID,QString& strError)
      return true;
 }
 
-static bool getLastUpdate(int& outID, QString& strError)
+inline bool getLastUpdate(int& outID, QString& strError)
 {
     QString strQuery;
     QSqlQuery query;
@@ -1945,7 +1945,7 @@ static bool getLastUpdate(int& outID, QString& strError)
      return true;
 }
 
-static bool insertLastMasterUpdate(const int masterID, QString& strError)
+inline bool insertLastMasterUpdate(const int masterID, QString& strError)
 {
     QSqlQuery query;
     query.prepare
@@ -1962,7 +1962,7 @@ static bool insertLastMasterUpdate(const int masterID, QString& strError)
     return query.numRowsAffected()==1;
 }
 
-static bool insertLastClientUpdate(QString& strError)
+inline bool insertLastClientUpdate(QString& strError)
 {
     QSqlQuery query;
     query.prepare("insert into info_client(client_id) select TOP(1) ID from info_changes order by ID DESC");
@@ -1978,7 +1978,7 @@ static bool insertLastClientUpdate(QString& strError)
     return query.numRowsAffected()==1;
 }
 
-static bool getLastSessionData(QSqlQuery& query){
+inline bool getLastSessionData(QSqlQuery& query){
 
     QString strError, strQuery=
     "SELECT     TOP (1) dbo.GL_Dates.Date_UTC, dbo.GL_Dates.Date_Local, dbo.GL_Dates.Date_Type, dbo.Ref_Location.City_Name, dbo.GL_Session.ID, dbo.GL_Session.mac_address, dbo.UI_User.username"
@@ -2002,7 +2002,7 @@ static bool getLastSessionData(QSqlQuery& query){
 return true;
 }
 
-static bool isDateTime(const QString strTable, const QString strField, bool& bIsDateTime)
+inline bool isDateTime(const QString strTable, const QString strField, bool& bIsDateTime)
 {
      bIsDateTime=false;
 
@@ -2035,7 +2035,7 @@ static bool isDateTime(const QString strTable, const QString strField, bool& bIs
     return true;
 }
 
-static bool serializeDateTime(const QVariantMap nestedMap, QString& strDateUTC, QString& strDateLocal, int& dateType)
+inline bool serializeDateTime(const QVariantMap nestedMap, QString& strDateUTC, QString& strDateLocal, int& dateType)
 {
     QVariantMap nestedDate2=nestedMap["date"].toMap();
     strDateUTC=nestedDate2["date_utc"].toString();
@@ -2045,7 +2045,7 @@ static bool serializeDateTime(const QVariantMap nestedMap, QString& strDateUTC, 
     return true;
 }
 
-static bool deserializeDateTime(const int id, QVariantMap & nestedMap)
+inline bool deserializeDateTime(const int id, QVariantMap & nestedMap)
 {
    QVariantMap nestedMap2;
 
@@ -2077,7 +2077,7 @@ static bool deserializeDateTime(const int id, QVariantMap & nestedMap)
     return true;
 }
 
-static bool identifyFK(const QString strTable, const QString strField, bool& bIsFK,
+inline bool identifyFK(const QString strTable, const QString strField, bool& bIsFK,
                        QString& outTable, QString& strError)
 {
     QString strQuery=
@@ -2110,7 +2110,7 @@ static bool identifyFK(const QString strTable, const QString strField, bool& bIs
      return true;
 }
 
-static bool createFKRec(const listInfoChanges& listChanges, const QString strTable, const int ID, QList<QVariant>& mapFK, int& outID, QString& strError)
+inline bool createFKRec(const listInfoChanges& listChanges, const QString strTable, const int ID, QList<QVariant>& mapFK, int& outID, QString& strError)
 {
     QVariantMap nestedMap;
     QList<QVariant> mapList;
@@ -2136,7 +2136,7 @@ static bool createFKRec(const listInfoChanges& listChanges, const QString strTab
     return true;
 }
 
-static bool insertFKCell(const listInfoChanges& listChanges, const QString strTable, QVariant val, QList<QVariant>& mapFK, QString& strRef,
+inline bool insertFKCell(const listInfoChanges& listChanges, const QString strTable, QVariant val, QList<QVariant>& mapFK, QString& strRef,
                          QString& strError)
 {
     if (val.toString().compare(strNoValue)==0){
@@ -2161,7 +2161,7 @@ static bool insertFKCell(const listInfoChanges& listChanges, const QString strTa
 }
 
 
-static bool getChangedRecord(const listInfoChanges& listChanges,const QString strTable,
+inline bool getChangedRecord(const listInfoChanges& listChanges,const QString strTable,
                              const int ID, QMap<QString,QVariant>& fkRec, QString& strError){
 
      for (int i=0; i< listChanges.count(); ++i){
@@ -2194,7 +2194,7 @@ static bool getChangedRecord(const listInfoChanges& listChanges,const QString st
      return true;
 }
 
-static bool buildFKRec(const listInfoChanges& listChanges, const QString strTable, const int ID, QVariantMap& map, QList<QVariant>& mapFK,
+inline bool buildFKRec(const listInfoChanges& listChanges, const QString strTable, const int ID, QVariantMap& map, QList<QVariant>& mapFK,
                        QString& strError)
 {
     QMap<QString,QVariant> fkRec;
@@ -2276,7 +2276,7 @@ static bool buildFKRec(const listInfoChanges& listChanges, const QString strTabl
     return true;
 }
 
-static bool buildJSONCell(const listInfoChanges& listChanges, const InfoChanges& change, QVariantMap& nestedMap, QList<QVariant>& mapFK, QString& strError)
+inline bool buildJSONCell(const listInfoChanges& listChanges, const InfoChanges& change, QVariantMap& nestedMap, QList<QVariant>& mapFK, QString& strError)
 {
     QVariantMap nestedMap2;
 
@@ -2337,13 +2337,13 @@ static bool buildJSONCell(const listInfoChanges& listChanges, const InfoChanges&
 \par the address of a boolean variable to write the results
 \return boolean has success or faillure
 */
-static bool isMaster(bool& bIsMaster)
+inline bool isMaster(bool& bIsMaster)
 {
     bIsMaster= QSqlDatabase::database().tables().indexOf(strMasterTable)!=-1;
     return true;
 }
 
-static bool getLuMaster(const bool bIsMaster,int& lu, QString strError)
+inline bool getLuMaster(const bool bIsMaster,int& lu, QString strError)
 {
     QSqlQuery query;
     QString strQuery;
@@ -2377,7 +2377,7 @@ static bool getLuMaster(const bool bIsMaster,int& lu, QString strError)
     return true;
 }
 
-static void createInfoChange(QSqlQuery& query, listInfoChanges& infoChanges)
+inline void createInfoChange(QSqlQuery& query, listInfoChanges& infoChanges)
 {
     QString strField=query.value(query.record().indexOf("column")).toString();
     strField=strField.remove("[");
@@ -2391,7 +2391,7 @@ static void createInfoChange(QSqlQuery& query, listInfoChanges& infoChanges)
     infoChanges.push_back(infoChange);
 }
 
-static bool doClassify(const listInfoChanges changeList, const int start, const int end,
+inline bool doClassify(const listInfoChanges changeList, const int start, const int end,
                        int& add, int& del, int& mod, QString& strError)
 {
     bool bFoundChange=false;
@@ -2411,7 +2411,7 @@ static bool doClassify(const listInfoChanges changeList, const int start, const 
     return bFoundChange;
 }
 
-static bool classifyChanges(const listInfoChanges changeList, int& add, int& del, int& mod, QString& strError)
+inline bool classifyChanges(const listInfoChanges changeList, int& add, int& del, int& mod, QString& strError)
 {
     QSqlTableModel *aTable=new QSqlTableModel ();
     int start,end;
@@ -2432,7 +2432,7 @@ static bool classifyChanges(const listInfoChanges changeList, int& add, int& del
     return true;
 }
 /*
-static bool getLastChanges(const int ID, QString& strJSON, const QString strMacAddress,
+inline bool getLastChanges(const int ID, QString& strJSON, const QString strMacAddress,
                            const bool bIsMaster, int&add, int &del, int& mod, QString& strError)
 {
     QSqlQuery query;
@@ -2531,7 +2531,7 @@ static bool getLastChanges(const int ID, QString& strJSON, const QString strMacA
      return true;
 }*/
 
-static bool insertRecordIntoModel(QSqlTableModel* m)
+inline bool insertRecordIntoModel(QSqlTableModel* m)
 {
     while(m->canFetchMore())
         m->fetchMore();
@@ -2539,7 +2539,7 @@ static bool insertRecordIntoModel(QSqlTableModel* m)
     return m->insertRow(m->rowCount());
 }
 
-static QString getMacAddress()
+inline QString getMacAddress()
 {
     /*
     foreach(QNetworkInterface interface, QNetworkInterface::allInterfaces())
@@ -2554,7 +2554,7 @@ static QString getMacAddress()
     return QSqlDatabase::database().databaseName();
 }
 
-static bool insertBaseDate()
+inline bool insertBaseDate()
 {
     QSqlQuery query1;
     query1.prepare("exec Insert_Base_Date");
@@ -2575,7 +2575,7 @@ static bool insertBaseDate()
     \return boolean as success or failure
     \sa endSession()
                 */
-static bool startSession(const QString strUser, const QString strLocation,
+inline bool startSession(const QString strUser, const QString strLocation,
                          const QString strMacAddress, const QVariant basedateID, const QString strComment)
 {
     QVariant startdateID;
@@ -2674,7 +2674,7 @@ static bool startSession(const QString strUser, const QString strLocation,
 This record was initialized with startSession(const QString strUser, const QString strLocation).
 \sa startSession(const QString strUser, const QString strLocation)
 */
-static void endSession()
+inline void endSession()
 {
     QSqlTableModel* table= new QSqlTableModel();
     table->setTable(QSqlDatabase().driver()->escapeIdentifier("GL_SESSION",
@@ -2707,7 +2707,7 @@ static void endSession()
     delete table;
 }
 /*
-static bool identifyDate(const InfoDate& dateTime, QList<int>& ids, QString& strError)
+inline bool identifyDate(const InfoDate& dateTime, QList<int>& ids, QString& strError)
 {
 
     QString strQuery="SELECT ID FROM [GL_DATES] WHERE LEFT(CONVERT(varchar, (Date_UTC), 126),19)=:dateUTC AND "
@@ -2738,7 +2738,7 @@ static bool identifyDate(const InfoDate& dateTime, QList<int>& ids, QString& str
     return true;
 }
 */
-static bool getLastId(const QString strTable, int& id, QString& strError)
+inline bool getLastId(const QString strTable, int& id, QString& strError)
 {
     //! Get Last id
     /* This function find the id of the last inserted row from a given table
@@ -2771,7 +2771,7 @@ static bool getLastId(const QString strTable, int& id, QString& strError)
     return true;
 }
 
-static bool getKeywordID(const QString strTable, const QString strKeyword, size_t& id)
+inline bool getKeywordID(const QString strTable, const QString strKeyword, size_t& id)
 {
     //! Get the ID of the name keyword
     /* This is a convenience function to grab the ID of the a row that contains the a specific "name" value;
@@ -2805,7 +2805,7 @@ static bool getKeywordID(const QString strTable, const QString strKeyword, size_
 }
 
 
-bool setAppSetting()
+inline bool setAppSetting()
 {
     QString appName=QApplication::applicationName() + QApplication::applicationVersion();
 

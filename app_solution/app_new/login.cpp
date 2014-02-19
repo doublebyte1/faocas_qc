@@ -169,6 +169,12 @@ void Login::validate()
             emit showError(tr("Could not initialize session data!"));
         }
 */
+
+        if (!setAppSetting()){
+            QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),tr("Could no set the application setting in the DB"),QMessageBox::Ok,0);
+            msgBox.exec();
+        }
+
         mainFrmPtr->show();
         mainFrmPtr->repaint();
         //This is assynchronous, so no point in checking for return value now...

@@ -2554,6 +2554,8 @@ inline QString getMacAddress()
     return QSqlDatabase::database().databaseName();
 }
 
+//TODO: REVIEW THIS FUNCTION (or jus remove it)
+/*
 inline bool insertBaseDate()
 {
     QSqlQuery query1;
@@ -2575,6 +2577,7 @@ inline bool insertBaseDate()
     \return boolean as success or failure
     \sa endSession()
                 */
+/*
 inline bool startSession(const QString strUser, const QString strLocation,
                          const QString strMacAddress, const QVariant basedateID, const QString strComment)
 {
@@ -2645,7 +2648,7 @@ inline bool startSession(const QString strUser, const QString strLocation,
     QModelIndex idx=table->index(table->rowCount()-1,1);
     table->setData(idx,userID);
     idx=table->index(table->rowCount()-1,2);
-    table->setData(idx,strMacAddress/*getMacAddress()*/);
+    table->setData(idx,strMacAddress/*getMacAddress()*//*);
     idx=table->index(table->rowCount()-1,3);
     table->setData(idx,basedateID);
     idx=table->index(table->rowCount()-1,4);
@@ -2673,7 +2676,7 @@ inline bool startSession(const QString strUser, const QString strLocation,
 /*! This function completes the session data in the database, by amending a record on table GL_Dates.
 This record was initialized with startSession(const QString strUser, const QString strLocation).
 \sa startSession(const QString strUser, const QString strLocation)
-*/
+*/ /*
 inline void endSession()
 {
     QSqlTableModel* table= new QSqlTableModel();
@@ -2705,7 +2708,7 @@ inline void endSession()
     }
 
     delete table;
-}
+}*/
 /*
 inline bool identifyDate(const InfoDate& dateTime, QList<int>& ids, QString& strError)
 {

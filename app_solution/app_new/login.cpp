@@ -14,11 +14,11 @@ QWidget(parent, flags){
     m_roleDef=0;
 
     setupUi(this);
-
+/*
     connect(qApp,
                    SIGNAL(aboutToQuit()),
                    this,
-                   SLOT(finalTouches()));
+                   SLOT(finalTouches()));*/
 
 }
 
@@ -33,11 +33,10 @@ Login::~Login()
     if (m_roleDef!=0) delete m_roleDef;
 }
 
-void Login::finalTouches()
+/*void Login::finalTouches()
 {
-    //TODO: REVIEW THIS LATER
-    //endSession();
-}
+
+}*/
 
 void Login::updateTooltip(QString user){
 
@@ -150,25 +149,6 @@ void Login::validate()
                 SLOT(statusShow(QString)));
 
         }
-
-        //TODO: FIX DATES AND SESSION
-        /*
-        //base date
-        if (!insertBaseDate()) return;
-
-         QVariant basedateID;
-         QString strError;
-         if (!getIDfromLastInsertedDate(basedateID,strError)){
-            QMessageBox::critical(0, QObject::tr("Session Error"), strError);
-            return;
-         }
-
-        if (!startSession(cmbUser->currentText(),settings.value("city").toString(),
-            getMacAddress(),basedateID,
-            QString("This is an automated generated session record: pls do not attempt to edit it!"))){
-            emit showError(tr("Could not initialize session data!"));
-        }
-*/
 
         if (!setAppSetting()){
             QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),tr("Could no set the application setting in the DB"),QMessageBox::Ok,0);

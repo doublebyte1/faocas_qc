@@ -219,7 +219,7 @@ class Login : public QWidget, public Ui::frmLogin
             /*! This slots is connected to the signal aboutToQuit();
             We use it to perform tasks that we want to do when leaving the app (for instace writing the end of session data)
             */
-            void                            finalTouches();
+            //void                            finalTouches();
             //! Update tooltip
             /*! This slots updates the tooltip of the username combobox, with the user
             description (read from the database)

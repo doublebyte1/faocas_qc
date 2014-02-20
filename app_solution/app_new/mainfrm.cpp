@@ -537,15 +537,8 @@ void MainFrm::callAssistant()
     }
      process = new QProcess(this);
 
-     //Builds filename from search path; app *SHOULD BE* on the path!
-
-     QFile helpFile("help:mycollection.qhc");
-     if (!helpFile.exists()){
-             QMessageBox::critical(this, tr("Help"),
-                                   tr("Missing Help File!"));
-             return;
-    }
-
+    //Builds filename from search path; app *SHOULD BE* on the path!
+    QFile helpFile("help:mycollection.qhc");
     QString strHelpFilePath(QFileInfo(helpFile).absoluteFilePath());
     qDebug() << "help is located here: " << strHelpFilePath << endl;
 

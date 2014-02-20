@@ -20,8 +20,11 @@ FrmReports::~FrmReports()
 
 void FrmReports::browseFiles()
 {
+    QFile repFile("reports:viewOperationsWithCatch.bdrt");
+
     QString fileName = QFileDialog::getOpenFileName(this,
-     tr("Open Report"), "", tr("Report Files (*.bdrt)"));
+                        tr("Open Report"),
+                        (repFile.exists()?QFileInfo(repFile).absolutePath():QDir::currentPath()), tr("Report Files (*.bdrt)"));
 
     lineOpen->setText(fileName);
     loadItem(fileName);
@@ -42,11 +45,12 @@ bool FrmReports::readReportNames ()
 
      QStringList filters;
      filters << tr("*.bdrt");
-     reportsDir.setNameFilters(filters);
+     reportsDir.setNameFilters(filters);     
 
-    if (reportsDir.exists(strReportsDir))
-        reportsDir=QDir(strReportsDir);
-    else return false;
+    QFile repFile("reports:viewOperationsWithCatch.bdrt");
+    qDebug() << "reports are located here: " << QFileInfo(repFile).absoluteFilePath() << endl;
+
+    reportsDir=QFileInfo(repFile).absolutePath();
 
     if (!reportsDir.isReadable()) return false;
 
@@ -99,10 +103,11 @@ void FrmReports::previewItem(QListWidgetItem* item)
 
 bool FrmReports::parseXMLFile(const QString itemName, QString& strName, QString& strAuthor, QString& strPixmap, QString& strDescription)
 {
-    QString strFileName(strReportsDir + QDir::separator() + itemName + ".bdrt");
-
-    QFile file(strFileName);
+    QFile file("reports:"+itemName+".bdrt");
     if (!file.exists()) return false;
+
+    qDebug() << "report is located here: " << QFileInfo(file).absoluteFilePath() << endl;
+
     if (!file.open(QFile::ReadOnly | QFile::Text)) return false;
 
     //Just try to parse the xml
@@ -151,7 +156,13 @@ bool FrmReports::readProperties(QXmlStreamReader& xml, QString& strName, QString
 
 void FrmReports::loadItem(QListWidgetItem* item)
 {
-    loadItem(strReportsDir + QDir::separator() + item->text() + tr(".bdrt"));
+    QFile file("reports:"+item->text()+".bdrt");
+    if (!file.exists()){
+        qDebug() << "This file does not exists: " << QFileInfo(file).absoluteFilePath() << endl;
+        return;
+     }
+
+    loadItem(QFileInfo(file).absoluteFilePath());
 }
 
 void FrmReports::loadItem(const QString strFilename)

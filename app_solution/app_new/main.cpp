@@ -31,9 +31,7 @@ int main(int argc, char *argv[])
     qss.close();
 
     //Building search path for help files (current dir + project's build)
-    QDir path(QDir::currentPath());
-    path.cd("help");
-    QDir::addSearchPath("help", path.absolutePath());
+    QDir path;
 
 #ifdef QT_DEBUG
     QProcessEnvironment env(QProcessEnvironment::systemEnvironment());
@@ -42,9 +40,28 @@ int main(int argc, char *argv[])
     path.cd("app_solution/app_new/help");
     //qDebug() << path.absolutePath() << endl;
     QDir::addSearchPath("help",  path.absolutePath());
-#endif
 
-//TODO: report path,plugin path
+    path=projdir;
+    path.cd("app_solution/app_new/reports");
+    //qDebug() << path.absolutePath() << endl;
+    QDir::addSearchPath("reports",  path.absolutePath());
+#else
+    path=QDir::currentPath();
+    path.cd("reports");
+    QDir::addSearchPath("reports", path.absolutePath());
+
+    path=(QDir::currentPath());
+    path.cd("help");
+    QDir::addSearchPath("help", path.absolutePath());
+
+    path=QDir::currentPath();
+    path.cd("report");
+    QApplication::addLibraryPath(path.absolutePath());
+
+    path=QDir::currentPath();
+    path.cd("PropertyEditor");
+    QApplication::addLibraryPath(path.absolutePath());
+#endif
 
     //qDebug() << QStyleFactory::keys() << endl;
 

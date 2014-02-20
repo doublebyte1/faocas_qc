@@ -14,13 +14,13 @@
 
 int main(int argc, char *argv[])
 {
-    #if defined(_MSC_VER) && defined(_DEBUG)
+#if defined(_MSC_VER) && defined(_DEBUG)
         _CrtSetDbgFlag ( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
-    #endif
+#endif
 
-    #if defined(WIN32) && defined(_DEBUG)
+#if defined(WIN32) && defined(_DEBUG)
       setFilterDebugHook();
-    #endif
+#endif
 
     QApplication a(argc, argv);
 
@@ -31,10 +31,20 @@ int main(int argc, char *argv[])
     qss.close();
 
     //Building search path for help files (current dir + project's build)
-    QDir::addSearchPath("help", QDir::currentPath());
+    QDir path(QDir::currentPath());
+    path.cd("help");
+    QDir::addSearchPath("help", path.absolutePath());
+
+#ifdef QT_DEBUG
     QProcessEnvironment env(QProcessEnvironment::systemEnvironment());
     QString projdir = QDir(env.value("PROJDIR")).absolutePath(); // returns empty string for unset
-    QDir::addSearchPath("help", projdir + "/app_solution/app_new/Help");
+    path=projdir;
+    path.cd("app_solution/app_new/help");
+    //qDebug() << path.absolutePath() << endl;
+    QDir::addSearchPath("help",  path.absolutePath());
+#endif
+
+//TODO: report path,plugin path
 
     //qDebug() << QStyleFactory::keys() << endl;
 

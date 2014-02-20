@@ -567,7 +567,7 @@ void MainFrm::callAssistant()
         ba.append("ActivateIdentifier " + curHelpId);
         curHelpId="";
     }else
-        ba.append("setSource qthelp://medfisis.app.1_1/doc/index.html\n;");
+        ba.append("setSource qthelp://medfisis.app.1_1/doc/index.htm\n;");
     process->write(ba);
 
 }

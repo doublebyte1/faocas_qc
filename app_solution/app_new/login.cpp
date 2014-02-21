@@ -46,7 +46,7 @@ void Login::updateTooltip(QString user){
 bool Login::initCmbUsers()
 {
     userModel=new QSqlQueryModel();
-    userModel->setQuery("SELECT username, description from ui_user");
+    userModel->setQuery("SELECT username, description from ui_user where username not like '%n/a%'");
     if (userModel->rowCount()<1){
         emit showError(tr("There are no users defined in the database! The app is unusable!"));
         //exit(0);//severe!
@@ -72,7 +72,7 @@ bool Login::initCmbUsers()
 void Login::validate()
 {
         QSqlQuery query;
-        query.prepare( "SELECT username, password, name, new, \"view\", modify, remove, report, admin FROM \"ui_user\", \"ui_role\" WHERE ( (ui_user.role_id=ui_role.id) AND (username= :user AND password= :pass) )" );
+        query.prepare( "SELECT username, password, name, new, \"view\", modify, remove, report, admin FROM \"ui_user\", \"ui_role\" WHERE ( (ui_user.role_id=ui_role.id) AND (username= :user AND password= :pass))" );
         query.bindValue(":user", cmbUser->currentText() );
         query.bindValue(":pass", linePasswd->text() );
         query.setForwardOnly(true);

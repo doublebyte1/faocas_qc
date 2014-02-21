@@ -24,7 +24,7 @@ bool                      queryShowStartupMsg();
 bool                      queryShowSqlMsg();
 
 void                      resizeToVisibleColumns ( QTableView* table );
-void                      filterTable(QSqlTableModel* table);
+void                      filterTable(QSqlTableModel* table, const QString strKeyword="");
 
 //! Configure Application Class
 /*!
@@ -623,6 +623,7 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         void                              backup();
         bool                              reAddDatabaseUser(const QSqlTableModel* aModel);
         bool                              addDatabaseUser(const QString strUser, const QString strPasswd);
+        bool                              checkUsers(const bool bCreate=false);
 
         bool                              m_bConnected;//!< Boolean flag to indicate the connection status
         QSqlQueryModel                    *cityModel;//!< Pointer to the city database model (table "Ref_Location")

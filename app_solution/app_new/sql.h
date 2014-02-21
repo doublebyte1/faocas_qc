@@ -2825,5 +2825,21 @@ inline bool setAppSetting()
     return true;
 }
 
+inline bool checkIfUserExists(const QString strUser, bool& bExists)
+{
+    QSqlQuery query;
+    query.prepare("SELECT CASE WHEN (SELECT 1 FROM pg_roles WHERE rolname=?)=1 THEN true else false end");
+    query.bindValue(0, strUser);
+
+    if (!query.exec()){
+        qDebug() << query.lastError().text() << endl;
+        return false;
+    }
+    query.first();
+    bExists=query.value(0).toBool();
+
+    return true;
+}
+
 #endif
 

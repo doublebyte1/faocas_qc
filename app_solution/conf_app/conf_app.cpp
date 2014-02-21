@@ -10,11 +10,11 @@ using namespace QtJson;
 static const QString strViewUsers=
     "SELECT     ui_user.id, ui_user.username AS Name, ui_role.name AS Role"
     " FROM         ui_user INNER JOIN"
-    "                      ui_role ON ui_user.role_id = ui_role.id WHERE name <> 'n/a'"
+    "                      ui_role ON ui_user.role_id = ui_role.id WHERE username NOT LIKE '%n/a%'"
 ;
 static const QString strViewRole=
 "SELECT     id, name AS Name, description AS Description"
-" FROM         ui_role WHERE name <> 'n/a'"
+" FROM         ui_role WHERE name NOT LIKE '%n/a%'"
 ;
 
 static const QString strBackupTool="pg_dump";
@@ -109,7 +109,37 @@ void conf_app::initModels()
     userModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
     userModel->sort(0,Qt::AscendingOrder);
     filterTable(userModel->relationModel(1));//removing the n/a*/
+
+    filterTable(userModel,"username");
+
     userModel->select();
+
+    //Check if users were created in the database; TODO: ask if it wants to create the users
+    if (!checkUsers()){
+
+        QMessageBox msgBox;
+        msgBox.setText(tr("It seems that not all users have been created in the database"));
+        msgBox.setInformativeText(tr("Would you like the app to do that now?"));
+        msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+        msgBox.setDefaultButton(QMessageBox::Yes);
+        int ret = msgBox.exec();
+
+         switch (ret) {
+           case QMessageBox::Yes:
+             //now actually create the missing users
+             checkUsers(true);
+             break;
+            case QMessageBox::No:
+             QMessageBox::critical(this, tr("Check User Backend"),
+                                     tr("Ok. But you may have to do that later, or the app will not function properly!"));
+                break;
+            default:
+                break;
+            }
+        }
+
+    //resetting the filter, just in case...
+    userModel->setFilter("");
 
     roleModel = new QSqlTableModel;
     roleModel->setTable(QSqlDatabase().driver()->escapeIdentifier("ui_role",
@@ -117,6 +147,30 @@ void conf_app::initModels()
     roleModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
     roleModel->sort(0,Qt::AscendingOrder);
     roleModel->select();
+}
+
+bool conf_app::checkUsers(const bool bCreate)
+{
+    for (int i=0; i < userModel->rowCount();++i){
+        bool bExists;
+        if (!checkIfUserExists(userModel->record(i).value("username").toString(),bExists)){
+                QMessageBox::critical(this, tr("Check User Backend"),
+                                        tr("Could not check users in the database!"));
+                return true;// we return true, to stop the process here
+        }
+        if (!bExists)
+            if (bCreate){
+                if (!addDatabaseUser(userModel->record(i).value("username").toString(),
+                                     userModel->record(i).value("password").toString())){
+                        QMessageBox::critical(this, tr("Check User Backend"),
+                                                tr("Could not create user '") +  userModel->record(i).value("username").toString()
+                                                   + tr("' in the database!"));
+                        return true;
+                 }else
+                    qDebug() << "user '" + userModel->record(i).value("username").toString() + "' has been created!" << endl;
+            }else return false;
+    }
+    return true;
 }
 
 void conf_app::readProcessError()
@@ -1660,12 +1714,12 @@ void resizeToVisibleColumns ( QTableView* table )
     }
 }
 
-void filterTable(QSqlTableModel* table)
-{
-    table->setFilter("Name<>'" + qApp->translate("null_replacements", strNa)
-            + "' AND Name<>'" + qApp->translate("bin", strOutside)
-            + "' AND Name<>'" + qApp->translate("null_replacements", strMissing)
-            + "' AND Name<>'" + qApp->translate("null_replacements", strOther)
-            + "' AND Name<>'" + qApp->translate("null_replacements", strUnknown)
+void filterTable(QSqlTableModel* table, const QString strKeyword)
+{            
+    table->setFilter(strKeyword + "<>'" + qApp->translate("null_replacements", strNa)
+            + "' AND " + strKeyword + "<>'" + qApp->translate("bin", strOutside)
+                     + "' AND "+ strKeyword + "<>'" + qApp->translate("null_replacements", strMissing)
+            + "' AND "+ strKeyword + "<>'" + qApp->translate("null_replacements", strOther)
+            + "' AND "+ strKeyword + "<>'" + qApp->translate("null_replacements", strUnknown)
             + "'");
 }

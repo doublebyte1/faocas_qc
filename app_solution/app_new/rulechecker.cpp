@@ -178,7 +178,7 @@ bool RuleChecker::buildHashes()
 */
     return true;
 }
-
+/*
 void RuleChecker::test(const int num)
 {
     QVERIFY(num>0);
@@ -193,7 +193,7 @@ void RuleChecker::test(MapRules& map)
 {
     QVERIFY(map.size()>0);
 }
-
+*/
 bool RuleChecker::standardRuleInsertion(const QString rule, const size_t id,
                                         cellShrPtr ref, MapRules& ruleMap)
 {

@@ -1,4 +1,4 @@
-#include <QTest>
+//#include <QTest>
 #include "globaldefs.h"
 #include "frmcell.h"
 

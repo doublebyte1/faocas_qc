@@ -1,4 +1,4 @@
-#include <QTest>
+//#include <QTest>
 #include "frmsampling.h"
 #include "previewtab.h"
 

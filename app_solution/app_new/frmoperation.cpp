@@ -1,4 +1,4 @@
-#include <QTest>
+//#include <QTest>
 #include "frmoperation.h"
 
 FrmOperation::FrmOperation(RoleDef* inRoleDef, Sample* inSample, RuleChecker* ruleCheckerPtr, QWidget *parent, Qt::WFlags flags):

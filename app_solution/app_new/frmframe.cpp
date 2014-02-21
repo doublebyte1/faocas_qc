@@ -1,4 +1,4 @@
-#include <QTest>
+//#include <QTest>
 #include "frmframe.h"
 #include "modelinterface.h"
 #include "globaldefs.h"

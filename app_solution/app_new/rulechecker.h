@@ -2,7 +2,7 @@
 #include <QtGui>
 #include <QtSql>
 #include <QHash>
-#include <QtTest/QtTest>
+//#include <QtTest/QtTest>
 
   #if defined(WIN32) && defined(_DEBUG)
      #define DEBUG_NEW new( _NORMAL_BLOCK, __FILE__, __LINE__ )
@@ -194,9 +194,9 @@ class RuleChecker: public QWidget
                   test is gonna fail!
                   \param map address of the References map, which is suppose to be filled at this stage...
                 */
-            void                test(MapReferences& map);
-            void                test(MapRules& map);
-            void                test(const int num);
+            //void                test(MapReferences& map);
+            //void                test(MapRules& map);
+            //void                test(const int num);
 
         signals:
             void                showStatus(QString str);//!< signal for showing messages in the status bar

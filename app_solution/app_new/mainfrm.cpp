@@ -1,4 +1,4 @@
-#include <QTest>
+//#include <QTest>
 #include "mainfrm.h"
 
 #define JUMP 1 //!< This is the last common form from logbook and sampling (where the "jump" starts for logbook!)

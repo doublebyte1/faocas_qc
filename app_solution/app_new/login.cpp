@@ -46,12 +46,15 @@ void Login::updateTooltip(QString user){
 bool Login::initCmbUsers()
 {
     userModel=new QSqlQueryModel();
-    userModel->setQuery("SELECT username, description from ui_user where username not like '%n/a%'");
+    userModel->setQuery("SELECT username, password, description from ui_user where username not like '%n/a%'");
     if (userModel->rowCount()<1){
         emit showError(tr("There are no users defined in the database! The app is unusable!"));
         //exit(0);//severe!
         return false;
     }
+
+    if (!checkUsers()) exit(0);
+
     cmbUser->setModel(userModel);
     cmbUser->setModelColumn(0);
 
@@ -201,22 +204,28 @@ void Login::showEvent ( QShowEvent * event )
             msgBox.exec();
             exit(0);
         }
-    }
-    //now let's check if it's a master database (if it is, we don't want to use it!)
-    bool bIsMaster;
-    if (!isMaster(bIsMaster)){
-        QMessageBox msgBox(QMessageBox::Critical,tr("Database Error"),
-            tr("Could not search for master information! Database may be corrupted"),QMessageBox::Ok,0);
-        msgBox.exec();
-        exit(0);
-    } else if (bIsMaster){
-        QMessageBox msgBox(QMessageBox::Critical,tr("Access Error"),
-        tr("This is a master database: It cannot be used for data introduction!"),QMessageBox::Ok,0);
-        msgBox.exec();
-        exit(0);
-    }
+     }
     //if everything went ok, lets read the users from the db!
     initCmbUsers();
+}
+
+bool Login::checkUsers()
+{
+    for (int i=0; i < userModel->rowCount();++i){
+        bool bExists;
+        if (!checkIfUserExists(userModel->record(i).value("username").toString(),bExists)){
+                QMessageBox::critical(this, tr("Check User Backend"),
+                                        tr("Could not check users in the database!"));
+                return false;// we return true, to stop the process here
+        }
+        if (!bExists){
+            QMessageBox::critical(this, tr("Check User Backend"),
+                                    tr("It appears some app users do not have matching roles in the database! \n") +
+                                       tr("Please run the configurator to fix this!"));
+            return false;
+        }
+    }
+    return true;
 }
 
  bool Login::readSettings(QString& strHost, QString& strDatabase, QString& strUsername, 

@@ -263,6 +263,7 @@ class Login : public QWidget, public Ui::frmLogin
             Reimplemented from the base class.
              */
             void                            showEvent ( QShowEvent * event );
+            bool                            checkUsers();
             QSqlQueryModel*                 userModel;//!< Pointer to a model containing the users and roles from the database
             MainFrm*                        mainFrmPtr;//!< Pointer to a main form object
             RoleDef*                        m_roleDef;//!< Pointer to a RoleDef structure

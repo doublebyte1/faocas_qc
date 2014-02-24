@@ -24,7 +24,7 @@ bool                      queryShowStartupMsg();
 bool                      queryShowSqlMsg();
 
 void                      resizeToVisibleColumns ( QTableView* table );
-void                      filterTable(QSqlTableModel* table, const QString strKeyword="");
+void                      filterTable(QSqlTableModel* table, const QString strKeyword);
 
 //! Configure Application Class
 /*!

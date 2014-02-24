@@ -105,11 +105,12 @@ void conf_app::initModels()
     userModel = new QSqlRelationalTableModel;
     userModel->setTable(QSqlDatabase().driver()->escapeIdentifier("ui_user",
     QSqlDriver::TableName));
+
     userModel->setRelation(1, QSqlRelation("ui_role", "id", "name"));
     userModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
     userModel->sort(0,Qt::AscendingOrder);
-    filterTable(userModel->relationModel(1));//removing the n/a*/
 
+    filterTable(userModel->relationModel(1),"name");//removing the n/a*/
     filterTable(userModel,"username");
 
     userModel->select();
@@ -575,8 +576,8 @@ void conf_app::onEditLeave(const bool bFinished, QPushButton* aPushEdit,QPushBut
 
         if (aModel==roleModel){
             //refresh combo
-            userModel->relationModel(2)->select();
-            comboRole->setModel(userModel->relationModel(2));
+            userModel->relationModel(1)->select();
+            comboRole->setModel(userModel->relationModel(1));
         }
        emit lockControls(true,aGroupDetails);
    }else{
@@ -1046,15 +1047,15 @@ bool conf_app::initUsers()
     comboRole->setModel(userModel->relationModel(1));
     comboRole->setModelColumn(userModel->relationModel(1)->fieldIndex("name"));
 
-    mapperUsers->addMapping(lineUser, userModel->fieldIndex("username"));
-    mapperUsers->addMapping(lineUserPassword, 4);//the other line password is dummy!
-    mapperUsers->addMapping(lineUserPassword_2, 4);//the other line password is dummy!
+    mapperUsers->addMapping(lineUser, 0);
+    mapperUsers->addMapping(lineUserPassword, userModel->fieldIndex("password"));//the other line password is dummy!
+    mapperUsers->addMapping(lineUserPassword_2, userModel->fieldIndex("password"));//the other line password is dummy!
     mapperUsers->addMapping(comboRole, 1);
-    mapperUsers->addMapping(textUserDesc, 3);
+    mapperUsers->addMapping(textUserDesc, userModel->fieldIndex("description"));
 
     if (nullDelegateUsers!=0) delete nullDelegateUsers;
     QList<int> lCmb;
-    lCmb << 0 << 1 << 4;
+    lCmb << 1;//0 << 1 << 4;
     QList<int> lText;
     lText << 3;
     nullDelegateUsers=new NullRelationalDelegate(lCmb,lText);
@@ -1524,7 +1525,7 @@ bool conf_app::editRecord(const bool on,QSqlTableModel* aModel,QPushButton* aPus
 
 void conf_app::removeUser()
 {
-    removeRecord(tableUsers,userModel,groupUsersDetail,viewUsers,QString(strViewUsers),3);    
+    removeRecord(tableUsers,userModel,groupUsersDetail,viewUsers,QString(strViewUsers),2);
 }
 
 void conf_app::removeRole()

@@ -43,6 +43,7 @@ There is no one waiting for the results, so we can run it paralelly to other tas
     signals:
         void showStatus(const QString str);//!< For showing messages on the main window status bar
         void showError(QString str, const bool bShowMsgBox=true);
+
  };
 #endif //REBUILDINDEXESTHREAD_H
 

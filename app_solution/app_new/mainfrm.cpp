@@ -1005,20 +1005,13 @@ bool SessionFileParser::endDocument()
 
  void RebuildIndexesThread::run()
  {
-    QSqlQuery query;
-    if (!query.prepare(
-        rebuildIndexesSql())) {
-            emit showError(tr("Could not rebuild indexes on the database!"));
+    QString strError;
+    if (!vacuum(strError)){
+            emit showError(strError);
             return;
     }
 
-    query.setForwardOnly(true);
-    if (!query.exec()){
-        emit showError(tr("Could not rebuild indexes on the database!"));
-        return;
-    }
-    else showStatus(tr("Database indexes successfully rebuild!"));
+    showStatus(tr("Database successfully vacuumed!"));
+    exec();
 
-     exec();
  }
-

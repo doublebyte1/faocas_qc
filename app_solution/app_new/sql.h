@@ -1775,11 +1775,26 @@ inline QString updateMonthlyFrameWithAddedVessel()
 
 }
 
-inline QString rebuildIndexesSql()
+inline bool vacuum(QString & strError)
 {
-    return
-        "EXEC sp_MSforeachtable @command1=\"print '?' DBCC DBREINDEX ('?', ' ', 80)\""
-        ;
+
+    //! Vacuum database
+    /*!
+    This is an utility function for vacuum the database, in order to reclaim space and make it available for re-use.
+    We do not perform a FULL vacuum, as this would lock the tables, and it would not make sense to run it on a thread.
+    Only the full vacuum does actually release some space for the OS, so it should be done manually, from time to time.
+    \param strError address of a string to store any error messages
+    \return boolean stating as success or failure
+    */
+
+    QSqlQuery query;
+    query.prepare("select vacuum_db()");
+    if (!query.exec()){
+        if (query.lastError().type() != QSqlError::NoError)
+            strError=query.lastError().text();
+        return false;
+    }
+    return true;
 }
 /*
 inline bool grabDateById(const int inId, QDateTime& outDate)

@@ -108,18 +108,6 @@ void MainFrm::initUi()
      connect(actionReports, SIGNAL(triggered()),this,
         SLOT(loadSecondaryFrm() ),Qt::UniqueConnection);
 
-     connect(actionImport, SIGNAL(triggered()),this,
-        SLOT(loadSecondaryFrm() ),Qt::UniqueConnection);
-
-     connect(actionExport, SIGNAL(triggered()),this,
-        SLOT(loadSecondaryFrm() ),Qt::UniqueConnection);
-
-     connect(actionRegions, SIGNAL(triggered()),this,
-        SLOT(loadSecondaryFrm() ),Qt::UniqueConnection);
-
-     connect(actionGeneralize_Regions, SIGNAL(triggered()),this,
-        SLOT(loadSecondaryFrm() ),Qt::UniqueConnection);
-
      connect(actionRebuild_Indexes, SIGNAL(triggered()),this,
         SLOT(RebuildIndexes() ),Qt::UniqueConnection);
 
@@ -145,14 +133,10 @@ void MainFrm::initUi()
     toolbar->addAction(this->actionSave);
     toolbar->addSeparator();
     toolbar->addAction(this->actionReports);
-    toolbar->addAction(this->actionRegions);
     //since it is impossible to remove it later, we must take care on inserting the separator here!
     if (m_roleDef->bAdmin || m_roleDef->bRep)
         toolbar->addSeparator();
-    toolbar->addAction(this->actionImport);
-    toolbar->addAction(this->actionExport);
     toolbar->addAction(actionRebuild_Indexes);
-    toolbar->addAction(actionGeneralize_Regions);
     if (m_roleDef->bAdmin)
         toolbar->addSeparator();
     toolbar->addAction(this->actionAbout_this_project);
@@ -162,14 +146,6 @@ void MainFrm::initUi()
 
     pFrmReports=new FrmReports();
     initSecondaryFrm(pFrmReports);
-    /*pFrmImport=new FrmImport();
-    initSecondaryFrm(pFrmImport);
-    pFrmExport=new FrmExport();
-    initSecondaryFrm(pFrmExport);
-    pFrmRegions=new FrmRegions();
-    initSecondaryFrm(pFrmRegions);
-    pFrmImportRegions=new FrmImportRegions();
-    initSecondaryFrm(pFrmImportRegions);*/
 
     applyReportAdminPermissions();
 }
@@ -178,12 +154,7 @@ void MainFrm::applyReportAdminPermissions()
 {
     if (!m_roleDef->bAdmin){
         menubar->removeAction(menuTools->menuAction());
-        menuView->removeAction(actionRegions);
-        toolbar->removeAction(actionRegions);
-        toolbar->removeAction(actionImport);
-        toolbar->removeAction(actionExport);
         toolbar->removeAction(actionRebuild_Indexes);
-        toolbar->removeAction(actionGeneralize_Regions);
     }
     if (!m_roleDef->bRep){
         menuView->removeAction(actionReports);

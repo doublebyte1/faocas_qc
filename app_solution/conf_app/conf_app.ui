@@ -31,15 +31,15 @@
        <string/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page_3">
        <property name="geometry">
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>595</width>
-         <height>336</height>
+         <width>183</width>
+         <height>181</height>
         </rect>
        </property>
        <attribute name="label">
@@ -203,8 +203,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>153</width>
-         <height>108</height>
+         <width>595</width>
+         <height>336</height>
         </rect>
        </property>
        <attribute name="label">
@@ -216,7 +216,7 @@
           <property name="title">
            <string/>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout">
+          <layout class="QVBoxLayout" name="verticalLayout_14">
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
@@ -252,6 +252,59 @@
             </layout>
            </item>
            <item>
+            <widget class="QGroupBox" name="grpLocale">
+             <property name="title">
+              <string>Locale</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_16">
+                <item>
+                 <widget class="QCheckBox" name="chkTranslation">
+                  <property name="toolTip">
+                   <string>Override Default Locale with Translation File</string>
+                  </property>
+                  <property name="statusTip">
+                   <string>Override Default Locale with Translation File</string>
+                  </property>
+                  <property name="whatsThis">
+                   <string>Override Default Locale with Translation File</string>
+                  </property>
+                  <property name="text">
+                   <string>Override Default Locale with Translation File</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineTranslation">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QToolButton" name="toolTranslation">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>...</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="chkLayout">
+                <property name="text">
+                 <string>Switch Default Layout (Right to Left)</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item>
               <spacer name="horizontalSpacer">
@@ -285,7 +338,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>186</width>
+         <width>185</width>
          <height>159</height>
         </rect>
        </property>
@@ -448,7 +501,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>366</width>
+         <width>362</width>
          <height>280</height>
         </rect>
        </property>
@@ -742,7 +795,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>365</width>
+         <width>362</width>
          <height>290</height>
         </rect>
        </property>
@@ -1110,8 +1163,6 @@
   <tabstop>pushConnect</tabstop>
   <tabstop>pushDisconnect</tabstop>
   <tabstop>cmbCountry</tabstop>
-  <tabstop>cmbCity</tabstop>
-  <tabstop>pushApply</tabstop>
   <tabstop>cmbTables</tabstop>
   <tabstop>tableView</tabstop>
   <tabstop>pushInsert</tabstop>
@@ -1481,6 +1532,86 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>chkTranslation</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>lineTranslation</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>193</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>389</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkTranslation</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>toolTranslation</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>193</x>
+     <y>274</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>465</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkTranslation</sender>
+   <signal>clicked()</signal>
+   <receiver>conf_appClass</receiver>
+   <slot>enableApply()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>165</x>
+     <y>294</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>306</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkLayout</sender>
+   <signal>clicked()</signal>
+   <receiver>conf_appClass</receiver>
+   <slot>enableApply()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>306</x>
+     <y>322</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>306</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolTranslation</sender>
+   <signal>clicked()</signal>
+   <receiver>conf_appClass</receiver>
+   <slot>loadTranslationFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>571</x>
+     <y>294</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>306</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>connectDB()</slot>
@@ -1503,5 +1634,6 @@
   <slot>createRoleRecord()</slot>
   <slot>editRole(bool)</slot>
   <slot>removeRole()</slot>
+  <slot>loadTranslationFile()</slot>
  </slots>
 </ui>

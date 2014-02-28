@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>293</width>
-    <height>136</height>
+    <height>142</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -38,35 +38,49 @@
   <property name="whatsThis">
    <string>This is a login dialog. Check the user tooltip to have more information about this user.</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QLabel" name="lbUser">
-     <property name="text">
-      <string>Username</string>
-     </property>
-    </widget>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+     <item>
+      <widget class="QLabel" name="lbUser">
+       <property name="text">
+        <string>Username</string>
+       </property>
+       <property name="buddy">
+        <cstring>cmbUser</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cmbUser"/>
+     </item>
+    </layout>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="lbPasswd">
-     <property name="text">
-      <string>Password</string>
-     </property>
-     <property name="buddy">
-      <cstring>linePasswd</cstring>
-     </property>
-    </widget>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
+     <item>
+      <widget class="QLabel" name="lbPasswd">
+       <property name="text">
+        <string>Password</string>
+       </property>
+       <property name="buddy">
+        <cstring>linePasswd</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="linePasswd">
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
-   <item row="1" column="2">
-    <widget class="QLineEdit" name="linePasswd">
-     <property name="autoFillBackground">
-      <bool>true</bool>
-     </property>
-     <property name="echoMode">
-      <enum>QLineEdit::Password</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="2">
+   <item>
     <widget class="QPushButton" name="pushLogin">
      <property name="sizePolicy">
       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -98,8 +112,59 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="2">
-    <widget class="QComboBox" name="cmbUser"/>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,0">
+     <item>
+      <widget class="QLabel" name="lbLocale">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Locale: Default</string>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>41</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="app_new.qrc">:/app_new/edu_languages.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
@@ -114,8 +179,8 @@
    <slot>validate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>146</x>
-     <y>72</y>
+     <x>82</x>
+     <y>101</y>
     </hint>
     <hint type="destinationlabel">
      <x>146</x>
@@ -130,8 +195,8 @@
    <slot>updateTooltip(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>173</x>
-     <y>27</y>
+     <x>142</x>
+     <y>33</y>
     </hint>
     <hint type="destinationlabel">
      <x>146</x>

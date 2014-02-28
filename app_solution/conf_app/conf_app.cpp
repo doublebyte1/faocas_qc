@@ -523,6 +523,8 @@ void conf_app::initUI()
 
     this->cmbDriver->addItems(QSqlDatabase::drivers());
 
+    this->toolBox->setCurrentIndex(0);
+
     pushDisconnect->setEnabled(false);
     groupSettings->setEnabled(false);
     groupTables->setEnabled(false);
@@ -761,6 +763,19 @@ void conf_app::connectDB()
 }
 
 
+void conf_app::loadTranslationFile()
+{
+
+    QString fileName = QFileDialog::getOpenFileName(this,
+     tr("Load Translation"), tr(""), tr("Translation Files (*.qm)"));
+
+    if (!fileName.isEmpty()){
+        lineTranslation->setText(fileName);
+    }
+
+}
+
+
 void conf_app::saveSettings(const int section)
 {
     QSettings settings("FaoCAS", "App");
@@ -778,6 +793,10 @@ void conf_app::saveSettings(const int section)
 
         settings.setValue("country", cmbCountry->currentText());
         settings.setValue("city", cmbCity->currentText());
+        settings.setValue("defaultLocale", !chkTranslation->isChecked());
+        if (!lineTranslation->text().isEmpty())
+            settings.setValue("translation_path", lineTranslation->text());
+        settings.setValue("defaultLayout", !chkLayout->isChecked());
 
     }
 }
@@ -810,6 +829,12 @@ void conf_app::loadSettings(const int section)
         if (found !=-1){
             cmbCity->setCurrentIndex(found);
         }
+
+        chkTranslation->setChecked(settings.contains("defaultLocale")?!settings.value("defaultLocale").toBool():false);
+        lineTranslation->setText(settings.contains("translation_path")?settings.value("translation_path").toString():"");
+
+        chkLayout->setChecked(settings.contains("defaultLayout")?!settings.value("defaultLayout").toBool():false);
+
 
     }else{ //n.b.: it should never come here!
         QMessageBox msgBox(QMessageBox::Critical,tr("Settings Error"),

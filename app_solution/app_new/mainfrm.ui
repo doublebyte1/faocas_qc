@@ -257,6 +257,15 @@
     <string>F1</string>
    </property>
   </action>
+  <action name="actionLocale">
+   <property name="icon">
+    <iconset resource="app_new.qrc">
+     <normaloff>:/app_new/edu_languages.png</normaloff>:/app_new/edu_languages.png</iconset>
+   </property>
+   <property name="text">
+    <string>Locale</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="app_new.qrc"/>

@@ -338,6 +338,7 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         void                    finishedRestore( int exitCode, QProcess::ExitStatus exitStatus );
         void                    startRestore(const bool backupOk);
         bool                    removeDatabaseUser(const QString strUser);
+        void                    loadTranslationFile();
 
     private:
         //! Init UI

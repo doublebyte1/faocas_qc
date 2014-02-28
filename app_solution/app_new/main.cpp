@@ -59,7 +59,9 @@ int main(int argc, char *argv[])
     QApplication::addLibraryPath(path.absolutePath());
 #endif
 
-    //qDebug() << QApplication::libraryPaths() << endl;
+    //qDebug() << QLibraryInfo::location(QLibraryInfo::TranslationsPath) << endl;
+
+    //qDebug() << QLocale::system().name() << endl;
 
     //qDebug() << QStyleFactory::keys() << endl;
 

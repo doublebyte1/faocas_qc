@@ -13,6 +13,10 @@ QWidget(parent, flags){
     userModel=0;
     m_roleDef=0;
 
+    m_strTranslationPath="";
+    m_bDefaultLocale=true;
+    m_bDefaultLayout=true;
+
     setupUi(this);
 /*
     connect(qApp,
@@ -254,6 +258,13 @@ bool Login::checkUsers()
         strPassword=settings.value("password").toString();
         strDriver=settings.value("driver").toString();
         port=settings.value("port").toInt();
+
+        //Option Locale Settings here
+        if (settings.contains("defaultLocale")) m_bDefaultLocale=settings.value("defaultLocale").toBool();
+        if (settings.contains("defaultLayout")) m_bDefaultLayout=settings.value("defaultLayout").toBool();
+        if (settings.contains("translation_path"))
+            m_strTranslationPath=settings.value("translation_path").toString();
+        lbLocale->setText("Locale: " + (!m_bDefaultLocale && !m_strTranslationPath.isEmpty()?QFileInfo(m_strTranslationPath).baseName():"Default"));
     }
 
     return true;

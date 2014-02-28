@@ -48,5 +48,6 @@
         <file>mail_find.png</file>
         <file>msdata.xsd</file>
         <file>konqueror.png</file>
+        <file>edu_languages.png</file>
     </qresource>
 </RCC>

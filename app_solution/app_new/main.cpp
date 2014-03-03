@@ -12,6 +12,34 @@
     #define new DEBUG_NEW
 #endif
 
+bool setLocale(QTranslator* myappTranslator, QString& lbText){
+
+    QString                         m_strTranslationPath="";
+    bool                            m_bDefaultLocale=true;
+    bool                            m_bDefaultLayout=true;
+
+    QSettings settings("FaoCAS", "App");
+
+    if (settings.contains("defaultLocale")) m_bDefaultLocale=settings.value("defaultLocale").toBool();
+    if (settings.contains("defaultLayout")) m_bDefaultLayout=settings.value("defaultLayout").toBool();
+    if (settings.contains("translation_path"))
+        m_strTranslationPath=settings.value("translation_path").toString();
+    lbText=("Locale: " + (!m_bDefaultLocale && !m_strTranslationPath.isEmpty()?QFileInfo(m_strTranslationPath).baseName():"Default"));
+
+
+   if (!m_bDefaultLocale && !m_strTranslationPath.isEmpty()){
+       if (!myappTranslator->load(QFileInfo(m_strTranslationPath).absoluteFilePath())) return false;
+       qApp->installTranslator(myappTranslator);
+
+    }
+
+   if (!m_bDefaultLayout)
+       QApplication::setLayoutDirection(Qt::RightToLeft);
+
+   return true;
+}
+
+
 int main(int argc, char *argv[])
 {
 #if defined(_MSC_VER) && defined(_DEBUG)
@@ -59,26 +87,11 @@ int main(int argc, char *argv[])
     QApplication::addLibraryPath(path.absolutePath());
 #endif
 
-    //qDebug() << QLibraryInfo::location(QLibraryInfo::TranslationsPath) << endl;
-
-    //qDebug() << QLocale::system().name() << endl;
-
-    //qDebug() << QStyleFactory::keys() << endl;
-
-    //QApplication::setStyle("Cleanlooks");
-
-    /*
-    QTranslator qtTranslator;
-    qtTranslator.load(("app_new_pt"),
-         QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-    a.installTranslator(&qtTranslator);
-
+    QString lbText;
     QTranslator myappTranslator;
-    myappTranslator.load("app_new_pt");
-    a.installTranslator(&myappTranslator);
-*/
-    //arabic layout
-    //a.setLayoutDirection(Qt::RightToLeft);
+    if (!setLocale(&myappTranslator,lbText)){
+        qDebug() << "Could no set the application locale! Invalid File? \n Defaulting..." << endl;
+    }
 
     //app details
     a.setApplicationName(QObject::tr("FAOFish CAS"));
@@ -87,7 +100,7 @@ int main(int argc, char *argv[])
     a.setApplicationVersion(QObject::tr("-DevBuild_") + QDateTime::currentDateTime().toString());
     a.setWindowIcon(QIcon(":app_new/medfisis.ico"));
 
-    Login l;
+    Login l(lbText);
     l.show();
 
     return a.exec();

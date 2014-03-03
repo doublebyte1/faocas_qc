@@ -1,4 +1,5 @@
 #include <QDir>
+#include <QtGui>
 
 #ifndef GLOBALDEFS_H
 #define GLOBALDEFS_H

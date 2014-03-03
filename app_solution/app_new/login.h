@@ -184,7 +184,7 @@ class Login : public QWidget, public Ui::frmLogin
     Q_OBJECT
 
     public:
-        Login(QWidget *parent = 0, Qt::WFlags flags = 0);
+        Login(const QString lbText, QWidget *parent = 0, Qt::WFlags flags = 0);
         ~Login();
 
     signals:
@@ -264,13 +264,11 @@ class Login : public QWidget, public Ui::frmLogin
              */
             void                            showEvent ( QShowEvent * event );
             bool                            checkUsers();
+
             QSqlQueryModel*                 userModel;//!< Pointer to a model containing the users and roles from the database
             MainFrm*                        mainFrmPtr;//!< Pointer to a main form object
             RoleDef*                        m_roleDef;//!< Pointer to a RoleDef structure
 
-            QString                         m_strTranslationPath;
-            bool                            m_bDefaultLocale;
-            bool                            m_bDefaultLayout;
 };
 
 #endif // LOGIN_H

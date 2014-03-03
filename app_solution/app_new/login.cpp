@@ -1,23 +1,22 @@
 #include "connection.h"
 #include "login.h"
+#include "globaldefs.h"
 
 #define MaxRecentFiles 5
 
 // static const char *strLoadDatabase = 
 //     QT_TRANSLATE_NOOP("Login", "Create new connection...");
 
-Login::Login(QWidget *parent, Qt::WFlags flags):
+Login::Login(const QString lbText, QWidget *parent, Qt::WFlags flags):
 QWidget(parent, flags){
 
     mainFrmPtr=0;
     userModel=0;
     m_roleDef=0;
 
-    m_strTranslationPath="";
-    m_bDefaultLocale=true;
-    m_bDefaultLayout=true;
-
     setupUi(this);
+
+    lbLocale->setText(lbText);
 /*
     connect(qApp,
                    SIGNAL(aboutToQuit()),
@@ -259,12 +258,6 @@ bool Login::checkUsers()
         strDriver=settings.value("driver").toString();
         port=settings.value("port").toInt();
 
-        //Option Locale Settings here
-        if (settings.contains("defaultLocale")) m_bDefaultLocale=settings.value("defaultLocale").toBool();
-        if (settings.contains("defaultLayout")) m_bDefaultLayout=settings.value("defaultLayout").toBool();
-        if (settings.contains("translation_path"))
-            m_strTranslationPath=settings.value("translation_path").toString();
-        lbLocale->setText("Locale: " + (!m_bDefaultLocale && !m_strTranslationPath.isEmpty()?QFileInfo(m_strTranslationPath).baseName():"Default"));
     }
 
     return true;

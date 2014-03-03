@@ -58,7 +58,7 @@ DEPENDPATH += .
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
 include(app_new.pri)
-TRANSLATIONS += ./app_new_pt.ts
+TRANSLATIONS += ./pt_EU.ts
 win32:RC_FILE = app_new.rc
 
 INSTALLS += target

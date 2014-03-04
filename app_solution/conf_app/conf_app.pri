@@ -15,7 +15,9 @@ HEADERS += ./booleantable.h \
     ./login.h \
     ../app_new/nullrelationaldelegate.h \
     ../app_new/reportinghook.h \
-    ../app_new/sql.h
+    ../app_new/sql.h \
+    ../app_new/simplecrypt.h \
+    passwddelegate.h
 SOURCES += ./booleantable.cpp \
     ./conf_app.cpp \
     ./frmtip.cpp \
@@ -23,7 +25,9 @@ SOURCES += ./booleantable.cpp \
     ./login.cpp \
     ./main.cpp \
     ../app_new/nullrelationaldelegate.cpp \
-    ../app_new/reportinghook.cpp
+    ../app_new/reportinghook.cpp \
+    passwddelegate.cpp \
+    ../app_new/simplecrypt.cpp
 FORMS += ./conf_app.ui \
     ./frmTip.ui \
     ./login.ui

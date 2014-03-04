@@ -43,7 +43,8 @@ HEADERS += ./abstractformat.h \
     ./sql.h \
     ./tree.h \
     ./treeitem.h \
-    ./treemodel.h
+    ./treemodel.h \
+    simplecrypt.h
 SOURCES += ./abstractformat.cpp \
     ./abstractrulebinder.cpp \
     ./buttongroup.cpp \
@@ -78,7 +79,8 @@ SOURCES += ./abstractformat.cpp \
     ./rulechecker.cpp \
     ./tree.cpp \
     ./treeitem.cpp \
-    ./treemodel.cpp
+    ./treemodel.cpp \
+    simplecrypt.cpp
 FORMS += ./frmcatch.ui \
     ./frmcell.ui \
     ./frmchangereasons.ui \

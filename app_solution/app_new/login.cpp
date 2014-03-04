@@ -1,11 +1,15 @@
+//#include <QCryptographicHash>
 #include "connection.h"
 #include "login.h"
 #include "globaldefs.h"
+#include "simplecrypt.h"
 
 #define MaxRecentFiles 5
 
 // static const char *strLoadDatabase = 
 //     QT_TRANSLATE_NOOP("Login", "Create new connection...");
+
+SimpleCrypt crypto(Q_UINT64_C(0x0c2ad4a4acb9f023)); //some random number
 
 Login::Login(const QString lbText, QWidget *parent, Qt::WFlags flags):
 QWidget(parent, flags){
@@ -77,95 +81,104 @@ bool Login::initCmbUsers()
 
 void Login::validate()
 {
-        QSqlQuery query;
-        query.prepare( "SELECT username, password, name, new, \"view\", modify, remove, report, admin FROM \"ui_user\", \"ui_role\" WHERE ( (ui_user.role_id=ui_role.id) AND (username= :user AND password= :pass))" );
-        query.bindValue(":user", cmbUser->currentText() );
-        query.bindValue(":pass", linePasswd->text() );
-        query.setForwardOnly(true);
+        QString strStyleSheet="background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 69), stop:0.375 rgba(255, 255, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(255, 218, 71, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(255, 255, 0, 69));";
 
-        QMessageBox msgBox;
+        QSqlQuery query;
+        query.prepare( "SELECT username, password, name, new, \"view\", modify, remove, report, admin FROM \"ui_user\", \"ui_role\" WHERE ( (ui_user.role_id=ui_role.id) AND (username= :user))" );
+        query.bindValue(":user", cmbUser->currentText() );
+
+        //query.setForwardOnly(true);
+
         if (!query.exec()){
             QMessageBox::critical( this, tr("DB Error"),
             query.lastError().text());
                exit(0);
-        }
-        else if (query.size()<1){
-
-            QString strStyleSheet="background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 255, 0, 69), stop:0.375 rgba(255, 255, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(255, 218, 71, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(255, 203, 0, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(255, 255, 0, 69));";
-            cmbUser->setStyleSheet(strStyleSheet);
-            linePasswd->setStyleSheet(strStyleSheet);
-
-            QMessageBox::critical( this, tr("Authentication Error"),
-            tr("Username/Password Not Found!"));
-
-            //exit(0);
         }else{
 
-        if (!setRoleDef(&query)){
-            emit showError(tr("Could not retrieve the role of this user on the database!"));
-            exit(0);
-        }
-
-        query.clear();
-
-        /*!
-        We silently disconnect from the database, and setup a new connection "behind the scenes"
-        */
-        QString strHost, strDatabase, strUsername, strPassword, strDriver;
-        int port;
-        if (!readSettings(strHost,strDatabase,strUsername,strPassword,strDriver,port))
-        {
-                QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),
-                    tr("You must run the configurator prior to run this application!") +
-                    tr("\n Make sure you filled the connection settings *and* the global settings!"),QMessageBox::Ok,0);
-                msgBox.exec();
+            if (query.size()< 1){
+                qDebug() << "Something went terrible wrong: we cannot find the username that was selected in the DB..." << endl;
                 exit(0);
-        }
-        if (!disconnectDB()){
-            emit showError(tr("Could not disconnect database!"));
-            exit(0);
-        }
+            }
 
-        if (!connectDB(strHost,strDatabase,cmbUser->currentText(),linePasswd->text(),strDriver,port)){
-            QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),
-                tr("Could not match the user credentials with the DB credentials!"),QMessageBox::Ok,0);
-            msgBox.exec();
-            exit(0);
-        }
+            query.first();
+            QString passwd= query.value(1).toString();
+            QString decrypted = crypto.decryptToString(passwd);
 
-        /*!
-        Proceed to Login: but set the role first!
-        */
-        hide();
-        update();
+            if (decrypted != linePasswd->text()){
 
-        //Store session data, username and passwd
-        QSettings settings("FaoCAS", "App");
-        settings.setValue("AppUser", cmbUser->currentText());
+                linePasswd->setStyleSheet(strStyleSheet);
 
-        if (mainFrmPtr==0) {
+                QMessageBox::critical( this, tr("Authentication Error"),
+                tr("Invalid Password!"));
+
+            }else{
 
 
-            mainFrmPtr=new MainFrm(m_roleDef);
+                if (!setRoleDef(&query)){
+                    emit showError(tr("Could not retrieve the role of this user on the database!"));
+                    exit(0);
+                }
 
-            connect(this, SIGNAL(showError(QString,bool)), mainFrmPtr,
-                SLOT(displayError(QString,bool)));
+                query.clear();
 
-            connect(this, SIGNAL(showStatus(QString)), mainFrmPtr,
-                SLOT(statusShow(QString)));
+                /*!
+                We silently disconnect from the database, and setup a new connection "behind the scenes"
+                */
+                QString strHost, strDatabase, strUsername, strPassword, strDriver;
+                int port;
+                if (!readSettings(strHost,strDatabase,strUsername,strPassword,strDriver,port))
+                {
+                        QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),
+                            tr("You must run the configurator prior to run this application!") +
+                            tr("\n Make sure you filled the connection settings *and* the global settings!"),QMessageBox::Ok,0);
+                        msgBox.exec();
+                        exit(0);
+                }
+                if (!disconnectDB()){
+                    emit showError(tr("Could not disconnect database!"));
+                    exit(0);
+                }
 
-        }
+                if (!connectDB(strHost,strDatabase,cmbUser->currentText(),decrypted,strDriver,port)){
+                    QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),
+                        tr("Could not match the user credentials with the DB credentials!"),QMessageBox::Ok,0);
+                    msgBox.exec();
+                    exit(0);
+                }
 
-        if (!setAppSetting()){
-            QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),tr("Could no set the application setting in the DB"),QMessageBox::Ok,0);
-            msgBox.exec();
-        }
+                /*!
+                Proceed to Login: but set the role first!
+                */
+                hide();
+                update();
 
-        mainFrmPtr->show();
-        mainFrmPtr->repaint();
-        //This is assynchronous, so no point in checking for return value now...
-        mainFrmPtr->initRules();
+                //Store session data, username and passwd
+                QSettings settings("FaoCAS", "App");
+                settings.setValue("AppUser", cmbUser->currentText());
 
+                if (mainFrmPtr==0) {
+
+
+                    mainFrmPtr=new MainFrm(m_roleDef);
+
+                    connect(this, SIGNAL(showError(QString,bool)), mainFrmPtr,
+                        SLOT(displayError(QString,bool)));
+
+                    connect(this, SIGNAL(showStatus(QString)), mainFrmPtr,
+                        SLOT(statusShow(QString)));
+
+                }
+
+                if (!setAppSetting()){
+                    QMessageBox msgBox(QMessageBox::Critical,tr("Connection Error"),tr("Could no set the application setting in the DB"),QMessageBox::Ok,0);
+                    msgBox.exec();
+                }
+
+                mainFrmPtr->show();
+                mainFrmPtr->repaint();
+                //This is assynchronous, so no point in checking for return value now...
+                mainFrmPtr->initRules();
+            }
         }
 
 }
@@ -289,3 +302,8 @@ bool Login::checkUsers()
  }
 
  ///////////////////////////////////////////////
+
+ QByteArray hashed_password_ba(QString password){
+      QCryptographicHash::hash(password.toAscii(),
+                               QCryptographicHash::Md5);
+ }

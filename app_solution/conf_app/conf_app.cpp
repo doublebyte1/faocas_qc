@@ -1,9 +1,9 @@
+#include <QMessageBox>
+#include <QDir>
 #include "conf_app.h"
 #include "connection.h"
 #include "sql.h"
 //#include "json.h"
-#include <QMessageBox>
-#include <QDir>
 
 using namespace QtJson;
 
@@ -39,10 +39,10 @@ conf_app::conf_app(QWidget *parent, Qt::WFlags flags)
     nullDelegateUsers=0;
     nullDelegateRoles=0;
     m_lastIndex=QModelIndex();
-    m_dbmode=INVALID;
     m_previousUser="";
 
     initUI();
+
 }
 
 conf_app::~conf_app()
@@ -691,7 +691,7 @@ qApp->setOverrideCursor( QCursor(Qt::BusyCursor ) );
     groupUsers->setEnabled(m_bConnected);
     groupRole->setEnabled(m_bConnected);
 
-    m_dbmode=INVALID;
+    //m_dbmode=INVALID;
     setWindowTitle(qApp->applicationName() + qApp->applicationVersion());
 
 qApp->setOverrideCursor( QCursor(Qt::ArrowCursor ) );
@@ -1083,7 +1083,9 @@ bool conf_app::initUsers()
     lCmb << 1;//0 << 1 << 4;
     QList<int> lText;
     lText << 3;
-    nullDelegateUsers=new NullRelationalDelegate(lCmb,lText);
+    QList<int>lPass;
+    lPass << 4;
+    nullDelegateUsers=new PasswdDelegate(lCmb,lText,lPass);
     mapperUsers->setItemDelegate(nullDelegateUsers);
 
     return true;

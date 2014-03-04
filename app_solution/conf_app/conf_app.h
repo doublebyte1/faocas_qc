@@ -4,7 +4,7 @@
 #include <QtSql>
 #include <QtGui>
 #include "ui_conf_app.h"
-#include "nullrelationaldelegate.h"
+#include "passwddelegate.h"
 #include "booleantable.h"
 #include "genericsortproxymodel.h"
 //#include "frmlu.h"
@@ -42,7 +42,7 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         conf_app(QWidget *parent = 0, Qt::WFlags flags = 0);
         ~conf_app();
 
-    enum DBMode { MASTER=1, CLIENT=2, INVALID=-1 };
+    //enum DBMode { MASTER=1, CLIENT=2, INVALID=-1 };
 
     signals:
         void                    connectionChanged();//!< Signal to indicate that the connection state changed (connected or disconnected)
@@ -634,13 +634,13 @@ class conf_app : public QMainWindow, public Ui::conf_appClass
         QSqlRelationalTableModel*         tableModel;//!< Pointer to a generic table model (any database table)
         QProcess*                          myProcess;//!< Pointer to a process
         bool                               m_bShowSqlMessages;
-        DBMode                             m_dbmode;
+        //DBMode                             m_dbmode;
 
         QSqlQueryModel*                    viewUsers;
         QSqlQueryModel*                    viewRoles;
         QDataWidgetMapper*                 mapperUsers;
         QDataWidgetMapper*                 mapperRoles;
-        NullRelationalDelegate*            nullDelegateUsers;
+        PasswdDelegate*                    nullDelegateUsers;
         NullRelationalDelegate*            nullDelegateRoles;
         QModelIndex                        m_lastIndex;//!< variable that stores the last clicked index
         QByteArray                         m_buffer;

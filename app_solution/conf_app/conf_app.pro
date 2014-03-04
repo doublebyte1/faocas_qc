@@ -55,3 +55,5 @@ include(conf_app.pri)
 win32:RC_FILE = conf_app.rc
 
 INSTALLS += target
+
+HEADERS +=

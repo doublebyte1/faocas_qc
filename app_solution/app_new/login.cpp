@@ -1,4 +1,3 @@
-//#include <QCryptographicHash>
 #include "connection.h"
 #include "login.h"
 #include "globaldefs.h"
@@ -303,7 +302,4 @@ bool Login::checkUsers()
 
  ///////////////////////////////////////////////
 
- QByteArray hashed_password_ba(QString password){
-      QCryptographicHash::hash(password.toAscii(),
-                               QCryptographicHash::Md5);
- }
+

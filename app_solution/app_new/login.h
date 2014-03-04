@@ -14,8 +14,6 @@
      #define new DEBUG_NEW
   #endif
 
-QByteArray hashed_password_ba(QString password);
-
 //! StoreSettingsThread Class
 /*!
 This class implements a thread that writes the session settings in the database.

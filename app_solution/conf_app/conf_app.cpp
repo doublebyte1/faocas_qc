@@ -810,7 +810,7 @@ void conf_app::loadSettings(const int section)
 
         //Settings for the DB credentials
         lineHost->setText(settings.contains("host")?settings.value("host").toString():"localhost");
-        spinPort->setValue(settings.contains("port")?settings.value("port").toInt():5432);
+        spinPort->setValue(settings.contains("port")?settings.value("port").toInt():9001);
         lineDatabase->setText(settings.contains("database")?settings.value("database").toString():"faocasdata");
         lineUsername->setText(settings.contains("username")?settings.value("username").toString():"postgres");
         linePassword->setText(settings.contains("password")?settings.value("password").toString():"test123");
